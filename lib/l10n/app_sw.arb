@@ -1,0 +1,1012 @@
+{
+  "@@locale": "sw",
+  
+  "appTitle": "Earn Money",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  
+  "cancel": "Ghairi",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "confirm": "Thibitisha",
+  "@confirm": {
+    "description": "Confirm button label"
+  },
+  "submit": "Wasilisha",
+  "@submit": {
+    "description": "Submit button label"
+  },
+  "skip": "Ruka",
+  "@skip": {
+    "description": "Skip button label"
+  },
+  "next": "Inayofuata",
+  "@next": {
+    "description": "Next button label"
+  },
+  "getStarted": "Anza Sasa",
+  "@getStarted": {
+    "description": "Get started button label"
+  },
+  "backToHome": "Rudi Nyumbani",
+  "@backToHome": {
+    "description": "Back to home button label"
+  },
+  "tryAgain": "Jaribu Tena",
+  "@tryAgain": {
+    "description": "Try again button label"
+  },
+  "claimReward": "Dai Zawadi",
+  "@claimReward": {
+    "description": "Claim reward button label"
+  },
+  "claimCoins": "Dai Sarafu",
+  "@claimCoins": {
+    "description": "Claim coins button label"
+  },
+  "claimNow": "Dai Sasa",
+  "@claimNow": {
+    "description": "Claim now button label"
+  },
+  "claimed": "Imedaiwa",
+  "@claimed": {
+    "description": "Claimed status label"
+  },
+  "start": "Anza",
+  "@start": {
+    "description": "Start button label"
+  },
+  "apply": "Tumia",
+  "@apply": {
+    "description": "Apply button label"
+  },
+  
+  "welcome": "Karibu",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "signInToAccessWallet": "Ingia ili kufikia pochi yako",
+  "@signInToAccessWallet": {
+    "description": "Sign in prompt message"
+  },
+  "continueWithGoogle": "Endelea na Google",
+  "@continueWithGoogle": {
+    "description": "Google sign in button"
+  },
+  "continueAsGuest": "Endelea kama Mgeni",
+  "@continueAsGuest": {
+    "description": "Guest mode button"
+  },
+  "byContinuingAgree": "Kwa kuendelea, unakubaliana na",
+  "@byContinuingAgree": {
+    "description": "Terms agreement prefix"
+  },
+  "terms": "Masharti",
+  "@terms": {
+    "description": "Terms link text"
+  },
+  "privacyPolicy": "Sera ya Faragha",
+  "@privacyPolicy": {
+    "description": "Privacy policy link text"
+  },
+  "signOut": "Ondoka",
+  "@signOut": {
+    "description": "Sign out button"
+  },
+  "deleteAccount": "Futa Akaunti",
+  "@deleteAccount": {
+    "description": "Delete account button label"
+  },
+  "deleteAccountConfirmTitle": "Futa Akaunti?",
+  "@deleteAccountConfirmTitle": {
+    "description": "Delete account confirmation dialog title"
+  },
+  "deleteAccountConfirmMessage": "Hii itaondoa kabisa akaunti yako, sarafu, na maendeleo. Kitendo hiki hakiwezi kutenduliwa.",
+  "@deleteAccountConfirmMessage": {
+    "description": "Delete account confirmation dialog body"
+  },
+  "delete": "Futa",
+  "@delete": {
+    "description": "Delete button label"
+  },
+
+  "earnMoney": "Pata Pesa",
+  "@earnMoney": {
+    "description": "Earn money section title"
+  },
+  "dailyReward": "Zawadi ya Kila Siku",
+  "@dailyReward": {
+    "description": "Daily reward title"
+  },
+  "collectMoreCoinsEachDay": "Kusanya sarafu zaidi\nkila siku",
+  "@collectMoreCoinsEachDay": {
+    "description": "Daily reward description"
+  },
+  "daysCount": "Siku {count}",
+  "@daysCount": {
+    "description": "Days count label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalBalance": "Salio la Jumla",
+  "@totalBalance": {
+    "description": "Total balance label"
+  },
+  "coinsAmount": "Sarafu {amount}",
+  "@coinsAmount": {
+    "description": "Coins amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsPrefix": "+{amount}",
+  "@coinsPrefix": {
+    "description": "Coins with plus prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsSlash": "/Sarafu {amount}",
+  "@coinsSlash": {
+    "description": "Coins with slash prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "xpAmount": "{amount} XP",
+  "@xpAmount": {
+    "description": "XP amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "level": "Ngazi",
+  "@level": {
+    "description": "Level label"
+  },
+  "xp": "XP",
+  "@xp": {
+    "description": "XP label"
+  },
+  "quizMaster": "Bingwa wa Maswali",
+  "@quizMaster": {
+    "description": "Quiz feature title"
+  },
+  "answerAndEarn": "Jibu & Pata",
+  "@answerAndEarn": {
+    "description": "Quiz feature subtitle"
+  },
+  "spinWheel": "Zungusha Gurudumu",
+  "@spinWheel": {
+    "description": "Spin wheel feature title"
+  },
+  "spinAndWin": "Zungusha na Ushinde",
+  "@spinAndWin": {
+    "description": "Spin wheel feature subtitle"
+  },
+  "scratchCard": "Kadi ya Kukwaruza",
+  "@scratchCard": {
+    "description": "Scratch card feature title"
+  },
+  "scratchAndReveal": "Kwaruza na Ugundue",
+  "@scratchAndReveal": {
+    "description": "Scratch card feature subtitle"
+  },
+  "webVisits": "Kutembelea Wavuti",
+  "@webVisits": {
+    "description": "Web visits feature title"
+  },
+  "visitAndEarn": "Tembelea & Pata",
+  "@visitAndEarn": {
+    "description": "Web visits feature subtitle"
+  },
+  "gameZone": "Eneo la Michezo",
+  "@gameZone": {
+    "description": "Game zone feature title"
+  },
+  "playGames": "Cheza Michezo",
+  "@playGames": {
+    "description": "Game zone feature subtitle"
+  },
+  "referAndEarn": "Elekeza & Pata",
+  "@referAndEarn": {
+    "description": "Referral feature title"
+  },
+  "inviteFriends": "Alika Marafiki",
+  "@inviteFriends": {
+    "description": "Referral feature subtitle"
+  },
+  "withdraw": "Toa Pesa",
+  "@withdraw": {
+    "description": "Withdraw button label"
+  },
+  "rewards": "Zawadi",
+  "@rewards": {
+    "description": "Rewards label"
+  },
+  
+  "dailyCheckinReward": "Zawadi ya Kuingia Kila Siku",
+  "@dailyCheckinReward": {
+    "description": "Daily check-in dialog title"
+  },
+  "dayNumber": "Siku ya {day}",
+  "@dayNumber": {
+    "description": "Day number label",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "claimDailyRewardMessage": "Dai zawadi yako ya kila siku ya Sarafu +{coins}!",
+  "@claimDailyRewardMessage": {
+    "description": "Daily reward claim message",
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "dailyRewardsTitle": "Zawadi za Kila Siku",
+  "@dailyRewardsTitle": {
+    "description": "Onboarding page 1 title"
+  },
+  "dailyRewardsDesc": "Utapata Zawadi ya Pointi Kila Siku, ambayo unaweza kudai na kuongeza Pointi zako.",
+  "@dailyRewardsDesc": {
+    "description": "Onboarding page 1 description"
+  },
+  "ultimateGamesTitle": "Michezo Kabambe",
+  "@ultimateGamesTitle": {
+    "description": "Onboarding page 2 title"
+  },
+  "ultimateGamesDesc": "Pata chaguzi nyingi za Michezo ya kucheza na upate Pointi Zaidi.",
+  "@ultimateGamesDesc": {
+    "description": "Onboarding page 2 description"
+  },
+  "trackAchievementsTitle": "Fuatilia Mafanikio",
+  "@trackAchievementsTitle": {
+    "description": "Onboarding page 3 title"
+  },
+  "trackAchievementsDesc": "Angalia mafanikio yako na uyafuatilie pamoja na watumiaji wengine kupitia Ubao wa Wanaoongoza",
+  "@trackAchievementsDesc": {
+    "description": "Onboarding page 3 description"
+  },
+  
+  "linkGoogleAccount": "Unganisha Akaunti ya Google",
+  "@linkGoogleAccount": {
+    "description": "Link Google account button"
+  },
+  "language": "Lugha",
+  "@language": {
+    "description": "Language settings label"
+  },
+  "support": "Usaidizi",
+  "@support": {
+    "description": "Support page label"
+  },
+  "termsAndCondition": "Masharti & Vigezo",
+  "@termsAndCondition": {
+    "description": "Terms and conditions label"
+  },
+  "levelProgress": "Maendeleo ya Ngazi",
+  "@levelProgress": {
+    "description": "Level progress label"
+  },
+  "nextTier": "Inayofuata: {tier}",
+  "@nextTier": {
+    "description": "Next tier label",
+    "placeholders": {
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "balance": "Salio",
+  "@balance": {
+    "description": "Balance label"
+  },
+  "days": "Siku",
+  "@days": {
+    "description": "Days label"
+  },
+  "refs": "Marejeleo",
+  "@refs": {
+    "description": "Referrals label"
+  },
+  "levelShort": "Lv. {level}",
+  "@levelShort": {
+    "description": "Short level label",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "beginner": "Mwanzoni",
+  "@beginner": {
+    "description": "Beginner tier"
+  },
+  "intermediate": "Kati",
+  "@intermediate": {
+    "description": "Intermediate tier"
+  },
+  "expert": "Mtaalamu",
+  "@expert": {
+    "description": "Expert tier"
+  },
+  
+  "rewardsAndBonuses": "Zawadi & Bonasi",
+  "@rewardsAndBonuses": {
+    "description": "Rewards page title"
+  },
+  "linkYourAccount": "Unganisha Akaunti Yako",
+  "@linkYourAccount": {
+    "description": "Link account section title"
+  },
+  "linkAccountMessage": "Ingia kwa Google ili upate msimbo wako wa marejeleo na ualike marafiki, Nenda kwenye Wasifu na uunganishe akaunti yako.",
+  "@linkAccountMessage": {
+    "description": "Link account instruction message"
+  },
+  "yourReferralCode": "Msimbo Wako wa Marejeleo",
+  "@yourReferralCode": {
+    "description": "Referral code section title"
+  },
+  "shareLink": "Shiriki Kiungo",
+  "@shareLink": {
+    "description": "Share link button"
+  },
+  "enterReferralCode": "Weka Msimbo wa Marejeleo",
+  "@enterReferralCode": {
+    "description": "Enter referral code field label"
+  },
+  "havePromoCode": "Una Msimbo wa Ofa",
+  "@havePromoCode": {
+    "description": "Promo code field label"
+  },
+  "pleaseLinkAccountFirst": "Tafadhali unganisha akaunti yako kwanza",
+  "@pleaseLinkAccountFirst": {
+    "description": "Link account required message"
+  },
+  "friendsInvited": "Marafiki Walioalikwa",
+  "@friendsInvited": {
+    "description": "Friends invited stat label"
+  },
+  "coinsEarned": "Sarafu Zilizopatikana",
+  "@coinsEarned": {
+    "description": "Coins earned stat label"
+  },
+  "codeCopied": "Msimbo umenakiliwa!",
+  "@codeCopied": {
+    "description": "Code copied confirmation message"
+  },
+  
+  "scratchCardTitle": "Kadi ya Kukwaruza",
+  "@scratchCardTitle": {
+    "description": "Scratch card page title"
+  },
+  "scratchCardInstruction": "Kwaruza kadi ili ugundue zawadi yako!",
+  "@scratchCardInstruction": {
+    "description": "Scratch card instruction"
+  },
+  "scratchItToWin": "Ikwaruze\nili Ushinde",
+  "@scratchItToWin": {
+    "description": "Scratch card prompt"
+  },
+  "scratched": "Imekwaruzwa!",
+  "@scratched": {
+    "description": "Scratched status"
+  },
+  "scratchNow": "Kwaruza Sasa",
+  "@scratchNow": {
+    "description": "Scratch now button"
+  },
+  "betterLuckNextTime": "Kila la heri\nWakati Mwingine",
+  "@betterLuckNextTime": {
+    "description": "Better luck message"
+  },
+  "coins": "Sarafu",
+  "@coins": {
+    "description": "Coins label"
+  },
+  
+  "spinAndWinTitle": "Zungusha & Ushinde",
+  "@spinAndWinTitle": {
+    "description": "Spin wheel page title"
+  },
+  "welcomeToSpin": "Karibu kwenye Mzunguko",
+  "@welcomeToSpin": {
+    "description": "Spin welcome title"
+  },
+  "earnCoinsEasilyBySpin": "Pata Sarafu kwa Urahisi kwa Kuzungusha Gurudumu",
+  "@earnCoinsEasilyBySpin": {
+    "description": "Spin description"
+  },
+  "spinning": "Inazunguka...",
+  "@spinning": {
+    "description": "Spinning status"
+  },
+  "spinNow": "Zungusha Sasa",
+  "@spinNow": {
+    "description": "Spin now button"
+  },
+  "zero": "SIFURI",
+  "@zero": {
+    "description": "Zero reward label"
+  },
+  "jackpot": "JACKPOT",
+  "@jackpot": {
+    "description": "Jackpot label"
+  },
+  
+  "quiz": "Maswali",
+  "@quiz": {
+    "description": "Quiz page title"
+  },
+  "questionsProgress": "Maswali {current}/{total}",
+  "@questionsProgress": {
+    "description": "Quiz progress indicator",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "wallet": "Pochi",
+  "@wallet": {
+    "description": "Wallet page title"
+  },
+  "availableBalance": "Salio Linalopatikana",
+  "@availableBalance": {
+    "description": "Available balance label"
+  },
+  "minWithdrawal": "Kiwango cha Chini cha Kutoa: {amount}",
+  "@minWithdrawal": {
+    "description": "Minimum withdrawal amount",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingWithdrawalMessage": "Una ombi la kutoa pesa linaloshughulikiwa. Maombi mapya yamezimwa hadi liidhinishwe.",
+  "@pendingWithdrawalMessage": {
+    "description": "Pending withdrawal warning message"
+  },
+  
+  "leaderboard": "Ubao wa Wanaoongoza",
+  "@leaderboard": {
+    "description": "Leaderboard page title"
+  },
+  "pullDownToRefresh": "Vuta chini ili kuonyesha upya",
+  "@pullDownToRefresh": {
+    "description": "Pull to refresh instruction"
+  },
+  "refreshInTimer": "Onyesha upya baada ya {timer}",
+  "@refreshInTimer": {
+    "description": "Refresh timer message",
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "player": "Mchezaji",
+  "@player": {
+    "description": "Player column header"
+  },
+  
+  "gameZoneTitle": "Eneo la Michezo",
+  "@gameZoneTitle": {
+    "description": "Game zone page title"
+  },
+  "missionBrief": "Maelezo ya Misheni",
+  "@missionBrief": {
+    "description": "Mission brief dialog title"
+  },
+  "gameVisitInstructions": "Baki kwenye ukurasa kwa sekunde {seconds}., Kipima muda kitatokea.\nbonyeza \"DAI SARAFU\" ukiwa tayari!",
+  "@gameVisitInstructions": {
+    "description": "Game visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "timeNotCompleted": "Muda haujakamilika!",
+  "@timeNotCompleted": {
+    "description": "Time not completed dialog title"
+  },
+  "timeNotCompletedMessage": "Umekaa kwa sekunde {elapsed} kati ya sekunde {required}.\nTafadhali baki kwenye ukurasa kwa muda wote unaohitajika.",
+  "@timeNotCompletedMessage": {
+    "description": "Time not completed message",
+    "placeholders": {
+      "elapsed": {
+        "type": "int"
+      },
+      "required": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "webVisitsTitle": "Kutembelea Wavuti",
+  "@webVisitsTitle": {
+    "description": "Web visits page title"
+  },
+  "webVisitInstructions": "Baki kwenye ukurasa kwa sekunde {seconds}., Kipima muda kitatokea.\nbonyeza \"DAI SARAFU\" ukiwa tayari!",
+  "@webVisitInstructions": {
+    "description": "Web visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "howItWorks": "Jinsi Inavyofanya Kazi",
+  "@howItWorks": {
+    "description": "How it works page title"
+  },
+  "whatAreCoinsTitle": "Sarafu ni nini?",
+  "@whatAreCoinsTitle": {
+    "description": "What are coins rule title"
+  },
+  "whatAreCoinsDesc": "Sarafu ni sarafu kuu katika programu hii. Unaweza kupata sarafu kwa kukamilisha kazi na kuzibadilisha kwa pesa halisi.",
+  "@whatAreCoinsDesc": {
+    "description": "What are coins rule description"
+  },
+  "dailyMissionsTitle": "Misheni za Kila Siku",
+  "@dailyMissionsTitle": {
+    "description": "Daily missions rule title"
+  },
+  "dailyMissionsDesc": "Kamilisha kazi za kila siku kama kuzungusha gurudumu, kukwaruza kadi, au kujibu maswali. Kila misheni iliyokamilika inakuzawadia sarafu.",
+  "@dailyMissionsDesc": {
+    "description": "Daily missions rule description"
+  },
+  "spinWheelRuleTitle": "Zungusha Gurudumu",
+  "@spinWheelRuleTitle": {
+    "description": "Spin wheel rule title"
+  },
+  "spinWheelRuleDesc": "Zungusha gurudumu la bahati ili ushinde zawadi za sarafu za papo hapo! Kila mzunguko unaweza kukuzawadia sarafu 10-500.",
+  "@spinWheelRuleDesc": {
+    "description": "Spin wheel rule description"
+  },
+  "scratchCardsRuleTitle": "Kadi za Kukwaruza",
+  "@scratchCardsRuleTitle": {
+    "description": "Scratch cards rule title"
+  },
+  "scratchCardsRuleDesc": "Kwaruza kadi ili ugundue zawadi za sarafu zilizofichwa kuanzia sarafu 5 hadi 50. Kadi za bure kila siku!",
+  "@scratchCardsRuleDesc": {
+    "description": "Scratch cards rule description"
+  },
+  "quizGameRuleTitle": "Mchezo wa Maswali",
+  "@quizGameRuleTitle": {
+    "description": "Quiz game rule title"
+  },
+  "quizGameRuleDesc": "Jibu maswali ya trivia kwa usahihi ili upate sarafu 22 kwa kila swali. Jenga mfululizo wako wa ushindi.",
+  "@quizGameRuleDesc": {
+    "description": "Quiz game rule description"
+  },
+  "watchAdsRuleTitle": "Tazama Matangazo",
+  "@watchAdsRuleTitle": {
+    "description": "Watch ads rule title"
+  },
+  "watchAdsRuleDesc": "Tazama video fupi za matangazo ili upate sarafu haraka. Kila tangazo linakuzawadia papo hapo. Hadi matangazo 10 kwa siku.",
+  "@watchAdsRuleDesc": {
+    "description": "Watch ads rule description"
+  },
+  "referralSystemRuleTitle": "Mfumo wa Marejeleo",
+  "@referralSystemRuleTitle": {
+    "description": "Referral system rule title"
+  },
+  "referralSystemRuleDesc": "Shiriki msimbo wako wa marejeleo na marafiki. Wanapojiandikisha na kupata mapato, unapata sarafu za bonasi!",
+  "@referralSystemRuleDesc": {
+    "description": "Referral system rule description"
+  },
+  "withdrawMoneyRuleTitle": "Toa Pesa",
+  "@withdrawMoneyRuleTitle": {
+    "description": "Withdraw money rule title"
+  },
+  "withdrawMoneyRuleDesc": "Mara tu unapofikia kiwango cha chini, badilisha sarafu zako kuwa pesa halisi kupitia PayPal, uhamishaji wa benki, au kadi za zawadi.",
+  "@withdrawMoneyRuleDesc": {
+    "description": "Withdraw money rule description"
+  },
+  "readyToStartEarning": "Uko tayari kuanza kupata mapato?",
+  "@readyToStartEarning": {
+    "description": "Ready to start earning prompt"
+  },
+  
+  "setDefaultLanguage": "Weka Lugha Chaguomsingi",
+  "@setDefaultLanguage": {
+    "description": "Set default language title"
+  },
+  "languageSelectionMessage": "Lugha iliyochaguliwa itatumiwa kama lugha chaguomsingi ya programu hii ambayo unaweza kuibadilisha baadaye ukitaka.",
+  "@languageSelectionMessage": {
+    "description": "Language selection instruction"
+  },
+  "english": "Kiingereza",
+  "@english": {
+    "description": "English language"
+  },
+  "spanish": "Kihispania",
+  "@spanish": {
+    "description": "Spanish language"
+  },
+  "russian": "Kirusi",
+  "@russian": {
+    "description": "Russian language"
+  },
+  "german": "Kijerumani",
+  "@german": {
+    "description": "German language"
+  },
+  "korean": "Kikorea",
+  "@korean": {
+    "description": "Korean language"
+  },
+  "chinese": "Kichina",
+  "@chinese": {
+    "description": "Chinese language"
+  },
+  "japanese": "Kijapani",
+  "@japanese": {
+    "description": "Japanese language"
+  },
+  "polish": "Kipolandi",
+  "@polish": {
+    "description": "Polish language"
+  },
+  "italian": "Kiitaliano",
+  "@italian": {
+    "description": "Italian language"
+  },
+  
+  "howCanWeHelp": "Tunawezaje kusaidia?",
+  "@howCanWeHelp": {
+    "description": "Support page subtitle"
+  },
+  "supportPageDescription": "Tuambie nini kimeenda vibaya au nini unahitaji msaada nacho. Timu yetu hupitia kila ujumbe.",
+  "@supportPageDescription": {
+    "description": "Support page description"
+  },
+  "title": "Kichwa",
+  "@title": {
+    "description": "Title field label"
+  },
+  "shortSummary": "Muhtasari mfupi",
+  "@shortSummary": {
+    "description": "Short summary hint"
+  },
+  "description": "Maelezo",
+  "@description": {
+    "description": "Description field label"
+  },
+  "descriptionHint": "Eleza tatizo kwa sentensi chache…",
+  "@descriptionHint": {
+    "description": "Description field hint"
+  },
+  "pleaseAddTitle": "Tafadhali ongeza kichwa",
+  "@pleaseAddTitle": {
+    "description": "Title required validation"
+  },
+  "titleTooShort": "Kichwa ni kifupi sana",
+  "@titleTooShort": {
+    "description": "Title too short validation"
+  },
+  "pleaseAddDescription": "Tafadhali ongeza maelezo",
+  "@pleaseAddDescription": {
+    "description": "Description required validation"
+  },
+  "descriptionTooShort": "Maelezo zaidi yanatusaidia kukusaidia",
+  "@descriptionTooShort": {
+    "description": "Description too short validation"
+  },
+  
+  "congratulations": "Hongera..!",
+  "@congratulations": {
+    "description": "Congratulations dialog title"
+  },
+  "youWonCoins": "Umeshinda Sarafu {coins}",
+  "@youWonCoins": {
+    "description": "Win coins message",
+    "placeholders": {
+      "coins": {
+        "type": "String"
+      }
+    }
+  },
+  "youScoredQuiz": "Umepata {correct}/{total}",
+  "@youScoredQuiz": {
+    "description": "Quiz score message",
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "oops": "Oops!",
+  "@oops": {
+    "description": "Oops dialog title"
+  },
+  "betterLuckNextTimeMessage": "Kila la heri wakati mwingine!",
+  "@betterLuckNextTimeMessage": {
+    "description": "Better luck message"
+  },
+  
+  "adDisclaimerText": "Sehemu hii inaweza kuwa na matangazo",
+  "@adDisclaimerText": {
+    "description": "Ad disclaimer text"
+  },
+  "supportOurApp": "Saidia Programu Yetu",
+  "@supportOurApp": {
+    "description": "Support app dialog title"
+  },
+  "supportAppMessage": "Tusaidie kuweka programu hii bila malipo kwa kutazama tangazo fupi. Msaada wako una maana kubwa kwetu!",
+  "@supportAppMessage": {
+    "description": "Support app dialog message"
+  },
+  "autoStartingInSeconds": "Inaanza kiotomatiki baada ya sekunde {seconds}...",
+  "@autoStartingInSeconds": {
+    "description": "Auto-starting countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "supportUs": "Tusaidie",
+  "@supportUs": {
+    "description": "Support us button"
+  },
+  
+  "rewardInSeconds": "Zawadi baada ya {seconds}s..",
+  "@rewardInSeconds": {
+    "description": "Reward countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "claimRewardButton": "Dai Zawadi",
+  "@claimRewardButton": {
+    "description": "Claim reward button in webview"
+  },
+  
+  "watch": "TAZAMA",
+  "@watch": {
+    "description": "Watch label"
+  },
+  "earn": "PATA",
+  "@earn": {
+    "description": "Earn label"
+  },
+  "play": "CHEZA",
+  "@play": {
+    "description": "Play label"
+  },
+  
+  "learn": "Jifunze",
+  "@learn": {
+    "description": "Learn button label"
+  },
+  "seeTopEarner": "Angalia anayeongoza kwa mapato",
+  "@seeTopEarner": {
+    "description": "Leaderboard caption"
+  },
+  "learnStepByStep": "Jifunze Hatua kwa Hatua jinsi ya\nkupata pesa",
+  "@learnStepByStep": {
+    "description": "How it works description"
+  },
+  "unlockBadges": "Fungua Beji zako",
+  "@unlockBadges": {
+    "description": "Achievements caption"
+  },
+  "achievements": "Mafanikio",
+  "@achievements": {
+    "description": "Achievements label"
+  },
+  
+  "withdrawHistory": "Historia ya Kutoa",
+  "@withdrawHistory": {
+    "description": "Withdraw history page title"
+  },
+  "somethingWentWrong": "Kuna kitu kimeenda vibaya",
+  "@somethingWentWrong": {
+    "description": "Error title"
+  },
+  "pleaseTryAgainLater": "Tafadhali jaribu tena baadaye",
+  "@pleaseTryAgainLater": {
+    "description": "Error subtitle"
+  },
+  "noWithdrawalsYet": "Hakuna kutoa pesa bado",
+  "@noWithdrawalsYet": {
+    "description": "Empty state title"
+  },
+  "withdrawalRequestsWillAppear": "Maombi yako ya kutoa pesa yataonekana hapa",
+  "@withdrawalRequestsWillAppear": {
+    "description": "Empty state subtitle"
+  },
+  "statusNote": "Maelezo ya hali",
+  "@statusNote": {
+    "description": "Status note label"
+  },
+  "underReview": "Inakaguliwa",
+  "@underReview": {
+    "description": "Under review status"
+  },
+  "confirmWithdrawal": "THIBITISHA KUTOA",
+  "@confirmWithdrawal": {
+    "description": "Confirm withdrawal button"
+  },
+  "withdrawRequestSent": "Ombi la kutoa pesa limetumwa",
+  "@withdrawRequestSent": {
+    "description": "Withdraw success message"
+  },
+  "fieldRequired": "Sehemu inahitajika",
+  "@fieldRequired": {
+    "description": "Field required validation"
+  },
+  "enterValidNumber": "Weka nambari halali",
+  "@enterValidNumber": {
+    "description": "Invalid number validation"
+  },
+  "invalidInput": "Uingizaji batili",
+  "@invalidInput": {
+    "description": "Invalid input validation"
+  },
+  "playGame": "Cheza Mchezo",
+  "@playGame": {
+    "description": "Play game title"
+  },
+  
+  "thanksMessageReceived": "Asante! Tumepokea ujumbe wako.",
+  "@thanksMessageReceived": {
+    "description": "Support ticket success message"
+  },
+  
+  "cash": "Pesa taslimu",
+  "@cash": {
+    "description": "Cash category"
+  },
+  "crypto": "Sarafu ya Kidijitali",
+  "@crypto": {
+    "description": "Crypto category"
+  },
+  "giftCards": "Kadi za Zawadi",
+  "@giftCards": {
+    "description": "Gift cards category"
+  },
+  "gameCredits": "Mikopo ya Mchezo",
+  "@gameCredits": {
+    "description": "Game credits category"
+  },
+  "method": "Njia",
+  "@method": {
+    "description": "Payment method label"
+  },
+  "type": "Aina",
+  "@type": {
+    "description": "Type label"
+  },
+  "date": "Tarehe",
+  "@date": {
+    "description": "Date label"
+  },
+  "reason": "Sababu",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "processed": "Imeshughulikiwa",
+  "@processed": {
+    "description": "Processed label"
+  },
+  "approved": "IMEIDHINISHWA",
+  "@approved": {
+    "description": "Approved status"
+  },
+  "rejected": "IMEKATALIWA",
+  "@rejected": {
+    "description": "Rejected status"
+  },
+  "pending": "INASUBIRI",
+  "@pending": {
+    "description": "Pending status"
+  },
+  "businessDays": "Siku 2 za kazi",
+  "@businessDays": {
+    "description": "Business days processing time"
+  },
+  "privacyPolicyLabel": "Sera ya Faragha",
+  "@privacyPolicyLabel": {
+    "description": "Privacy policy label"
+  },
+  "claimCoin": "DAI SARAFU",
+  "@claimCoin": {
+    "description": "Claim coin button text"
+  },
+  "claimed2": "Imedaiwa!",
+  "@claimed2": {
+    "description": "Claimed status text"
+  },
+  
+  "somethingWentWrongTryAgain": "Kuna kitu kimeenda vibaya. Tafadhali jaribu tena.",
+  "@somethingWentWrongTryAgain": {
+    "description": "Generic error message"
+  },
+  "pleaseLinkAccountFirstError": "Tafadhali unganisha akaunti yako kwanza",
+  "@pleaseLinkAccountFirstError": {
+    "description": "Link account required error"
+  },
+  "cantUseOwnReferralCode": "Huwezi kutumia msimbo wako mwenyewe wa marejeleo",
+  "@cantUseOwnReferralCode": {
+    "description": "Own referral code error"
+  },
+  "referralAppliedSuccess": "Msimbo wa marejeleo umetumika! Sarafu +{reward}",
+  "@referralAppliedSuccess": {
+    "description": "Referral success message",
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotApplyReferral": "Hakuweza kutumia msimbo wa marejeleo. Tafadhali jaribu tena.",
+  "@couldNotApplyReferral": {
+    "description": "Referral application error"
+  },
+  "googleAccountLinkedSuccess": "Akaunti ya Google imeunganishwa kwa mafanikio!",
+  "@googleAccountLinkedSuccess": {
+    "description": "Google link success message"
+  },
+  "couldNotSubmitTryAgain": "Hakuweza kuwasilisha. Tafadhali jaribu tena.",
+  "@couldNotSubmitTryAgain": {
+    "description": "Submit error message"
+  },
+  "error": "Hitilafu",
+  "@error": {
+    "description": "Generic error label"
+  },
+  
+  "pleaseEnterReferralCode": "Tafadhali weka msimbo wa marejeleo",
+  "@pleaseEnterReferralCode": {
+    "description": "Enter referral code validation"
+  },
+  "youHaveAlreadyUsedReferralCode": "Tayari umetumia msimbo wa marejeleo",
+  "@youHaveAlreadyUsedReferralCode": {
+    "description": "Already used referral code message"
+  },
+  "invalidReferralCode": "Msimbo wa marejeleo batili",
+  "@invalidReferralCode": {
+    "description": "Invalid referral code error"
+  },
+  "pleaseEnterWalletAddress": "Tafadhali weka anwani ya pochi",
+  "@pleaseEnterWalletAddress": {
+    "description": "Enter wallet address validation"
+  },
+  "pleaseEnterValidAmount": "Tafadhali weka kiasi halali",
+  "@pleaseEnterValidAmount": {
+    "description": "Enter valid amount validation"
+  }
+}

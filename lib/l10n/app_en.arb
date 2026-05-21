@@ -1,0 +1,1011 @@
+{
+  "@@locale": "en",
+  
+  "appTitle": "Earn Money",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button label"
+  },
+  "submit": "Submit",
+  "@submit": {
+    "description": "Submit button label"
+  },
+  "skip": "Skip",
+  "@skip": {
+    "description": "Skip button label"
+  },
+  "next": "Next",
+  "@next": {
+    "description": "Next button label"
+  },
+  "getStarted": "Get Started",
+  "@getStarted": {
+    "description": "Get started button label"
+  },
+  "backToHome": "Back to Home",
+  "@backToHome": {
+    "description": "Back to home button label"
+  },
+  "tryAgain": "Try Again",
+  "@tryAgain": {
+    "description": "Try again button label"
+  },
+  "claimReward": "Claim Reward",
+  "@claimReward": {
+    "description": "Claim reward button label"
+  },
+  "claimCoins": "Claim Coins",
+  "@claimCoins": {
+    "description": "Claim coins button label"
+  },
+  "claimNow": "Claim Now",
+  "@claimNow": {
+    "description": "Claim now button label"
+  },
+  "claimed": "Claimed",
+  "@claimed": {
+    "description": "Claimed status label"
+  },
+  "start": "Start",
+  "@start": {
+    "description": "Start button label"
+  },
+  "apply": "Apply",
+  "@apply": {
+    "description": "Apply button label"
+  },
+  
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "signInToAccessWallet": "Sign in to access your wallet",
+  "@signInToAccessWallet": {
+    "description": "Sign in prompt message"
+  },
+  "continueWithGoogle": "Continue with Google",
+  "@continueWithGoogle": {
+    "description": "Google sign in button"
+  },
+  "continueAsGuest": "Continue as Guest",
+  "@continueAsGuest": {
+    "description": "Guest mode button"
+  },
+  "byContinuingAgree": "By continuing, you agree to our",
+  "@byContinuingAgree": {
+    "description": "Terms agreement prefix"
+  },
+  "terms": "Terms",
+  "@terms": {
+    "description": "Terms link text"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Privacy policy link text"
+  },
+  "signOut": "Sign Out",
+  "@signOut": {
+    "description": "Sign out button"
+  },
+  "deleteAccount": "Delete Account",
+  "@deleteAccount": {
+    "description": "Delete account button label"
+  },
+  "deleteAccountConfirmTitle": "Delete Account?",
+  "@deleteAccountConfirmTitle": {
+    "description": "Delete account confirmation dialog title"
+  },
+  "deleteAccountConfirmMessage": "This will permanently remove your account, coins, and progress. This action cannot be undone.",
+  "@deleteAccountConfirmMessage": {
+    "description": "Delete account confirmation dialog body"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button label"
+  },
+
+  "earnMoney": "Earn Money",
+  "@earnMoney": {
+    "description": "Earn money section title"
+  },
+  "dailyReward": "Daily Reward",
+  "@dailyReward": {
+    "description": "Daily reward title"
+  },
+  "collectMoreCoinsEachDay": "Collect more coins\neach day",
+  "@collectMoreCoinsEachDay": {
+    "description": "Daily reward description"
+  },
+  "daysCount": "{count} Days",
+  "@daysCount": {
+    "description": "Days count label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalBalance": "Total Balance",
+  "@totalBalance": {
+    "description": "Total balance label"
+  },
+  "coinsAmount": "{amount} Coins",
+  "@coinsAmount": {
+    "description": "Coins amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsPrefix": "+{amount}",
+  "@coinsPrefix": {
+    "description": "Coins with plus prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsSlash": "/{amount} Coins",
+  "@coinsSlash": {
+    "description": "Coins with slash prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "xpAmount": "{amount} XP",
+  "@xpAmount": {
+    "description": "XP amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "level": "Level",
+  "@level": {
+    "description": "Level label"
+  },
+  "xp": "XP",
+  "@xp": {
+    "description": "XP label"
+  },
+  "quizMaster": "Quiz Master",
+  "@quizMaster": {
+    "description": "Quiz feature title"
+  },
+  "answerAndEarn": "Answer & Earn",
+  "@answerAndEarn": {
+    "description": "Quiz feature subtitle"
+  },
+  "spinWheel": "Spin Wheel",
+  "@spinWheel": {
+    "description": "Spin wheel feature title"
+  },
+  "spinAndWin": "Spin and Win",
+  "@spinAndWin": {
+    "description": "Spin wheel feature subtitle"
+  },
+  "scratchCard": "Scratch Card",
+  "@scratchCard": {
+    "description": "Scratch card feature title"
+  },
+  "scratchAndReveal": "Scratch and Reveal",
+  "@scratchAndReveal": {
+    "description": "Scratch card feature subtitle"
+  },
+  "webVisits": "Web Visits",
+  "@webVisits": {
+    "description": "Web visits feature title"
+  },
+  "visitAndEarn": "Visit & Earn",
+  "@visitAndEarn": {
+    "description": "Web visits feature subtitle"
+  },
+  "gameZone": "Game Zone",
+  "@gameZone": {
+    "description": "Game zone feature title"
+  },
+  "playGames": "Play Games",
+  "@playGames": {
+    "description": "Game zone feature subtitle"
+  },
+  "referAndEarn": "Refer & Earn",
+  "@referAndEarn": {
+    "description": "Referral feature title"
+  },
+  "inviteFriends": "Invite Friends",
+  "@inviteFriends": {
+    "description": "Referral feature subtitle"
+  },
+  "withdraw": "Withdraw",
+  "@withdraw": {
+    "description": "Withdraw button label"
+  },
+  "rewards": "Rewards",
+  "@rewards": {
+    "description": "Rewards label"
+  },
+  
+  "dailyCheckinReward": "Daily Check-in Reward",
+  "@dailyCheckinReward": {
+    "description": "Daily check-in dialog title"
+  },
+  "dayNumber": "Day {day}",
+  "@dayNumber": {
+    "description": "Day number label",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "claimDailyRewardMessage": "Claim your daily reward of +{coins} Coins!",
+  "@claimDailyRewardMessage": {
+    "description": "Daily reward claim message",
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "dailyRewardsTitle": "Daily Rewards",
+  "@dailyRewardsTitle": {
+    "description": "Onboarding page 1 title"
+  },
+  "dailyRewardsDesc": "You'll Get a Daily Points Reward, Which you can claim and increase you Points.",
+  "@dailyRewardsDesc": {
+    "description": "Onboarding page 1 description"
+  },
+  "ultimateGamesTitle": "Ultimate Games",
+  "@ultimateGamesTitle": {
+    "description": "Onboarding page 2 title"
+  },
+  "ultimateGamesDesc": "Get Multiple options for Games to Play and Get More Points.",
+  "@ultimateGamesDesc": {
+    "description": "Onboarding page 2 description"
+  },
+  "trackAchievementsTitle": "Track Achievements",
+  "@trackAchievementsTitle": {
+    "description": "Onboarding page 3 title"
+  },
+  "trackAchievementsDesc": "See your achievements and Track it with other user through Leatherboard",
+  "@trackAchievementsDesc": {
+    "description": "Onboarding page 3 description"
+  },
+  
+  "linkGoogleAccount": "Link Google Account",
+  "@linkGoogleAccount": {
+    "description": "Link Google account button"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language settings label"
+  },
+  "support": "Support",
+  "@support": {
+    "description": "Support page label"
+  },
+  "termsAndCondition": "Terms & Condition",
+  "@termsAndCondition": {
+    "description": "Terms and conditions label"
+  },
+  "levelProgress": "Level Progress",
+  "@levelProgress": {
+    "description": "Level progress label"
+  },
+  "nextTier": "Next: {tier}",
+  "@nextTier": {
+    "description": "Next tier label",
+    "placeholders": {
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "balance": "Balance",
+  "@balance": {
+    "description": "Balance label"
+  },
+  "days": "Days",
+  "@days": {
+    "description": "Days label"
+  },
+  "refs": "Refs",
+  "@refs": {
+    "description": "Referrals label"
+  },
+  "levelShort": "Lv. {level}",
+  "@levelShort": {
+    "description": "Short level label",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "beginner": "Beginner",
+  "@beginner": {
+    "description": "Beginner tier"
+  },
+  "intermediate": "Intermediate",
+  "@intermediate": {
+    "description": "Intermediate tier"
+  },
+  "expert": "Expert",
+  "@expert": {
+    "description": "Expert tier"
+  },
+  
+  "rewardsAndBonuses": "Rewards & Bonuses",
+  "@rewardsAndBonuses": {
+    "description": "Rewards page title"
+  },
+  "linkYourAccount": "Link Your Account",
+  "@linkYourAccount": {
+    "description": "Link account section title"
+  },
+  "linkAccountMessage": "Sign in with Google to get your referral code and invite friends, Go to Profile and link your account.",
+  "@linkAccountMessage": {
+    "description": "Link account instruction message"
+  },
+  "yourReferralCode": "Your Referral Code",
+  "@yourReferralCode": {
+    "description": "Referral code section title"
+  },
+  "shareLink": "Share Link",
+  "@shareLink": {
+    "description": "Share link button"
+  },
+  "enterReferralCode": "Enter Referral Code",
+  "@enterReferralCode": {
+    "description": "Enter referral code field label"
+  },
+  "havePromoCode": "Have Promo Code",
+  "@havePromoCode": {
+    "description": "Promo code field label"
+  },
+  "pleaseLinkAccountFirst": "Please link your account first",
+  "@pleaseLinkAccountFirst": {
+    "description": "Link account required message"
+  },
+  "friendsInvited": "Friends Invited",
+  "@friendsInvited": {
+    "description": "Friends invited stat label"
+  },
+  "coinsEarned": "Coins Earned",
+  "@coinsEarned": {
+    "description": "Coins earned stat label"
+  },
+  "codeCopied": "Code copied!",
+  "@codeCopied": {
+    "description": "Code copied confirmation message"
+  },
+  
+  "scratchCardTitle": "Scratch Card",
+  "@scratchCardTitle": {
+    "description": "Scratch card page title"
+  },
+  "scratchCardInstruction": "Scratch the card to reveal your reward!",
+  "@scratchCardInstruction": {
+    "description": "Scratch card instruction"
+  },
+  "scratchItToWin": "Scratch\nit to Win",
+  "@scratchItToWin": {
+    "description": "Scratch card prompt"
+  },
+  "scratched": "Scratched!",
+  "@scratched": {
+    "description": "Scratched status"
+  },
+  "scratchNow": "Scratch Now",
+  "@scratchNow": {
+    "description": "Scratch now button"
+  },
+  "betterLuckNextTime": "Better Luck\nNext Time",
+  "@betterLuckNextTime": {
+    "description": "Better luck message"
+  },
+  "coins": "Coins",
+  "@coins": {
+    "description": "Coins label"
+  },
+  
+  "spinAndWinTitle": "Spin & Win",
+  "@spinAndWinTitle": {
+    "description": "Spin wheel page title"
+  },
+  "welcomeToSpin": "Welcome to Spin",
+  "@welcomeToSpin": {
+    "description": "Spin welcome title"
+  },
+  "earnCoinsEasilyBySpin": "Earn Coins Easily by Spinning Wheel",
+  "@earnCoinsEasilyBySpin": {
+    "description": "Spin description"
+  },
+  "spinning": "Spinning...",
+  "@spinning": {
+    "description": "Spinning status"
+  },
+  "spinNow": "Spin Now",
+  "@spinNow": {
+    "description": "Spin now button"
+  },
+  "zero": "ZERO",
+  "@zero": {
+    "description": "Zero reward label"
+  },
+  "jackpot": "JACKPOT",
+  "@jackpot": {
+    "description": "Jackpot label"
+  },
+  
+  "quiz": "Quiz",
+  "@quiz": {
+    "description": "Quiz page title"
+  },
+  "questionsProgress": "Questions {current}/{total}",
+  "@questionsProgress": {
+    "description": "Quiz progress indicator",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "wallet": "Wallet",
+  "@wallet": {
+    "description": "Wallet page title"
+  },
+  "availableBalance": "Available Balance",
+  "@availableBalance": {
+    "description": "Available balance label"
+  },
+  "minWithdrawal": "Min. Withdrawal: {amount}",
+  "@minWithdrawal": {
+    "description": "Minimum withdrawal amount",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingWithdrawalMessage": "You have a pending withdrawal. New requests are disabled until it is approved.",
+  "@pendingWithdrawalMessage": {
+    "description": "Pending withdrawal warning message"
+  },
+  
+  "leaderboard": "Leaderboard",
+  "@leaderboard": {
+    "description": "Leaderboard page title"
+  },
+  "pullDownToRefresh": "Pull down to refresh",
+  "@pullDownToRefresh": {
+    "description": "Pull to refresh instruction"
+  },
+  "refreshInTimer": "Refresh in {timer}",
+  "@refreshInTimer": {
+    "description": "Refresh timer message",
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "player": "Player",
+  "@player": {
+    "description": "Player column header"
+  },
+  
+  "gameZoneTitle": "Game Zone",
+  "@gameZoneTitle": {
+    "description": "Game zone page title"
+  },
+  "missionBrief": "Mission Brief",
+  "@missionBrief": {
+    "description": "Mission brief dialog title"
+  },
+  "gameVisitInstructions": "Stay on the page for {seconds} Secs., A\ncountdown timer will appear.\nclick \"CLAIM COIN\" when ready!",
+  "@gameVisitInstructions": {
+    "description": "Game visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "timeNotCompleted": "Time Not Completed!",
+  "@timeNotCompleted": {
+    "description": "Time not completed dialog title"
+  },
+  "timeNotCompletedMessage": "You stayed for {elapsed}s out of {required}s.\nPlease stay on the page for the full duration.",
+  "@timeNotCompletedMessage": {
+    "description": "Time not completed message",
+    "placeholders": {
+      "elapsed": {
+        "type": "int"
+      },
+      "required": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "webVisitsTitle": "Web Visits",
+  "@webVisitsTitle": {
+    "description": "Web visits page title"
+  },
+  "webVisitInstructions": "Stay on the page for {seconds} Secs., A\ncountdown timer will appear.\nclick \"CLAIM COIN\" when ready!",
+  "@webVisitInstructions": {
+    "description": "Web visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "howItWorks": "How It Works",
+  "@howItWorks": {
+    "description": "How it works page title"
+  },
+  "whatAreCoinsTitle": "What are Coins?",
+  "@whatAreCoinsTitle": {
+    "description": "What are coins rule title"
+  },
+  "whatAreCoinsDesc": "Coins are the main currency in this app. You can earn coins by completing tasks and exchange them for real money.",
+  "@whatAreCoinsDesc": {
+    "description": "What are coins rule description"
+  },
+  "dailyMissionsTitle": "Daily Missions",
+  "@dailyMissionsTitle": {
+    "description": "Daily missions rule title"
+  },
+  "dailyMissionsDesc": "Complete daily tasks like spinning the wheel, scratching cards, or answering quizzes. Each completed mission rewards you with coins.",
+  "@dailyMissionsDesc": {
+    "description": "Daily missions rule description"
+  },
+  "spinWheelRuleTitle": "Spin Wheel",
+  "@spinWheelRuleTitle": {
+    "description": "Spin wheel rule title"
+  },
+  "spinWheelRuleDesc": "Spin the lucky wheel to win instant coin rewards! Each spin can reward you with 10-500 coins.",
+  "@spinWheelRuleDesc": {
+    "description": "Spin wheel rule description"
+  },
+  "scratchCardsRuleTitle": "Scratch Cards",
+  "@scratchCardsRuleTitle": {
+    "description": "Scratch cards rule title"
+  },
+  "scratchCardsRuleDesc": "Scratch virtual cards to reveal hidden coin rewards from 5 to 50 coins. Free cards daily!",
+  "@scratchCardsRuleDesc": {
+    "description": "Scratch cards rule description"
+  },
+  "quizGameRuleTitle": "Quiz Game",
+  "@quizGameRuleTitle": {
+    "description": "Quiz game rule title"
+  },
+  "quizGameRuleDesc": "Answer trivia questions correctly to earn 22 coins per question. Build your combo streak.",
+  "@quizGameRuleDesc": {
+    "description": "Quiz game rule description"
+  },
+  "watchAdsRuleTitle": "Watch Ads",
+  "@watchAdsRuleTitle": {
+    "description": "Watch ads rule title"
+  },
+  "watchAdsRuleDesc": "Watch short video ads to earn quick coins. Each ad rewards you instantly. Up to 10 ads per day.",
+  "@watchAdsRuleDesc": {
+    "description": "Watch ads rule description"
+  },
+  "referralSystemRuleTitle": "Referral System",
+  "@referralSystemRuleTitle": {
+    "description": "Referral system rule title"
+  },
+  "referralSystemRuleDesc": "Share your referral code with friends. When they sign up and earn, you get bonus coins!",
+  "@referralSystemRuleDesc": {
+    "description": "Referral system rule description"
+  },
+  "withdrawMoneyRuleTitle": "Withdraw Money",
+  "@withdrawMoneyRuleTitle": {
+    "description": "Withdraw money rule title"
+  },
+  "withdrawMoneyRuleDesc": "Once you reach the minimum threshold, convert your coins to real money via PayPal, bank transfer, or gift cards.",
+  "@withdrawMoneyRuleDesc": {
+    "description": "Withdraw money rule description"
+  },
+  "readyToStartEarning": "Ready to start earning?",
+  "@readyToStartEarning": {
+    "description": "Ready to start earning prompt"
+  },
+  
+  "setDefaultLanguage": "Set Default Language",
+  "@setDefaultLanguage": {
+    "description": "Set default language title"
+  },
+  "languageSelectionMessage": "Selected language will used as default language for this app which you can change later if you want to.",
+  "@languageSelectionMessage": {
+    "description": "Language selection instruction"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language"
+  },
+  "spanish": "Spanish",
+  "@spanish": {
+    "description": "Spanish language"
+  },
+  "russian": "Russian",
+  "@russian": {
+    "description": "Russian language"
+  },
+  "german": "German",
+  "@german": {
+    "description": "German language"
+  },
+  "korean": "Korean",
+  "@korean": {
+    "description": "Korean language"
+  },
+  "chinese": "Chinese",
+  "@chinese": {
+    "description": "Chinese language"
+  },
+  "japanese": "Japanese",
+  "@japanese": {
+    "description": "Japanese language"
+  },
+  "polish": "Polish",
+  "@polish": {
+    "description": "Polish language"
+  },
+  "italian": "Italian",
+  "@italian": {
+    "description": "Italian language"
+  },
+  
+  "howCanWeHelp": "How can we help?",
+  "@howCanWeHelp": {
+    "description": "Support page subtitle"
+  },
+  "supportPageDescription": "Tell us what went wrong or what you need a hand with. Our team reviews every message.",
+  "@supportPageDescription": {
+    "description": "Support page description"
+  },
+  "title": "Title",
+  "@title": {
+    "description": "Title field label"
+  },
+  "shortSummary": "Short summary",
+  "@shortSummary": {
+    "description": "Short summary hint"
+  },
+  "description": "Description",
+  "@description": {
+    "description": "Description field label"
+  },
+  "descriptionHint": "Describe the issue in a few sentences…",
+  "@descriptionHint": {
+    "description": "Description field hint"
+  },
+  "pleaseAddTitle": "Please add a title",
+  "@pleaseAddTitle": {
+    "description": "Title required validation"
+  },
+  "titleTooShort": "Title is too short",
+  "@titleTooShort": {
+    "description": "Title too short validation"
+  },
+  "pleaseAddDescription": "Please add a description",
+  "@pleaseAddDescription": {
+    "description": "Description required validation"
+  },
+  "descriptionTooShort": "A bit more detail helps us help you",
+  "@descriptionTooShort": {
+    "description": "Description too short validation"
+  },
+  
+  "congratulations": "Congratulations..!",
+  "@congratulations": {
+    "description": "Congratulations dialog title"
+  },
+  "youWonCoins": "You won {coins} Coins",
+  "@youWonCoins": {
+    "description": "Win coins message",
+    "placeholders": {
+      "coins": {
+        "type": "String"
+      }
+    }
+  },
+  "youScoredQuiz": "You scored {correct}/{total}",
+  "@youScoredQuiz": {
+    "description": "Quiz score message",
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "oops": "Oops!",
+  "@oops": {
+    "description": "Oops dialog title"
+  },
+  "betterLuckNextTimeMessage": "Better luck next time!",
+  "@betterLuckNextTimeMessage": {
+    "description": "Better luck message"
+  },
+  
+  "adDisclaimerText": "This section may contain ads",
+  "@adDisclaimerText": {
+    "description": "Ad disclaimer text"
+  },
+  "supportOurApp": "Support Our App",
+  "@supportOurApp": {
+    "description": "Support app dialog title"
+  },
+  "supportAppMessage": "Help us keep the app free by watching a short ad. Your support means everything to us!",
+  "@supportAppMessage": {
+    "description": "Support app dialog message"
+  },
+  "autoStartingInSeconds": "Auto-starting in {seconds} seconds...",
+  "@autoStartingInSeconds": {
+    "description": "Auto-starting countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "supportUs": "Support Us",
+  "@supportUs": {
+    "description": "Support us button"
+  },
+  
+  "rewardInSeconds": "Reward in {seconds}s..",
+  "@rewardInSeconds": {
+    "description": "Reward countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "claimRewardButton": "Claim Reward",
+  "@claimRewardButton": {
+    "description": "Claim reward button in webview"
+  },
+  
+  "watch": "WATCH",
+  "@watch": {
+    "description": "Watch label"
+  },
+  "earn": "EARN",
+  "@earn": {
+    "description": "Earn label"
+  },
+  "play": "PLAY",
+  "@play": {
+    "description": "Play label"
+  },
+  
+  "learn": "Learn",
+  "@learn": {
+    "description": "Learn button label"
+  },
+  "seeTopEarner": "See top earner",
+  "@seeTopEarner": {
+    "description": "Leaderboard caption"
+  },
+  "learnStepByStep": "Lern Step-by-Step how to\nearn money",
+  "@learnStepByStep": {
+    "description": "How it works description"
+  },
+  "unlockBadges": "Unlock your Badges",
+  "@unlockBadges": {
+    "description": "Achievements caption"
+  },
+  "achievements": "Achievements",
+  "@achievements": {
+    "description": "Achievements label"
+  },
+  
+  "withdrawHistory": "Withdraw History",
+  "@withdrawHistory": {
+    "description": "Withdraw history page title"
+  },
+  "somethingWentWrong": "Something went wrong",
+  "@somethingWentWrong": {
+    "description": "Error title"
+  },
+  "pleaseTryAgainLater": "Please try again later",
+  "@pleaseTryAgainLater": {
+    "description": "Error subtitle"
+  },
+  "noWithdrawalsYet": "No withdrawals yet",
+  "@noWithdrawalsYet": {
+    "description": "Empty state title"
+  },
+  "withdrawalRequestsWillAppear": "Your withdrawal requests will appear here",
+  "@withdrawalRequestsWillAppear": {
+    "description": "Empty state subtitle"
+  },
+  "statusNote": "Status note",
+  "@statusNote": {
+    "description": "Status note label"
+  },
+  "underReview": "Under review",
+  "@underReview": {
+    "description": "Under review status"
+  },
+  "confirmWithdrawal": "CONFIRM WITHDRAWAL",
+  "@confirmWithdrawal": {
+    "description": "Confirm withdrawal button"
+  },
+  "withdrawRequestSent": "Withdraw request sent",
+  "@withdrawRequestSent": {
+    "description": "Withdraw success message"
+  },
+  "fieldRequired": "Field required",
+  "@fieldRequired": {
+    "description": "Field required validation"
+  },
+  "enterValidNumber": "Enter a valid number",
+  "@enterValidNumber": {
+    "description": "Invalid number validation"
+  },
+  "invalidInput": "Invalid input",
+  "@invalidInput": {
+    "description": "Invalid input validation"
+  },
+  "playGame": "Play Game",
+  "@playGame": {
+    "description": "Play game title"
+  },
+  "thanksMessageReceived": "Thanks! We received your message.",
+  "@thanksMessageReceived": {
+    "description": "Support ticket success message"
+  },
+  
+  "cash": "Cash",
+  "@cash": {
+    "description": "Cash category"
+  },
+  "crypto": "Crypto",
+  "@crypto": {
+    "description": "Crypto category"
+  },
+  "giftCards": "Gift Cards",
+  "@giftCards": {
+    "description": "Gift cards category"
+  },
+  "gameCredits": "Game Credits",
+  "@gameCredits": {
+    "description": "Game credits category"
+  },
+  "method": "Method",
+  "@method": {
+    "description": "Payment method label"
+  },
+  "type": "Type",
+  "@type": {
+    "description": "Type label"
+  },
+  "date": "Date",
+  "@date": {
+    "description": "Date label"
+  },
+  "reason": "Reason",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "processed": "Processed",
+  "@processed": {
+    "description": "Processed label"
+  },
+  "approved": "APPROVED",
+  "@approved": {
+    "description": "Approved status"
+  },
+  "rejected": "REJECTED",
+  "@rejected": {
+    "description": "Rejected status"
+  },
+  "pending": "PENDING",
+  "@pending": {
+    "description": "Pending status"
+  },
+  "businessDays": "2 business days",
+  "@businessDays": {
+    "description": "Business days processing time"
+  },
+  "privacyPolicyLabel": "Privacy Policy",
+  "@privacyPolicyLabel": {
+    "description": "Privacy policy label"
+  },
+  "claimCoin": "CLAIM COIN",
+  "@claimCoin": {
+    "description": "Claim coin button text"
+  },
+  "claimed2": "Claimed!",
+  "@claimed2": {
+    "description": "Claimed status text"
+  },
+  
+  "somethingWentWrongTryAgain": "Something went wrong. Please try again.",
+  "@somethingWentWrongTryAgain": {
+    "description": "Generic error message"
+  },
+  "pleaseLinkAccountFirstError": "Please link your account first",
+  "@pleaseLinkAccountFirstError": {
+    "description": "Link account required error"
+  },
+  "cantUseOwnReferralCode": "You can't use your own referral code",
+  "@cantUseOwnReferralCode": {
+    "description": "Own referral code error"
+  },
+  "referralAppliedSuccess": "Referral applied! +{reward} coins",
+  "@referralAppliedSuccess": {
+    "description": "Referral success message",
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotApplyReferral": "Could not apply referral. Please try again.",
+  "@couldNotApplyReferral": {
+    "description": "Referral application error"
+  },
+  "googleAccountLinkedSuccess": "Google account linked successfully!",
+  "@googleAccountLinkedSuccess": {
+    "description": "Google link success message"
+  },
+  "couldNotSubmitTryAgain": "Could not submit. Please try again.",
+  "@couldNotSubmitTryAgain": {
+    "description": "Submit error message"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Generic error label"
+  },
+  
+  "pleaseEnterReferralCode": "Please enter a referral code",
+  "@pleaseEnterReferralCode": {
+    "description": "Enter referral code validation"
+  },
+  "youHaveAlreadyUsedReferralCode": "You have already used a referral code",
+  "@youHaveAlreadyUsedReferralCode": {
+    "description": "Already used referral code message"
+  },
+  "invalidReferralCode": "Invalid referral code",
+  "@invalidReferralCode": {
+    "description": "Invalid referral code error"
+  },
+  "pleaseEnterWalletAddress": "Please enter wallet address",
+  "@pleaseEnterWalletAddress": {
+    "description": "Enter wallet address validation"
+  },
+  "pleaseEnterValidAmount": "Please enter valid amount",
+  "@pleaseEnterValidAmount": {
+    "description": "Enter valid amount validation"
+  }
+}

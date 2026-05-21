@@ -1,0 +1,1012 @@
+{
+  "@@locale": "hi",
+  
+  "appTitle": "Earn Money",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  
+  "cancel": "रद्द करें",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "confirm": "पुष्टि करें",
+  "@confirm": {
+    "description": "Confirm button label"
+  },
+  "submit": "जमा करें",
+  "@submit": {
+    "description": "Submit button label"
+  },
+  "skip": "छोड़ें",
+  "@skip": {
+    "description": "Skip button label"
+  },
+  "next": "अगला",
+  "@next": {
+    "description": "Next button label"
+  },
+  "getStarted": "शुरू करें",
+  "@getStarted": {
+    "description": "Get started button label"
+  },
+  "backToHome": "होम पर वापस जाएं",
+  "@backToHome": {
+    "description": "Back to home button label"
+  },
+  "tryAgain": "फिर से प्रयास करें",
+  "@tryAgain": {
+    "description": "Try again button label"
+  },
+  "claimReward": "इनाम प्राप्त करें",
+  "@claimReward": {
+    "description": "Claim reward button label"
+  },
+  "claimCoins": "सिक्के प्राप्त करें",
+  "@claimCoins": {
+    "description": "Claim coins button label"
+  },
+  "claimNow": "अभी प्राप्त करें",
+  "@claimNow": {
+    "description": "Claim now button label"
+  },
+  "claimed": "प्राप्त किया",
+  "@claimed": {
+    "description": "Claimed status label"
+  },
+  "start": "शुरू",
+  "@start": {
+    "description": "Start button label"
+  },
+  "apply": "लागू करें",
+  "@apply": {
+    "description": "Apply button label"
+  },
+  
+  "welcome": "स्वागत है",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "signInToAccessWallet": "वॉलेट एक्सेस करने के लिए साइन इन करें",
+  "@signInToAccessWallet": {
+    "description": "Sign in prompt message"
+  },
+  "continueWithGoogle": "Google के साथ जारी रखें",
+  "@continueWithGoogle": {
+    "description": "Google sign in button"
+  },
+  "continueAsGuest": "अतिथि के रूप में जारी रखें",
+  "@continueAsGuest": {
+    "description": "Guest mode button"
+  },
+  "byContinuingAgree": "जारी रखकर, आप हमारे इनसे सहमत होते हैं",
+  "@byContinuingAgree": {
+    "description": "Terms agreement prefix"
+  },
+  "terms": "नियम",
+  "@terms": {
+    "description": "Terms link text"
+  },
+  "privacyPolicy": "गोपनीयता नीति",
+  "@privacyPolicy": {
+    "description": "Privacy policy link text"
+  },
+  "signOut": "साइन आउट",
+  "@signOut": {
+    "description": "Sign out button"
+  },
+  "deleteAccount": "खाता हटाएं",
+  "@deleteAccount": {
+    "description": "Delete account button label"
+  },
+  "deleteAccountConfirmTitle": "खाता हटाएं?",
+  "@deleteAccountConfirmTitle": {
+    "description": "Delete account confirmation dialog title"
+  },
+  "deleteAccountConfirmMessage": "यह आपके खाते, सिक्कों और प्रगति को स्थायी रूप से हटा देगा। इस क्रिया को पूर्ववत नहीं किया जा सकता।",
+  "@deleteAccountConfirmMessage": {
+    "description": "Delete account confirmation dialog body"
+  },
+  "delete": "हटाएं",
+  "@delete": {
+    "description": "Delete button label"
+  },
+
+  "earnMoney": "पैसे कमाएं",
+  "@earnMoney": {
+    "description": "Earn money section title"
+  },
+  "dailyReward": "दैनिक इनाम",
+  "@dailyReward": {
+    "description": "Daily reward title"
+  },
+  "collectMoreCoinsEachDay": "हर दिन अधिक सिक्के\nइकट्ठा करें",
+  "@collectMoreCoinsEachDay": {
+    "description": "Daily reward description"
+  },
+  "daysCount": "{count} दिन",
+  "@daysCount": {
+    "description": "Days count label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalBalance": "कुल शेष राशि",
+  "@totalBalance": {
+    "description": "Total balance label"
+  },
+  "coinsAmount": "{amount} सिक्के",
+  "@coinsAmount": {
+    "description": "Coins amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsPrefix": "+{amount}",
+  "@coinsPrefix": {
+    "description": "Coins with plus prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsSlash": "/{amount} सिक्के",
+  "@coinsSlash": {
+    "description": "Coins with slash prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "xpAmount": "{amount} XP",
+  "@xpAmount": {
+    "description": "XP amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "level": "स्तर",
+  "@level": {
+    "description": "Level label"
+  },
+  "xp": "XP",
+  "@xp": {
+    "description": "XP label"
+  },
+  "quizMaster": "क्विज़ मास्टर",
+  "@quizMaster": {
+    "description": "Quiz feature title"
+  },
+  "answerAndEarn": "जवाब दें और कमाएं",
+  "@answerAndEarn": {
+    "description": "Quiz feature subtitle"
+  },
+  "spinWheel": "चक्र घुमाएं",
+  "@spinWheel": {
+    "description": "Spin wheel feature title"
+  },
+  "spinAndWin": "घुमाएं और जीतें",
+  "@spinAndWin": {
+    "description": "Spin wheel feature subtitle"
+  },
+  "scratchCard": "स्क्रैच कार्ड",
+  "@scratchCard": {
+    "description": "Scratch card feature title"
+  },
+  "scratchAndReveal": "स्क्रैच करें और देखें",
+  "@scratchAndReveal": {
+    "description": "Scratch card feature subtitle"
+  },
+  "webVisits": "वेब विज़िट",
+  "@webVisits": {
+    "description": "Web visits feature title"
+  },
+  "visitAndEarn": "विज़िट करें और कमाएं",
+  "@visitAndEarn": {
+    "description": "Web visits feature subtitle"
+  },
+  "gameZone": "गेम ज़ोन",
+  "@gameZone": {
+    "description": "Game zone feature title"
+  },
+  "playGames": "गेम खेलें",
+  "@playGames": {
+    "description": "Game zone feature subtitle"
+  },
+  "referAndEarn": "रेफर करें और कमाएं",
+  "@referAndEarn": {
+    "description": "Referral feature title"
+  },
+  "inviteFriends": "दोस्तों को आमंत्रित करें",
+  "@inviteFriends": {
+    "description": "Referral feature subtitle"
+  },
+  "withdraw": "निकालें",
+  "@withdraw": {
+    "description": "Withdraw button label"
+  },
+  "rewards": "पुरस्कार",
+  "@rewards": {
+    "description": "Rewards label"
+  },
+  
+  "dailyCheckinReward": "दैनिक चेक-इन इनाम",
+  "@dailyCheckinReward": {
+    "description": "Daily check-in dialog title"
+  },
+  "dayNumber": "दिन {day}",
+  "@dayNumber": {
+    "description": "Day number label",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "claimDailyRewardMessage": "+{coins} सिक्कों का अपना दैनिक इनाम प्राप्त करें!",
+  "@claimDailyRewardMessage": {
+    "description": "Daily reward claim message",
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "dailyRewardsTitle": "दैनिक पुरस्कार",
+  "@dailyRewardsTitle": {
+    "description": "Onboarding page 1 title"
+  },
+  "dailyRewardsDesc": "आपको दैनिक अंक पुरस्कार मिलेगा, जिसे आप प्राप्त कर सकते हैं और अपने अंक बढ़ा सकते हैं।",
+  "@dailyRewardsDesc": {
+    "description": "Onboarding page 1 description"
+  },
+  "ultimateGamesTitle": "बेहतरीन गेम्स",
+  "@ultimateGamesTitle": {
+    "description": "Onboarding page 2 title"
+  },
+  "ultimateGamesDesc": "खेलने और अधिक अंक प्राप्त करने के लिए गेम्स के कई विकल्प पाएं।",
+  "@ultimateGamesDesc": {
+    "description": "Onboarding page 2 description"
+  },
+  "trackAchievementsTitle": "उपलब्धियों को ट्रैक करें",
+  "@trackAchievementsTitle": {
+    "description": "Onboarding page 3 title"
+  },
+  "trackAchievementsDesc": "अपनी उपलब्धियां देखें और लीडरबोर्ड के माध्यम से अन्य उपयोगकर्ताओं के साथ इसे ट्रैक करें",
+  "@trackAchievementsDesc": {
+    "description": "Onboarding page 3 description"
+  },
+  
+  "linkGoogleAccount": "Google खाता लिंक करें",
+  "@linkGoogleAccount": {
+    "description": "Link Google account button"
+  },
+  "language": "भाषा",
+  "@language": {
+    "description": "Language settings label"
+  },
+  "support": "सहायता",
+  "@support": {
+    "description": "Support page label"
+  },
+  "termsAndCondition": "नियम एवं शर्तें",
+  "@termsAndCondition": {
+    "description": "Terms and conditions label"
+  },
+  "levelProgress": "स्तर की प्रगति",
+  "@levelProgress": {
+    "description": "Level progress label"
+  },
+  "nextTier": "अगला: {tier}",
+  "@nextTier": {
+    "description": "Next tier label",
+    "placeholders": {
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "balance": "शेष राशि",
+  "@balance": {
+    "description": "Balance label"
+  },
+  "days": "दिन",
+  "@days": {
+    "description": "Days label"
+  },
+  "refs": "रेफरल",
+  "@refs": {
+    "description": "Referrals label"
+  },
+  "levelShort": "स्तर {level}",
+  "@levelShort": {
+    "description": "Short level label",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "beginner": "शुरुआती",
+  "@beginner": {
+    "description": "Beginner tier"
+  },
+  "intermediate": "मध्यवर्ती",
+  "@intermediate": {
+    "description": "Intermediate tier"
+  },
+  "expert": "विशेषज्ञ",
+  "@expert": {
+    "description": "Expert tier"
+  },
+  
+  "rewardsAndBonuses": "पुरस्कार और बोनस",
+  "@rewardsAndBonuses": {
+    "description": "Rewards page title"
+  },
+  "linkYourAccount": "अपना खाता लिंक करें",
+  "@linkYourAccount": {
+    "description": "Link account section title"
+  },
+  "linkAccountMessage": "अपना रेफरल कोड प्राप्त करने और दोस्तों को आमंत्रित करने के लिए Google के साथ साइन इन करें, प्रोफ़ाइल पर जाएं और अपना खाता लिंक करें।",
+  "@linkAccountMessage": {
+    "description": "Link account instruction message"
+  },
+  "yourReferralCode": "आपका रेफरल कोड",
+  "@yourReferralCode": {
+    "description": "Referral code section title"
+  },
+  "shareLink": "लिंक साझा करें",
+  "@shareLink": {
+    "description": "Share link button"
+  },
+  "enterReferralCode": "रेफरल कोड दर्ज करें",
+  "@enterReferralCode": {
+    "description": "Enter referral code field label"
+  },
+  "havePromoCode": "प्रोमो कोड है",
+  "@havePromoCode": {
+    "description": "Promo code field label"
+  },
+  "pleaseLinkAccountFirst": "कृपया पहले अपना खाता लिंक करें",
+  "@pleaseLinkAccountFirst": {
+    "description": "Link account required message"
+  },
+  "friendsInvited": "आमंत्रित मित्र",
+  "@friendsInvited": {
+    "description": "Friends invited stat label"
+  },
+  "coinsEarned": "अर्जित सिक्के",
+  "@coinsEarned": {
+    "description": "Coins earned stat label"
+  },
+  "codeCopied": "कोड कॉपी हो गया!",
+  "@codeCopied": {
+    "description": "Code copied confirmation message"
+  },
+  
+  "scratchCardTitle": "स्क्रैच कार्ड",
+  "@scratchCardTitle": {
+    "description": "Scratch card page title"
+  },
+  "scratchCardInstruction": "अपना इनाम देखने के लिए कार्ड को स्क्रैच करें!",
+  "@scratchCardInstruction": {
+    "description": "Scratch card instruction"
+  },
+  "scratchItToWin": "जीतने के लिए\nस्क्रैच करें",
+  "@scratchItToWin": {
+    "description": "Scratch card prompt"
+  },
+  "scratched": "स्क्रैच किया गया!",
+  "@scratched": {
+    "description": "Scratched status"
+  },
+  "scratchNow": "अभी स्क्रैच करें",
+  "@scratchNow": {
+    "description": "Scratch now button"
+  },
+  "betterLuckNextTime": "अगली बार के लिए\nशुभकामनाएं",
+  "@betterLuckNextTime": {
+    "description": "Better luck message"
+  },
+  "coins": "सिक्के",
+  "@coins": {
+    "description": "Coins label"
+  },
+  
+  "spinAndWinTitle": "घुमाएं और जीतें",
+  "@spinAndWinTitle": {
+    "description": "Spin wheel page title"
+  },
+  "welcomeToSpin": "स्पिन में स्वागत है",
+  "@welcomeToSpin": {
+    "description": "Spin welcome title"
+  },
+  "earnCoinsEasilyBySpin": "चक्र घुमाकर आसानी से सिक्के कमाएं",
+  "@earnCoinsEasilyBySpin": {
+    "description": "Spin description"
+  },
+  "spinning": "घूम रहा है...",
+  "@spinning": {
+    "description": "Spinning status"
+  },
+  "spinNow": "अभी घुमाएं",
+  "@spinNow": {
+    "description": "Spin now button"
+  },
+  "zero": "शून्य",
+  "@zero": {
+    "description": "Zero reward label"
+  },
+  "jackpot": "जैकपॉट",
+  "@jackpot": {
+    "description": "Jackpot label"
+  },
+  
+  "quiz": "क्विज़",
+  "@quiz": {
+    "description": "Quiz page title"
+  },
+  "questionsProgress": "प्रश्न {current}/{total}",
+  "@questionsProgress": {
+    "description": "Quiz progress indicator",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "wallet": "वॉलेट",
+  "@wallet": {
+    "description": "Wallet page title"
+  },
+  "availableBalance": "उपलब्ध शेष राशि",
+  "@availableBalance": {
+    "description": "Available balance label"
+  },
+  "minWithdrawal": "न्यूनतम निकासी: {amount}",
+  "@minWithdrawal": {
+    "description": "Minimum withdrawal amount",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingWithdrawalMessage": "आपकी एक निकासी लंबित है। नई निकासी तब तक अक्षम है जब तक इसे मंजूरी नहीं मिल जाती।",
+  "@pendingWithdrawalMessage": {
+    "description": "Pending withdrawal warning message"
+  },
+  
+  "leaderboard": "लीडरबोर्ड",
+  "@leaderboard": {
+    "description": "Leaderboard page title"
+  },
+  "pullDownToRefresh": "रिफ्रेश करने के लिए नीचे खींचें",
+  "@pullDownToRefresh": {
+    "description": "Pull to refresh instruction"
+  },
+  "refreshInTimer": "{timer} में रिफ्रेश करें",
+  "@refreshInTimer": {
+    "description": "Refresh timer message",
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "player": "खिलाड़ी",
+  "@player": {
+    "description": "Player column header"
+  },
+  
+  "gameZoneTitle": "गेम ज़ोन",
+  "@gameZoneTitle": {
+    "description": "Game zone page title"
+  },
+  "missionBrief": "मिशन विवरण",
+  "@missionBrief": {
+    "description": "Mission brief dialog title"
+  },
+  "gameVisitInstructions": "पेज पर {seconds} सेकंड तक रुकें।\nएक उलटी गिनती टाइमर दिखाई देगा।\nतैयार होने पर \"CLAIM COIN\" पर क्लिक करें!",
+  "@gameVisitInstructions": {
+    "description": "Game visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "timeNotCompleted": "समय पूरा नहीं हुआ!",
+  "@timeNotCompleted": {
+    "description": "Time not completed dialog title"
+  },
+  "timeNotCompletedMessage": "आप {required} सेकंड में से केवल {elapsed} सेकंड ही रुके।\nकृपया पूरी अवधि के लिए पेज पर बने रहें।",
+  "@timeNotCompletedMessage": {
+    "description": "Time not completed message",
+    "placeholders": {
+      "elapsed": {
+        "type": "int"
+      },
+      "required": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "webVisitsTitle": "वेब विज़िट",
+  "@webVisitsTitle": {
+    "description": "Web visits page title"
+  },
+  "webVisitInstructions": "पेज पर {seconds} सेकंड तक रुकें।\nएक उलटी गिनती टाइमर दिखाई देगा।\nतैयार होने पर \"CLAIM COIN\" पर क्लिक करें!",
+  "@webVisitInstructions": {
+    "description": "Web visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "howItWorks": "यह कैसे काम करता है",
+  "@howItWorks": {
+    "description": "How it works page title"
+  },
+  "whatAreCoinsTitle": "सिक्के क्या हैं?",
+  "@whatAreCoinsTitle": {
+    "description": "What are coins rule title"
+  },
+  "whatAreCoinsDesc": "सिक्के इस ऐप की मुख्य मुद्रा हैं। आप कार्यों को पूरा करके सिक्के कमा सकते हैं और उन्हें असली पैसे के लिए बदल सकते हैं।",
+  "@whatAreCoinsDesc": {
+    "description": "What are coins rule description"
+  },
+  "dailyMissionsTitle": "दैनिक मिशन",
+  "@dailyMissionsTitle": {
+    "description": "Daily missions rule title"
+  },
+  "dailyMissionsDesc": "चक्र घुमाना, कार्ड स्क्रैच करना या क्विज़ के जवाब देने जैसे दैनिक कार्यों को पूरा करें। प्रत्येक पूरा मिशन आपको सिक्कों से पुरस्कृत करता है।",
+  "@dailyMissionsDesc": {
+    "description": "Daily missions rule description"
+  },
+  "spinWheelRuleTitle": "चक्र घुमाएं",
+  "@spinWheelRuleTitle": {
+    "description": "Spin wheel rule title"
+  },
+  "spinWheelRuleDesc": "तुरंत सिक्का पुरस्कार जीतने के लिए लकी व्हील घुमाएं! प्रत्येक स्पिन आपको 10-500 सिक्के दिला सकता है।",
+  "@spinWheelRuleDesc": {
+    "description": "Spin wheel rule description"
+  },
+  "scratchCardsRuleTitle": "स्क्रैच कार्ड",
+  "@scratchCardsRuleTitle": {
+    "description": "Scratch cards rule title"
+  },
+  "scratchCardsRuleDesc": "5 से 50 सिक्कों तक के छिपे हुए इनामों को खोजने के लिए वर्चुअल कार्ड स्क्रैच करें। प्रतिदिन मुफ़्त कार्ड!",
+  "@scratchCardsRuleDesc": {
+    "description": "Scratch cards rule description"
+  },
+  "quizGameRuleTitle": "क्विज़ गेम",
+  "@quizGameRuleTitle": {
+    "description": "Quiz game rule title"
+  },
+  "quizGameRuleDesc": "प्रति प्रश्न 22 सिक्के कमाने के लिए सामान्य ज्ञान के प्रश्नों का सही उत्तर दें। अपनी कॉम्बो स्ट्रीक बनाएं।",
+  "@quizGameRuleDesc": {
+    "description": "Quiz game rule description"
+  },
+  "watchAdsRuleTitle": "विज्ञापन देखें",
+  "@watchAdsRuleTitle": {
+    "description": "Watch ads rule title"
+  },
+  "watchAdsRuleDesc": "त्वरित सिक्के कमाने के लिए छोटे वीडियो विज्ञापन देखें। प्रत्येक विज्ञापन आपको तुरंत पुरस्कृत करता है। प्रतिदिन 10 विज्ञापनों तक।",
+  "@watchAdsRuleDesc": {
+    "description": "Watch ads rule description"
+  },
+  "referralSystemRuleTitle": "रेफरल प्रणाली",
+  "@referralSystemRuleTitle": {
+    "description": "Referral system rule title"
+  },
+  "referralSystemRuleDesc": "अपने दोस्तों के साथ अपना रेफरल कोड साझा करें। जब वे साइन अप करते हैं और कमाते हैं, तो आपको बोनस सिक्के मिलते हैं!",
+  "@referralSystemRuleDesc": {
+    "description": "Referral system rule description"
+  },
+  "withdrawMoneyRuleTitle": "पैसे निकालें",
+  "@withdrawMoneyRuleTitle": {
+    "description": "Withdraw money rule title"
+  },
+  "withdrawMoneyRuleDesc": "एक बार जब आप न्यूनतम सीमा तक पहुँच जाते हैं, तो अपने सिक्कों को PayPal, बैंक हस्तांतरण या उपहार कार्ड के माध्यम से असली पैसे में बदलें।",
+  "@withdrawMoneyRuleDesc": {
+    "description": "Withdraw money rule description"
+  },
+  "readyToStartEarning": "कमाई शुरू करने के लिए तैयार हैं?",
+  "@readyToStartEarning": {
+    "description": "Ready to start earning prompt"
+  },
+  
+  "setDefaultLanguage": "डिफ़ॉल्ट भाषा सेट करें",
+  "@setDefaultLanguage": {
+    "description": "Set default language title"
+  },
+  "languageSelectionMessage": "चुनी गई भाषा का उपयोग इस ऐप के लिए डिफ़ॉल्ट भाषा के रूप में किया जाएगा जिसे आप बाद में चाहें तो बदल सकते हैं।",
+  "@languageSelectionMessage": {
+    "description": "Language selection instruction"
+  },
+  "english": "अंग्रेज़ी",
+  "@english": {
+    "description": "English language"
+  },
+  "spanish": "स्पेनिश",
+  "@spanish": {
+    "description": "Spanish language"
+  },
+  "russian": "रूसी",
+  "@russian": {
+    "description": "Russian language"
+  },
+  "german": "जर्मन",
+  "@german": {
+    "description": "German language"
+  },
+  "korean": "कोरियाई",
+  "@korean": {
+    "description": "Korean language"
+  },
+  "chinese": "चीनी",
+  "@chinese": {
+    "description": "Chinese language"
+  },
+  "japanese": "जापानी",
+  "@japanese": {
+    "description": "Japanese language"
+  },
+  "polish": "पोलिश",
+  "@polish": {
+    "description": "Polish language"
+  },
+  "italian": "इतालवी",
+  "@italian": {
+    "description": "Italian language"
+  },
+  
+  "howCanWeHelp": "हम आपकी क्या मदद कर सकते हैं?",
+  "@howCanWeHelp": {
+    "description": "Support page subtitle"
+  },
+  "supportPageDescription": "हमें बताएं कि क्या गलत हुआ या आपको किस चीज में मदद की ज़रूरत है। हमारी टीम हर संदेश की समीक्षा करती है।",
+  "@supportPageDescription": {
+    "description": "Support page description"
+  },
+  "title": "शीर्षक",
+  "@title": {
+    "description": "Title field label"
+  },
+  "shortSummary": "संक्षिप्त सारांश",
+  "@shortSummary": {
+    "description": "Short summary hint"
+  },
+  "description": "विवरण",
+  "@description": {
+    "description": "Description field label"
+  },
+  "descriptionHint": "कुछ वाक्यों में समस्या का वर्णन करें...",
+  "@descriptionHint": {
+    "description": "Description field hint"
+  },
+  "pleaseAddTitle": "कृपया एक शीर्षक जोड़ें",
+  "@pleaseAddTitle": {
+    "description": "Title required validation"
+  },
+  "titleTooShort": "शीर्षक बहुत छोटा है",
+  "@titleTooShort": {
+    "description": "Title too short validation"
+  },
+  "pleaseAddDescription": "कृपया विवरण जोड़ें",
+  "@pleaseAddDescription": {
+    "description": "Description required validation"
+  },
+  "descriptionTooShort": "थोड़ा और विवरण हमें आपकी बेहतर मदद करने में मदद करेगा",
+  "@descriptionTooShort": {
+    "description": "Description too short validation"
+  },
+  
+  "congratulations": "बधाई हो..!",
+  "@congratulations": {
+    "description": "Congratulations dialog title"
+  },
+  "youWonCoins": "आपने {coins} सिक्के जीते",
+  "@youWonCoins": {
+    "description": "Win coins message",
+    "placeholders": {
+      "coins": {
+        "type": "String"
+      }
+    }
+  },
+  "youScoredQuiz": "आपका स्कोर {correct}/{total} रहा",
+  "@youScoredQuiz": {
+    "description": "Quiz score message",
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "oops": "ओह!",
+  "@oops": {
+    "description": "Oops dialog title"
+  },
+  "betterLuckNextTimeMessage": "अगली बार के लिए शुभकामना!",
+  "@betterLuckNextTimeMessage": {
+    "description": "Better luck message"
+  },
+  
+  "adDisclaimerText": "इस अनुभाग में विज्ञापन हो सकते हैं",
+  "@adDisclaimerText": {
+    "description": "Ad disclaimer text"
+  },
+  "supportOurApp": "हमारे ऐप का समर्थन करें",
+  "@supportOurApp": {
+    "description": "Support app dialog title"
+  },
+  "supportAppMessage": "एक छोटा विज्ञापन देखकर ऐप को मुफ़्त रखने में हमारी मदद करें। आपका समर्थन हमारे लिए बहुत मायने रखता है!",
+  "@supportAppMessage": {
+    "description": "Support app dialog message"
+  },
+  "autoStartingInSeconds": "{seconds} सेकंड में स्वतः शुरू हो रहा है...",
+  "@autoStartingInSeconds": {
+    "description": "Auto-starting countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "supportUs": "हमें सपोर्ट करें",
+  "@supportUs": {
+    "description": "Support us button"
+  },
+  
+  "rewardInSeconds": "{seconds}s में इनाम..",
+  "@rewardInSeconds": {
+    "description": "Reward countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "claimRewardButton": "इनाम प्राप्त करें",
+  "@claimRewardButton": {
+    "description": "Claim reward button in webview"
+  },
+  
+  "watch": "देखें",
+  "@watch": {
+    "description": "Watch label"
+  },
+  "earn": "कमाएं",
+  "@earn": {
+    "description": "Earn label"
+  },
+  "play": "खेलें",
+  "@play": {
+    "description": "Play label"
+  },
+  
+  "learn": "सीखें",
+  "@learn": {
+    "description": "Learn button label"
+  },
+  "seeTopEarner": "शीर्ष कमाने वाले को देखें",
+  "@seeTopEarner": {
+    "description": "Leaderboard caption"
+  },
+  "learnStepByStep": "पैसे कमाने का तरीका\nकदम-दर-कदम सीखें",
+  "@learnStepByStep": {
+    "description": "How it works description"
+  },
+  "unlockBadges": "अपने बैज अनलॉक करें",
+  "@unlockBadges": {
+    "description": "Achievements caption"
+  },
+  "achievements": "उपलब्धियां",
+  "@achievements": {
+    "description": "Achievements label"
+  },
+  
+  "withdrawHistory": "निकासी इतिहास",
+  "@withdrawHistory": {
+    "description": "Withdraw history page title"
+  },
+  "somethingWentWrong": "कुछ गलत हो गया",
+  "@somethingWentWrong": {
+    "description": "Error title"
+  },
+  "pleaseTryAgainLater": "कृपया बाद में पुनः प्रयास करें",
+  "@pleaseTryAgainLater": {
+    "description": "Error subtitle"
+  },
+  "noWithdrawalsYet": "अभी तक कोई निकासी नहीं",
+  "@noWithdrawalsYet": {
+    "description": "Empty state title"
+  },
+  "withdrawalRequestsWillAppear": "आपकी निकासी अनुरोध यहाँ दिखाई देंगे",
+  "@withdrawalRequestsWillAppear": {
+    "description": "Empty state subtitle"
+  },
+  "statusNote": "स्थिति नोट",
+  "@statusNote": {
+    "description": "Status note label"
+  },
+  "underReview": "समीक्षा के अधीन",
+  "@underReview": {
+    "description": "Under review status"
+  },
+  "confirmWithdrawal": "निकासी की पुष्टि करें",
+  "@confirmWithdrawal": {
+    "description": "Confirm withdrawal button"
+  },
+  "withdrawRequestSent": "निकासी अनुरोध भेजा गया",
+  "@withdrawRequestSent": {
+    "description": "Withdraw success message"
+  },
+  "fieldRequired": "क्षेत्र आवश्यक है",
+  "@fieldRequired": {
+    "description": "Field required validation"
+  },
+  "enterValidNumber": "एक वैध संख्या दर्ज करें",
+  "@enterValidNumber": {
+    "description": "Invalid number validation"
+  },
+  "invalidInput": "अवैध इनपुट",
+  "@invalidInput": {
+    "description": "Invalid input validation"
+  },
+  "playGame": "गेम खेलें",
+  "@playGame": {
+    "description": "Play game title"
+  },
+  
+  "thanksMessageReceived": "धन्यवाद! हमें आपका संदेश मिल गया है।",
+  "@thanksMessageReceived": {
+    "description": "Support ticket success message"
+  },
+  
+  "cash": "नकद",
+  "@cash": {
+    "description": "Cash category"
+  },
+  "crypto": "क्रिप्टो",
+  "@crypto": {
+    "description": "Crypto category"
+  },
+  "giftCards": "गिफ्ट कार्ड",
+  "@giftCards": {
+    "description": "Gift cards category"
+  },
+  "gameCredits": "गेम क्रेडिट",
+  "@gameCredits": {
+    "description": "Game credits category"
+  },
+  "method": "तरीका",
+  "@method": {
+    "description": "Payment method label"
+  },
+  "type": "प्रकार",
+  "@type": {
+    "description": "Type label"
+  },
+  "date": "तारीख",
+  "@date": {
+    "description": "Date label"
+  },
+  "reason": "कारण",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "processed": "संसाधित",
+  "@processed": {
+    "description": "Processed label"
+  },
+  "approved": "स्वीकृत",
+  "@approved": {
+    "description": "Approved status"
+  },
+  "rejected": "अस्वीकृत",
+  "@rejected": {
+    "description": "Rejected status"
+  },
+  "pending": "लंबित",
+  "@pending": {
+    "description": "Pending status"
+  },
+  "businessDays": "2 कार्य दिवस",
+  "@businessDays": {
+    "description": "Business days processing time"
+  },
+  "privacyPolicyLabel": "गोपनीयता नीति",
+  "@privacyPolicyLabel": {
+    "description": "Privacy policy label"
+  },
+  "claimCoin": "सिक्का प्राप्त करें",
+  "@claimCoin": {
+    "description": "Claim coin button text"
+  },
+  "claimed2": "प्राप्त किया!",
+  "@claimed2": {
+    "description": "Claimed status text"
+  },
+  
+  "somethingWentWrongTryAgain": "कुछ गलत हो गया। कृपया पुन: प्रयास करें।",
+  "@somethingWentWrongTryAgain": {
+    "description": "Generic error message"
+  },
+  "pleaseLinkAccountFirstError": "कृपया पहले अपना खाता लिंक करें",
+  "@pleaseLinkAccountFirstError": {
+    "description": "Link account required error"
+  },
+  "cantUseOwnReferralCode": "आप अपने स्वयं के रेफरल कोड का उपयोग नहीं कर सकते",
+  "@cantUseOwnReferralCode": {
+    "description": "Own referral code error"
+  },
+  "referralAppliedSuccess": "रेफरल लागू! +{reward} सिक्के",
+  "@referralAppliedSuccess": {
+    "description": "Referral success message",
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotApplyReferral": "रेफरल लागू नहीं किया जा सका। कृपया पुन: प्रयास करें।",
+  "@couldNotApplyReferral": {
+    "description": "Referral application error"
+  },
+  "googleAccountLinkedSuccess": "Google खाता सफलतापूर्वक लिंक हो गया!",
+  "@googleAccountLinkedSuccess": {
+    "description": "Google link success message"
+  },
+  "couldNotSubmitTryAgain": "सबमिट नहीं किया जा सका। कृपया पुन: प्रयास करें।",
+  "@couldNotSubmitTryAgain": {
+    "description": "Submit error message"
+  },
+  "error": "त्रुटि",
+  "@error": {
+    "description": "Generic error label"
+  },
+  
+  "pleaseEnterReferralCode": "कृपया रेफरल कोड दर्ज करें",
+  "@pleaseEnterReferralCode": {
+    "description": "Enter referral code validation"
+  },
+  "youHaveAlreadyUsedReferralCode": "आप पहले ही रेफरल कोड का उपयोग कर चुके हैं",
+  "@youHaveAlreadyUsedReferralCode": {
+    "description": "Already used referral code message"
+  },
+  "invalidReferralCode": "अवैध रेफरल कोड",
+  "@invalidReferralCode": {
+    "description": "Invalid referral code error"
+  },
+  "pleaseEnterWalletAddress": "कृपया वॉलेट पता दर्ज करें",
+  "@pleaseEnterWalletAddress": {
+    "description": "Enter wallet address validation"
+  },
+  "pleaseEnterValidAmount": "कृपया वैध राशि दर्ज करें",
+  "@pleaseEnterValidAmount": {
+    "description": "Enter valid amount validation"
+  }
+}

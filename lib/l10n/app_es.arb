@@ -1,0 +1,1012 @@
+{
+  "@@locale": "es",
+  
+  "appTitle": "Earn Money",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  
+  "cancel": "Cancelar",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "confirm": "Confirmar",
+  "@confirm": {
+    "description": "Confirm button label"
+  },
+  "submit": "Enviar",
+  "@submit": {
+    "description": "Submit button label"
+  },
+  "skip": "Omitir",
+  "@skip": {
+    "description": "Skip button label"
+  },
+  "next": "Siguiente",
+  "@next": {
+    "description": "Next button label"
+  },
+  "getStarted": "Empezar",
+  "@getStarted": {
+    "description": "Get started button label"
+  },
+  "backToHome": "Volver al Inicio",
+  "@backToHome": {
+    "description": "Back to home button label"
+  },
+  "tryAgain": "Reintentar",
+  "@tryAgain": {
+    "description": "Try again button label"
+  },
+  "claimReward": "Reclamar Recompensa",
+  "@claimReward": {
+    "description": "Claim reward button label"
+  },
+  "claimCoins": "Reclamar Monedas",
+  "@claimCoins": {
+    "description": "Claim coins button label"
+  },
+  "claimNow": "Reclamar Ahora",
+  "@claimNow": {
+    "description": "Claim now button label"
+  },
+  "claimed": "Reclamado",
+  "@claimed": {
+    "description": "Claimed status label"
+  },
+  "start": "Empezar",
+  "@start": {
+    "description": "Start button label"
+  },
+  "apply": "Aplicar",
+  "@apply": {
+    "description": "Apply button label"
+  },
+  
+  "welcome": "Bienvenido",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "signInToAccessWallet": "Inicia sesión para acceder a tu billetera",
+  "@signInToAccessWallet": {
+    "description": "Sign in prompt message"
+  },
+  "continueWithGoogle": "Continuar con Google",
+  "@continueWithGoogle": {
+    "description": "Google sign in button"
+  },
+  "continueAsGuest": "Continuar como Invitado",
+  "@continueAsGuest": {
+    "description": "Guest mode button"
+  },
+  "byContinuingAgree": "Al continuar, aceptas nuestros",
+  "@byContinuingAgree": {
+    "description": "Terms agreement prefix"
+  },
+  "terms": "Términos",
+  "@terms": {
+    "description": "Terms link text"
+  },
+  "privacyPolicy": "Política de Privacidad",
+  "@privacyPolicy": {
+    "description": "Privacy policy link text"
+  },
+  "signOut": "Cerrar Sesión",
+  "@signOut": {
+    "description": "Sign out button"
+  },
+  "deleteAccount": "Eliminar Cuenta",
+  "@deleteAccount": {
+    "description": "Delete account button label"
+  },
+  "deleteAccountConfirmTitle": "¿Eliminar Cuenta?",
+  "@deleteAccountConfirmTitle": {
+    "description": "Delete account confirmation dialog title"
+  },
+  "deleteAccountConfirmMessage": "Esto eliminará permanentemente tu cuenta, monedas y progreso. Esta acción no se puede deshacer.",
+  "@deleteAccountConfirmMessage": {
+    "description": "Delete account confirmation dialog body"
+  },
+  "delete": "Eliminar",
+  "@delete": {
+    "description": "Delete button label"
+  },
+
+  "earnMoney": "Gana Dinero",
+  "@earnMoney": {
+    "description": "Earn money section title"
+  },
+  "dailyReward": "Recompensa Diaria",
+  "@dailyReward": {
+    "description": "Daily reward title"
+  },
+  "collectMoreCoinsEachDay": "Recoge más monedas\ncada día",
+  "@collectMoreCoinsEachDay": {
+    "description": "Daily reward description"
+  },
+  "daysCount": "{count} Días",
+  "@daysCount": {
+    "description": "Days count label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalBalance": "Saldo Total",
+  "@totalBalance": {
+    "description": "Total balance label"
+  },
+  "coinsAmount": "{amount} Monedas",
+  "@coinsAmount": {
+    "description": "Coins amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsPrefix": "+{amount}",
+  "@coinsPrefix": {
+    "description": "Coins with plus prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsSlash": "/{amount} Monedas",
+  "@coinsSlash": {
+    "description": "Coins with slash prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "xpAmount": "{amount} XP",
+  "@xpAmount": {
+    "description": "XP amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "level": "Nivel",
+  "@level": {
+    "description": "Level label"
+  },
+  "xp": "XP",
+  "@xp": {
+    "description": "XP label"
+  },
+  "quizMaster": "Maestro del Quiz",
+  "@quizMaster": {
+    "description": "Quiz feature title"
+  },
+  "answerAndEarn": "Responde y Gana",
+  "@answerAndEarn": {
+    "description": "Quiz feature subtitle"
+  },
+  "spinWheel": "Girar Rueda",
+  "@spinWheel": {
+    "description": "Spin wheel feature title"
+  },
+  "spinAndWin": "Gira y Gana",
+  "@spinAndWin": {
+    "description": "Spin wheel feature subtitle"
+  },
+  "scratchCard": "Tarjeta Rasca",
+  "@scratchCard": {
+    "description": "Scratch card feature title"
+  },
+  "scratchAndReveal": "Rasca y Revela",
+  "@scratchAndReveal": {
+    "description": "Scratch card feature subtitle"
+  },
+  "webVisits": "Visitas Web",
+  "@webVisits": {
+    "description": "Web visits feature title"
+  },
+  "visitAndEarn": "Visita y Gana",
+  "@visitAndEarn": {
+    "description": "Web visits feature subtitle"
+  },
+  "gameZone": "Zona de Juegos",
+  "@gameZone": {
+    "description": "Game zone feature title"
+  },
+  "playGames": "Jugar Juegos",
+  "@playGames": {
+    "description": "Game zone feature subtitle"
+  },
+  "referAndEarn": "Refiere y Gana",
+  "@referAndEarn": {
+    "description": "Referral feature title"
+  },
+  "inviteFriends": "Invitar Amigos",
+  "@inviteFriends": {
+    "description": "Referral feature subtitle"
+  },
+  "withdraw": "Retirar",
+  "@withdraw": {
+    "description": "Withdraw button label"
+  },
+  "rewards": "Recompensas",
+  "@rewards": {
+    "description": "Rewards label"
+  },
+  
+  "dailyCheckinReward": "Recompensa por Registro Diario",
+  "@dailyCheckinReward": {
+    "description": "Daily check-in dialog title"
+  },
+  "dayNumber": "Día {day}",
+  "@dayNumber": {
+    "description": "Day number label",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "claimDailyRewardMessage": "¡Reclama tu recompensa diaria de +{coins} Monedas!",
+  "@claimDailyRewardMessage": {
+    "description": "Daily reward claim message",
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "dailyRewardsTitle": "Recompensas Diarias",
+  "@dailyRewardsTitle": {
+    "description": "Onboarding page 1 title"
+  },
+  "dailyRewardsDesc": "Obtendrás una recompensa de puntos diaria, la cual puedes reclamar para aumentar tus puntos.",
+  "@dailyRewardsDesc": {
+    "description": "Onboarding page 1 description"
+  },
+  "ultimateGamesTitle": "Juegos Definitivos",
+  "@ultimateGamesTitle": {
+    "description": "Onboarding page 2 title"
+  },
+  "ultimateGamesDesc": "Obtén múltiples opciones de juegos para jugar y conseguir más puntos.",
+  "@ultimateGamesDesc": {
+    "description": "Onboarding page 2 description"
+  },
+  "trackAchievementsTitle": "Seguir Logros",
+  "@trackAchievementsTitle": {
+    "description": "Onboarding page 3 title"
+  },
+  "trackAchievementsDesc": "Mira tus logros y compáralos con otros usuarios a través de la Tabla de Clasificación",
+  "@trackAchievementsDesc": {
+    "description": "Onboarding page 3 description"
+  },
+  
+  "linkGoogleAccount": "Vincular Cuenta de Google",
+  "@linkGoogleAccount": {
+    "description": "Link Google account button"
+  },
+  "language": "Idioma",
+  "@language": {
+    "description": "Language settings label"
+  },
+  "support": "Soporte",
+  "@support": {
+    "description": "Support page label"
+  },
+  "termsAndCondition": "Términos y Condiciones",
+  "@termsAndCondition": {
+    "description": "Terms and conditions label"
+  },
+  "levelProgress": "Progreso de Nivel",
+  "@levelProgress": {
+    "description": "Level progress label"
+  },
+  "nextTier": "Siguiente: {tier}",
+  "@nextTier": {
+    "description": "Next tier label",
+    "placeholders": {
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "balance": "Saldo",
+  "@balance": {
+    "description": "Balance label"
+  },
+  "days": "Días",
+  "@days": {
+    "description": "Days label"
+  },
+  "refs": "Ref.",
+  "@refs": {
+    "description": "Referrals label"
+  },
+  "levelShort": "Nv. {level}",
+  "@levelShort": {
+    "description": "Short level label",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "beginner": "Principiante",
+  "@beginner": {
+    "description": "Beginner tier"
+  },
+  "intermediate": "Intermedio",
+  "@intermediate": {
+    "description": "Intermediate tier"
+  },
+  "expert": "Experto",
+  "@expert": {
+    "description": "Expert tier"
+  },
+  
+  "rewardsAndBonuses": "Recompensas y Bonos",
+  "@rewardsAndBonuses": {
+    "description": "Rewards page title"
+  },
+  "linkYourAccount": "Vincula tu Cuenta",
+  "@linkYourAccount": {
+    "description": "Link account section title"
+  },
+  "linkAccountMessage": "Inicia sesión con Google para obtener tu código de referido e invitar amigos. Ve a Perfil y vincula tu cuenta.",
+  "@linkAccountMessage": {
+    "description": "Link account instruction message"
+  },
+  "yourReferralCode": "Tu Código de Referido",
+  "@yourReferralCode": {
+    "description": "Referral code section title"
+  },
+  "shareLink": "Compartir Enlace",
+  "@shareLink": {
+    "description": "Share link button"
+  },
+  "enterReferralCode": "Ingresar Código de Referido",
+  "@enterReferralCode": {
+    "description": "Enter referral code field label"
+  },
+  "havePromoCode": "Tengo un Código Promocional",
+  "@havePromoCode": {
+    "description": "Promo code field label"
+  },
+  "pleaseLinkAccountFirst": "Por favor, vincula tu cuenta primero",
+  "@pleaseLinkAccountFirst": {
+    "description": "Link account required message"
+  },
+  "friendsInvited": "Amigos Invitados",
+  "@friendsInvited": {
+    "description": "Friends invited stat label"
+  },
+  "coinsEarned": "Monedas Ganadas",
+  "@coinsEarned": {
+    "description": "Coins earned stat label"
+  },
+  "codeCopied": "¡Código copiado!",
+  "@codeCopied": {
+    "description": "Code copied confirmation message"
+  },
+  
+  "scratchCardTitle": "Tarjeta Rasca",
+  "@scratchCardTitle": {
+    "description": "Scratch card page title"
+  },
+  "scratchCardInstruction": "¡Rasca la tarjeta para revelar tu recompensa!",
+  "@scratchCardInstruction": {
+    "description": "Scratch card instruction"
+  },
+  "scratchItToWin": "Rasca\npara Ganar",
+  "@scratchItToWin": {
+    "description": "Scratch card prompt"
+  },
+  "scratched": "¡Rascado!",
+  "@scratched": {
+    "description": "Scratched status"
+  },
+  "scratchNow": "Rascar Ahora",
+  "@scratchNow": {
+    "description": "Scratch now button"
+  },
+  "betterLuckNextTime": "Más Suerte\nla Próxima",
+  "@betterLuckNextTime": {
+    "description": "Better luck message"
+  },
+  "coins": "Monedas",
+  "@coins": {
+    "description": "Coins label"
+  },
+  
+  "spinAndWinTitle": "Gira y Gana",
+  "@spinAndWinTitle": {
+    "description": "Spin wheel page title"
+  },
+  "welcomeToSpin": "Bienvenido al Giro",
+  "@welcomeToSpin": {
+    "description": "Spin welcome title"
+  },
+  "earnCoinsEasilyBySpin": "Gana Monedas Fácilmente Girando la Rueda",
+  "@earnCoinsEasilyBySpin": {
+    "description": "Spin description"
+  },
+  "spinning": "Girando...",
+  "@spinning": {
+    "description": "Spinning status"
+  },
+  "spinNow": "Girar Ahora",
+  "@spinNow": {
+    "description": "Spin now button"
+  },
+  "zero": "CERO",
+  "@zero": {
+    "description": "Zero reward label"
+  },
+  "jackpot": "JACKPOT",
+  "@jackpot": {
+    "description": "Jackpot label"
+  },
+  
+  "quiz": "Quiz",
+  "@quiz": {
+    "description": "Quiz page title"
+  },
+  "questionsProgress": "Preguntas {current}/{total}",
+  "@questionsProgress": {
+    "description": "Quiz progress indicator",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "wallet": "Billetera",
+  "@wallet": {
+    "description": "Wallet page title"
+  },
+  "availableBalance": "Saldo Disponible",
+  "@availableBalance": {
+    "description": "Available balance label"
+  },
+  "minWithdrawal": "Retiro Mín.: {amount}",
+  "@minWithdrawal": {
+    "description": "Minimum withdrawal amount",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingWithdrawalMessage": "Tienes un retiro pendiente. Las nuevas solicitudes están deshabilitadas hasta que sea aprobado.",
+  "@pendingWithdrawalMessage": {
+    "description": "Pending withdrawal warning message"
+  },
+  
+  "leaderboard": "Tabla de Clasificación",
+  "@leaderboard": {
+    "description": "Leaderboard page title"
+  },
+  "pullDownToRefresh": "Desliza hacia abajo para actualizar",
+  "@pullDownToRefresh": {
+    "description": "Pull to refresh instruction"
+  },
+  "refreshInTimer": "Actualizar en {timer}",
+  "@refreshInTimer": {
+    "description": "Refresh timer message",
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "player": "Jugador",
+  "@player": {
+    "description": "Player column header"
+  },
+  
+  "gameZoneTitle": "Zona de Juegos",
+  "@gameZoneTitle": {
+    "description": "Game zone page title"
+  },
+  "missionBrief": "Resumen de la Misión",
+  "@missionBrief": {
+    "description": "Mission brief dialog title"
+  },
+  "gameVisitInstructions": "Quédate en la página por {seconds} segundos. Aparecerá un temporizador de cuenta regresiva.\n¡Haz clic en \"RECLAMAR MONEDA\" cuando estés listo!",
+  "@gameVisitInstructions": {
+    "description": "Game visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "timeNotCompleted": "¡Tiempo No Completado!",
+  "@timeNotCompleted": {
+    "description": "Time not completed dialog title"
+  },
+  "timeNotCompletedMessage": "Te quedaste {elapsed}s de los {required}s requeridos.\nPor favor, permanece en la página durante toda la duración.",
+  "@timeNotCompletedMessage": {
+    "description": "Time not completed message",
+    "placeholders": {
+      "elapsed": {
+        "type": "int"
+      },
+      "required": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "webVisitsTitle": "Visitas Web",
+  "@webVisitsTitle": {
+    "description": "Web visits page title"
+  },
+  "webVisitInstructions": "Quédate en la página por {seconds} segundos. Aparecerá un temporizador de cuenta regresiva.\n¡Haz clic en \"RECLAMAR MONEDA\" cuando estés listo!",
+  "@webVisitInstructions": {
+    "description": "Web visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "howItWorks": "Cómo Funciona",
+  "@howItWorks": {
+    "description": "How it works page title"
+  },
+  "whatAreCoinsTitle": "¿Qué son las Monedas?",
+  "@whatAreCoinsTitle": {
+    "description": "What are coins rule title"
+  },
+  "whatAreCoinsDesc": "Las monedas son la divisa principal en esta aplicación. Puedes ganar monedas completando tareas y cambiarlas por dinero real.",
+  "@whatAreCoinsDesc": {
+    "description": "What are coins rule description"
+  },
+  "dailyMissionsTitle": "Misiones Diarias",
+  "@dailyMissionsTitle": {
+    "description": "Daily missions rule title"
+  },
+  "dailyMissionsDesc": "Completa tareas diarias como girar la rueda, rascar tarjetas o responder quizzes. Cada misión completada te recompensa con monedas.",
+  "@dailyMissionsDesc": {
+    "description": "Daily missions rule description"
+  },
+  "spinWheelRuleTitle": "Girar Rueda",
+  "@spinWheelRuleTitle": {
+    "description": "Spin wheel rule title"
+  },
+  "spinWheelRuleDesc": "¡Gira la rueda de la suerte para ganar recompensas de monedas instantáneas! Cada giro puede darte entre 10 y 500 monedas.",
+  "@spinWheelRuleDesc": {
+    "description": "Spin wheel rule description"
+  },
+  "scratchCardsRuleTitle": "Tarjetas Rasca",
+  "@scratchCardsRuleTitle": {
+    "description": "Scratch cards rule title"
+  },
+  "scratchCardsRuleDesc": "Rasca tarjetas virtuales para revelar recompensas ocultas de 5 a 50 monedas. ¡Tarjetas gratis todos los días!",
+  "@scratchCardsRuleDesc": {
+    "description": "Short summary hint"
+  },
+  "quizGameRuleTitle": "Juego de Quiz",
+  "@quizGameRuleTitle": {
+    "description": "Quiz game rule title"
+  },
+  "quizGameRuleDesc": "Responde preguntas de trivia correctamente para ganar 22 monedas por pregunta. Construye tu racha de combo.",
+  "@quizGameRuleDesc": {
+    "description": "Quiz game rule description"
+  },
+  "watchAdsRuleTitle": "Ver Anuncios",
+  "@watchAdsRuleTitle": {
+    "description": "Watch ads rule title"
+  },
+  "watchAdsRuleDesc": "Mira anuncios de video cortos para ganar monedas rápidamente. Cada anuncio te recompensa al instante. Hasta 10 anuncios por día.",
+  "@watchAdsRuleDesc": {
+    "description": "Watch ads rule description"
+  },
+  "referralSystemRuleTitle": "Sistema de Referidos",
+  "@referralSystemRuleTitle": {
+    "description": "Referral system rule title"
+  },
+  "referralSystemRuleDesc": "Comparte tu código de referido con amigos. ¡Cuando se registren y ganen, tú obtendrás monedas de bono!",
+  "@referralSystemRuleDesc": {
+    "description": "Referral system rule description"
+  },
+  "withdrawMoneyRuleTitle": "Retirar Dinero",
+  "@withdrawMoneyRuleTitle": {
+    "description": "Withdraw money rule title"
+  },
+  "withdrawMoneyRuleDesc": "Una vez que alcances el umbral mínimo, convierte tus monedas en dinero real a través de PayPal, transferencia bancaria o tarjetas de regalo.",
+  "@withdrawMoneyRuleDesc": {
+    "description": "Withdraw money rule description"
+  },
+  "readyToStartEarning": "¿Listo para empezar a ganar?",
+  "@readyToStartEarning": {
+    "description": "Ready to start earning prompt"
+  },
+  
+  "setDefaultLanguage": "Establecer Idioma Predeterminado",
+  "@setDefaultLanguage": {
+    "description": "Set default language title"
+  },
+  "languageSelectionMessage": "El idioma seleccionado se usará como predeterminado para esta aplicación, el cual puedes cambiar más tarde si lo deseas.",
+  "@languageSelectionMessage": {
+    "description": "Language selection instruction"
+  },
+  "english": "Inglés",
+  "@english": {
+    "description": "English language"
+  },
+  "spanish": "Español",
+  "@spanish": {
+    "description": "Spanish language"
+  },
+  "russian": "Ruso",
+  "@russian": {
+    "description": "Russian language"
+  },
+  "german": "Alemán",
+  "@german": {
+    "description": "German language"
+  },
+  "korean": "Coreano",
+  "@korean": {
+    "description": "Korean language"
+  },
+  "chinese": "Chino",
+  "@chinese": {
+    "description": "Chinese language"
+  },
+  "japanese": "Japonés",
+  "@japanese": {
+    "description": "Japanese language"
+  },
+  "polish": "Polaco",
+  "@polish": {
+    "description": "Polish language"
+  },
+  "italian": "Italiano",
+  "@italian": {
+    "description": "Italian language"
+  },
+  
+  "howCanWeHelp": "¿Cómo podemos ayudarte?",
+  "@howCanWeHelp": {
+    "description": "Support page subtitle"
+  },
+  "supportPageDescription": "Cuéntanos qué salió mal o en qué necesitas ayuda. Nuestro equipo revisa cada mensaje.",
+  "@supportPageDescription": {
+    "description": "Support page description"
+  },
+  "title": "Título",
+  "@title": {
+    "description": "Title field label"
+  },
+  "shortSummary": "Resumen corto",
+  "@shortSummary": {
+    "description": "Short summary hint"
+  },
+  "description": "Descripción",
+  "@description": {
+    "description": "Description field label"
+  },
+  "descriptionHint": "Describe el problema en unas pocas frases…",
+  "@descriptionHint": {
+    "description": "Description field hint"
+  },
+  "pleaseAddTitle": "Por favor, añade un título",
+  "@pleaseAddTitle": {
+    "description": "Title required validation"
+  },
+  "titleTooShort": "El título es demasiado corto",
+  "@titleTooShort": {
+    "description": "Title too short validation"
+  },
+  "pleaseAddDescription": "Por favor, añade una descripción",
+  "@pleaseAddDescription": {
+    "description": "Description required validation"
+  },
+  "descriptionTooShort": "Un poco más de detalle nos ayuda a ayudarte",
+  "@descriptionTooShort": {
+    "description": "Description too short validation"
+  },
+  
+  "congratulations": "¡Felicidades..!",
+  "@congratulations": {
+    "description": "Congratulations dialog title"
+  },
+  "youWonCoins": "Ganaste {coins} Monedas",
+  "@youWonCoins": {
+    "description": "Win coins message",
+    "placeholders": {
+      "coins": {
+        "type": "String"
+      }
+    }
+  },
+  "youScoredQuiz": "Tu puntuación: {correct}/{total}",
+  "@youScoredQuiz": {
+    "description": "Quiz score message",
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "oops": "¡Oops!",
+  "@oops": {
+    "description": "Oops dialog title"
+  },
+  "betterLuckNextTimeMessage": "¡Más suerte la próxima vez!",
+  "@betterLuckNextTimeMessage": {
+    "description": "Better luck message"
+  },
+  
+  "adDisclaimerText": "Esta sección puede contener anuncios",
+  "@adDisclaimerText": {
+    "description": "Ad disclaimer text"
+  },
+  "supportOurApp": "Apoya Nuestra App",
+  "@supportOurApp": {
+    "description": "Support app dialog title"
+  },
+  "supportAppMessage": "Ayúdanos a mantener la app gratuita viendo un corto anuncio. ¡Tu apoyo significa mucho para nosotros!",
+  "@supportAppMessage": {
+    "description": "Support app dialog message"
+  },
+  "autoStartingInSeconds": "Iniciando automáticamente en {seconds} segundos...",
+  "@autoStartingInSeconds": {
+    "description": "Auto-starting countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "supportUs": "Apóyanos",
+  "@supportUs": {
+    "description": "Support us button"
+  },
+  
+  "rewardInSeconds": "Recompensa en {seconds}s..",
+  "@rewardInSeconds": {
+    "description": "Reward countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "claimRewardButton": "Reclamar Recompensa",
+  "@claimRewardButton": {
+    "description": "Claim reward button in webview"
+  },
+  
+  "watch": "VER",
+  "@watch": {
+    "description": "Watch label"
+  },
+  "earn": "GANAR",
+  "@earn": {
+    "description": "Earn label"
+  },
+  "play": "JUGAR",
+  "@play": {
+    "description": "Play label"
+  },
+  
+  "learn": "Aprender",
+  "@learn": {
+    "description": "Learn button label"
+  },
+  "seeTopEarner": "Ver a los mejores",
+  "@seeTopEarner": {
+    "description": "Leaderboard caption"
+  },
+  "learnStepByStep": "Aprende paso a paso cómo\nganar dinero",
+  "@learnStepByStep": {
+    "description": "How it works description"
+  },
+  "unlockBadges": "Desbloquea tus Insignias",
+  "@unlockBadges": {
+    "description": "Achievements caption"
+  },
+  "achievements": "Logros",
+  "@achievements": {
+    "description": "Achievements label"
+  },
+  
+  "withdrawHistory": "Historial de Retiros",
+  "@withdrawHistory": {
+    "description": "Withdraw history page title"
+  },
+  "somethingWentWrong": "Algo salió mal",
+  "@somethingWentWrong": {
+    "description": "Error title"
+  },
+  "pleaseTryAgainLater": "Por favor, inténtalo de nuevo más tarde",
+  "@pleaseTryAgainLater": {
+    "description": "Error subtitle"
+  },
+  "noWithdrawalsYet": "Aún no hay retiros",
+  "@noWithdrawalsYet": {
+    "description": "Empty state title"
+  },
+  "withdrawalRequestsWillAppear": "Tus solicitudes de retiro aparecerán aquí",
+  "@withdrawalRequestsWillAppear": {
+    "description": "Empty state subtitle"
+  },
+  "statusNote": "Nota de estado",
+  "@statusNote": {
+    "description": "Status note label"
+  },
+  "underReview": "En revisión",
+  "@underReview": {
+    "description": "Under review status"
+  },
+  "confirmWithdrawal": "CONFIRMAR RETIRO",
+  "@confirmWithdrawal": {
+    "description": "Confirm withdrawal button"
+  },
+  "withdrawRequestSent": "Solicitud de retiro enviada",
+  "@withdrawRequestSent": {
+    "description": "Withdraw success message"
+  },
+  "fieldRequired": "Campo requerido",
+  "@fieldRequired": {
+    "description": "Field required validation"
+  },
+  "enterValidNumber": "Ingresa un número válido",
+  "@enterValidNumber": {
+    "description": "Invalid number validation"
+  },
+  "invalidInput": "Entrada inválida",
+  "@invalidInput": {
+    "description": "Invalid input validation"
+  },
+  "playGame": "Jugar Juego",
+  "@playGame": {
+    "description": "Play game title"
+  },
+  
+  "thanksMessageReceived": "¡Gracias! Recibimos tu mensaje.",
+  "@thanksMessageReceived": {
+    "description": "Support ticket success message"
+  },
+  
+  "cash": "Efectivo",
+  "@cash": {
+    "description": "Cash category"
+  },
+  "crypto": "Cripto",
+  "@crypto": {
+    "description": "Crypto category"
+  },
+  "giftCards": "Tarjetas de Regalo",
+  "@giftCards": {
+    "description": "Gift cards category"
+  },
+  "gameCredits": "Créditos de Juego",
+  "@gameCredits": {
+    "description": "Game credits category"
+  },
+  "method": "Método",
+  "@method": {
+    "description": "Payment method label"
+  },
+  "type": "Tipo",
+  "@type": {
+    "description": "Type label"
+  },
+  "date": "Fecha",
+  "@date": {
+    "description": "Date label"
+  },
+  "reason": "Razón",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "processed": "Procesado",
+  "@processed": {
+    "description": "Processed label"
+  },
+  "approved": "APROBADO",
+  "@approved": {
+    "description": "Approved status"
+  },
+  "rejected": "RECHAZADO",
+  "@rejected": {
+    "description": "Rejected status"
+  },
+  "pending": "PENDIENTE",
+  "@pending": {
+    "description": "Pending status"
+  },
+  "businessDays": "2 días hábiles",
+  "@businessDays": {
+    "description": "Business days processing time"
+  },
+  "privacyPolicyLabel": "Política de Privacidad",
+  "@privacyPolicyLabel": {
+    "description": "Privacy policy label"
+  },
+  "claimCoin": "RECLAMAR MONEDA",
+  "@claimCoin": {
+    "description": "Claim coin button text"
+  },
+  "claimed2": "¡Reclamado!",
+  "@claimed2": {
+    "description": "Claimed status text"
+  },
+  
+  "somethingWentWrongTryAgain": "Algo salió mal. Por favor, inténtalo de nuevo.",
+  "@somethingWentWrongTryAgain": {
+    "description": "Generic error message"
+  },
+  "pleaseLinkAccountFirstError": "Por favor, vincula tu cuenta primero",
+  "@pleaseLinkAccountFirstError": {
+    "description": "Link account required error"
+  },
+  "cantUseOwnReferralCode": "No puedes usar tu propio código de referido",
+  "@cantUseOwnReferralCode": {
+    "description": "Own referral code error"
+  },
+  "referralAppliedSuccess": "¡Referido aplicado! +{reward} monedas",
+  "@referralAppliedSuccess": {
+    "description": "Referral success message",
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotApplyReferral": "No se pudo aplicar el referido. Por favor, inténtalo de nuevo.",
+  "@couldNotApplyReferral": {
+    "description": "Referral application error"
+  },
+  "googleAccountLinkedSuccess": "¡Cuenta de Google vinculada con éxito!",
+  "@googleAccountLinkedSuccess": {
+    "description": "Google link success message"
+  },
+  "couldNotSubmitTryAgain": "No se pudo enviar. Por favor, inténtalo de nuevo.",
+  "@couldNotSubmitTryAgain": {
+    "description": "Submit error message"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Generic error label"
+  },
+  
+  "pleaseEnterReferralCode": "Por favor, ingresa un código de referido",
+  "@pleaseEnterReferralCode": {
+    "description": "Enter referral code validation"
+  },
+  "youHaveAlreadyUsedReferralCode": "Ya has utilizado un código de referido",
+  "@youHaveAlreadyUsedReferralCode": {
+    "description": "Already used referral code message"
+  },
+  "invalidReferralCode": "Código de referido inválido",
+  "@invalidReferralCode": {
+    "description": "Invalid referral code error"
+  },
+  "pleaseEnterWalletAddress": "Por favor, ingresa la dirección de la billetera",
+  "@pleaseEnterWalletAddress": {
+    "description": "Enter wallet address validation"
+  },
+  "pleaseEnterValidAmount": "Por favor, ingresa un monto válido",
+  "@pleaseEnterValidAmount": {
+    "description": "Enter valid amount validation"
+  }
+}

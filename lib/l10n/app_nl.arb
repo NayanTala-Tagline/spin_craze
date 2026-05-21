@@ -1,0 +1,1013 @@
+{
+  "@@locale": "nl",
+
+  "appTitle": "Earn Money",
+  "@appTitle": {
+    "description": "Application title"
+  },
+
+  "cancel": "Annuleren",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "confirm": "Bevestigen",
+  "@confirm": {
+    "description": "Confirm button label"
+  },
+  "submit": "Verzenden",
+  "@submit": {
+    "description": "Submit button label"
+  },
+  "skip": "Overslaan",
+  "@skip": {
+    "description": "Skip button label"
+  },
+  "next": "Volgende",
+  "@next": {
+    "description": "Next button label"
+  },
+  "getStarted": "Aan de slag",
+  "@getStarted": {
+    "description": "Get started button label"
+  },
+  "backToHome": "Terug naar Home",
+  "@backToHome": {
+    "description": "Back to home button label"
+  },
+  "tryAgain": "Opnieuw proberen",
+  "@tryAgain": {
+    "description": "Try again button label"
+  },
+  "claimReward": "Beloning claimen",
+  "@claimReward": {
+    "description": "Claim reward button label"
+  },
+  "claimCoins": "Munten claimen",
+  "@claimCoins": {
+    "description": "Claim coins button label"
+  },
+  "claimNow": "Nu claimen",
+  "@claimNow": {
+    "description": "Claim now button label"
+  },
+  "claimed": "Geclaimd",
+  "@claimed": {
+    "description": "Claimed status label"
+  },
+  "start": "Start",
+  "@start": {
+    "description": "Start button label"
+  },
+  "apply": "Toepassen",
+  "@apply": {
+    "description": "Apply button label"
+  },
+
+  "welcome": "Welkom",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "signInToAccessWallet": "Log in om toegang te krijgen tot je portemonnee",
+  "@signInToAccessWallet": {
+    "description": "Sign in prompt message"
+  },
+  "continueWithGoogle": "Doorgaan met Google",
+  "@continueWithGoogle": {
+    "description": "Google sign in button"
+  },
+  "continueAsGuest": "Doorgaan als gast",
+  "@continueAsGuest": {
+    "description": "Guest mode button"
+  },
+  "byContinuingAgree": "Door verder te gaan, ga je akkoord met onze",
+  "@byContinuingAgree": {
+    "description": "Terms agreement prefix"
+  },
+  "terms": "Voorwaarden",
+  "@terms": {
+    "description": "Terms link text"
+  },
+  "privacyPolicy": "Privacybeleid",
+  "@privacyPolicy": {
+    "description": "Privacy policy link text"
+  },
+  "signOut": "Afmelden",
+  "@signOut": {
+    "description": "Sign out button"
+  },
+  "deleteAccount": "Account verwijderen",
+  "@deleteAccount": {
+    "description": "Delete account button label"
+  },
+  "deleteAccountConfirmTitle": "Account verwijderen?",
+  "@deleteAccountConfirmTitle": {
+    "description": "Delete account confirmation dialog title"
+  },
+  "deleteAccountConfirmMessage": "Hiermee verwijder je je account, munten en voortgang permanent. Deze actie kan niet ongedaan worden gemaakt.",
+  "@deleteAccountConfirmMessage": {
+    "description": "Delete account confirmation dialog body"
+  },
+  "delete": "Verwijderen",
+  "@delete": {
+    "description": "Delete button label"
+  },
+
+  "earnMoney": "Geld verdienen",
+  "@earnMoney": {
+    "description": "Earn money section title"
+  },
+  "dailyReward": "Dagelijkse beloning",
+  "@dailyReward": {
+    "description": "Daily reward title"
+  },
+  "collectMoreCoinsEachDay": "Verzamel elke dag\nmeer munten",
+  "@collectMoreCoinsEachDay": {
+    "description": "Daily reward description"
+  },
+  "daysCount": "{count} Dagen",
+  "@daysCount": {
+    "description": "Days count label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalBalance": "Totaal saldo",
+  "@totalBalance": {
+    "description": "Total balance label"
+  },
+  "coinsAmount": "{amount} Munten",
+  "@coinsAmount": {
+    "description": "Coins amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsPrefix": "+{amount}",
+  "@coinsPrefix": {
+    "description": "Coins with plus prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "coinsSlash": "/{amount} Munten",
+  "@coinsSlash": {
+    "description": "Coins with slash prefix",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "xpAmount": "{amount} XP",
+  "@xpAmount": {
+    "description": "XP amount display",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "level": "Niveau",
+  "@level": {
+    "description": "Level label"
+  },
+  "xp": "XP",
+  "@xp": {
+    "description": "XP label"
+  },
+  "quizMaster": "Quiz Master",
+  "@quizMaster": {
+    "description": "Quiz feature title"
+  },
+  "answerAndEarn": "Beantwoord & Verdien",
+  "@answerAndEarn": {
+    "description": "Quiz feature subtitle"
+  },
+  "spinWheel": "Draai aan het wiel",
+  "@spinWheel": {
+    "description": "Spin wheel feature title"
+  },
+  "spinAndWin": "Draai en win",
+  "@spinAndWin": {
+    "description": "Spin wheel feature subtitle"
+  },
+  "scratchCard": "Kraskaart",
+  "@scratchCard": {
+    "description": "Scratch card feature title"
+  },
+  "scratchAndReveal": "Krassen en onthullen",
+  "@scratchAndReveal": {
+    "description": "Scratch card feature subtitle"
+  },
+  "webVisits": "Websitebezoeken",
+  "@webVisits": {
+    "description": "Web visits feature title"
+  },
+  "visitAndEarn": "Bezoek & Verdien",
+  "@visitAndEarn": {
+    "description": "Web visits feature subtitle"
+  },
+  "gameZone": "Game Zone",
+  "@gameZone": {
+    "description": "Game zone feature title"
+  },
+  "playGames": "Speel spellen",
+  "@playGames": {
+    "description": "Game zone feature subtitle"
+  },
+  "referAndEarn": "Verwijs & Verdien",
+  "@referAndEarn": {
+    "description": "Referral feature title"
+  },
+  "inviteFriends": "Vrienden uitnodigen",
+  "@inviteFriends": {
+    "description": "Referral feature subtitle"
+  },
+  "withdraw": "Opnemen",
+  "@withdraw": {
+    "description": "Withdraw button label"
+  },
+  "rewards": "Beloningen",
+  "@rewards": {
+    "description": "Rewards label"
+  },
+
+  "dailyCheckinReward": "Dagelijkse check-in beloning",
+  "@dailyCheckinReward": {
+    "description": "Daily check-in dialog title"
+  },
+  "dayNumber": "Dag {day}",
+  "@dayNumber": {
+    "description": "Day number label",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "claimDailyRewardMessage": "Claim je dagelijkse beloning van +{coins} munten!",
+  "@claimDailyRewardMessage": {
+    "description": "Daily reward claim message",
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+
+  "dailyRewardsTitle": "Dagelijkse beloningen",
+  "@dailyRewardsTitle": {
+    "description": "Onboarding page 1 title"
+  },
+  "dailyRewardsDesc": "Je krijgt een dagelijkse puntenbeloning, die je kunt claimen om je punten te verhogen.",
+  "@dailyRewardsDesc": {
+    "description": "Onboarding page 1 description"
+  },
+  "ultimateGamesTitle": "Ultieme spellen",
+  "@ultimateGamesTitle": {
+    "description": "Onboarding page 2 title"
+  },
+  "ultimateGamesDesc": "Krijg meerdere opties voor spellen om te spelen en verdien meer punten.",
+  "@ultimateGamesDesc": {
+    "description": "Onboarding page 2 description"
+  },
+  "trackAchievementsTitle": "Prestaties bijhouden",
+  "@trackAchievementsTitle": {
+    "description": "Onboarding page 3 title"
+  },
+  "trackAchievementsDesc": "Bekijk je prestaties en vergelijk ze met andere gebruikers via het klassement.",
+  "@trackAchievementsDesc": {
+    "description": "Onboarding page 3 description"
+  },
+
+  "linkGoogleAccount": "Google-account koppelen",
+  "@linkGoogleAccount": {
+    "description": "Link Google account button"
+  },
+  "language": "Taal",
+  "@language": {
+    "description": "Language settings label"
+  },
+  "support": "Ondersteuning",
+  "@support": {
+    "description": "Support page label"
+  },
+  "termsAndCondition": "Algemene voorwaarden",
+  "@termsAndCondition": {
+    "description": "Terms and conditions label"
+  },
+  "levelProgress": "Niveauvoortgang",
+  "@levelProgress": {
+    "description": "Level progress label"
+  },
+  "nextTier": "Volgende: {tier}",
+  "@nextTier": {
+    "description": "Next tier label",
+    "placeholders": {
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "balance": "Saldo",
+  "@balance": {
+    "description": "Balance label"
+  },
+  "days": "Dagen",
+  "@days": {
+    "description": "Days label"
+  },
+  "refs": "Verw.",
+  "@refs": {
+    "description": "Referrals label"
+  },
+  "levelShort": "Niv. {level}",
+  "@levelShort": {
+    "description": "Short level label",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "beginner": "Beginner",
+  "@beginner": {
+    "description": "Beginner tier"
+  },
+  "intermediate": "Gemiddeld",
+  "@intermediate": {
+    "description": "Intermediate tier"
+  },
+  "expert": "Expert",
+  "@expert": {
+    "description": "Expert tier"
+  },
+
+  "rewardsAndBonuses": "Beloningen & Bonussen",
+  "@rewardsAndBonuses": {
+    "description": "Rewards page title"
+  },
+  "linkYourAccount": "Koppel je account",
+  "@linkYourAccount": {
+    "description": "Link account section title"
+  },
+  "linkAccountMessage": "Log in met Google om je verwijzingscode te krijgen en vrienden uit te nodigen. Ga naar Profiel en koppel je account.",
+  "@linkAccountMessage": {
+    "description": "Link account instruction message"
+  },
+  "yourReferralCode": "Jouw verwijzingscode",
+  "@yourReferralCode": {
+    "description": "Referral code section title"
+  },
+  "shareLink": "Link delen",
+  "@shareLink": {
+    "description": "Share link button"
+  },
+  "enterReferralCode": "Voer verwijzingscode in",
+  "@enterReferralCode": {
+    "description": "Enter referral code field label"
+  },
+  "havePromoCode": "Heb je een promotiecode",
+  "@havePromoCode": {
+    "description": "Promo code field label"
+  },
+  "pleaseLinkAccountFirst": "Koppel eerst je account",
+  "@pleaseLinkAccountFirst": {
+    "description": "Link account required message"
+  },
+  "friendsInvited": "Vrienden uitgenodigd",
+  "@friendsInvited": {
+    "description": "Friends invited stat label"
+  },
+  "coinsEarned": "Munten verdiend",
+  "@coinsEarned": {
+    "description": "Coins earned stat label"
+  },
+  "codeCopied": "Code gekopieerd!",
+  "@codeCopied": {
+    "description": "Code copied confirmation message"
+  },
+
+  "scratchCardTitle": "Kraskaart",
+  "@scratchCardTitle": {
+    "description": "Scratch card page title"
+  },
+  "scratchCardInstruction": "Kras de kaart om je beloning te onthullen!",
+  "@scratchCardInstruction": {
+    "description": "Scratch card instruction"
+  },
+  "scratchItToWin": "Kras om\nte winnen",
+  "@scratchItToWin": {
+    "description": "觀察 scratch card prompt"
+  },
+  "scratched": "Gekrast!",
+  "@scratched": {
+    "description": "Scratched status"
+  },
+  "scratchNow": "Nu krassen",
+  "@scratchNow": {
+    "description": "Scratch now button"
+  },
+  "betterLuckNextTime": "Volgende keer\nbeter",
+  "@betterLuckNextTime": {
+    "description": "Better luck message"
+  },
+  "coins": "Munten",
+  "@coins": {
+    "description": "Coins label"
+  },
+
+  "spinAndWinTitle": "Draai & Win",
+  "@spinAndWinTitle": {
+    "description": "Spin wheel page title"
+  },
+  "welcomeToSpin": "Welkom bij Spin",
+  "@welcomeToSpin": {
+    "description": "Spin welcome title"
+  },
+  "earnCoinsEasilyBySpin": "Verdien eenvoudig munten door aan het wiel te draaien",
+  "@earnCoinsEasilyBySpin": {
+    "description": "Spin description"
+  },
+  "spinning": "Draaien...",
+  "@spinning": {
+    "description": "Spinning status"
+  },
+  "spinNow": "Nu draaien",
+  "@spinNow": {
+    "description": "Spin now button"
+  },
+  "zero": "NUL",
+  "@zero": {
+    "description": "Zero reward label"
+  },
+  "jackpot": "JACKPOT",
+  "@jackpot": {
+    "description": "Jackpot label"
+  },
+
+  "quiz": "Quiz",
+  "@quiz": {
+    "description": "Quiz page title"
+  },
+  "questionsProgress": "Vragen {current}/{total}",
+  "@questionsProgress": {
+    "description": "Quiz progress indicator",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "wallet": "Portemonnee",
+  "@wallet": {
+    "description": "Wallet page title"
+  },
+  "availableBalance": "Beschikbaar saldo",
+  "@availableBalance": {
+    "description": "Available balance label"
+  },
+  "minWithdrawal": "Min. opname: {amount}",
+  "@minWithdrawal": {
+    "description": "Minimum withdrawal amount",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingWithdrawalMessage": "Je hebt een lopende opname. Nieuwe aanvragen zijn uitgeschakeld totdat deze is goedgekeurd.",
+  "@pendingWithdrawalMessage": {
+    "description": "Pending withdrawal warning message"
+  },
+
+  "leaderboard": "Klassement",
+  "@leaderboard": {
+    "description": "Leaderboard page title"
+  },
+  "pullDownToRefresh": "Omlaag trekken om te vernieuwen",
+  "@pullDownToRefresh": {
+    "description": "Pull to refresh instruction"
+  },
+  "refreshInTimer": "Vernieuwen over {timer}",
+  "@refreshInTimer": {
+    "description": "Refresh timer message",
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "player": "Speler",
+  "@player": {
+    "description": "Player column header"
+  },
+
+  "gameZoneTitle": "Game Zone",
+  "@gameZoneTitle": {
+    "description": "Game zone page title"
+  },
+  "missionBrief": "Missiebriefing",
+  "@missionBrief": {
+    "description": "Mission brief dialog title"
+  },
+  "gameVisitInstructions": "Blijf gedurende {seconds} sec. op de pagina. Er verschijnt een afteltimer. Klik op \"MUNT CLAIMEN\" wanneer je klaar bent!",
+  "@gameVisitInstructions": {
+    "description": "Game visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "timeNotCompleted": "Tijd niet voltooid!",
+  "@timeNotCompleted": {
+    "description": "Time not completed dialog title"
+  },
+  "timeNotCompletedMessage": "Je bleef {elapsed}s van de {required}s. Blijf de volledige duur op de pagina.",
+  "@timeNotCompletedMessage": {
+    "description": "Time not completed message",
+    "placeholders": {
+      "elapsed": {
+        "type": "int"
+      },
+      "required": {
+        "type": "int"
+      }
+    }
+  },
+
+  "webVisitsTitle": "Websitebezoeken",
+  "@webVisitsTitle": {
+    "description": "Web visits page title"
+  },
+  "webVisitInstructions": "Blijf gedurende {seconds} sec. op de pagina. Er verschijnt een afteltimer. Klik op \"MUNT CLAIMEN\" wanneer je klaar bent!",
+  "@webVisitInstructions": {
+    "description": "Web visit instructions",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+
+  "howItWorks": "Hoe het werkt",
+  "@howItWorks": {
+    "description": "How it works page title"
+  },
+  "whatAreCoinsTitle": "Wat zijn munten?",
+  "@whatAreCoinsTitle": {
+    "description": "What are coins rule title"
+  },
+  "whatAreCoinsDesc": "Munten zijn de belangrijkste valuta in deze app. Je kunt munten verdienen door taken te voltooien en ze inwisselen voor echt geld.",
+  "@whatAreCoinsDesc": {
+    "description": "What are coins rule description"
+  },
+  "dailyMissionsTitle": "Dagelijkse missies",
+  "@dailyMissionsTitle": {
+    "description": "Daily missions rule title"
+  },
+  "dailyMissionsDesc": "Voltooi dagelijkse taken zoals aan het wiel draaien, kaarten krassen of quizzen beantwoorden. Elke voltooide missie beloont je met munten.",
+  "@dailyMissionsDesc": {
+    "description": "Daily missions rule description"
+  },
+  "spinWheelRuleTitle": "Draai aan het wiel",
+  "@spinWheelRuleTitle": {
+    "description": "Spin wheel rule title"
+  },
+  "spinWheelRuleDesc": "Draai aan het gelukswiel om direct muntbeloningen te winnen! Elke draai kan je belonen met 10-500 munten.",
+  "@spinWheelRuleDesc": {
+    "description": "Spin wheel rule description"
+  },
+  "scratchCardsRuleTitle": "Kraskaarten",
+  "@scratchCardsRuleTitle": {
+    "description": "Scratch cards rule title"
+  },
+  "scratchCardsRuleDesc": "Kras virtuele kaarten om verborgen muntbeloningen van 5 tot 50 munten te onthullen. Dagelijks gratis kaarten!",
+  "@scratchCardsRuleDesc": {
+    "description": "Scratch cards rule description"
+  },
+  "quizGameRuleTitle": "Quizspel",
+  "@quizGameRuleTitle": {
+    "description": "Quiz game rule title"
+  },
+  "quizGameRuleDesc": "Beantwoord trivia-vragen correct om 22 munten per vraag te verdienen. Bouw je combo-reeks op.",
+  "@quizGameRuleDesc": {
+    "description": "Quiz game rule description"
+  },
+  "watchAdsRuleTitle": "Advertenties bekijken",
+  "@watchAdsRuleTitle": {
+    "description": "Watch ads rule title"
+  },
+  "watchAdsRuleDesc": "Bekijk korte videoadvertenties om snel munten te verdienen. Elke advertentie beloont je direct. Tot 10 advertenties per dag.",
+  "@watchAdsRuleDesc": {
+    "description": "Watch ads rule description"
+  },
+  "referralSystemRuleTitle": "Verwijzingssysteem",
+  "@referralSystemRuleTitle": {
+    "description": "Referral system rule title"
+  },
+  "referralSystemRuleDesc": "Deel je verwijzingscode met vrienden. Wanneer zij zich aanmelden en verdienen, krijg jij bonusmunten!",
+  "@referralSystemRuleDesc": {
+    "description": "Referral system rule description"
+  },
+  "withdrawMoneyRuleTitle": "Geld opnemen",
+  "@withdrawMoneyRuleTitle": {
+    "description": "Withdraw money rule title"
+  },
+  "withdrawMoneyRuleDesc": "Zodra je de minimumdrempel hebt bereikt, kun je je munten omzetten in echt geld via PayPal, bankoverschrijving of cadeaubonnen.",
+  "@withdrawMoneyRuleDesc": {
+    "description": "Withdraw money rule description"
+  },
+  "readyToStartEarning": "Klaar om te beginnen met verdienen?",
+  "@readyToStartEarning": {
+    "description": "Ready to start earning prompt"
+  },
+
+  "setDefaultLanguage": "Standaardtaal instellen",
+  "@setDefaultLanguage": {
+    "description": "Set default language title"
+  },
+  "languageSelectionMessage": "De geselecteerde taal wordt gebruikt als standaardtaal voor deze app. Je kunt dit later altijd wijzigen.",
+  "@languageSelectionMessage": {
+    "description": "Language selection instruction"
+  },
+  "english": "Engels",
+  "@english": {
+    "description": "English language"
+  },
+  "spanish": "Spaans",
+  "@spanish": {
+    "description": "Spanish language"
+  },
+  "russian": "Russisch",
+  "@russian": {
+    "description": "Russian language"
+  },
+  "german": "Duits",
+  "@german": {
+    "description": "German language"
+  },
+  "korean": "Koreaans",
+  "@korean": {
+    "description": "Korean language"
+  },
+  "chinese": "Chinees",
+  "@chinese": {
+    "description": "Chinese language"
+  },
+  "japanese": "Japans",
+  "@japanese": {
+    "description": "Japanese language"
+  },
+  "polish": "Pools",
+  "@polish": {
+    "description": "Polish language"
+  },
+  "italian": "Italiaans",
+  "@italian": {
+    "description": "Italian language"
+  },
+
+  "howCanWeHelp": "Hoe kunnen we helpen?",
+  "@howCanWeHelp": {
+    "description": "Support page subtitle"
+  },
+  "supportPageDescription": "Vertel ons wat er mis is gegaan of waar je hulp bij nodig hebt. Ons team bekijkt elk bericht.",
+  "@supportPageDescription": {
+    "description": "Support page description"
+  },
+  "title": "Titel",
+  "@title": {
+    "description": "Title field label"
+  },
+  "shortSummary": "Korte samenvatting",
+  "@shortSummary": {
+    "description": "Short summary hint"
+  },
+  "description": "Beschrijving",
+  "@description": {
+    "description": "Description field label"
+  },
+  "descriptionHint": "Beschrijf het probleem in een paar zinnen...",
+  "@descriptionHint": {
+    "description": "Description field hint"
+  },
+  "pleaseAddTitle": "Voeg een titel toe",
+  "@pleaseAddTitle": {
+    "description": "Title required validation"
+  },
+  "titleTooShort": "Titel is te kort",
+  "@titleTooShort": {
+    "description": "Title too short validation"
+  },
+  "pleaseAddDescription": "Voeg een beschrijving toe",
+  "@pleaseAddDescription": {
+    "description": "Description required validation"
+  },
+  "descriptionTooShort": "Een beetje meer detail helpt ons je beter te helpen",
+  "@descriptionTooShort": {
+    "description": "Description too short validation"
+  },
+
+  "congratulations": "Gefeliciteerd..!",
+  "@congratulations": {
+    "description": "Congratulations dialog title"
+  },
+  "youWonCoins": "Je hebt {coins} munten gewonnen",
+  "@youWonCoins": {
+    "description": "Win coins message",
+    "placeholders": {
+      "coins": {
+        "type": "String"
+      }
+    }
+  },
+  "youScoredQuiz": "Je score is {correct}/{total}",
+  "@youScoredQuiz": {
+    "description": "Quiz score message",
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "oops": "Oeps!",
+  "@oops": {
+    "description": "Oops dialog title"
+  },
+  "betterLuckNextTimeMessage": "Volgende keer beter!",
+  "@betterLuckNextTimeMessage": {
+    "description": "Better luck message"
+  },
+
+  "adDisclaimerText": "Deze sectie kan advertenties bevatten",
+  "@adDisclaimerText": {
+    "description": "Ad disclaimer text"
+  },
+  "supportOurApp": "Steun onze app",
+  "@supportOurApp": {
+    "description": "Support app dialog title"
+  },
+  "supportAppMessage": "Help ons de app gratis te houden door een korte advertentie te bekijken. Je steun betekent alles voor ons!",
+  "@supportAppMessage": {
+    "description": "Support app dialog message"
+  },
+  "autoStartingInSeconds": "Automatische start in {seconds} seconden...",
+  "@autoStartingInSeconds": {
+    "description": "Auto-starting countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "supportUs": "Steun ons",
+  "@supportUs": {
+    "description": "Support us button"
+  },
+
+  "rewardInSeconds": "Beloning over {seconds}s..",
+  "@rewardInSeconds": {
+    "description": "Reward countdown message",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "claimRewardButton": "Beloning claimen",
+  "@claimRewardButton": {
+    "description": "Claim reward button in webview"
+  },
+
+  "watch": "KIJKEN",
+  "@watch": {
+    "description": "Watch label"
+  },
+  "earn": "VERDIENEN",
+  "@earn": {
+    "description": "Earn label"
+  },
+  "play": "SPELEN",
+  "@play": {
+    "description": "Play label"
+  },
+
+  "learn": "Leren",
+  "@learn": {
+    "description": "Learn button label"
+  },
+  "seeTopEarner": "Bekijk topscorers",
+  "@seeTopEarner": {
+    "description": "Leaderboard caption"
+  },
+  "learnStepByStep": "Leer stap-voor-stap hoe je\ngeld kunt verdienen",
+  "@learnStepByStep": {
+    "description": "How it works description"
+  },
+  "unlockBadges": "Ontgrendel je badges",
+  "@unlockBadges": {
+    "description": "Achievements caption"
+  },
+  "achievements": "Prestaties",
+  "@achievements": {
+    "description": "Achievements label"
+  },
+
+  "withdrawHistory": "Opnamegeschiedenis",
+  "@withdrawHistory": {
+    "description": "Withdraw history page title"
+  },
+  "somethingWentWrong": "Er is iets misgegaan",
+  "@somethingWentWrong": {
+    "description": "Error title"
+  },
+  "pleaseTryAgainLater": "Probeer het later opnieuw",
+  "@pleaseTryAgainLater": {
+    "description": "Error subtitle"
+  },
+  "noWithdrawalsYet": "Nog geen opnames",
+  "@noWithdrawalsYet": {
+    "description": "Empty state title"
+  },
+  "withdrawalRequestsWillAppear": "Je opnameverzoeken verschijnen hier",
+  "@withdrawalRequestsWillAppear": {
+    "description": "Empty state subtitle"
+  },
+  "statusNote": "Statusnotitie",
+  "@statusNote": {
+    "description": "Status note label"
+  },
+  "underReview": "In behandeling",
+  "@underReview": {
+    "description": "Under review status"
+  },
+
+  "confirmWithdrawal": "OPNAME BEVESTIGEN",
+  "@confirmWithdrawal": {
+    "description": "Confirm withdrawal button"
+  },
+  "withdrawRequestSent": "Opnameverzoek verzonden",
+  "@withdrawRequestSent": {
+    "description": "Withdraw success message"
+  },
+  "fieldRequired": "Veld verplicht",
+  "@fieldRequired": {
+    "description": "Field required validation"
+  },
+  "enterValidNumber": "Voer een geldig getal in",
+  "@enterValidNumber": {
+    "description": "Invalid number validation"
+  },
+  "invalidInput": "Ongeldige invoer",
+  "@invalidInput": {
+    "description": "Invalid input validation"
+  },
+  "playGame": "Spel spelen",
+  "@playGame": {
+    "description": "Play game title"
+  },
+
+  "thanksMessageReceived": "Bedankt! We hebben je bericht ontvangen.",
+  "@thanksMessageReceived": {
+    "description": "Support ticket success message"
+  },
+
+  "cash": "Contant",
+  "@cash": {
+    "description": "Cash category"
+  },
+  "crypto": "Crypto",
+  "@crypto": {
+    "description": "Crypto category"
+  },
+  "giftCards": "Cadeaubonnen",
+  "@giftCards": {
+    "description": "Gift cards category"
+  },
+  "gameCredits": "Spelcredits",
+  "@gameCredits": {
+    "description": "Game credits category"
+  },
+  "method": "Methode",
+  "@method": {
+    "description": "Payment method label"
+  },
+  "type": "Type",
+  "@type": {
+    "description": "Type label"
+  },
+  "date": "Datum",
+  "@date": {
+    "description": "Date label"
+  },
+  "reason": "Reden",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "processed": "Verwerkt",
+  "@processed": {
+    "description": "Processed label"
+  },
+  "approved": "GOEDGEKEURD",
+  "@approved": {
+    "description": "Approved status"
+  },
+  "rejected": "AFGEWEZEN",
+  "@rejected": {
+    "description": "Rejected status"
+  },
+  "pending": "IN AFWACHTING",
+  "@pending": {
+    "description": "Pending status"
+  },
+  "businessDays": "2 werkdagen",
+  "@businessDays": {
+    "description": "Business days processing time"
+  },
+  "privacyPolicyLabel": "Privacybeleid",
+  "@privacyPolicyLabel": {
+    "description": "Privacy policy label"
+  },
+  "claimCoin": "MUNT CLAIMEN",
+  "@claimCoin": {
+    "description": "Claim coin button text"
+  },
+  "claimed2": "Geclaimd!",
+  "@claimed2": {
+    "description": "Claimed status text"
+  },
+
+  "somethingWentWrongTryAgain": "Er is iets misgegaan. Probeer het opnieuw.",
+  "@somethingWentWrongTryAgain": {
+    "description": "Generic error message"
+  },
+  "pleaseLinkAccountFirstError": "Koppel eerst je account",
+  "@pleaseLinkAccountFirstError": {
+    "description": "Link account required error"
+  },
+  "cantUseOwnReferralCode": "Je kunt je eigen verwijzingscode niet gebruiken",
+  "@cantUseOwnReferralCode": {
+    "description": "Own referral code error"
+  },
+  "referralAppliedSuccess": "Verwijzing toegepast! +{reward} munten",
+  "@referralAppliedSuccess": {
+    "description": "Referral success message",
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotApplyReferral": "Kon verwijzing niet toepassen. Probeer het opnieuw.",
+  "@couldNotApplyReferral": {
+    "description": "Referral application error"
+  },
+  "googleAccountLinkedSuccess": "Google-account succesvol gekoppeld!",
+  "@googleAccountLinkedSuccess": {
+    "description": "Google link success message"
+  },
+  "couldNotSubmitTryAgain": "Kon niet verzenden. Probeer het opnieuw.",
+  "@couldNotSubmitTryAgain": {
+    "description": "Submit error message"
+  },
+  "error": "Fout",
+  "@error": {
+    "description": "Generic error label"
+  },
+
+  "pleaseEnterReferralCode": "Voer een verwijzingscode in",
+  "@pleaseEnterReferralCode": {
+    "description": "Enter referral code validation"
+  },
+  "youHaveAlreadyUsedReferralCode": "Je hebt al een verwijzingscode gebruikt",
+  "@youHaveAlreadyUsedReferralCode": {
+    "description": "Already used referral code message"
+  },
+  "invalidReferralCode": "Ongeldige verwijzingscode",
+  "@invalidReferralCode": {
+    "description": "Invalid referral code error"
+  },
+  "pleaseEnterWalletAddress": "Voer een portemonnee-adres in",
+  "@pleaseEnterWalletAddress": {
+    "description": "Enter wallet address validation"
+  },
+  "pleaseEnterValidAmount": "Voer een geldig bedrag in",
+  "@pleaseEnterValidAmount": {
+    "description": "Enter valid amount validation"
+  }
+}
