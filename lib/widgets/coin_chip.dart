@@ -34,7 +34,10 @@ class CoinChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.themeColors;
     final textColors = context.themeTextColors;
-    final radius = BorderRadius.circular(AppSize.r100);
+    final radius = BorderRadius.only(
+      topLeft: Radius.circular(AppSize.r100),
+      bottomLeft: Radius.circular(AppSize.r100),
+    );
 
     final coinDot = leading ?? Assets.icons.coins.svg();
 

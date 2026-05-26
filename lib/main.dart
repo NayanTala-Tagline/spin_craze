@@ -8,6 +8,7 @@ import 'package:spin_craze/features/home_module/provider/home_provider.dart';
 import 'package:spin_craze/firebase_options.dart';
 import 'package:spin_craze/l10n/app_localizations.dart';
 import 'package:spin_craze/res/theme_dark.dart';
+import 'package:spin_craze/res/theme_light.dart';
 import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/services/notification_service/notification_helper.dart';
 import 'package:spin_craze/utils/crashlytics_manager.dart';
@@ -102,7 +103,7 @@ class _ClipEarnAppState extends State<ClipEarnApp> {
           return MaterialApp.router(
             title: 'Spin Craze',
             debugShowCheckedModeBanner: false,
-            theme: darkTheme,
+            theme: lightTheme,
             routerConfig: appRouter,
             scaffoldMessengerKey: sfMessengerKey,
             locale: locale,

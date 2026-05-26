@@ -8,26 +8,31 @@ import 'package:flutter/material.dart';
 // brand cyan/purple/coin tokens identical so screens stay on-brand.
 
 const _colors = ThemeColors(
-  background: Color(0xFFF2F9FF),
-  surface: Color(0xFFFFFFFF),
-  surfaceMuted: Color(0xFFE6F3FB),
-  card: Color(0xFFFFFFFF),
-  cardElevated: Color(0xFFF7FBFE),
-  primary: Color(0xFF00B7FF),
-  primaryDeep: Color(0xFF005B80),
-  primaryLight: Color(0xFF65D3FF),
+  // Surfaces
+  background: Color(0xFFF0F5FF),
+  surface: Color(0xFF0E2B33),
+  surfaceMuted: Color(0xFF081821),
+  card: Color(0xFF0E2B33),
+  cardElevated: Color(0xFF14323D),
+  // Brand
+  primary: Color(0xFF004CD9),
+  primaryDeep: Color(0xFF004CD9),
+  primaryLight: Color(0xFF1164FF),
   secondary: Color(0xFFA86CFF),
   accent: Color(0xFFFF5183),
   coin: Color(0xFFFFD84D),
   coinDeep: Color(0xFFFF8C24),
-  success: Color(0xFF2BB673),
-  warning: Color(0xFFFF8C24),
+  // Status
+  success: Color(0xFFA2FF60),
+  warning: Color(0xFFFFD84D),
   error: Color(0xFFFF5183),
-  info: Color(0xFF00B7FF),
-  border: Color(0xFFDEF1FF),
-  divider: Color(0xFFE6F3FB),
-  shadow: Color(0x14081821),
-  scrim: Color(0x99000000),
+  info: Color(0xFF65D3FF),
+  // Lines / shadows
+  border: Color(0x29A86CFF), // #A86CFF @ 16 %
+  divider: Color(0xFF14323D),
+  shadow: Color(0x66081821), // #081821 @ 40 %
+  scrim: Color(0xCC000000),
+  // Gradients (extracted from Figma fills)
   primaryGradient: LinearGradient(
     colors: [Color(0xFF47AED7), Color(0xFF62D2FF)],
     begin: Alignment.topLeft,
@@ -44,23 +49,23 @@ const _colors = ThemeColors(
     end: Alignment.bottomCenter,
   ),
   backgroundGradient: LinearGradient(
-    colors: [Color(0xFFF2F9FF), Color(0xFFE3F2FD)],
+    colors: [Color(0xFF0E2B33), Color(0xFF05131B)],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   ),
 );
 
 const _text = ThemeTextColors(
-  primary: Color(0xFF05131B),
-  secondary: Color(0xB305131B),
-  muted: Color(0x8005131B),
-  disabled: Color(0x4D05131B),
-  inverse: Color(0xFFFFFFFF),
+  primary: Color(0xFF000000),
+  secondary: Color(0xB3FFFFFF), // 70 %
+  muted: Color(0x80FFFFFF), // 50 %
+  disabled: Color(0x4DFFFFFF), // 30 %
+  inverse: Color(0xFF05131B),
   onPrimary: Color(0xFFFFFFFF),
   onAccent: Color(0xFFFFFFFF),
-  link: Color(0xFF005B80),
-  success: Color(0xFF2BB673),
-  warning: Color(0xFFFF8C24),
+  link: Color(0xFF65D3FF),
+  success: Color(0xFFA2FF60),
+  warning: Color(0xFFFFD84D),
   error: Color(0xFFFF5183),
 );
 

@@ -1,17 +1,16 @@
 import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
-import 'package:spin_craze/extension/ext_context.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
+import 'package:spin_craze/features/onboarding_module/widgets/onboarding_step_indicator.dart';
+import 'package:spin_craze/gen/fonts.gen.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:spin_craze/utils/remote_config.dart';
 import 'package:spin_craze/widgets/bottom_ads_widget.dart';
-import 'package:spin_craze/widgets/common_appbar.dart';
-import 'package:spin_craze/widgets/common_background.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
+import 'package:flutter/services.dart';
 
 /// Arguments passed via GoRouter `extra` to preload the language page ads
 /// on the previous screen (onboarding pages or profile page).
@@ -30,6 +29,26 @@ class LanguagePageArgs {
   final NativeAdManager? languageNativeAd;
   final NativeAdManager? languageNative2Ad;
 }
+
+// ── Palette ──────────────────────────────────────────────────────────────────
+// Shared with the onboarding redesign. Local to this file so the rest of the
+// app (still on the dark theme) is untouched.
+const _bgGradient = LinearGradient(
+  colors: [Color(0xFFF3F7FF), Color(0xFFE7EFFF)],
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+);
+const _titleColor = Color(0xFF0A1A33);
+const _bodyColor = Color(0xFF55617A);
+const _accentBlue = Color(0xFF1B4FF5);
+const _pillBorder = Color(0xFFB2D3FF);
+const _pillUnselected = Color(0xFFFFFFFF);
+const _pillTextColor = Color(0xFF3D3E40);
+const _statusBarStyle = SystemUiOverlayStyle(
+  statusBarColor: Colors.transparent,
+  statusBarIconBrightness: Brightness.dark,
+  statusBarBrightness: Brightness.light,
+);
 
 /// Language picker page.
 ///
@@ -109,11 +128,9 @@ class _LanguagePageState extends State<LanguagePage> {
 
   void _initSelectedLanguage() {
     if (widget.isOnboarding) {
-      // No default selection during onboarding.
       _selected = null;
       return;
     }
-    // Settings flow — pre-select the language chosen during onboarding.
     final saved = Injector.instance<AppDB>().selectedLanguage;
     _selected = (saved != null && _languages.any((l) => l['code'] == saved))
         ? saved
@@ -121,10 +138,8 @@ class _LanguagePageState extends State<LanguagePage> {
   }
 
   void _initAds() {
-    // Ad 1 — languageNative, used in both flows.
     if (widget.preloadedAd1 != null) {
       _nativeAd1 = widget.preloadedAd1;
-      // Attach a listener so the UI rebuilds once the ad finishes loading.
       _nativeAd1!.future().then((_) {
         if (mounted) setState(() {});
       });
@@ -139,7 +154,6 @@ class _LanguagePageState extends State<LanguagePage> {
       }
     }
 
-    // Ad 2 — languageNative2, onboarding only (shown after first tap).
     if (!widget.isOnboarding) return;
 
     if (widget.preloadedAd2 != null) {
@@ -161,8 +175,6 @@ class _LanguagePageState extends State<LanguagePage> {
 
   @override
   void dispose() {
-    // We own whatever ad managers we hold, regardless of where they came
-    // from — the previous page transferred ownership to us.
     _nativeAd1?.dispose();
     _nativeAd2?.dispose();
     super.dispose();
@@ -178,21 +190,18 @@ class _LanguagePageState extends State<LanguagePage> {
     );
     setState(() {
       _selected = languageCode;
-      // Swap to second ad on first language tap (onboarding only).
       if (widget.isOnboarding && !_showSecondAd) {
         _showSecondAd = true;
       }
     });
   }
 
-  /// Persists the selected language to the database.
   void _saveLanguage() {
     if (_selected != null) {
       Injector.instance<AppDB>().selectedLanguage = _selected;
     }
   }
 
-  /// Which native ad should drive the BottomAdsWidget right now.
   NativeAdManager? get _activeAd {
     if (widget.isOnboarding && _showSecondAd) return _nativeAd2;
     return _nativeAd1;
@@ -211,7 +220,6 @@ class _LanguagePageState extends State<LanguagePage> {
     widget.onContinue?.call();
   }
 
-  /// Settings flow: persist and pop back.
   void _onSave() {
     _saveLanguage();
     AnalyticsManager.instance.logEvent(
@@ -223,102 +231,79 @@ class _LanguagePageState extends State<LanguagePage> {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, _) {
-        if (didPop) return;
-        NavigationHelper().handleBackPress(context);
-      },
-      child: CommonBackground(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: _statusBarStyle,
+      child: PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, _) {
+          if (didPop) return;
+          NavigationHelper().handleBackPress(context);
+        },
+        child: DecoratedBox(
+          decoration: const BoxDecoration(gradient: _bgGradient),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: widget.isOnboarding
-              ? null
-              : CommonAppBar(
-                  title: context.l10n.language,
-                  showBack: true,
-                  trailing: GestureDetector(
-                    onTap: _onSave,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppSize.w8),
-                      child: Text(
-                        context.l10n.confirm,
-                        style: context.textTheme.titleSmall?.copyWith(
-                          color: context.themeTextColors.primary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
           body: SafeArea(
             bottom: false,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // ── Top button (onboarding only) ──────────────────────
-                if (widget.isOnboarding) ...[
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppSize.w20,
-                      vertical: AppSize.h8,
-                    ),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: _onGetStarted,
-                        child: Text(
-                          context.l10n.getStarted,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            color: context.themeTextColors.primary,
-                          ),
-                        ),
-                      ),
-                    ),
+                if (widget.isOnboarding)
+                  _OnboardingTopBar(
+                    getStartedLabel: 'Get Started',
+                    onGetStarted: _onGetStarted,
+                  )
+                else
+                  _SettingsTopBar(
+                    title: 'Language',
+                    confirmLabel: 'Confirm',
+                    onBack: () => NavigationHelper().handleBackPress(context),
+                    onConfirm: _onSave,
                   ),
-                ],
 
-                // ── Header text ───────────────────────────────────────
                 Padding(
                   padding: EdgeInsets.fromLTRB(
-                    AppSize.w20,
-                    AppSize.h10,
-                    AppSize.w20,
+                    AppSize.w24,
+                    widget.isOnboarding ? AppSize.h12 : AppSize.h4,
+                    AppSize.w24,
                     0,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        context.l10n.setDefaultLanguage,
-                        style: context.textTheme.titleLarge?.copyWith(
-                          color: context.themeTextColors.primary,
+                        'Set Default Language',
+                        style: TextStyle(
+                          fontFamily: FontFamily.sFPro,
                           fontWeight: FontWeight.w800,
-                          fontSize: AppSize.sp22,
+                          fontSize: AppSize.sp24,
+                          color: _titleColor,
+                          letterSpacing: 0.1,
                         ),
                       ),
                       SizedBox(height: AppSize.h10),
                       Text(
-                        '${context.l10n.languageSelectionMessage.split(
-                              ' which',
-                            )[0]} app which you can change later if you want to.',
-                        style: context.textTheme.bodyMedium?.copyWith(
-                          color: context.themeTextColors.secondary,
-                          height: 1.45,
+                        'Selected language will use as default language for this app which you can change later if you want to.',
+                        style: TextStyle(
+                          fontFamily: FontFamily.sFPro,
+                          fontWeight: FontWeight.w400,
+                          fontSize: AppSize.sp14,
+                          height: 1.5,
+                          color: _bodyColor,
                         ),
                       ),
                     ],
                   ),
                 ),
 
-                SizedBox(height: AppSize.h24),
+                SizedBox(height: AppSize.h20),
 
-                // ── Language list (scrollable) ─────────────────────────
                 Expanded(
                   child: ListView.separated(
                     padding: EdgeInsets.fromLTRB(
-                      AppSize.w20,
+                      AppSize.w24,
                       0,
-                      AppSize.w20,
+                      AppSize.w24,
                       AppSize.h16,
                     ),
                     itemCount: _languages.length,
@@ -327,10 +312,8 @@ class _LanguagePageState extends State<LanguagePage> {
                       final language = _languages[i];
                       final languageCode = language['code']!;
                       final languageName = language['name']!;
-                      final languageFlag = language['flag']!;
                       return _LanguageRow(
                         label: languageName,
-                        flag: languageFlag,
                         selected: languageCode == _selected,
                         onTap: () => _onLanguageTap(languageCode),
                       );
@@ -341,11 +324,10 @@ class _LanguagePageState extends State<LanguagePage> {
             ),
           ),
 
-          // Native ad in the bottom nav slot — swaps between languageNative
-          // and languageNative2 on first language tap during onboarding.
-          bottomNavigationBar: BottomAdsWidget(
-            key: ValueKey(_showSecondAd ? 'ad2' : 'ad1'),
-            nativeAd: _activeAd,
+            bottomNavigationBar: BottomAdsWidget(
+              key: ValueKey(_showSecondAd ? 'ad2' : 'ad1'),
+              nativeAd: _activeAd,
+            ),
           ),
         ),
       ),
@@ -355,24 +337,141 @@ class _LanguagePageState extends State<LanguagePage> {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
+class _OnboardingTopBar extends StatelessWidget {
+  const _OnboardingTopBar({
+    required this.getStartedLabel,
+    required this.onGetStarted,
+  });
+
+  final String getStartedLabel;
+  final VoidCallback onGetStarted;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        AppSize.w24,
+        AppSize.h12,
+        AppSize.w20,
+        AppSize.h4,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const OnboardingStepIndicator(currentPage: 3, pageCount: 4),
+          const Spacer(),
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: onGetStarted,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.w4,
+                vertical: AppSize.h6,
+              ),
+              child: Text(
+                getStartedLabel,
+                style: TextStyle(
+                  fontFamily: FontFamily.sFPro,
+                  fontWeight: FontWeight.w700,
+                  fontSize: AppSize.sp15,
+                  color: _titleColor,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SettingsTopBar extends StatelessWidget {
+  const _SettingsTopBar({
+    required this.title,
+    required this.confirmLabel,
+    required this.onBack,
+    required this.onConfirm,
+  });
+
+  final String title;
+  final String confirmLabel;
+  final VoidCallback onBack;
+  final VoidCallback onConfirm;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        AppSize.w4,
+        AppSize.h6,
+        AppSize.w12,
+        AppSize.h4,
+      ),
+      child: Row(
+        children: [
+          IconButton(
+            onPressed: onBack,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: _titleColor,
+              size: AppSize.sp22,
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.only(right: AppSize.w36),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontFamily: FontFamily.sFPro,
+                    fontWeight: FontWeight.w700,
+                    fontSize: AppSize.sp18,
+                    color: _titleColor,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: onConfirm,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.w8,
+                vertical: AppSize.h6,
+              ),
+              child: Text(
+                confirmLabel,
+                style: TextStyle(
+                  fontFamily: FontFamily.sFPro,
+                  fontWeight: FontWeight.w700,
+                  fontSize: AppSize.sp14,
+                  color: _accentBlue,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _LanguageRow extends StatelessWidget {
   const _LanguageRow({
     required this.label,
-    required this.flag,
     required this.selected,
     required this.onTap,
   });
 
   final String label;
-  final String flag;
   final bool selected;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
-    final textColors = context.themeTextColors;
-    final radius = BorderRadius.circular(AppSize.r12);
+    final radius = BorderRadius.circular(40);
 
     return Material(
       color: Colors.transparent,
@@ -380,43 +479,47 @@ class _LanguageRow extends StatelessWidget {
       child: InkWell(
         borderRadius: radius,
         onTap: onTap,
-        child: Container(
-          height: AppSize.h58,
-          padding: EdgeInsets.symmetric(horizontal: AppSize.w20),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 180),
+          curve: Curves.easeOut,
+          height: AppSize.h52,
+          padding: EdgeInsets.symmetric(horizontal: AppSize.w22),
           decoration: BoxDecoration(
             borderRadius: radius,
-            gradient: selected
-                ? const LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [Color(0xFF29B0E6), Color(0xFFA86CFF)],
-                  )
-                : null,
-            color: selected ? null : colors.surface,
+            color: selected ? _accentBlue : _pillUnselected,
             border: Border.all(
-              color: selected ? Colors.transparent : colors.border,
+              color: selected ? Colors.transparent : _pillBorder,
+              width: 2,
             ),
             boxShadow: selected
                 ? [
                     BoxShadow(
-                      color: const Color(0xFF29B0E6).withValues(alpha: 0.35),
-                      blurRadius: AppSize.r20,
-                      offset: Offset(0, AppSize.h6),
+                      color: _accentBlue.withValues(alpha: 0.25),
+                      blurRadius: 16,
+                      offset: const Offset(0, 8),
                     ),
                   ]
-                : null,
+                : const [
+                    BoxShadow(
+                      color: Color(0xD4B0C3F8),
+                      blurRadius: 7.5,
+                      blurStyle: BlurStyle.inner,
+                    ),
+                  ],
           ),
           child: Row(
             children: [
-              Text(flag, style: TextStyle(fontSize: AppSize.sp24)),
-              SizedBox(width: AppSize.w12),
               Expanded(
                 child: Text(
                   label,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    color: textColors.primary,
+                  style: TextStyle(
+                    fontFamily: FontFamily.sFPro,
                     fontWeight: selected ? FontWeight.w700 : FontWeight.w600,
+                    fontSize: AppSize.sp15,
+                    color: selected ? Colors.white : _pillTextColor,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               _Radio(selected: selected),
@@ -435,36 +538,29 @@ class _Radio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (selected) {
-      return Container(
-        width: AppSize.sp22,
-        height: AppSize.sp22,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-        ),
-      );
-    }
+    final size = AppSize.sp22;
     return Container(
-      width: AppSize.sp22,
-      height: AppSize.sp22,
+      width: size,
+      height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: context.themeTextColors.secondary,
-          width: 1.5,
+          color: selected ? Colors.white : _pillTextColor,
+          width: 1.4,
         ),
       ),
-      child: Center(
-        child: Container(
-          width: AppSize.sp10,
-          height: AppSize.sp10,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: context.themeTextColors.secondary.withValues(alpha: 0.6),
-          ),
-        ),
-      ),
+      child: selected
+          ? Center(
+              child: Container(
+                width: size * 0.42,
+                height: size * 0.42,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+              ),
+            )
+          : null,
     );
   }
 }

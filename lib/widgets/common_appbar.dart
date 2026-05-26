@@ -25,7 +25,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showBack = false,
     this.onBack,
     this.height = 120,
-    this.radius = 24,
+    this.radius = 28,
   });
 
   /// Left slot. Defaults to [AppBackButton] when [showBack] is true.
@@ -129,59 +129,16 @@ class _Panel extends StatelessWidget {
       bottomLeft: Radius.circular(radius),
       bottomRight: Radius.circular(radius),
     );
-    final glow = context.themeColors.primary;
 
-    return ClipRRect(
-      borderRadius: shape,
-      child: Stack(
-        children: [
-          // Base fill — dark teal matching Figma `#00B7FF @ 16%` composited
-          // over the app background.
-          const Positioned.fill(child: ColoredBox(color: Color(0xFF0E3E4F))),
-          // Bottom-left corner glow (Figma: cyan circle r=30, blur 30 at 13,102)
-          Positioned(
-            left: -AppSize.w30,
-            bottom: -AppSize.h30,
-            child: _CornerGlow(color: glow),
-          ),
-          // Bottom-right corner glow (Figma: cyan circle r=30, blur 30 at 361,102)
-          Positioned(
-            right: -AppSize.w30,
-            bottom: -AppSize.h30,
-            child: _CornerGlow(color: glow),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _CornerGlow extends StatelessWidget {
-  const _CornerGlow({required this.color});
-
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    // Soft radial gradient — bright cyan at the centre fading to transparent
-    // by the edge, mimicking the Figma feGaussianBlur(stdDeviation=30) on a
-    // 60×60 cyan disc. Sized 120×120 so the falloff sits well inside the
-    // panel after the corner offset.
-    return IgnorePointer(
-      child: Container(
-        width: AppSize.sp120,
-        height: AppSize.sp120,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: RadialGradient(
-            radius: 0.5, // increase spread
-            colors: [
-              color.withValues(alpha: 0.5), // reduce opacity
-              color.withValues(alpha: 0.2),
-              color.withValues(alpha: 0.0),
-            ],
-            stops: const [0.0, 0.6, 1.0],
-          ),
+    // Figma `Quiz` frame — linear gradient running darker at the top
+    // (#004CD9) into a lighter blue at the bottom (#1164FF).
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: shape,
+        gradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xFF004CD9), Color(0xFF1164FF)],
         ),
       ),
     );

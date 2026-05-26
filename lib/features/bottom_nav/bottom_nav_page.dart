@@ -64,82 +64,42 @@ class _BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(AppSize.r16);
+    final radius = BorderRadius.circular(AppSize.r32);
 
     return Container(
-      margin: EdgeInsets.fromLTRB(AppSize.w30, 0, AppSize.w30, AppSize.h12),
+      margin: EdgeInsets.fromLTRB(AppSize.w14, 0, AppSize.w14, AppSize.h14),
       padding: EdgeInsets.symmetric(
-        horizontal: AppSize.w6,
+        horizontal: AppSize.w8,
         vertical: AppSize.h8,
       ),
-      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: radius,
-        // Flat deep cyan-teal base matching the app bar and mockup.
-        color: const Color(0xFF0B4E6A),
+        // Soft lavender-white pill matching the mockup.
+        color: const Color(0xFFEEF1F8),
         border: Border.all(
-          color: const Color(0xFF5CCBF7).withValues(alpha: 0.35),
+          color: const Color(0xFFDDE3EF),
         ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF00B7FF).withValues(alpha: 0.25),
+            color: const Color(0xFF0B1F4D).withValues(alpha: 0.06),
             blurRadius: AppSize.r24,
             offset: Offset(0, AppSize.h8),
           ),
         ],
       ),
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          // Cyan glow anchored to the top-left corner.
-          Positioned(
-            left: -AppSize.w60,
-            top: -AppSize.h60,
-            child: IgnorePointer(
-              child: Container(
-                width: AppSize.sp120,
-                height: AppSize.sp120,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: RadialGradient(
-                    colors: [Color(0xCC29B0E6), Color(0x0029B0E6)],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          // Cyan glow anchored to the bottom-right corner.
-          Positioned(
-            right: -AppSize.w60,
-            bottom: -AppSize.h60,
-            child: IgnorePointer(
-              child: Container(
-                width: AppSize.sp120,
-                height: AppSize.sp120,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: RadialGradient(
-                    colors: [Color(0xCC29B0E6), Color(0x0029B0E6)],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SafeArea(
-            top: false,
-            bottom: false,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: List.generate(_items.length, (i) {
-                return _NavItem(
-                  data: _items[i],
-                  selected: i == currentIndex,
-                  onTap: () => onTap(i),
-                );
-              }),
-            ),
-          ),
-        ],
+      child: SafeArea(
+        top: false,
+        bottom: false,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: List.generate(_items.length, (i) {
+            return _NavItem(
+              data: _items[i],
+              selected: i == currentIndex,
+              onTap: () => onTap(i),
+            );
+          }),
+        ),
       ),
     );
   }
@@ -164,7 +124,10 @@ class _NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(AppSize.r12);
+    final radius = BorderRadius.circular(AppSize.r22);
+    const unselectedColor = Color(0xFF1E2233);
+    final iconColor = selected ? Colors.white : unselectedColor;
+    final textColor = selected ? Colors.white : unselectedColor;
 
     return Flexible(
       child: Material(
@@ -175,32 +138,25 @@ class _NavItem extends StatelessWidget {
           onTap: onTap,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
-            width: AppSize.h58,
-            height: AppSize.h58,
-            // padding: EdgeInsets.symmetric(
-            //   horizontal: AppSize.w4,
-            //   vertical: AppSize.h4,
-            // ),
+            width: AppSize.h70,
+            height: AppSize.h70,
             decoration: BoxDecoration(
               borderRadius: radius,
-              // Pale-cyan gradient tile when selected, matching Claim Now /
-              // Withdraw buttons.
+              // Vertical blue gradient on the selected tile — brighter at the
+              // top, deeper indigo at the bottom — matching the mockup.
               gradient: selected
                   ? const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [Color(0xFF9AE0FA), Color(0xFF5CCBF7)],
+                      colors: [Color(0xFF5577FF), Color(0xFF1E3FE0)],
                     )
-                  : null,
-              border: selected
-                  ? Border.all(color: const Color(0xFFB8ECFF))
                   : null,
               boxShadow: selected
                   ? [
                       BoxShadow(
-                        color: const Color(0xFF5CCBF7).withValues(alpha: 0.5),
-                        blurRadius: AppSize.r20,
-                        offset: Offset(0, AppSize.h6),
+                        color: const Color(0xFF2D5BFF).withValues(alpha: 0.35),
+                        blurRadius: AppSize.r18,
+                        offset: Offset(0, AppSize.h8),
                       ),
                     ]
                   : null,
@@ -210,17 +166,17 @@ class _NavItem extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   data.icon.image(
-                    height: AppSize.sp24,
-                    width: AppSize.sp24,
-                    color: Colors.white,
+                    height: AppSize.sp26,
+                    width: AppSize.sp26,
+                    color: iconColor,
                   ),
-                  SizedBox(height: AppSize.h4),
+                  SizedBox(height: AppSize.h6),
                   Text(
                     data.label,
                     style: context.textTheme.bodySmall?.copyWith(
-                      color: Colors.white,
-                      fontSize: AppSize.sp12,
-                      fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+                      color: textColor,
+                      fontSize: AppSize.sp13,
+                      fontWeight: selected ? FontWeight.w700 : FontWeight.w600,
                     ),
                   ),
                 ],

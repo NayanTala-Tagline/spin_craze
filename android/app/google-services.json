@@ -12,7 +12,20 @@
           "package_name": "com.reward.cash.spincraze.earnfree"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "541326625469-l80fo733s36enu4g64vgnoao53s6puk4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reward.cash.spincraze.earnfree",
+            "certificate_hash": "41b563eeb3ffcd7d1d2cfe98f4c2b3a6ad189e7b"
+          }
+        },
+        {
+          "client_id": "541326625469-3qb85od0gm3960avm210g7664it6krj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDMoSRLRMcYOOWs-HCPc3BdEQO0GqNl94w"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541326625469-3qb85od0gm3960avm210g7664it6krj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

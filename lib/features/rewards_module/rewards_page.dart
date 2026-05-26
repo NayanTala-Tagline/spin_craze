@@ -1,20 +1,24 @@
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/rewards_module/provider/rewards_provider.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_share_helper.dart';
 import 'package:spin_craze/utils/app_size.dart';
-import 'package:spin_craze/widgets/common_appbar.dart';
-import 'package:spin_craze/widgets/glow_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+
+const Color _kPrimary = Color(0xFF004CD9);
+const Color _kPrimaryLight = Color(0xFF1164FF);
+const Color _kCardBorder = Color(0xFFB8D0FF);
+const Color _kInputFill = Color(0xFFEEF1F6);
+const Color _kCoin = Color(0xFFFFB429);
+const Color _kMutedText = Color(0xFF7A8A9C);
 
 /// Rewards & Bonuses tab — referral code, promo-code input, and invite stats.
 /// Guest users see a prompt to link their account instead of a referral code.
@@ -42,8 +46,7 @@ class _RewardsBody extends StatelessWidget {
     final db = Injector.instance<AppDB>();
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
-      appBar: CommonAppBar(title: context.l10n.rewardsAndBonuses),
+      backgroundColor: const Color(0xFFF5F8FF),
       body: StreamBuilder(
         stream: db.userListenable(),
         builder: (context, _) {
@@ -51,32 +54,193 @@ class _RewardsBody extends StatelessWidget {
           final isGuest = user?.isGuest ?? true;
           final referralCode = user?.userId ?? '';
 
-          return SingleChildScrollView(
-            padding: EdgeInsets.fromLTRB(
-              AppSize.w16,
-              AppSize.h16,
-              AppSize.w16,
-              AppSize.h120,
-            ),
-            child: Column(
-              children: [
-                if (isGuest)
-                  _LinkAccountCard()
-                else
-                  _ReferralCodeCard(code: referralCode),
-                SizedBox(height: AppSize.h16),
-                _EnterReferralCard(isGuest: isGuest),
-                SizedBox(height: AppSize.h16),
-                Consumer<RewardsProvider>(
-                  builder: (context, provider, _) => _InviteStatsRow(
-                    friendsInvited: provider.friendsInvited,
-                    coinsEarned: provider.coinsEarned,
+          return Column(
+            children: [
+              const _GradientHeader(title: 'Rewards & Bonuses'),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.fromLTRB(
+                    AppSize.w20,
+                    AppSize.h20,
+                    AppSize.w20,
+                    AppSize.h120,
+                  ),
+                  child: Column(
+                    children: [
+                      Consumer<RewardsProvider>(
+                        builder: (context, provider, _) => _InviteStatsRow(
+                          friendsInvited: provider.friendsInvited,
+                          coinsEarned: provider.coinsEarned,
+                        ),
+                      ),
+                      SizedBox(height: AppSize.h16),
+                      if (isGuest)
+                        const _LinkAccountCard()
+                      else ...[
+                        _EnterReferralCard(isGuest: isGuest),
+                        SizedBox(height: AppSize.h16),
+                        _ReferralCodeCard(code: referralCode),
+                      ],
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         },
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Header
+// ─────────────────────────────────────────────────────────────────────────────
+
+class _GradientHeader extends StatelessWidget {
+  const _GradientHeader({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [_kPrimaryLight, _kPrimary],
+        ),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(28)),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x33004CD9),
+            blurRadius: 18,
+            offset: Offset(0, 8),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(
+            AppSize.w20,
+            AppSize.h16,
+            AppSize.w20,
+            AppSize.h28,
+          ),
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: context.textTheme.titleLarge?.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+              fontSize: AppSize.sp20,
+              letterSpacing: 0.2,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Invite stats row (Friends Invited / Coins Earned)
+// ─────────────────────────────────────────────────────────────────────────────
+
+class _InviteStatsRow extends StatelessWidget {
+  const _InviteStatsRow({
+    required this.friendsInvited,
+    required this.coinsEarned,
+  });
+
+  final int friendsInvited;
+  final int coinsEarned;
+
+  @override
+  Widget build(BuildContext context) {
+    return IntrinsicHeight(
+      child: Row(
+        children: [
+          Expanded(
+            child: _InviteStatTile(
+              label: 'Friends Invited',
+              value: '$friendsInvited',
+              icon: Assets.icons.user,
+              iconColor: _kPrimary,
+            ),
+          ),
+          SizedBox(width: AppSize.w12),
+          Expanded(
+            child: _InviteStatTile(
+              label: 'Coins Earned',
+              value: '$coinsEarned',
+              icon: Assets.icons.coins,
+              iconColor: _kCoin,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _InviteStatTile extends StatelessWidget {
+  const _InviteStatTile({
+    required this.label,
+    required this.value,
+    required this.icon,
+    required this.iconColor,
+  });
+
+  final String label;
+  final String value;
+  final SvgGenImage icon;
+  final Color iconColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSize.w14,
+        vertical: AppSize.h12,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppSize.r14),
+        border: Border.all(color: _kCardBorder),
+      ),
+      child: Column(
+        children: [
+          Text(
+            label,
+            style: context.textTheme.bodySmall?.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(height: AppSize.h8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              icon.svg(
+                height: AppSize.sp20,
+                width: AppSize.sp20,
+                colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
+              ),
+              SizedBox(width: AppSize.w8),
+              Text(
+                value,
+                style: context.textTheme.titleMedium?.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -87,144 +251,52 @@ class _RewardsBody extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _LinkAccountCard extends StatelessWidget {
+  const _LinkAccountCard();
+
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
-    final textColors = context.themeTextColors;
-
     return InkWell(
+      borderRadius: BorderRadius.circular(AppSize.r20),
       onTap: () {
         AnalyticsManager.instance.logEvent(name: 'rewards_link_account_tap');
         context.go('/${AppRoutes.profile}');
       },
-      child: GlowContainer(
-        accent: colors.secondary,
-        borderRadius: AppSize.r16,
+      child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: AppSize.w20,
           vertical: AppSize.h24,
         ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(AppSize.r20),
+          border: Border.all(color: _kCardBorder),
+        ),
         child: Column(
-          spacing: AppSize.h4,
           children: [
             Icon(
               Icons.link_rounded,
-              color: colors.secondary,
+              color: _kPrimary,
               size: AppSize.sp40,
             ),
+            SizedBox(height: AppSize.h8),
             Text(
-              context.l10n.linkYourAccount,
+              'Link Your Account',
               style: context.textTheme.titleSmall?.copyWith(
-                color: textColors.primary,
+                color: Colors.black,
                 fontWeight: FontWeight.w700,
               ),
             ),
+            SizedBox(height: AppSize.h6),
             Text(
-              context.l10n.linkAccountMessage,
+              'Sign in with Google to get your referral code and invite friends, Go to Profile and link your account.',
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(
-                color: textColors.secondary,
+                color: _kMutedText,
+                height: 1.4,
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Your Referral Code card (for logged-in users)
-// ─────────────────────────────────────────────────────────────────────────────
-
-class _ReferralCodeCard extends StatelessWidget {
-  const _ReferralCodeCard({required this.code});
-
-  final String code;
-
-  @override
-  Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-
-    return GlowContainer(
-      accent: context.themeColors.primary,
-      borderRadius: AppSize.r16,
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSize.w20,
-        vertical: AppSize.h24,
-      ),
-      child: Column(
-        children: [
-          Text(
-            context.l10n.yourReferralCode,
-            style: context.textTheme.titleSmall?.copyWith(
-              color: textColors.primary,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          SizedBox(height: AppSize.h20),
-          // Code box
-          GestureDetector(
-            onTap: () {
-              AnalyticsManager.instance.logEvent(name: 'referral_code_copied');
-              Clipboard.setData(ClipboardData(text: code));
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(context.l10n.codeCopied),
-                  duration: const Duration(seconds: 2),
-                ),
-              );
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppSize.w24,
-                vertical: AppSize.h14,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppSize.r12),
-                color: const Color(0xFF1C3A48),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Flexible(
-                    child: Text(
-                      code,
-                      style: context.textTheme.titleLarge?.copyWith(
-                        color: textColors.primary,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1,
-                        fontSize: AppSize.sp16,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  SizedBox(width: AppSize.w16),
-                  Icon(
-                    Icons.copy_rounded,
-                    color: textColors.secondary,
-                    size: AppSize.sp22,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(height: AppSize.h20),
-          _PaleCyanPill(
-            label: context.l10n.shareLink,
-            onPressed: () async {
-              AnalyticsManager.instance.logEvent(name: 'referral_code_shared');
-              final appUrl = await getPlayStoreUrl();
-              await SharePlus.instance.share(
-                ShareParams(
-                  text:
-                      'Join me on Earn Money and earn coins! Use my referral code: $code\n\n'
-                      'Download the app: $appUrl',
-                ),
-              );
-            },
-          ),
-        ],
       ),
     );
   }
@@ -241,27 +313,30 @@ class _EnterReferralCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
-    final textColors = context.themeTextColors;
     final provider = context.watch<RewardsProvider>();
 
-    return GlowContainer(
-      accent: colors.primary,
-      borderRadius: AppSize.r16,
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSize.w20,
-        vertical: AppSize.h24,
+    return Container(
+      padding: EdgeInsets.fromLTRB(
+        AppSize.w20,
+        AppSize.h20,
+        AppSize.w20,
+        AppSize.h20,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppSize.r20),
+        border: Border.all(color: _kCardBorder),
       ),
       child: Column(
         children: [
           Text(
-            context.l10n.enterReferralCode,
+            'Enter Referral Code',
             style: context.textTheme.titleSmall?.copyWith(
-              color: textColors.primary,
-              fontWeight: FontWeight.w600,
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: AppSize.h20),
+          SizedBox(height: AppSize.h16),
           Row(
             children: [
               Expanded(
@@ -269,47 +344,49 @@ class _EnterReferralCard extends StatelessWidget {
                   controller: provider.referralController,
                   enabled: !isGuest && !provider.isApplyingReferral,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    color: textColors.primary,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
                   ),
                   decoration: InputDecoration(
-                    hintText: context.l10n.havePromoCode,
+                    hintText: 'Have Promo Code',
                     hintStyle: context.textTheme.bodyMedium?.copyWith(
-                      color: textColors.secondary,
+                      color: _kMutedText,
                     ),
                     errorText: provider.errorText,
                     filled: true,
-                    fillColor: const Color(0xFF1C3A48),
+                    fillColor: _kInputFill,
+                    isDense: true,
                     contentPadding: EdgeInsets.symmetric(
-                      horizontal: AppSize.w16,
+                      horizontal: AppSize.w18,
                       vertical: AppSize.h14,
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppSize.r12),
+                      borderRadius: BorderRadius.circular(AppSize.r100),
                       borderSide: BorderSide.none,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppSize.r12),
+                      borderRadius: BorderRadius.circular(AppSize.r100),
                       borderSide: BorderSide.none,
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppSize.r12),
+                      borderRadius: BorderRadius.circular(AppSize.r100),
                       borderSide: const BorderSide(
-                        color: Color(0xFF29B0E6),
-                        width: 1.5,
+                        color: _kPrimary,
+                        width: 1.4,
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(width: AppSize.w12),
-              _PaleCyanPill(
-                label: provider.isApplyingReferral ? '...' : context.l10n.apply,
+              SizedBox(width: AppSize.w10),
+              _PrimaryPill(
+                label: provider.isApplyingReferral ? '...' : 'Apply',
                 expand: false,
                 onPressed: () {
                   if (isGuest) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(context.l10n.pleaseLinkAccountFirst),
+                      const SnackBar(
+                        content: Text('Please link your account first'),
                       ),
                     );
                     return;
@@ -330,111 +407,109 @@ class _EnterReferralCard extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Invite stats row
+// Your Referral Code display card
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _InviteStatsRow extends StatelessWidget {
-  const _InviteStatsRow({
-    required this.friendsInvited,
-    required this.coinsEarned,
-  });
+class _ReferralCodeCard extends StatelessWidget {
+  const _ReferralCodeCard({required this.code});
 
-  final int friendsInvited;
-  final int coinsEarned;
+  final String code;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: _InviteStatTile(
-            label: context.l10n.friendsInvited,
-            value: '$friendsInvited',
-            icon: Assets.icons.user,
-            accent: const Color(0xFFA86CFF),
-          ),
-        ),
-        SizedBox(width: AppSize.w12),
-        Expanded(
-          child: _InviteStatTile(
-            label: context.l10n.coinsEarned,
-            value: '$coinsEarned',
-            icon: Assets.icons.coins,
-            accent: const Color(0xFFFF8C24),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _InviteStatTile extends StatelessWidget {
-  const _InviteStatTile({
-    required this.label,
-    required this.value,
-    required this.icon,
-    required this.accent,
-  });
-
-  final String label;
-  final String value;
-  final SvgGenImage icon;
-  final Color accent;
-
-  @override
-  Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-
-    return GlowContainer(
-      accent: accent,
-      borderRadius: AppSize.r16,
-      child: Container(
-        height: AppSize.h96,
-        padding: EdgeInsets.all(AppSize.sp14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              label,
-              style: context.textTheme.bodySmall?.copyWith(
-                color: textColors.secondary,
-              ),
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSize.w20,
+        vertical: AppSize.h22,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppSize.r20),
+        border: Border.all(color: _kCardBorder),
+      ),
+      child: Column(
+        children: [
+          Text(
+            'Your Referral Code',
+            style: context.textTheme.titleSmall?.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
             ),
-            const Spacer(),
-            Row(
-              children: [
-                icon.svg(
-                  height: AppSize.sp22,
-                  width: AppSize.sp22,
-                  colorFilter: ColorFilter.mode(accent, BlendMode.srcIn),
+          ),
+          SizedBox(height: AppSize.h16),
+          // Code chip
+          GestureDetector(
+            onTap: () {
+              AnalyticsManager.instance.logEvent(name: 'referral_code_copied');
+              Clipboard.setData(ClipboardData(text: code));
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Code copied!'),
+                  duration: Duration(seconds: 2),
                 ),
-                SizedBox(width: AppSize.w10),
-                Flexible(
-                  child: Text(
-                    value,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: context.textTheme.titleMedium?.copyWith(
-                      color: textColors.primary,
-                      fontWeight: FontWeight.w700,
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.w24,
+                vertical: AppSize.h14,
+              ),
+              decoration: BoxDecoration(
+                color: _kInputFill,
+                borderRadius: BorderRadius.circular(AppSize.r12),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(
+                    child: Text(
+                      code,
+                      style: context.textTheme.titleLarge?.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 2,
+                        fontSize: AppSize.sp22,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                ),
-              ],
+                  SizedBox(width: AppSize.w10),
+                  Icon(
+                    Icons.copy_rounded,
+                    color: Colors.black.withValues(alpha: 0.55),
+                    size: AppSize.sp20,
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+          SizedBox(height: AppSize.h20),
+          _PrimaryPill(
+            label: 'Share Link',
+            onPressed: () async {
+              AnalyticsManager.instance.logEvent(name: 'referral_code_shared');
+              final appUrl = await getPlayStoreUrl();
+              await SharePlus.instance.share(
+                ShareParams(
+                  text:
+                      'Join me on Earn Money and earn coins! Use my referral code: $code\n\n'
+                      'Download the app: $appUrl',
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Shared pale-cyan pill button
+// Shared blue pill button
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _PaleCyanPill extends StatelessWidget {
-  const _PaleCyanPill({
+class _PrimaryPill extends StatelessWidget {
+  const _PrimaryPill({
     required this.label,
     required this.onPressed,
     this.expand = true,
@@ -456,20 +531,19 @@ class _PaleCyanPill extends StatelessWidget {
         child: Container(
           height: AppSize.h48,
           width: expand ? double.infinity : null,
-          padding: EdgeInsets.symmetric(horizontal: AppSize.w24),
+          padding: EdgeInsets.symmetric(horizontal: AppSize.w28),
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: radius,
             gradient: const LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xFF9AE0FA), Color(0xFF5CCBF7)],
+              colors: [_kPrimaryLight, _kPrimary],
             ),
-            border: Border.all(color: const Color(0xFFB8ECFF)),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF5CCBF7).withValues(alpha: 0.4),
-                blurRadius: AppSize.r16,
+                color: _kPrimary.withValues(alpha: 0.30),
+                blurRadius: AppSize.r12,
                 offset: Offset(0, AppSize.h4),
               ),
             ],
@@ -477,7 +551,7 @@ class _PaleCyanPill extends StatelessWidget {
           child: Text(
             label,
             style: context.textTheme.labelLarge?.copyWith(
-              color: const Color(0xFF003A52),
+              color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
           ),

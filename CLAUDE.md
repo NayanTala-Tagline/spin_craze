@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Current working mode — UI redesign pass
+
+The user is doing a **full UI revamp**, screen by screen. Rules for this pass:
+
+- **Only update UI** — layout, colors, spacing, typography, widgets, animations, imagery. Do **not** change app behavior, navigation flow, provider/state logic, network calls, route names, DI wiring, or data models.
+- **Work step by step, one screen/feature at a time.** Wait for the user to point at the next screen instead of refactoring adjacent files proactively.
+- **Assets will be provided by the user.** When a new asset is needed, ask for it rather than reusing an unrelated existing asset or inventing a placeholder. After new files are dropped into `assets/`, remember to re-run `dart run build_runner build --delete-conflicting-outputs` so [lib/gen/assets.gen.dart](lib/gen/assets.gen.dart) picks them up.
+- Keep using the existing sizing conventions ([`flutter_screenutil`](lib/utils/app_size.dart) `.w/.h/.sp` on the 375×843 design size) and the `SFPro` font family — don't introduce a new design system.
+- Don't touch [lib/l10n/](lib/l10n/) ARB files for UI-only tweaks unless the user adds/changes a string.
+
 ## Project overview
 
 Spin Craze (`name: spin_craze`, displayed as "Spin Craze" / `ClipEarnApp`) is a Flutter rewards/earn app targeting Dart SDK `^3.11.0`. Users earn coins via mini-games (spin wheel, scratch card, quiz, web visits, game zone, daily check-in) and withdraw via cash, crypto, gift, or game rewards. Firebase project: `spin-craze-aec36` (Android-only currently — see [firebase.json](firebase.json); no iOS configuration in `firebase_options.dart`).
