@@ -136,7 +136,7 @@ class RemoteConfigService {
 
   AdData get appInter => _getAdData('app_inter');
 
-  // AdData get homeNative => _getAdData('home_native');
+  AdData get homeNative => _getAdData('home_native');
 
   // AdData get settingNative => _getAdData('setting_native');
 

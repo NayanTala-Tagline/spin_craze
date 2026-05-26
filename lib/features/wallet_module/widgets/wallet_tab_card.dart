@@ -1,8 +1,6 @@
-import 'package:spin_craze/extension/ext_context.dart';
 import 'package:spin_craze/features/wallet_module/model/wallet_models.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class WalletTabCard extends StatelessWidget {
   final WalletItem item;
@@ -10,39 +8,40 @@ class WalletTabCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
-    final textColors = context.themeTextColors;
-
     return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSize.w8,
+        vertical: AppSize.h10,
+      ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppSize.r16),
-        color: colors.surface,
-        border: Border.all(color: colors.border),
+        borderRadius: BorderRadius.circular(AppSize.r12),
+        color: Colors.white,
+        border: Border.all(color: const Color(0xFFD9E2F0)),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(
-            height: AppSize.sp40,
-            width: AppSize.sp40,
+            height: AppSize.sp34,
+            width: AppSize.sp34,
             child: FittedBox(
               fit: BoxFit.contain,
               child: item.icon,
             ),
           ),
-          SizedBox(height: AppSize.h8),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: AppSize.w4),
             child: Text(
               item.title,
               textAlign: TextAlign.center,
-              maxLines: 2,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: context.textTheme.bodySmall?.copyWith(
+              style: TextStyle(
+                fontFamily: 'SFPro',
                 fontSize: AppSize.sp12,
-                fontWeight: FontWeight.w500,
-                color: textColors.primary,
-                height: 1.3,
+                fontWeight: FontWeight.w600,
+                color: const Color(0xFF0E1A2B),
+                height: 1.2,
               ),
             ),
           ),

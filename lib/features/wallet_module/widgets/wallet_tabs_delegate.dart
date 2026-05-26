@@ -1,6 +1,5 @@
 import 'package:spin_craze/features/wallet_module/widgets/wallet_tabs.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class WalletTabsDelegate extends SliverPersistentHeaderDelegate {
   @override

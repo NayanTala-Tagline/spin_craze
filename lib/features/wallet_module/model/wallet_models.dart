@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class WalletCategory {
   final String title;

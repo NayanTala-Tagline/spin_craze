@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:spin_craze/db/app_db.dart';
-import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
 import 'package:spin_craze/features/scratch_module/provider/scratch_card_provider.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
@@ -11,16 +9,12 @@ import 'package:spin_craze/services/reward_ad_service.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/widgets/ad_disclaimer_text.dart';
-import 'package:spin_craze/widgets/coin_chip.dart';
 import 'package:spin_craze/widgets/common_appbar.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spin_craze/widgets/common_background.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scratcher/widgets.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
-
 class ScratchCardScreen extends StatefulWidget {
   const ScratchCardScreen({super.key});
 
@@ -65,95 +59,31 @@ class _ScratchCardScreenState extends State<ScratchCardScreen>
           if (didPop) return;
           NavigationHelper().handleBackPress(context);
         },
-        child: CommonBackground(
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: CommonAppBar(
-              title: context.l10n.scratchCardTitle,
-              showBack: true,
-            ),
-            body: SafeArea(
-              top: false,
-              child: Consumer<ScratchCardProvider>(
-                builder: (context, prov, _) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: AppSize.w24),
-                    child: Column(
-                      children: [
-                        SizedBox(height: AppSize.h12),
-                        // Live coin balance
-                        StreamBuilder<dynamic>(
-                          stream: Injector.instance<AppDB>().userListenable(),
-                          builder: (context, _) {
-                            final balance =
-                                Injector.instance<AppDB>().userModel?.coin
-                                    .toInt() ??
-                                0;
-                            return CoinChip(
-                              amount: '$balance',
-                              gradient: LinearGradient(
-                                colors: [
-                                  const Color(
-                                    0xFFFFD84D,
-                                  ).withValues(alpha: 0.7),
-                                  const Color(
-                                    0xFFFFD84D,
-                                  ).withValues(alpha: 0.5),
-                                  const Color(
-                                    0xFFFFD84D,
-                                  ).withValues(alpha: 0.0),
-                                ],
-                              ),
-                              borderColor: Colors.transparent,
-                            );
-                          },
-                        ),
-                        SizedBox(height: AppSize.h24),
-                        // Instruction text
-                        Text(
-                          'Scratch the card to reveal your reward!',
-                          style: context.textTheme.bodyMedium?.copyWith(
-                            color: context.themeTextColors.secondary,
-                          ),
-                        ),
-                        SizedBox(height: AppSize.h50),
-                        // Scratch card area
-                        _ScratchArea(
-                          provider: prov,
-                          shakeController: _shakeController,
-                          shakeAnimation: _shakeAnimation,
-                        ),
-                        const Spacer(),
-                        // Scratch Now button
-                        _PaleCyanPill(
-                          label: prov.isGiftBoxOpened
-                              ? 'Scratched!'
-                              : 'Scratch Now',
-                          onPressed: prov.isGiftBoxOpened
-                              ? () {}
-                              : () async {
-                                  AnalyticsManager.instance.logEvent(
-                                    name: 'scratch_card_scratch_tap',
-                                  );
-                                  prov.scratchKey.currentState?.reveal(
-                                    duration: const Duration(milliseconds: 500),
-                                  );
-                                  if (!prov.isGiftBoxRevealed) {
-                                    prov
-                                      ..isThresholdReached = true
-                                      ..revealGiftBox();
-                                    await _shakeController.repeat(
-                                      reverse: true,
-                                    );
-                                  }
-                                },
-                        ),
-                        SizedBox(height: AppSize.h24),
-                      ],
-                    ),
-                  );
-                },
-              ),
+        child: Scaffold(
+          backgroundColor: const Color(0xFFF4F7FE),
+          appBar: CommonAppBar(
+            title: 'Scratch Card',
+            showBack: true,
+          ),
+          body: SafeArea(
+            top: false,
+            child: Consumer<ScratchCardProvider>(
+              builder: (context, prov, _) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppSize.w24),
+                  child: Column(
+                    children: [
+                      SizedBox(height: AppSize.h32),
+                      _ScratchArea(
+                        provider: prov,
+                        shakeController: _shakeController,
+                        shakeAnimation: _shakeAnimation,
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ),
@@ -217,10 +147,10 @@ class _ScratchArea extends StatelessWidget {
                   provider.isThresholdReached = true;
                 },
                 child: Container(
-                  height: AppSize.sp250,
+                  height: AppSize.sp260,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [Color(0xFF0D2B3E), Color(0xFF112D3E)],
@@ -369,7 +299,7 @@ class _RevealedReward extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
+    final colors = context.themeColors;
 
     if (reward == 0) {
       return Column(
@@ -378,14 +308,14 @@ class _RevealedReward extends StatelessWidget {
           Icon(
             Icons.sentiment_dissatisfied,
             size: AppSize.sp55,
-            color: const Color(0xFFFF5183),
+            color: colors.error,
           ),
           SizedBox(height: AppSize.h8),
           Text(
             'Better Luck\nNext Time',
             textAlign: TextAlign.center,
             style: context.textTheme.titleLarge?.copyWith(
-              color: const Color(0xFFFF5183),
+              color: colors.error,
               fontWeight: FontWeight.w700,
               fontSize: AppSize.sp22,
             ),
@@ -397,20 +327,37 @@ class _RevealedReward extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Assets.icons.coins.svg(height: AppSize.sp36, width: AppSize.sp36),
-        SizedBox(height: AppSize.h8),
-        Text(
-          '+$reward',
-          style: context.textTheme.displayMedium?.copyWith(
-            color: const Color(0xFFFFD84D),
-            fontWeight: FontWeight.w800,
-            fontSize: AppSize.sp36,
+        ShaderMask(
+          shaderCallback: (bounds) =>
+              colors.coinGradient.createShader(bounds),
+          child: Assets.icons.coins.svg(
+            height: AppSize.sp48,
+            width: AppSize.sp48,
+            colorFilter: const ColorFilter.mode(
+              Colors.white,
+              BlendMode.srcIn,
+            ),
           ),
         ),
+        SizedBox(height: AppSize.h14),
+        ShaderMask(
+          shaderCallback: (bounds) =>
+              colors.coinGradient.createShader(bounds),
+          child: Text(
+            '+$reward',
+            style: context.textTheme.displayMedium?.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.w800,
+              fontSize: AppSize.sp40,
+              height: 1,
+            ),
+          ),
+        ),
+        SizedBox(height: AppSize.h6),
         Text(
           'Coins',
           style: context.textTheme.bodyLarge?.copyWith(
-            color: textColors.primary,
+            color: Colors.white.withValues(alpha: 0.75),
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -436,9 +383,6 @@ class _CongratsSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-    final colors = context.themeColors;
-
     return Container(
       width: double.infinity,
       padding: EdgeInsets.fromLTRB(
@@ -448,24 +392,13 @@ class _CongratsSheet extends StatelessWidget {
         AppSize.h32,
       ),
       decoration: BoxDecoration(
-        color: colors.card,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.r24)),
-        border: Border(
-          top: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          left: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          right: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-        ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF00B7FF).withValues(alpha: 0.2),
-            blurRadius: AppSize.r24,
-            offset: Offset(0, -AppSize.h6),
+            color: const Color(0xFF0B1F4D).withValues(alpha: 0.14),
+            blurRadius: AppSize.r32,
+            offset: Offset(0, -AppSize.h4),
           ),
         ],
       ),
@@ -478,11 +411,10 @@ class _CongratsSheet extends StatelessWidget {
             height: AppSize.h4,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSize.r100),
-              color: textColors.muted,
+              color: const Color(0xFFE5EBF5),
             ),
           ),
           SizedBox(height: AppSize.h20),
-          // Trophy
           Assets.images.dailyRewardTrophy.image(
             height: AppSize.sp100,
             width: AppSize.sp100,
@@ -492,7 +424,9 @@ class _CongratsSheet extends StatelessWidget {
           Text(
             isLoss ? 'Oops!' : 'Congratulations..!',
             style: context.textTheme.titleLarge?.copyWith(
-              color: isLoss ? const Color(0xFFFF5183) : const Color(0xFFFFD84D),
+              color: isLoss
+                  ? const Color(0xFFFF5183)
+                  : const Color(0xFF111827),
               fontWeight: FontWeight.w800,
               fontSize: AppSize.sp24,
             ),
@@ -501,7 +435,9 @@ class _CongratsSheet extends StatelessWidget {
           Text(
             isLoss ? 'Better luck next time!' : 'You won $coins Coins',
             style: context.textTheme.bodyLarge?.copyWith(
-              color: textColors.primary,
+              color: isLoss
+                  ? const Color(0xFFFF5183)
+                  : const Color(0xFF6B7280),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -509,7 +445,7 @@ class _CongratsSheet extends StatelessWidget {
           if (!isLoss)
             AdDisclaimerText(show: RewardAdService.isScratchCardAdEnabled),
           _PaleCyanPill(
-            label: isLoss ? context.l10n.tryAgain : context.l10n.claimCoins,
+            label: isLoss ? 'Try Again' : 'Claim Coins',
             onPressed: onClaim,
           ),
         ],
@@ -544,14 +480,13 @@ class _PaleCyanPill extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: radius,
             gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFF9AE0FA), Color(0xFF5CCBF7)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFF3A6BFF), Color(0xFF1E3FE0)],
             ),
-            border: Border.all(color: const Color(0xFFB8ECFF)),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF5CCBF7).withValues(alpha: 0.4),
+                color: const Color(0xFF2563EB).withValues(alpha: 0.35),
                 blurRadius: AppSize.r16,
                 offset: Offset(0, AppSize.h4),
               ),
@@ -560,7 +495,7 @@ class _PaleCyanPill extends StatelessWidget {
           child: Text(
             label,
             style: context.textTheme.labelLarge?.copyWith(
-              color: const Color(0xFF003A52),
+              color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
           ),

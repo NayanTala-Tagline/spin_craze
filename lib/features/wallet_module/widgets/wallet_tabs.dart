@@ -3,7 +3,6 @@ import 'package:spin_craze/features/wallet_module/provider/wallet_provider.dart'
 import 'package:flutter/material.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:provider/provider.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class WalletTabs extends StatelessWidget {
   const WalletTabs({super.key});

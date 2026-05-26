@@ -18,15 +18,14 @@ import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:go_router/go_router.dart';
 import 'package:spin_craze/widgets/common_background.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 // ── Segment definitions ─────────────────────────────────────────────────────
 // Segments are built from Remote Config (`spin_board_reward_values`) so the
 // wheel labels and the actual coin reward stay in sync.
 // Style alternates between blue-purple gradient and dark-green solid.
 
-const _cyanBlue = Color(0xFF3B8FE8);
-const _purpleBlue = Color(0xFF7B52D9);
+const _darkBlue = Color(0xFF3340E8);
+const _lightBlue = Color(0xFF6B86FF);
 
 List<WheelSegment> _getWheelSegments(BuildContext context) {
   final values = RemoteConfigService.instance.spinBoardRewardValues;
@@ -36,18 +35,11 @@ List<WheelSegment> _getWheelSegments(BuildContext context) {
 
   return List<WheelSegment>.generate(safeValues.length, (i) {
     final value = safeValues[i];
-    final isGradient = i.isEven;
-    if (isGradient) {
-      // Alternate gradient direction every other gradient slot for variety.
-      final flip = (i ~/ 2).isOdd;
-      return WheelSegment(
-        value,
-        displayText: '$value',
-        colorStart: flip ? _purpleBlue : _cyanBlue,
-        colorEnd: flip ? _cyanBlue : _purpleBlue,
-      );
-    }
-    return WheelSegment(value, displayText: '$value');
+    return WheelSegment(
+      value,
+      displayText: '$value',
+      solidColor: i.isEven ? _darkBlue : _lightBlue,
+    );
   });
 }
 
@@ -148,12 +140,11 @@ class _SpinWheelScreenState extends State<SpinWheelScreen>
       parameters: {'coins_won': wonCoins, 'is_loss': isLoss ? 1 : 0},
     );
 
-    showModalBottomSheet<void>(
+    showDialog<void>(
       context: context,
-      backgroundColor: Colors.transparent,
-      isDismissible: false,
-      enableDrag: false,
-      builder: (sheetCtx) => _CongratsSheet(
+      barrierDismissible: false,
+      barrierColor: const Color(0xFF0B1F4D).withValues(alpha: 0.55),
+      builder: (sheetCtx) => _CongratsDialog(
         coins: wonCoins,
         isLoss: isLoss,
         onClaim: () async {
@@ -190,10 +181,15 @@ class _SpinWheelScreenState extends State<SpinWheelScreen>
         NavigationHelper().handleBackPress(context);
       },
       child: CommonBackground(
+        gradient: const LinearGradient(
+          colors: [Color(0xFFF7F9FC), Color(0xFFEEF2F8)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: CommonAppBar(
-            title: context.l10n.spinAndWinTitle,
+            title: 'Spin & Win',
             showBack: true,
           ),
           body: SafeArea(
@@ -228,26 +224,25 @@ class _WelcomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: AppSize.w24),
       child: Column(
         children: [
           SizedBox(height: AppSize.h24),
           Text(
-            context.l10n.welcomeToSpin,
+            'Welcome to Spin',
             style: context.textTheme.titleLarge?.copyWith(
-              color: textColors.primary,
+              color: const Color(0xFF0B1F4D),
               fontWeight: FontWeight.w800,
               fontSize: AppSize.sp22,
             ),
           ),
           SizedBox(height: AppSize.h10),
           Text(
-            context.l10n.earnCoinsEasilyBySpin,
+            'Earn Coins Easily by Spinning Wheel',
+            textAlign: TextAlign.center,
             style: context.textTheme.bodyMedium?.copyWith(
-              color: textColors.secondary,
+              color: const Color(0xFF6B7280),
             ),
           ),
           const Spacer(),
@@ -258,7 +253,7 @@ class _WelcomeBody extends StatelessWidget {
           ),
           const Spacer(),
           _PaleCyanPill(
-            label: context.l10n.getStarted,
+            label: 'Get Started',
             onPressed: onGetStarted,
           ),
           SizedBox(height: AppSize.h24),
@@ -319,7 +314,7 @@ class _SpinBody extends StatelessWidget {
           ),
           const Spacer(),
           _PaleCyanPill(
-            label: isSpinning ? context.l10n.spinning : context.l10n.spinNow,
+            label: isSpinning ? 'Spinning...' : 'Spin Now',
             onPressed: isSpinning ? () {} : onSpin,
           ),
           SizedBox(height: AppSize.h24),
@@ -397,11 +392,11 @@ class _WheelWithPointer extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Congratulations bottom sheet
+// Congratulations dialog (animated)
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _CongratsSheet extends StatelessWidget {
-  const _CongratsSheet({
+class _CongratsDialog extends StatefulWidget {
+  const _CongratsDialog({
     required this.coins,
     required this.isLoss,
     required this.onClaim,
@@ -412,84 +407,137 @@ class _CongratsSheet extends StatelessWidget {
   final VoidCallback onClaim;
 
   @override
-  Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-    final colors = context.themeColors;
+  State<_CongratsDialog> createState() => _CongratsDialogState();
+}
 
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.fromLTRB(
-        AppSize.w24,
-        AppSize.h20,
-        AppSize.w24,
-        AppSize.h32,
-      ),
-      decoration: BoxDecoration(
-        color: colors.card,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.r24)),
-        border: Border(
-          top: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          left: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          right: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
+class _CongratsDialogState extends State<_CongratsDialog>
+    with TickerProviderStateMixin {
+  late final AnimationController _entryCtrl;
+  late final Animation<double> _entryScale;
+  late final Animation<double> _entryFade;
+
+  late final AnimationController _floatCtrl;
+
+  @override
+  void initState() {
+    super.initState();
+    _entryCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 520),
+    );
+    _entryScale = CurvedAnimation(
+      parent: _entryCtrl,
+      curve: Curves.elasticOut,
+    );
+    _entryFade = CurvedAnimation(
+      parent: _entryCtrl,
+      curve: const Interval(0, 0.4, curve: Curves.easeOut),
+    );
+    _entryCtrl.forward();
+
+    _floatCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1600),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _entryCtrl.dispose();
+    _floatCtrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.symmetric(horizontal: AppSize.w32),
+      child: FadeTransition(
+        opacity: _entryFade,
+        child: ScaleTransition(
+          scale: Tween<double>(
+            begin: 0.85,
+            end: 1.0,
+          ).animate(_entryScale),
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.fromLTRB(
+              AppSize.w24,
+              AppSize.h32,
+              AppSize.w24,
+              AppSize.h24,
+            ),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xFFEAF0FB), Color(0xFFFFFFFF)],
+              ),
+              borderRadius: BorderRadius.circular(AppSize.r24),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF0B1F4D).withValues(alpha: 0.18),
+                  blurRadius: AppSize.r32,
+                  offset: Offset(0, AppSize.h8),
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AnimatedBuilder(
+                  animation: _floatCtrl,
+                  builder: (_, child) {
+                    final t = Curves.easeInOut.transform(_floatCtrl.value);
+                    return Transform.translate(
+                      offset: Offset(0, -6 * t),
+                      child: Transform.rotate(
+                        angle: 0.04 * (t * 2 - 1),
+                        child: child,
+                      ),
+                    );
+                  },
+                  child: Assets.images.trackAchievments.image(
+                    height: AppSize.sp120,
+                    width: AppSize.sp120,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                SizedBox(height: AppSize.h20),
+                Text(
+                  widget.isLoss ? 'Oops!' : 'Congratulations..!',
+                  style: context.textTheme.titleLarge?.copyWith(
+                    color: widget.isLoss
+                        ? const Color(0xFFFF5183)
+                        : const Color(0xFF0B1F4D),
+                    fontWeight: FontWeight.w800,
+                    fontSize: AppSize.sp22,
+                  ),
+                ),
+                SizedBox(height: AppSize.h8),
+                Text(
+                  widget.isLoss
+                      ? 'Better luck next time!'
+                      : 'You won ${widget.coins} Coins',
+                  style: context.textTheme.bodyLarge?.copyWith(
+                    color: widget.isLoss
+                        ? const Color(0xFFFF5183)
+                        : const Color(0xFF6B7280),
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(height: AppSize.h24),
+                if (!widget.isLoss)
+                  AdDisclaimerText(show: RewardAdService.isSpinWheelAdEnabled),
+                _PaleCyanPill(
+                  label: widget.isLoss ? 'Try Again' : 'Claim Coins',
+                  onPressed: widget.onClaim,
+                ),
+              ],
+            ),
           ),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF00B7FF).withValues(alpha: 0.2),
-            blurRadius: AppSize.r24,
-            offset: Offset(0, -AppSize.h6),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Handle bar
-          Container(
-            width: AppSize.w40,
-            height: AppSize.h4,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(AppSize.r100),
-              color: textColors.muted,
-            ),
-          ),
-          SizedBox(height: AppSize.h20),
-          // Trophy
-          Assets.images.dailyRewardTrophy.image(
-            height: AppSize.sp100,
-            width: AppSize.sp100,
-            fit: BoxFit.contain,
-          ),
-          SizedBox(height: AppSize.h20),
-          Text(
-            isLoss ? 'Oops!' : 'Congratulations..!',
-            style: context.textTheme.titleLarge?.copyWith(
-              color: isLoss ? const Color(0xFFFF5183) : const Color(0xFFFFD84D),
-              fontWeight: FontWeight.w800,
-              fontSize: AppSize.sp24,
-            ),
-          ),
-          SizedBox(height: AppSize.h8),
-          Text(
-            isLoss ? 'Better luck next time!' : 'You won $coins Coins',
-            style: context.textTheme.bodyLarge?.copyWith(
-              color: textColors.primary,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: AppSize.h28),
-          if (!isLoss)
-            AdDisclaimerText(show: RewardAdService.isSpinWheelAdEnabled),
-          _PaleCyanPill(
-            label: isLoss ? context.l10n.tryAgain : context.l10n.claimCoins,
-            onPressed: onClaim,
-          ),
-        ],
       ),
     );
   }
@@ -521,14 +569,13 @@ class _PaleCyanPill extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: radius,
             gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFF9AE0FA), Color(0xFF5CCBF7)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFF3A6BFF), Color(0xFF1E3FE0)],
             ),
-            border: Border.all(color: const Color(0xFFB8ECFF)),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF5CCBF7).withValues(alpha: 0.4),
+                color: const Color(0xFF2563EB).withValues(alpha: 0.35),
                 blurRadius: AppSize.r16,
                 offset: Offset(0, AppSize.h4),
               ),
@@ -537,7 +584,7 @@ class _PaleCyanPill extends StatelessWidget {
           child: Text(
             label,
             style: context.textTheme.labelLarge?.copyWith(
-              color: const Color(0xFF003A52),
+              color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
           ),

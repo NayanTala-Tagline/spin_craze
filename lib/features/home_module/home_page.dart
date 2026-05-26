@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
@@ -11,6 +12,7 @@ import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/remote_config.dart';
 import 'package:spin_craze/widgets/ad_disclaimer_text.dart';
 import 'package:spin_craze/widgets/coin_chip.dart';
+import 'package:spin_craze/widgets/native_ads_widget.dart';
 import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +44,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _db = Injector.instance<AppDB>();
 
-  //TODO: HOME PAGE AD
-  // NativeAdManager? _homeNativeAd;
+  NativeAdManager? _homeNativeAd;
 
   @override
   void initState() {
@@ -52,21 +53,19 @@ class _HomePageState extends State<HomePage> {
       screenName: 'home',
       screenClass: 'HomePage',
     );
-    //TODO: HOME PAGE AD
-    // final adData = RemoteConfigService.instance.homeNative;
-    // if (adData.enabled) {
-    //   _homeNativeAd = NativeAdManager(adData: adData);
-    //   _homeNativeAd!.load();
-    //   _homeNativeAd!.future().then((_) {
-    //     if (mounted) setState(() {});
-    //   });
-    // }
+    final adData = RemoteConfigService.instance.homeNative;
+    if (adData.enabled) {
+      _homeNativeAd = NativeAdManager(adData: adData);
+      _homeNativeAd!.load();
+      _homeNativeAd!.future().then((_) {
+        if (mounted) setState(() {});
+      });
+    }
   }
 
   @override
   void dispose() {
-    //TODO: HOME PAGE AD
-    // _homeNativeAd?.dispose();
+    _homeNativeAd?.dispose();
     super.dispose();
   }
 
@@ -127,9 +126,8 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: AppSize.h20),
                 _StatTilesRow(level: level, xp: xp),
                 SizedBox(height: AppSize.h20),
-                //TODO: HOME PAGE AD
-                // NativeAdsWidget(nativeAd: _homeNativeAd),
-                // SizedBox(height: AppSize.h16),
+                NativeAdsWidget(nativeAd: _homeNativeAd),
+                SizedBox(height: AppSize.h16),
                 const _HowItWorksBanner(),
                 SizedBox(height: AppSize.h20),
                 const _Leaderboard(),
@@ -330,6 +328,7 @@ class _DailyRewardCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: radius,
       child: Container(
+        alignment: Alignment.center,
         padding: EdgeInsets.fromLTRB(
           AppSize.w22,
           AppSize.h22,
@@ -416,8 +415,9 @@ class _DailyRewardCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: AppSize.h4),
                 AdDisclaimerText(show: RewardAdService.isDailyCheckinAdEnabled),
-                SizedBox(height: AppSize.h18),
+
                 _PaleCyanButton(
                   label: isClaimed ? 'Claimed' : 'Claim Now',
                   onPressed: isClaimed ? () {} : (onClaim ?? () {}),
@@ -1202,7 +1202,7 @@ class _HeroCarouselState extends State<_HeroCarousel> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          height: AppSize.h270,
+          height: AppSize.h240,
           child: PageView.builder(
             controller: _controller,
             onPageChanged: (idx) => setState(() => _index = idx % 2),
@@ -1386,110 +1386,85 @@ class _Leaderboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: _IconStatTile(
-            caption: 'See top earner',
-            label: 'Leader board',
-            icon: Assets.icons.chartBar,
-            accent: _kBlue,
-            onTap: () {
-              AnalyticsManager.instance.logEvent(name: 'home_leaderboard_tap');
-              NavigationHelper().navigateWithAdCheck(
-                context,
-                () => context.go('/${AppRoutes.rank}'),
-              );
-            },
-          ),
-        ),
-        SizedBox(width: AppSize.w12),
-        Expanded(
-          child: _IconStatTile(
-            caption: 'Unlock your Badges',
-            label: 'Achievements',
-            icon: Assets.icons.trophy,
-            accent: _kBlue,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _IconStatTile extends StatelessWidget {
-  const _IconStatTile({
-    required this.caption,
-    required this.label,
-    required this.icon,
-    required this.accent,
-    this.onTap,
-  });
-
-  final String caption;
-  final String label;
-  final SvgGenImage icon;
-  final Color accent;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(AppSize.r16);
+    final radius = BorderRadius.circular(AppSize.r20);
 
     return Material(
       color: Colors.transparent,
       borderRadius: radius,
       child: InkWell(
         borderRadius: radius,
-        onTap: onTap,
+        onTap: () {
+          AnalyticsManager.instance.logEvent(name: 'home_leaderboard_tap');
+          NavigationHelper().navigateWithAdCheck(
+            context,
+            () => context.go('/${AppRoutes.rank}'),
+          );
+        },
         child: Container(
-          width: double.infinity,
           padding: EdgeInsets.symmetric(
-            horizontal: AppSize.w14,
-            vertical: AppSize.h12,
+            horizontal: AppSize.w20,
+            vertical: AppSize.h16,
           ),
           decoration: BoxDecoration(
             borderRadius: radius,
-            color: _kCardBg,
-            border: Border.all(color: _kCardBorder),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0xFF0B1F4D).withValues(alpha: 0.04),
-                blurRadius: AppSize.r10,
-                offset: Offset(0, AppSize.h4),
-              ),
-            ],
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFFEDF2FF), Color(0xFFDDE6FB)],
+            ),
+            border: Border.all(color: const Color(0xFF8CB4FF), width: 1.5),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Text(
-                caption,
-                style: context.textTheme.bodySmall?.copyWith(
-                  color: _kTextMuted,
-                  fontSize: AppSize.sp11,
+              Container(
+                width: AppSize.sp52,
+                height: AppSize.sp52,
+                padding: EdgeInsets.all(AppSize.sp12),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xFF5577FF), _kBlueDeep],
+                  ),
+                ),
+                child: Assets.icons.chartBar.svg(
+                  colorFilter: const ColorFilter.mode(
+                    Colors.white,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
-              SizedBox(height: AppSize.h6),
-              Row(
-                children: [
-                  icon.svg(
-                    height: AppSize.sp20,
-                    width: AppSize.sp20,
-                    colorFilter: ColorFilter.mode(accent, BlendMode.srcIn),
-                  ),
-                  SizedBox(width: AppSize.w8),
-                  Flexible(
-                    child: Text(
-                      label,
-                      style: context.textTheme.titleSmall?.copyWith(
+              SizedBox(width: AppSize.w14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Leaderboard',
+                      style: context.textTheme.titleMedium?.copyWith(
                         color: _kTextDark,
-                        fontWeight: FontWeight.w700,
-                        fontSize: AppSize.sp14,
+                        fontWeight: FontWeight.w800,
+                        fontSize: AppSize.sp18,
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: AppSize.h2),
+                    Text(
+                      'See top earners and climb the ranks',
+                      style: context.textTheme.bodySmall?.copyWith(
+                        color: _kTextMuted,
+                        fontSize: AppSize.sp12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(width: AppSize.w8),
+              Icon(
+                Icons.arrow_forward_ios,
+                size: AppSize.sp14,
+                color: _kBlueDeep,
               ),
             ],
           ),

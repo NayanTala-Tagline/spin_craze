@@ -14,7 +14,6 @@ import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:go_router/go_router.dart';
 import 'package:spin_craze/widgets/common_background.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 // ── Question model ──────────────────────────────────────────────────────────
 
@@ -389,9 +388,14 @@ class _QuizScreenState extends State<QuizScreen> {
         NavigationHelper().handleBackPress(context);
       },
       child: CommonBackground(
+        gradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xFFEEF2F9), Color(0xFFEEF2F9)],
+        ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: CommonAppBar(title: context.l10n.quiz, showBack: true),
+          appBar: CommonAppBar(title: 'Quiz', showBack: true),
           body: SafeArea(
             top: false,
             child: Padding(
@@ -399,20 +403,12 @@ class _QuizScreenState extends State<QuizScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: AppSize.h20),
-                  // Progress header
-                  _ProgressHeader(
-                    current: _currentIndex + 1,
-                    total: _questions.length,
-                  ),
-                  SizedBox(height: AppSize.h24),
-                  // Question card
+                  SizedBox(height: AppSize.h32),
                   _QuestionCard(question: _current.question),
-                  SizedBox(height: AppSize.h24),
-                  // Options
+                  SizedBox(height: AppSize.h32),
                   ..._current.options.asMap().entries.map((entry) {
                     return Padding(
-                      padding: EdgeInsets.only(bottom: AppSize.h12),
+                      padding: EdgeInsets.only(bottom: AppSize.h14),
                       child: _OptionTile(
                         text: entry.value,
                         index: entry.key,
@@ -422,6 +418,12 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     );
                   }),
+                  const Spacer(),
+                  _ProgressFooter(
+                    current: _currentIndex + 1,
+                    total: _questions.length,
+                  ),
+                  SizedBox(height: AppSize.h16),
                 ],
               ),
             ),
@@ -432,37 +434,36 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 }
 
-// ── Progress header ─────────────────────────────────────────────────────────
+// ── Progress footer ─────────────────────────────────────────────────────────
 
-class _ProgressHeader extends StatelessWidget {
-  const _ProgressHeader({required this.current, required this.total});
+class _ProgressFooter extends StatelessWidget {
+  const _ProgressFooter({required this.current, required this.total});
 
   final int current;
   final int total;
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'Questions $current/$total',
-          style: context.textTheme.titleMedium?.copyWith(
-            color: textColors.primary,
-            fontWeight: FontWeight.w700,
-            fontSize: AppSize.sp16,
+          style: TextStyle(
+            fontFamily: 'SFPro',
+            color: const Color(0xFF0E1A2B),
+            fontWeight: FontWeight.w600,
+            fontSize: AppSize.sp14,
           ),
         ),
-        SizedBox(height: AppSize.h8),
+        SizedBox(height: AppSize.h10),
         ClipRRect(
           borderRadius: BorderRadius.circular(AppSize.r100),
           child: LinearProgressIndicator(
             value: current / total,
             minHeight: AppSize.h6,
-            backgroundColor: const Color(0xFF1A3A4A),
-            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF3B8FE8)),
+            backgroundColor: const Color(0xFFDDE5F3),
+            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF1164FF)),
           ),
         ),
       ],
@@ -479,37 +480,17 @@ class _QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSize.w24,
-        vertical: AppSize.h32,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppSize.r20),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFF7B52D9), Color(0xFF3B8FE8)],
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF7B52D9).withValues(alpha: 0.4),
-            blurRadius: AppSize.r24,
-            offset: Offset(0, AppSize.h8),
-          ),
-        ],
-      ),
       child: Text(
         question,
         textAlign: TextAlign.center,
-        style: context.textTheme.titleLarge?.copyWith(
-          color: textColors.primary,
+        style: TextStyle(
+          fontFamily: 'SFPro',
+          color: const Color(0xFF0E1A2B),
           fontWeight: FontWeight.w700,
-          fontSize: AppSize.sp20,
-          height: 1.4,
+          fontSize: AppSize.sp18,
+          height: 1.45,
         ),
       ),
     );
@@ -535,62 +516,60 @@ class _OptionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-    final colors = context.themeColors;
-
     final isSelected = selectedIndex == index;
     final isCorrect = correctIndex == index;
     final isWrong = isSelected && correctIndex != null && !isCorrect;
+    final isAnswered = correctIndex != null;
 
     Color borderColor;
-    Color? fillColor;
-    if (isCorrect && correctIndex != null) {
-      borderColor = const Color(0xFF4CAF50);
-      fillColor = const Color(0xFF4CAF50).withValues(alpha: 0.15);
+    Color fillColor;
+    Color textColor;
+
+    if (isCorrect && isAnswered) {
+      borderColor = const Color(0xFF22C55E);
+      fillColor = const Color(0xFF22C55E);
+      textColor = Colors.white;
     } else if (isWrong) {
-      borderColor = const Color(0xFFFF5183);
-      fillColor = const Color(0xFFFF5183).withValues(alpha: 0.15);
+      borderColor = const Color(0xFFEF4444);
+      fillColor = const Color(0xFFEF4444);
+      textColor = Colors.white;
     } else if (isSelected) {
-      borderColor = const Color(0xFF3B8FE8);
-      fillColor = const Color(0xFF3B8FE8).withValues(alpha: 0.1);
+      borderColor = const Color(0xFF1164FF);
+      fillColor = const Color(0xFF1164FF);
+      textColor = Colors.white;
     } else {
-      borderColor = colors.border;
-      fillColor = null;
+      borderColor = const Color(0xFFCFDDF7);
+      fillColor = Colors.white;
+      textColor = const Color(0xFF0E1A2B);
     }
 
-    // Gradient for the selected correct/wrong answers.
-    Gradient? gradient;
-    if (isWrong) {
-      gradient = const LinearGradient(
-        colors: [Color(0xFFFF5183), Color(0xFF3B8FE8)],
-      );
-    }
+    final radius = BorderRadius.circular(AppSize.r100);
 
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(AppSize.r16),
-        onTap: correctIndex == null ? onTap : null,
+        borderRadius: radius,
+        onTap: isAnswered ? null : onTap,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 250),
           width: double.infinity,
           padding: EdgeInsets.symmetric(
             horizontal: AppSize.w20,
             vertical: AppSize.h16,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(AppSize.r16),
-            color: fillColor ?? colors.surface,
-            gradient: gradient,
-            border: Border.all(color: borderColor, width: 1.5),
+            borderRadius: radius,
+            color: fillColor,
+            border: Border.all(color: borderColor, width: 1.2),
           ),
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: context.textTheme.bodyLarge?.copyWith(
-              color: textColors.primary,
-              fontWeight: FontWeight.w500,
-              fontSize: AppSize.sp16,
+            style: TextStyle(
+              fontFamily: 'SFPro',
+              color: textColor,
+              fontWeight: FontWeight.w600,
+              fontSize: AppSize.sp15,
             ),
           ),
         ),
@@ -703,7 +682,7 @@ class _ResultSheet extends StatelessWidget {
           if (!isLoss)
             AdDisclaimerText(show: RewardAdService.isMathQuizAdEnabled),
           _PaleCyanPill(
-            label: isLoss ? context.l10n.tryAgain : context.l10n.claimCoins,
+            label: isLoss ? 'Try Again' : 'Claim Coins',
             onPressed: onClaim,
           ),
         ],

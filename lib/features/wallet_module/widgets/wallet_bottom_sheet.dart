@@ -1,15 +1,20 @@
-import 'package:spin_craze/extension/ext_context.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
 import 'package:spin_craze/features/wallet_module/model/wallet_models.dart';
 import 'package:spin_craze/features/wallet_module/provider/wallet_provider.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/remote_config.dart';
-import 'package:spin_craze/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
+
+const Color _kPrimary = Color(0xFF1164FF);
+const Color _kPrimaryDark = Color(0xFF0040E0);
+const Color _kFieldBg = Color(0xFFF5F8FD);
+const Color _kBorder = Color(0xFFD9E2F0);
+const Color _kTextPrimary = Color(0xFF0E1A2B);
+const Color _kTextMuted = Color(0xFF6B7A92);
+const Color _kError = Color(0xFFE05252);
 
 class WalletBottomSheet extends StatelessWidget {
   final WalletItem item;
@@ -17,9 +22,6 @@ class WalletBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isWhite = item.color.toARGB32() == 0xFFFFFFFF;
-    final _ = isWhite; // color check preserved for future use
-
     return Consumer<WalletProvider>(
       builder: (context, provider, _) {
         return Padding(
@@ -31,11 +33,16 @@ class WalletBottomSheet extends StatelessWidget {
             constraints: BoxConstraints(
               maxHeight: MediaQuery.of(context).size.height * 0.90,
             ),
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.fromLTRB(
+              AppSize.w24,
+              AppSize.h16,
+              AppSize.w24,
+              AppSize.h24,
+            ),
             decoration: BoxDecoration(
-              color: context.themeColors.surface,
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(24),
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(AppSize.r24),
               ),
             ),
             child: Form(
@@ -46,138 +53,131 @@ class WalletBottomSheet extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 5),
-                    item.icon,
-                    const SizedBox(height: 20),
-
-                    Text(
-                      "Withdraw to ${item.title}",
-                      style: context.textTheme.titleLarge?.copyWith(
-                        fontSize: AppSize.sp22,
-                        fontWeight: FontWeight.w500,
-                        color: context.themeTextColors.primary.withValues(
-                          alpha: 0.8,
-                        ),
+                    Container(
+                      width: AppSize.w40,
+                      height: AppSize.h4,
+                      decoration: BoxDecoration(
+                        color: _kBorder,
+                        borderRadius: BorderRadius.circular(AppSize.r100),
                       ),
                     ),
-
-                    const SizedBox(height: 20),
-
-                    _buildTextField(
-                      context,
-                      item.formData.title,
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 3),
-                        child: item.formData.icon,
+                    SizedBox(height: AppSize.h20),
+                    Container(
+                      width: AppSize.sp64,
+                      height: AppSize.sp64,
+                      padding: EdgeInsets.all(AppSize.w12),
+                      decoration: BoxDecoration(
+                        color: _kFieldBg,
+                        borderRadius: BorderRadius.circular(AppSize.r16),
+                        border: Border.all(color: _kBorder),
                       ),
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: item.icon,
+                      ),
+                    ),
+                    SizedBox(height: AppSize.h16),
+                    Text(
+                      'Withdraw to ${item.title}',
+                      style: TextStyle(
+                        fontFamily: 'SFPro',
+                        fontSize: AppSize.sp18,
+                        fontWeight: FontWeight.w700,
+                        color: _kTextPrimary,
+                      ),
+                    ),
+                    SizedBox(height: AppSize.h20),
+                    _LightTextField(
+                      hint: item.formData.title,
+                      icon: item.formData.icon,
                       controller: provider.btcWalletAddressController,
                       regex: item.formData.regex,
                     ),
-                    const SizedBox(height: 20),
-
-                    _buildTextField(
-                      context,
-                      "Amount (Coins) ",
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 3),
-                        child: Icon(
-                          Icons.monetization_on_sharp,
-                          size: 24,
-                          color: item.color,
-                        ),
+                    SizedBox(height: AppSize.h14),
+                    _LightTextField(
+                      hint: 'Amount (Coins)',
+                      icon: Icon(
+                        Icons.monetization_on_rounded,
+                        size: AppSize.sp22,
+                        color: _kPrimary,
                       ),
                       controller: provider.amountController,
                       onChanged: provider.onAmountChanged,
-                      suffix: true,
+                      showSuffix: true,
                       isAmount: true,
                     ),
-
-                    if (provider.amountController.text.isNotEmpty)
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 10),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: 10,
-                            ),
-                            alignment: AlignmentGeometry.centerStart,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              border: Border.all(
-                                color: context.themeColors.error.withValues(
-                                  alpha: 0.5,
-                                ),
-                                width: 0.3,
-                              ),
-                            ),
-                            child: Text(
-                              "Value: \$${provider.convertedValue}",
-                              style: context.textTheme.titleSmall?.copyWith(
-                                fontSize: AppSize.sp14,
-                                fontWeight: FontWeight.normal,
-                                color: context.themeColors.warning,
-                                height: 1.5,
-                              ),
-                            ),
+                    if (provider.amountController.text.isNotEmpty) ...[
+                      SizedBox(height: AppSize.h10),
+                      Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: AppSize.w12,
+                          vertical: AppSize.h10,
+                        ),
+                        decoration: BoxDecoration(
+                          color: _kFieldBg,
+                          borderRadius: BorderRadius.circular(AppSize.r12),
+                          border: Border.all(color: _kBorder),
+                        ),
+                        child: Text(
+                          'Value: \$${provider.convertedValue}',
+                          style: TextStyle(
+                            fontFamily: 'SFPro',
+                            fontSize: AppSize.sp13,
+                            fontWeight: FontWeight.w600,
+                            color: _kPrimary,
                           ),
-                        ],
+                        ),
                       ),
-
-                    const SizedBox(height: 20),
-
-                    /// Note
-                    _buildTextField(
-                      context,
-                      "Additional Note (Optional)",
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 3),
-                        child: Icon(Icons.note, size: 24, color: Colors.grey),
+                    ],
+                    SizedBox(height: AppSize.h14),
+                    _LightTextField(
+                      hint: 'Additional Note (Optional)',
+                      icon: Icon(
+                        Icons.sticky_note_2_rounded,
+                        size: AppSize.sp22,
+                        color: _kTextMuted,
                       ),
                       controller: provider.noteController,
                       isOptional: true,
                     ),
-
-                    const SizedBox(height: 30),
-
-                    /// Button
-                    AppButton(
-                      label: context.l10n.confirmWithdrawal,
-                      variant: AppButtonVariant.gradient,
+                    SizedBox(height: AppSize.h24),
+                    _ConfirmButton(
                       isLoading: provider.isLoading,
-                      isDisabled: provider.isLoading,
-                      onPressed: () async {
-                        if (!provider.formKey.currentState!.validate()) {
-                          return;
-                        }
-                        AnalyticsManager.instance.logEvent(
-                          name: 'withdraw_submit_attempt',
-                          parameters: {'method': item.title},
-                        );
-                        final success = await provider.createWithdraw(context);
-                        if (!context.mounted) return;
+                      onPressed: provider.isLoading
+                          ? null
+                          : () async {
+                              if (!provider.formKey.currentState!.validate()) {
+                                return;
+                              }
+                              AnalyticsManager.instance.logEvent(
+                                name: 'withdraw_submit_attempt',
+                                parameters: {'method': item.title},
+                              );
+                              final success = await provider.createWithdraw(
+                                context,
+                              );
+                              if (!context.mounted) return;
 
-                        if (success) {
-                          AnalyticsManager.instance.logEvent(
-                            name: 'withdraw_submit_success',
-                            parameters: {'method': item.title},
-                          );
-                          provider.resetWithdrawForm();
-                          context.l10n.withdrawRequestSent.showSuccessAlert();
-                          context.pop();
-                        } else {
-                          AnalyticsManager.instance.logEvent(
-                            name: 'withdraw_submit_failed',
-                            parameters: {
-                              'method': item.title,
-                              'error': provider.error ?? 'unknown',
+                              if (success) {
+                                AnalyticsManager.instance.logEvent(
+                                  name: 'withdraw_submit_success',
+                                  parameters: {'method': item.title},
+                                );
+                                provider.resetWithdrawForm();
+                                'Withdraw request sent'.showSuccessAlert();
+                                context.pop();
+                              } else {
+                                AnalyticsManager.instance.logEvent(
+                                  name: 'withdraw_submit_failed',
+                                  parameters: {
+                                    'method': item.title,
+                                    'error': provider.error ?? 'unknown',
+                                  },
+                                );
+                                (provider.error ?? 'Error').showErrorAlert();
+                              }
                             },
-                          );
-                          (provider.error ?? context.l10n.error)
-                              .showErrorAlert();
-                        }
-                      },
                     ),
                   ],
                 ),
@@ -190,90 +190,179 @@ class WalletBottomSheet extends StatelessWidget {
   }
 }
 
-Widget _buildTextField(
-  BuildContext context,
-  String hint,
-  Widget icon, {
-  TextEditingController? controller,
-  Function(String)? onChanged,
-  bool suffix = false,
-  String? regex,
-  bool isOptional = false,
-  bool isAmount = false,
-}) {
-  final minAmount = RemoteConfigService.instance.minWithdrawAmount;
+class _LightTextField extends StatelessWidget {
+  const _LightTextField({
+    required this.hint,
+    required this.icon,
+    this.controller,
+    this.onChanged,
+    this.regex,
+    this.isOptional = false,
+    this.isAmount = false,
+    this.showSuffix = false,
+  });
 
-  return TextFormField(
-    controller: controller,
-    onChanged: onChanged,
-    autovalidateMode: AutovalidateMode.onUserInteraction,
-    keyboardType: isAmount
-        ? const TextInputType.numberWithOptions(decimal: false)
-        : TextInputType.text,
-    validator: (value) {
-      final trimmed = value?.trim() ?? '';
+  final String hint;
+  final Widget icon;
+  final TextEditingController? controller;
+  final ValueChanged<String>? onChanged;
+  final String? regex;
+  final bool isOptional;
+  final bool isAmount;
+  final bool showSuffix;
 
-      if (trimmed.isEmpty) {
-        return isOptional ? null : context.l10n.fieldRequired;
-      }
-
-      if (isAmount) {
-        final amount = int.tryParse(trimmed);
-        if (amount == null) {
-          return context.l10n.enterValidNumber;
+  @override
+  Widget build(BuildContext context) {
+    final minAmount = RemoteConfigService.instance.minWithdrawAmount;
+    return TextFormField(
+      controller: controller,
+      onChanged: onChanged,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      keyboardType: isAmount
+          ? const TextInputType.numberWithOptions(decimal: false)
+          : TextInputType.text,
+      cursorColor: _kPrimary,
+      style: TextStyle(
+        fontFamily: 'SFPro',
+        fontSize: AppSize.sp15,
+        fontWeight: FontWeight.w600,
+        color: _kTextPrimary,
+      ),
+      validator: (value) {
+        final trimmed = value?.trim() ?? '';
+        if (trimmed.isEmpty) return isOptional ? null : 'Field required';
+        if (isAmount) {
+          final amount = int.tryParse(trimmed);
+          if (amount == null) return 'Enter a valid number';
+          if (amount < minAmount) return 'Minimum is $minAmount coins';
+          return null;
         }
-        if (amount < minAmount) {
-          return "Minimum is $minAmount coins";
+        if (regex != null && !RegExp(regex!).hasMatch(trimmed)) {
+          return 'Invalid input';
         }
         return null;
-      }
-
-      if (regex != null) {
-        final regExp = RegExp(regex);
-        if (!regExp.hasMatch(trimmed)) {
-          return context.l10n.invalidInput;
-        }
-      }
-
-      return null;
-    },
-    textAlignVertical: TextAlignVertical.center,
-    cursorColor: context.themeColors.primary,
-    style: context.textTheme.titleSmall?.copyWith(
-      fontSize: AppSize.sp18,
-      fontWeight: FontWeight.normal,
-      color: context.themeTextColors.primary.withValues(alpha: 0.7),
-    ),
-    decoration: InputDecoration(
-      labelText: hint,
-      labelStyle: TextStyle(color: context.themeTextColors.secondary),
-      floatingLabelStyle: TextStyle(color: context.themeColors.primary),
-      prefixIcon: icon,
-      suffixText: suffix ? "Min: $minAmount" : null,
-      suffixStyle: context.textTheme.titleMedium?.copyWith(
-        fontSize: AppSize.sp16,
-        fontWeight: FontWeight.normal,
-        color: context.themeTextColors.primary.withValues(alpha: 0.7),
+      },
+      decoration: InputDecoration(
+        labelText: hint,
+        labelStyle: TextStyle(
+          fontFamily: 'SFPro',
+          color: _kTextMuted,
+          fontSize: AppSize.sp14,
+          fontWeight: FontWeight.w500,
+        ),
+        floatingLabelStyle: const TextStyle(
+          fontFamily: 'SFPro',
+          color: _kPrimary,
+          fontWeight: FontWeight.w600,
+        ),
+        prefixIcon: Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppSize.w12),
+          child: SizedBox(
+            width: AppSize.sp22,
+            height: AppSize.sp22,
+            child: FittedBox(fit: BoxFit.contain, child: icon),
+          ),
+        ),
+        prefixIconConstraints: BoxConstraints(
+          minWidth: AppSize.sp40,
+          minHeight: AppSize.sp40,
+        ),
+        suffixText: showSuffix ? 'Min: $minAmount' : null,
+        suffixStyle: TextStyle(
+          fontFamily: 'SFPro',
+          color: _kTextMuted,
+          fontSize: AppSize.sp13,
+          fontWeight: FontWeight.w500,
+        ),
+        filled: true,
+        fillColor: _kFieldBg,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: AppSize.w14,
+          vertical: AppSize.h14,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSize.r14),
+          borderSide: const BorderSide(color: _kBorder),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSize.r14),
+          borderSide: const BorderSide(color: _kPrimary, width: 1.4),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSize.r14),
+          borderSide: const BorderSide(color: _kError, width: 1.2),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSize.r14),
+          borderSide: const BorderSide(color: _kError, width: 1.6),
+        ),
+        errorStyle: TextStyle(
+          fontFamily: 'SFPro',
+          color: _kError,
+          fontSize: AppSize.sp12,
+        ),
       ),
-      filled: true,
-      fillColor: context.themeColors.background,
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(color: context.themeColors.border),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(color: context.themeColors.primary),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(color: context.themeColors.error, width: 1.5),
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: BorderSide(color: context.themeColors.error, width: 2),
-      ),
-      errorStyle: TextStyle(color: context.themeColors.error, fontSize: 12),
-    ),
-  );
+    );
+  }
 }
+
+class _ConfirmButton extends StatelessWidget {
+  const _ConfirmButton({required this.isLoading, required this.onPressed});
+
+  final bool isLoading;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(AppSize.r100),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(AppSize.r100),
+        onTap: onPressed,
+        child: Container(
+          width: double.infinity,
+          height: AppSize.h52,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppSize.r100),
+            gradient: const LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [_kPrimary, _kPrimaryDark],
+            ),
+            boxShadow: onPressed == null
+                ? null
+                : [
+                    BoxShadow(
+                      color: _kPrimary.withValues(alpha: 0.3),
+                      blurRadius: AppSize.r16,
+                      offset: Offset(0, AppSize.h6),
+                    ),
+                  ],
+          ),
+          child: isLoading
+              ? SizedBox(
+                  width: AppSize.sp22,
+                  height: AppSize.sp22,
+                  child: const CircularProgressIndicator(
+                    strokeWidth: 2.2,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  ),
+                )
+              : Text(
+                  'CONFIRM WITHDRAWAL',
+                  style: TextStyle(
+                    fontFamily: 'SFPro',
+                    color: Colors.white,
+                    fontSize: AppSize.sp14,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.6,
+                  ),
+                ),
+        ),
+      ),
+    );
+  }
+}
+

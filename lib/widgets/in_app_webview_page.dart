@@ -10,7 +10,12 @@ import 'package:spin_craze/widgets/common_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
+
+// ── Palette ─────────────────────────────────────────────────────────────────
+
+const _kBlueDark = Color(0xFF004CD9);
+const _kBlue = Color(0xFF1164FF);
+const _kInk = Color(0xFF111827);
 
 /// In-app webview page with a countdown timer overlay.
 ///
@@ -106,10 +111,8 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
-
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: Colors.white,
       appBar: CommonAppBar(title: widget.title, showBack: true, radius: 0),
       body: Stack(
         children: [
@@ -145,8 +148,6 @@ class _TimerBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
-
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppSize.w20,
@@ -154,44 +155,40 @@ class _TimerBadge extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSize.r100),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFF0E3E4F), Color(0xFF0E3E4F).withValues(alpha: 0.5)],
-        ),
-        border: Border.all(color: const Color(0xFF0E3E4F)),
+        color: Colors.white,
+        border: Border.all(color: _kBlue.withValues(alpha: 0.2)),
+        boxShadow: [
+          BoxShadow(
+            color: _kBlueDark.withValues(alpha: 0.18),
+            blurRadius: AppSize.r20,
+            offset: Offset(0, AppSize.h6),
+          ),
+        ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            spacing: AppSize.w6,
-            children: [
-              Text(
-                '?',
-                style: context.textTheme.labelLarge?.copyWith(
-                  color: context.themeTextColors.primary,
-                  fontWeight: FontWeight.w700,
-                  fontSize: AppSize.sp20,
-                ),
-              ),
-              Text(
-                'Reward in ${remaining}s..',
-                style: context.textTheme.labelLarge?.copyWith(
-                  color: context.themeTextColors.primary,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
+          Icon(
+            Icons.timer_outlined,
+            color: _kBlueDark,
+            size: AppSize.sp20,
+          ),
+          SizedBox(width: AppSize.w8),
+          Text(
+            'Reward in ${remaining}s..',
+            style: context.textTheme.labelLarge?.copyWith(
+              color: _kInk,
+              fontWeight: FontWeight.w700,
+              fontSize: AppSize.sp14,
+            ),
           ),
           SizedBox(width: AppSize.w10),
           SizedBox(
-            height: AppSize.sp20,
-            width: AppSize.sp20,
+            height: AppSize.sp18,
+            width: AppSize.sp18,
             child: CircularProgressIndicator(
               strokeWidth: 2.5,
-              color: colors.primary,
+              color: _kBlue,
             ),
           ),
         ],
@@ -220,25 +217,21 @@ class _ClaimButton extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           width: double.infinity,
-          height: AppSize.h44,
+          height: AppSize.h48,
           margin: EdgeInsets.symmetric(
             horizontal: AppSize.w20,
-            vertical: AppSize.h14,
+            vertical: AppSize.h12,
           ),
           decoration: BoxDecoration(
             borderRadius: radius,
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFF0E3E4F),
-                Color(0xFF0E3E4F).withValues(alpha: 0.5),
-              ],
+              colors: [_kBlue, _kBlueDark],
             ),
-            border: Border.all(color: const Color(0xFF0E3E4F)),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF0E3E4F).withValues(alpha: 0.4),
+                color: _kBlueDark.withValues(alpha: 0.4),
                 blurRadius: AppSize.r20,
                 offset: Offset(0, AppSize.h6),
               ),
@@ -246,7 +239,7 @@ class _ClaimButton extends StatelessWidget {
           ),
           alignment: Alignment.center,
           child: Text(
-            claimed ? context.l10n.claimed2 : context.l10n.claimRewardButton,
+            claimed ? 'Claimed!' : 'Claim Reward',
             style: context.textTheme.labelLarge?.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.w700,

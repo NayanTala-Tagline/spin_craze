@@ -1,12 +1,23 @@
-import 'package:spin_craze/extension/ext_context.dart';
 import 'package:spin_craze/features/wallet_module/provider/wallet_provider.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
+import 'package:spin_craze/utils/app_size.dart';
+import 'package:spin_craze/utils/logger.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:spin_craze/widgets/common_appbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
+
+const Color _kBg = Color(0xFFEEF2F9);
+const Color _kSurface = Colors.white;
+const Color _kBorder = Color(0xFFD9E2F0);
+const Color _kPrimary = Color(0xFF1164FF);
+const Color _kTextPrimary = Color(0xFF0E1A2B);
+const Color _kTextMuted = Color(0xFF6B7A92);
+const Color _kSuccess = Color(0xFF22C55E);
+const Color _kError = Color(0xFFE05252);
+const Color _kWarning = Color(0xFFE6A817);
+const Color _kDivider = Color(0xFFE2E8F2);
 
 class WalletHistoryScreen extends StatelessWidget {
   const WalletHistoryScreen({super.key});
@@ -38,49 +49,55 @@ class _WalletHistoryContent extends StatelessWidget {
         NavigationHelper().handleBackPress(context);
       },
       child: Scaffold(
-        backgroundColor: context.themeColors.background,
-        appBar: CommonAppBar(
-          title: context.l10n.withdrawHistory,
-          showBack: true,
-        ),
+        backgroundColor: _kBg,
+        appBar: CommonAppBar(title: 'Withdraw History', showBack: true),
         body: StreamBuilder<QuerySnapshot>(
           stream: provider.getWithdrawStream(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: CircularProgressIndicator(
-                  color: context.themeColors.primary,
-                ),
+              return const Center(
+                child: CircularProgressIndicator(color: _kPrimary),
               );
             }
             if (snapshot.hasError) {
+              'wallet_history stream error: ${snapshot.error}'.logD;
               return _buildEmptyState(
-                context,
                 icon: Icons.error_outline_rounded,
-                title: context.l10n.somethingWentWrong,
-                subtitle: context.l10n.pleaseTryAgainLater,
-                iconColor: context.themeColors.error,
+                title: 'Something went wrong',
+                subtitle: 'Please try again later',
+                iconColor: _kError,
               );
             }
 
-            final docs = snapshot.data?.docs ?? [];
+            final docs = [...?snapshot.data?.docs]..sort((a, b) {
+              final ad = (a.data() as Map<String, dynamic>)['created_at'];
+              final bd = (b.data() as Map<String, dynamic>)['created_at'];
+              if (ad is Timestamp && bd is Timestamp) return bd.compareTo(ad);
+              if (ad is Timestamp) return -1;
+              if (bd is Timestamp) return 1;
+              return 0;
+            });
 
             if (docs.isEmpty) {
               return _buildEmptyState(
-                context,
                 icon: Icons.account_balance_wallet_outlined,
-                title: context.l10n.noWithdrawalsYet,
-                subtitle: context.l10n.withdrawalRequestsWillAppear,
-                iconColor: context.themeColors.primary,
+                title: 'No withdrawals yet',
+                subtitle: 'Your withdrawal requests will appear here',
+                iconColor: _kPrimary,
               );
             }
 
             return ListView.builder(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+              padding: EdgeInsets.fromLTRB(
+                AppSize.w20,
+                AppSize.h16,
+                AppSize.w20,
+                AppSize.h32,
+              ),
               itemCount: docs.length,
               itemBuilder: (context, index) {
                 final data = docs[index].data() as Map<String, dynamic>;
-                return _WithdrawCard(data: data, index: index);
+                return _WithdrawCard(data: data);
               },
             );
           },
@@ -89,8 +106,7 @@ class _WalletHistoryContent extends StatelessWidget {
     );
   }
 
-  Widget _buildEmptyState(
-    BuildContext context, {
+  Widget _buildEmptyState({
     required IconData icon,
     required String title,
     required String subtitle,
@@ -101,30 +117,33 @@ class _WalletHistoryContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 72,
-            height: 72,
+            width: AppSize.sp72,
+            height: AppSize.sp72,
             decoration: BoxDecoration(
               color: iconColor.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: iconColor.withValues(alpha: 0.2)),
+              borderRadius: BorderRadius.circular(AppSize.r20),
+              border: Border.all(color: iconColor.withValues(alpha: 0.25)),
             ),
-            child: Icon(icon, color: iconColor, size: 32),
+            child: Icon(icon, color: iconColor, size: AppSize.sp32),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: AppSize.h16),
           Text(
             title,
             style: TextStyle(
-              color: context.themeTextColors.primary,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
+              fontFamily: 'SFPro',
+              color: _kTextPrimary,
+              fontSize: AppSize.sp16,
+              fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 6),
+          SizedBox(height: AppSize.h6),
           Text(
             subtitle,
             style: TextStyle(
-              color: context.themeTextColors.secondary,
-              fontSize: 13,
+              fontFamily: 'SFPro',
+              color: _kTextMuted,
+              fontSize: AppSize.sp13,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
@@ -135,9 +154,8 @@ class _WalletHistoryContent extends StatelessWidget {
 
 class _WithdrawCard extends StatelessWidget {
   final Map<String, dynamic> data;
-  final int index;
 
-  const _WithdrawCard({required this.data, required this.index});
+  const _WithdrawCard({required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -149,58 +167,53 @@ class _WithdrawCard extends StatelessWidget {
     final reason = data['reason'] as String?;
 
     DateTime? date;
-    if (createdAt != null) {
-      date = (createdAt as Timestamp).toDate();
-    }
+    if (createdAt is Timestamp) date = createdAt.toDate();
 
-    final cfg = _StatusConfig.from(status, context);
+    final cfg = _StatusConfig.from(status);
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+      padding: EdgeInsets.only(bottom: AppSize.h12),
       child: Container(
         decoration: BoxDecoration(
-          color: context.themeColors.surface,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: context.themeColors.border),
+          color: _kSurface,
+          borderRadius: BorderRadius.circular(AppSize.r16),
+          border: Border.all(color: _kBorder),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(AppSize.r16),
           child: IntrinsicHeight(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // -- Left accent bar --
                 Container(width: 4, color: cfg.accentColor),
-
-                // -- Card content --
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
+                    padding: EdgeInsets.all(AppSize.w14),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Amount + badge row
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Amount
                             RichText(
                               text: TextSpan(
                                 children: [
                                   TextSpan(
                                     text: '\$ ',
                                     style: TextStyle(
-                                      color: context.themeTextColors.secondary,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
+                                      fontFamily: 'SFPro',
+                                      color: _kTextMuted,
+                                      fontSize: AppSize.sp14,
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   TextSpan(
                                     text: _formatAmount(amount),
                                     style: TextStyle(
-                                      color: context.themeTextColors.primary,
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'SFPro',
+                                      color: _kTextPrimary,
+                                      fontSize: AppSize.sp22,
+                                      fontWeight: FontWeight.w700,
                                       letterSpacing: -0.5,
                                     ),
                                   ),
@@ -208,71 +221,54 @@ class _WithdrawCard extends StatelessWidget {
                               ),
                             ),
                             const Spacer(),
-                            // Status badge
                             _StatusBadge(cfg: cfg),
                           ],
                         ),
-
-                        const SizedBox(height: 14),
-
-                        // Divider
-                        Divider(
-                          height: 1,
-                          thickness: 0.5,
-                          color: context.themeColors.divider,
-                        ),
-
-                        const SizedBox(height: 14),
-
-                        // Meta rows
+                        SizedBox(height: AppSize.h12),
+                        Container(height: 1, color: _kDivider),
+                        SizedBox(height: AppSize.h12),
                         _MetaRow(
                           icon: Icons.account_balance_rounded,
-                          label: context.l10n.method,
+                          label: 'Method',
                           value: type.isNotEmpty ? type : '-',
                         ),
-                        const SizedBox(height: 10),
+                        SizedBox(height: AppSize.h10),
                         _MetaRow(
                           icon: Icons.receipt_long_rounded,
-                          label: context.l10n.type,
+                          label: 'Type',
                           value: subType.isNotEmpty ? subType : '-',
                         ),
-                        const SizedBox(height: 10),
+                        SizedBox(height: AppSize.h10),
                         _MetaRow(
                           icon: Icons.schedule_rounded,
-                          label: context.l10n.date,
+                          label: 'Date',
                           value: date != null ? _formatDate(date) : '-',
                         ),
-
-                        // Reason row (only for rejected)
                         if (status == 'rejected' && reason != null) ...[
-                          const SizedBox(height: 10),
+                          SizedBox(height: AppSize.h10),
                           _MetaRow(
                             icon: Icons.info_outline_rounded,
-                            label: context.l10n.reason,
+                            label: 'Reason',
                             value: reason,
-                            valueColor: const Color(0xFFE05252),
+                            valueColor: _kError,
                           ),
                         ],
-
-                        // Processing time row (approved)
-                        if (status == 'approved') ...[
-                          const SizedBox(height: 10),
+                        if (status == 'approved' || status == 'completed') ...[
+                          SizedBox(height: AppSize.h10),
                           _MetaRow(
                             icon: Icons.check_circle_outline_rounded,
-                            label: context.l10n.processed,
-                            value: context.l10n.businessDays,
-                            valueColor: const Color(0xFF4CAF82),
+                            label: 'Processed',
+                            value: '2 business days',
+                            valueColor: _kSuccess,
                           ),
                         ],
-
-                        // Pending note
                         if (status == 'pending') ...[
-                          const SizedBox(height: 10),
+                          SizedBox(height: AppSize.h10),
                           _MetaRow(
                             icon: Icons.hourglass_top_rounded,
-                            label: context.l10n.statusNote,
-                            value: context.l10n.underReview,
-                            valueColor: const Color(0xFFE6A817),
+                            label: 'Status note',
+                            value: 'Under review',
+                            valueColor: _kWarning,
                           ),
                         ],
                       ],
@@ -289,11 +285,9 @@ class _WithdrawCard extends StatelessWidget {
 
   String _formatAmount(dynamic amount) {
     final num val = (amount is num) ? amount : num.tryParse('$amount') ?? 0;
-    if (val >= 100000) {
-      return '${(val / 100000).toStringAsFixed(1)}L';
-    } else if (val >= 1000) {
-      final parts = val.toStringAsFixed(0).split('');
-      final reversed = parts.reversed.toList();
+    if (val >= 100000) return '${(val / 100000).toStringAsFixed(1)}L';
+    if (val >= 1000) {
+      final reversed = val.toStringAsFixed(0).split('').reversed.toList();
       final result = <String>[];
       for (int i = 0; i < reversed.length; i++) {
         if (i > 0 && i % 3 == 0) result.add(',');
@@ -328,10 +322,6 @@ class _WithdrawCard extends StatelessWidget {
   }
 }
 
-// ---------------------------------------------------------------------------
-//  META ROW
-// ---------------------------------------------------------------------------
-
 class _MetaRow extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -350,27 +340,26 @@ class _MetaRow extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 28,
-          height: 28,
+          width: AppSize.sp28,
+          height: AppSize.sp28,
           decoration: BoxDecoration(
-            color: context.themeColors.surface,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: context.themeColors.border),
+            color: const Color(0xFFF5F8FD),
+            borderRadius: BorderRadius.circular(AppSize.r8),
+            border: Border.all(color: _kBorder),
           ),
-          child: Icon(icon, size: 13, color: context.themeTextColors.muted),
+          child: Icon(icon, size: AppSize.sp14, color: _kTextMuted),
         ),
-        const SizedBox(width: 10),
-
+        SizedBox(width: AppSize.w10),
         Text(
           label,
           style: TextStyle(
-            color: context.themeTextColors.muted,
-            fontSize: 12.5,
+            fontFamily: 'SFPro',
+            color: _kTextMuted,
+            fontSize: AppSize.sp12,
+            fontWeight: FontWeight.w500,
           ),
         ),
-
-        const SizedBox(width: 8),
-
+        SizedBox(width: AppSize.w8),
         Expanded(
           child: Text(
             value,
@@ -378,11 +367,10 @@ class _MetaRow extends StatelessWidget {
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              color:
-                  valueColor ??
-                  context.themeTextColors.primary.withValues(alpha: 0.88),
-              fontSize: 12.5,
-              fontWeight: FontWeight.w500,
+              fontFamily: 'SFPro',
+              color: valueColor ?? _kTextPrimary,
+              fontSize: AppSize.sp12,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -391,10 +379,6 @@ class _MetaRow extends StatelessWidget {
   }
 }
 
-// ---------------------------------------------------------------------------
-//  STATUS BADGE
-// ---------------------------------------------------------------------------
-
 class _StatusBadge extends StatelessWidget {
   final _StatusConfig cfg;
   const _StatusBadge({required this.cfg});
@@ -402,36 +386,36 @@ class _StatusBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSize.w10,
+        vertical: AppSize.h4,
+      ),
       decoration: BoxDecoration(
         color: cfg.accentColor.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: cfg.accentColor.withValues(alpha: 0.3)),
+        borderRadius: BorderRadius.circular(AppSize.r100),
+        border: Border.all(color: cfg.accentColor.withValues(alpha: 0.35)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 6,
-            height: 6,
+            width: AppSize.sp6,
+            height: AppSize.sp6,
             decoration: BoxDecoration(
               color: cfg.accentColor,
               shape: BoxShape.circle,
             ),
           ),
-          const SizedBox(width: 6),
-
-          Padding(
-            padding: EdgeInsets.only(top: 4),
-            child: Text(
-              cfg.label,
-              style: TextStyle(
-                color: cfg.accentColor,
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.10,
-              ),
+          SizedBox(width: AppSize.w6),
+          Text(
+            cfg.label,
+            style: TextStyle(
+              fontFamily: 'SFPro',
+              color: cfg.accentColor,
+              fontSize: AppSize.sp11,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.4,
             ),
           ),
         ],
@@ -440,38 +424,21 @@ class _StatusBadge extends StatelessWidget {
   }
 }
 
-// ---------------------------------------------------------------------------
-//  STATUS CONFIG HELPER
-// ---------------------------------------------------------------------------
-
 class _StatusConfig {
   final Color accentColor;
   final String label;
 
   const _StatusConfig({required this.accentColor, required this.label});
 
-  factory _StatusConfig.from(String status, BuildContext context) {
+  factory _StatusConfig.from(String status) {
     switch (status) {
       case 'approved':
-        return _StatusConfig(
-          accentColor: const Color(0xFF4CAF82),
-          label: context.l10n.approved,
-        );
       case 'completed':
-        return _StatusConfig(
-          accentColor: const Color(0xFF4CAF82),
-          label: context.l10n.approved,
-        );
+        return const _StatusConfig(accentColor: _kSuccess, label: 'APPROVED');
       case 'rejected':
-        return _StatusConfig(
-          accentColor: const Color(0xFFE05252),
-          label: context.l10n.rejected,
-        );
+        return const _StatusConfig(accentColor: _kError, label: 'REJECTED');
       default:
-        return _StatusConfig(
-          accentColor: const Color(0xFFE6A817),
-          label: context.l10n.pending,
-        );
+        return const _StatusConfig(accentColor: _kWarning, label: 'PENDING');
     }
   }
 }

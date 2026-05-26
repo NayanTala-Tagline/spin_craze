@@ -2,7 +2,6 @@ import 'package:spin_craze/extension/ext_context.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/widgets/back_btn.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 /// Top bar matching the Figma `Home` frame.
 ///
@@ -162,14 +161,16 @@ class _TitleBlock extends StatelessWidget {
             title!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: context.textTheme.titleLarge,
+            style: context.textTheme.titleLarge?.copyWith(color: Colors.white),
           ),
         if (subtitle != null)
           Text(
             subtitle!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: context.textTheme.bodySmall,
+            style: context.textTheme.bodySmall?.copyWith(
+              color: Colors.white.withValues(alpha: 0.85),
+            ),
           ),
       ],
     );

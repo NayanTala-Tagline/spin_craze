@@ -13,7 +13,29 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
+
+// ── Palette ─────────────────────────────────────────────────────────────────
+
+const _kBlueDark = Color(0xFF004CD9);
+const _kBlue = Color(0xFF1164FF);
+const _kCardBorder = Color(0xFFE5EAF2);
+const _kInk = Color(0xFF111827);
+const _kInkMuted = Color(0xFF6B7280);
+const _kDanger = Color(0xFFEF4444);
+
+const _kPageBg = Color(0xFFE8EFFB);
+
+const _kPageGradient = LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [_kPageBg, _kPageBg],
+);
+
+const _kBlueGradient = LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [_kBlue, _kBlueDark],
+);
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
@@ -128,13 +150,13 @@ class _GameZoneContentState extends State<_GameZoneContent>
         name: 'game_completion_eligible',
         parameters: {'time_spent': elapsed, 'required': _gameDurationSecs},
       );
-      _showCongratsSheet();
+      _showCongratsDialog();
     } else {
       AnalyticsManager.instance.logEvent(
         name: 'game_completion_failed',
         parameters: {'time_spent': elapsed, 'required': _gameDurationSecs},
       );
-      _showTimeFailSheet(elapsed);
+      _showTimeFailDialog(elapsed);
     }
   }
 
@@ -149,7 +171,7 @@ class _GameZoneContentState extends State<_GameZoneContent>
       AppRoutes.inAppWebView,
       extra: {
         'url': item.url,
-        'title': context.l10n.playGame,
+        'title': 'Play Game',
         'durationSeconds': _gameDurationSecs,
         'coins': _coinsPerGame,
         'adData': RemoteConfigService.instance.websiteReward,
@@ -167,16 +189,17 @@ class _GameZoneContentState extends State<_GameZoneContent>
       name: 'game_mission_brief_shown',
       parameters: {'game_title': item.title},
     );
-    showModalBottomSheet<void>(
+    showDialog<void>(
       context: context,
-      backgroundColor: Colors.transparent,
-      builder: (sheetCtx) => _MissionBriefSheet(
+      barrierColor: Colors.black.withValues(alpha: 0.45),
+      builder: (dialogCtx) => _MissionBriefDialog(
+        durationSeconds: _gameDurationSecs,
         onStart: () {
           AnalyticsManager.instance.logEvent(
             name: 'game_mission_start',
             parameters: {'game_title': item.title},
           );
-          sheetCtx.pop();
+          dialogCtx.pop();
           _activeItemIndex = index;
           if (_useInAppWebView) {
             _launchGameInApp(item);
@@ -184,46 +207,48 @@ class _GameZoneContentState extends State<_GameZoneContent>
             _launchGame(item);
           }
         },
-        onCancel: () => sheetCtx.pop(),
+        onCancel: () => dialogCtx.pop(),
       ),
     );
   }
 
-  void _showCongratsSheet() {
+  void _showCongratsDialog() {
     final claimedIndex = _activeItemIndex;
-    showModalBottomSheet<void>(
+    showDialog<void>(
       context: context,
-      backgroundColor: Colors.transparent,
-      isDismissible: false,
-      enableDrag: false,
-      builder: (sheetCtx) => _CongratsSheet(
-        coins: _coinsPerGame,
-        onClaim: () async {
-          AnalyticsManager.instance.logEvent(
-            name: 'game_reward_claim_tap',
-            parameters: {'coins': _coinsPerGame},
-          );
-          sheetCtx.pop();
-          if (claimedIndex != null) {
-            await context.read<GameZoneProvider>().claimReward(claimedIndex);
+      barrierColor: Colors.black.withValues(alpha: 0.45),
+      barrierDismissible: false,
+      builder: (dialogCtx) => PopScope(
+        canPop: false,
+        child: _CongratsDialog(
+          coins: _coinsPerGame,
+          onClaim: () async {
             AnalyticsManager.instance.logEvent(
-              name: 'game_reward_claimed',
+              name: 'game_reward_claim_tap',
               parameters: {'coins': _coinsPerGame},
             );
-          }
-        },
+            dialogCtx.pop();
+            if (claimedIndex != null) {
+              await context.read<GameZoneProvider>().claimReward(claimedIndex);
+              AnalyticsManager.instance.logEvent(
+                name: 'game_reward_claimed',
+                parameters: {'coins': _coinsPerGame},
+              );
+            }
+          },
+        ),
       ),
     );
   }
 
-  void _showTimeFailSheet(int elapsedSecs) {
-    showModalBottomSheet<void>(
+  void _showTimeFailDialog(int elapsedSecs) {
+    showDialog<void>(
       context: context,
-      backgroundColor: Colors.transparent,
-      builder: (sheetCtx) => _TimeFailSheet(
+      barrierColor: Colors.black.withValues(alpha: 0.45),
+      builder: (dialogCtx) => _TimeFailDialog(
         required: _gameDurationSecs,
         elapsed: elapsedSecs,
-        onDismiss: () => sheetCtx.pop(),
+        onDismiss: () => dialogCtx.pop(),
       ),
     );
   }
@@ -237,12 +262,10 @@ class _GameZoneContentState extends State<_GameZoneContent>
         NavigationHelper().handleBackPress(context);
       },
       child: CommonBackground(
+        gradient: _kPageGradient,
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: CommonAppBar(
-            title: context.l10n.gameZoneTitle,
-            showBack: true,
-          ),
+          appBar: const CommonAppBar(title: 'Game Zone', showBack: true),
           body: SafeArea(
             top: false,
             child: ListView.separated(
@@ -253,7 +276,7 @@ class _GameZoneContentState extends State<_GameZoneContent>
                 AppSize.h24,
               ),
               itemCount: _gameItems.length,
-              separatorBuilder: (_, _) => SizedBox(height: AppSize.h12),
+              separatorBuilder: (_, _) => SizedBox(height: AppSize.h14),
               itemBuilder: (context, index) {
                 final item = _gameItems[index];
                 final prov = context.watch<GameZoneProvider>();
@@ -292,220 +315,330 @@ class _GameTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
-    final textColors = context.themeTextColors;
-
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(AppSize.r16),
-        onTap: onTap,
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSize.w16,
-            vertical: AppSize.h14,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(AppSize.r16),
-            color: colors.surface,
-            border: Border.all(color: colors.border),
-          ),
-          child: Row(
-            children: [
-              Assets.images.gameZone.image(
-                height: AppSize.sp40,
-                width: AppSize.sp40,
-                fit: BoxFit.contain,
-              ),
-              SizedBox(width: AppSize.w12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.title,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        color: textColors.primary,
-                        fontWeight: FontWeight.w600,
-                      ),
+    final radius = BorderRadius.circular(AppSize.r10);
+    return _InsetShadowCard(
+      radius: radius,
+      onTap: onTap,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSize.w20,
+          vertical: AppSize.h22,
+        ),
+        child: Row(
+          children: [
+            Assets.icons.icGameZone.svg(
+              height: AppSize.sp32,
+              width: AppSize.sp36,
+            ),
+            SizedBox(width: AppSize.w14),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: context.textTheme.titleSmall?.copyWith(
+                      color: const Color(0xFF083255),
+                      fontWeight: FontWeight.w600,
+                      fontSize: AppSize.sp14,
                     ),
-                    SizedBox(height: AppSize.h4),
-                    Row(
-                      children: [
-                        Assets.icons.coins.svg(
-                          height: AppSize.sp14,
-                          width: AppSize.sp14,
-                        ),
-                        SizedBox(width: AppSize.w4),
-                        Text(
-                          '+ $_coinsPerGame Coins',
-                          style: context.textTheme.bodySmall?.copyWith(
-                            color: const Color(0xFFFFD84D),
-                            fontWeight: FontWeight.w600,
-                            fontSize: AppSize.sp12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              if (isLocked &&
-                  lockCountdown != null &&
-                  lockCountdown!.isNotEmpty)
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSize.w10,
-                    vertical: AppSize.h4,
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppSize.r8),
-                    color: colors.error.withValues(alpha: 0.15),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
+                  SizedBox(height: AppSize.h6),
+                  Row(
                     children: [
-                      Icon(
-                        Icons.lock_rounded,
-                        size: AppSize.sp14,
-                        color: colors.error,
+                      Assets.icons.coins.svg(
+                        height: AppSize.sp14,
+                        width: AppSize.sp14,
                       ),
                       SizedBox(width: AppSize.w4),
                       Text(
-                        lockCountdown!,
+                        '+ $_coinsPerGame Coins',
                         style: context.textTheme.bodySmall?.copyWith(
-                          color: colors.error,
-                          fontWeight: FontWeight.w700,
+                          color: const Color(0xFF3D3E40),
+                          fontWeight: FontWeight.w500,
                           fontSize: AppSize.sp12,
                         ),
                       ),
                     ],
                   ),
-                )
-              else
-                Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: AppSize.sp18,
-                  color: textColors.muted,
+                ],
+              ),
+            ),
+            if (isLocked &&
+                lockCountdown != null &&
+                lockCountdown!.isNotEmpty) ...[
+              SizedBox(width: AppSize.w8),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSize.w10,
+                  vertical: AppSize.h4,
                 ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(AppSize.r10),
+                  color: _kDanger.withValues(alpha: 0.1),
+                  border: Border.all(
+                    color: _kDanger.withValues(alpha: 0.2),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.lock_rounded,
+                      size: AppSize.sp14,
+                      color: _kDanger,
+                    ),
+                    SizedBox(width: AppSize.w4),
+                    Text(
+                      lockCountdown!,
+                      style: context.textTheme.bodySmall?.copyWith(
+                        color: _kDanger,
+                        fontWeight: FontWeight.w700,
+                        fontSize: AppSize.sp12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
-          ),
+          ],
         ),
       ),
     );
   }
 }
 
-// ── Mission Brief bottom sheet ──────────────────────────────────────────────
+// ── Inset-shadow card shell ─────────────────────────────────────────────────
 
-class _MissionBriefSheet extends StatelessWidget {
-  const _MissionBriefSheet({required this.onStart, required this.onCancel});
+class _InsetShadowCard extends StatelessWidget {
+  const _InsetShadowCard({
+    required this.radius,
+    required this.onTap,
+    required this.child,
+  });
 
+  final BorderRadius radius;
+  final VoidCallback onTap;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: radius,
+        border: Border.all(color: const Color(0xFF7CB0FF)),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF7CB0FF).withValues(alpha: 0.20),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: radius,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: IgnorePointer(
+                child: CustomPaint(
+                  painter: _InnerShadowPainter(
+                    cornerRadius: radius.topLeft.x,
+                  ),
+                ),
+              ),
+            ),
+            Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                borderRadius: radius,
+                onTap: onTap,
+                splashColor: const Color(0xFF7CB0FF).withValues(alpha: 0.12),
+                highlightColor: const Color(0xFF7CB0FF).withValues(alpha: 0.06),
+                child: child,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _InnerShadowPainter extends CustomPainter {
+  const _InnerShadowPainter({required this.cornerRadius});
+  final double cornerRadius;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rRect = RRect.fromRectAndRadius(
+      Offset.zero & size,
+      Radius.circular(cornerRadius),
+    );
+    canvas.drawRRect(
+      rRect,
+      Paint()
+        ..color = const Color(0xFFB0C3F8).withValues(alpha: 0.38)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 11)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 26,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_InnerShadowPainter old) =>
+      old.cornerRadius != cornerRadius;
+}
+
+// ── Mission Brief dialog ────────────────────────────────────────────────────
+
+class _MissionBriefDialog extends StatefulWidget {
+  const _MissionBriefDialog({
+    required this.durationSeconds,
+    required this.onStart,
+    required this.onCancel,
+  });
+
+  final int durationSeconds;
   final VoidCallback onStart;
   final VoidCallback onCancel;
 
   @override
-  Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-    final colors = context.themeColors;
+  State<_MissionBriefDialog> createState() => _MissionBriefDialogState();
+}
 
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.fromLTRB(
-        AppSize.w24,
-        AppSize.h20,
-        AppSize.w24,
-        AppSize.h32,
+class _MissionBriefDialogState extends State<_MissionBriefDialog>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl;
+  late final Animation<double> _imgScale;
+  late final Animation<double> _imgSwing;
+  late final Animation<double> _contentFade;
+  late final Animation<Offset> _contentSlide;
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 900),
+    );
+    _imgScale = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.0, 0.6, curve: Curves.elasticOut),
       ),
-      decoration: BoxDecoration(
-        color: colors.card,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.r24)),
-        border: Border(
-          top: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          left: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          right: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF00B7FF).withValues(alpha: 0.2),
-            blurRadius: AppSize.r24,
-            offset: Offset(0, -AppSize.h6),
-          ),
-        ],
+    );
+    _imgSwing = Tween<double>(begin: -0.06, end: 0.0).animate(
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.0, 0.7, curve: Curves.elasticOut),
       ),
+    );
+    _contentFade = CurvedAnimation(
+      parent: _ctrl,
+      curve: const Interval(0.4, 1.0, curve: Curves.easeIn),
+    );
+    _contentSlide = Tween<Offset>(
+      begin: const Offset(0, 0.25),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.4, 1.0, curve: Curves.easeOut),
+      ),
+    );
+    _ctrl.forward();
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _DialogShell(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            width: AppSize.w40,
-            height: AppSize.h4,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(AppSize.r100),
-              color: textColors.muted,
+          ScaleTransition(
+            scale: _imgScale,
+            child: RotationTransition(
+              turns: _imgSwing,
+              child: Assets.images.missionBrief.image(
+                height: AppSize.sp114,
+                width: AppSize.sp114,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
-          SizedBox(height: AppSize.h20),
-          Assets.images.dailyRewardTrophy.image(
-            height: AppSize.sp100,
-            width: AppSize.sp100,
-            fit: BoxFit.contain,
-          ),
-          SizedBox(height: AppSize.h20),
-          Text(
-            context.l10n.missionBrief,
-            style: context.textTheme.titleLarge?.copyWith(
-              color: textColors.primary,
-              fontWeight: FontWeight.w800,
-              fontSize: AppSize.sp22,
-            ),
-          ),
-          SizedBox(height: AppSize.h8),
-          Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text:
-                      'Stay on the page for $_gameDurationSecs Secs., A\ncountdown timer will appear.\nclick "',
-                ),
-                TextSpan(
-                  text: context.l10n.claimCoin,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: textColors.primary,
-                    fontWeight: FontWeight.w800,
+          SizedBox(height: AppSize.h16),
+          FadeTransition(
+            opacity: _contentFade,
+            child: SlideTransition(
+              position: _contentSlide,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Mission Brief',
+                    style: context.textTheme.titleLarge?.copyWith(
+                      color: _kInk,
+                      fontWeight: FontWeight.w800,
+                      fontSize: AppSize.sp22,
+                    ),
                   ),
-                ),
-                const TextSpan(text: '" when ready!'),
-              ],
-            ),
-            textAlign: TextAlign.center,
-            style: context.textTheme.bodyMedium?.copyWith(
-              color: textColors.secondary,
-              height: 1.5,
-            ),
-          ),
-          SizedBox(height: AppSize.h24),
-          Row(
-            children: [
-              Expanded(
-                child: _OutlinePill(
-                  label: context.l10n.cancel,
-                  onPressed: onCancel,
-                ),
+                  SizedBox(height: AppSize.h10),
+                  Text.rich(
+                    TextSpan(
+                      style: context.textTheme.bodyMedium?.copyWith(
+                        color: _kInkMuted,
+                        height: 1.45,
+                        fontSize: AppSize.sp14,
+                      ),
+                      children: [
+                        TextSpan(
+                          text:
+                              'Stay on the page for ${widget.durationSeconds} Secs., A\ncountdown timer will appear.\nclick "',
+                        ),
+                        TextSpan(
+                          text: 'CLAIM COIN',
+                          style: const TextStyle(
+                            color: _kBlueDark,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        const TextSpan(text: '" when ready!'),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: AppSize.h20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _GhostButton(
+                          label: 'Cancel',
+                          onPressed: widget.onCancel,
+                        ),
+                      ),
+                      SizedBox(width: AppSize.w12),
+                      Expanded(
+                        child: _PrimaryButton(
+                          label: 'Start',
+                          onPressed: widget.onStart,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              SizedBox(width: AppSize.w12),
-              Expanded(
-                child: _PaleCyanPill(
-                  label: context.l10n.start,
-                  onPressed: onStart,
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),
@@ -513,95 +646,131 @@ class _MissionBriefSheet extends StatelessWidget {
   }
 }
 
-// ── Congrats bottom sheet ───────────────────────────────────────────────────
+// ── Congrats dialog ─────────────────────────────────────────────────────────
 
-class _CongratsSheet extends StatelessWidget {
-  const _CongratsSheet({required this.coins, required this.onClaim});
+class _CongratsDialog extends StatefulWidget {
+  const _CongratsDialog({required this.coins, required this.onClaim});
 
   final int coins;
   final VoidCallback onClaim;
 
   @override
-  Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-    final colors = context.themeColors;
+  State<_CongratsDialog> createState() => _CongratsDialogState();
+}
 
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.fromLTRB(
-        AppSize.w24,
-        AppSize.h20,
-        AppSize.w24,
-        AppSize.h32,
+class _CongratsDialogState extends State<_CongratsDialog>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl;
+  late final Animation<double> _imgScale;
+  late final Animation<double> _imgFloat;
+  late final Animation<double> _contentFade;
+  late final Animation<Offset> _contentSlide;
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 950),
+    );
+    _imgScale = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.0, 0.6, curve: Curves.elasticOut),
       ),
-      decoration: BoxDecoration(
-        color: colors.card,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.r24)),
-        border: Border(
-          top: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          left: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          right: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF00B7FF).withValues(alpha: 0.2),
-            blurRadius: AppSize.r24,
-            offset: Offset(0, -AppSize.h6),
-          ),
-        ],
+    );
+    _imgFloat = Tween<double>(begin: -14.0, end: 0.0).animate(
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.0, 0.65, curve: Curves.bounceOut),
       ),
+    );
+    _contentFade = CurvedAnimation(
+      parent: _ctrl,
+      curve: const Interval(0.45, 1.0, curve: Curves.easeIn),
+    );
+    _contentSlide = Tween<Offset>(
+      begin: const Offset(0, 0.3),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.45, 1.0, curve: Curves.easeOut),
+      ),
+    );
+    _ctrl.forward();
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _DialogShell(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            width: AppSize.w40,
-            height: AppSize.h4,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(AppSize.r100),
-              color: textColors.muted,
+          AnimatedBuilder(
+            animation: _imgFloat,
+            builder: (_, child) => Transform.translate(
+              offset: Offset(0, _imgFloat.value),
+              child: child,
+            ),
+            child: ScaleTransition(
+              scale: _imgScale,
+              child: Assets.images.gift.image(
+                height: AppSize.sp114,
+                width: AppSize.sp114,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
-          SizedBox(height: AppSize.h20),
-          Assets.images.dailyRewardTrophy.image(
-            height: AppSize.sp100,
-            width: AppSize.sp100,
-            fit: BoxFit.contain,
-          ),
-          SizedBox(height: AppSize.h20),
-          Text(
-            'Congratulations..!',
-            style: context.textTheme.titleLarge?.copyWith(
-              color: const Color(0xFFFFD84D),
-              fontWeight: FontWeight.w800,
-              fontSize: AppSize.sp24,
+          SizedBox(height: AppSize.h16),
+          FadeTransition(
+            opacity: _contentFade,
+            child: SlideTransition(
+              position: _contentSlide,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Congratulations..!',
+                    style: context.textTheme.titleLarge?.copyWith(
+                      color: _kBlueDark,
+                      fontWeight: FontWeight.w800,
+                      fontSize: AppSize.sp24,
+                    ),
+                  ),
+                  SizedBox(height: AppSize.h8),
+                  Text(
+                    'You won ${widget.coins} Coins',
+                    style: context.textTheme.bodyLarge?.copyWith(
+                      color: _kInk,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  SizedBox(height: AppSize.h24),
+                  _PrimaryButton(
+                    label: 'Claim Coins',
+                    onPressed: widget.onClaim,
+                  ),
+                ],
+              ),
             ),
           ),
-          SizedBox(height: AppSize.h8),
-          Text(
-            'You won $coins Coins',
-            style: context.textTheme.bodyLarge?.copyWith(
-              color: textColors.primary,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: AppSize.h28),
-          _PaleCyanPill(label: context.l10n.claimCoins, onPressed: onClaim),
         ],
       ),
     );
   }
 }
 
-// ── Time not completed sheet ────────────────────────────────────────────────
+// ── Time fail dialog ────────────────────────────────────────────────────────
 
-class _TimeFailSheet extends StatelessWidget {
-  const _TimeFailSheet({
+class _TimeFailDialog extends StatelessWidget {
+  const _TimeFailDialog({
     required this.required,
     required this.elapsed,
     required this.onDismiss,
@@ -613,86 +782,94 @@ class _TimeFailSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-    final colors = context.themeColors;
-
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.fromLTRB(
-        AppSize.w24,
-        AppSize.h20,
-        AppSize.w24,
-        AppSize.h32,
-      ),
-      decoration: BoxDecoration(
-        color: colors.card,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.r24)),
-        border: Border(
-          top: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          left: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          right: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF00B7FF).withValues(alpha: 0.2),
-            blurRadius: AppSize.r24,
-            offset: Offset(0, -AppSize.h6),
-          ),
-        ],
-      ),
+    return _DialogShell(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: AppSize.w40,
-            height: AppSize.h4,
+            height: AppSize.sp82,
+            width: AppSize.sp82,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(AppSize.r100),
-              color: textColors.muted,
+              shape: BoxShape.circle,
+              color: _kDanger.withValues(alpha: 0.1),
+              border: Border.all(color: _kDanger.withValues(alpha: 0.2)),
             ),
-          ),
-          SizedBox(height: AppSize.h20),
-          Icon(
-            Icons.timer_off_rounded,
-            size: AppSize.sp72,
-            color: const Color(0xFFFF5183),
+            alignment: Alignment.center,
+            child: Icon(
+              Icons.timer_off_rounded,
+              size: AppSize.sp42,
+              color: _kDanger,
+            ),
           ),
           SizedBox(height: AppSize.h20),
           Text(
             'Time Not Completed!',
             style: context.textTheme.titleLarge?.copyWith(
-              color: const Color(0xFFFF5183),
+              color: _kDanger,
               fontWeight: FontWeight.w800,
               fontSize: AppSize.sp22,
             ),
           ),
-          SizedBox(height: AppSize.h8),
+          SizedBox(height: AppSize.h10),
           Text(
             'You stayed for ${elapsed}s out of ${required}s.\nPlease stay on the page for the full duration.',
             textAlign: TextAlign.center,
             style: context.textTheme.bodyMedium?.copyWith(
-              color: textColors.secondary,
+              color: _kInkMuted,
               height: 1.5,
+              fontSize: AppSize.sp14,
             ),
           ),
-          SizedBox(height: AppSize.h28),
-          _PaleCyanPill(label: context.l10n.tryAgain, onPressed: onDismiss),
+          SizedBox(height: AppSize.h24),
+          _PrimaryButton(label: 'Try Again', onPressed: onDismiss),
         ],
       ),
     );
   }
 }
 
-// ── Reusable buttons ────────────────────────────────────────────────────────
+// ── Dialog shell ────────────────────────────────────────────────────────────
 
-class _PaleCyanPill extends StatelessWidget {
-  const _PaleCyanPill({required this.label, required this.onPressed});
+class _DialogShell extends StatelessWidget {
+  const _DialogShell({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      insetPadding: EdgeInsets.symmetric(horizontal: AppSize.w28),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.fromLTRB(
+          AppSize.w22,
+          AppSize.h24,
+          AppSize.w22,
+          AppSize.h22,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(AppSize.r24),
+          boxShadow: [
+            BoxShadow(
+              color: _kBlueDark.withValues(alpha: 0.18),
+              blurRadius: AppSize.r28,
+              offset: Offset(0, AppSize.h10),
+            ),
+          ],
+        ),
+        child: child,
+      ),
+    );
+  }
+}
+
+// ── Buttons ─────────────────────────────────────────────────────────────────
+
+class _PrimaryButton extends StatelessWidget {
+  const _PrimaryButton({required this.label, required this.onPressed});
 
   final String label;
   final VoidCallback onPressed;
@@ -712,25 +889,21 @@ class _PaleCyanPill extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: radius,
-            gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFF9AE0FA), Color(0xFF5CCBF7)],
-            ),
-            border: Border.all(color: const Color(0xFFB8ECFF)),
+            gradient: _kBlueGradient,
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF5CCBF7).withValues(alpha: 0.4),
+                color: _kBlueDark.withValues(alpha: 0.35),
                 blurRadius: AppSize.r16,
-                offset: Offset(0, AppSize.h4),
+                offset: Offset(0, AppSize.h6),
               ),
             ],
           ),
           child: Text(
             label,
             style: context.textTheme.labelLarge?.copyWith(
-              color: const Color(0xFF003A52),
+              color: Colors.white,
               fontWeight: FontWeight.w700,
+              fontSize: AppSize.sp15,
             ),
           ),
         ),
@@ -739,15 +912,14 @@ class _PaleCyanPill extends StatelessWidget {
   }
 }
 
-class _OutlinePill extends StatelessWidget {
-  const _OutlinePill({required this.label, required this.onPressed});
+class _GhostButton extends StatelessWidget {
+  const _GhostButton({required this.label, required this.onPressed});
 
   final String label;
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.themeColors;
     final radius = BorderRadius.circular(AppSize.r100);
     return Material(
       color: Colors.transparent,
@@ -760,14 +932,16 @@ class _OutlinePill extends StatelessWidget {
           width: double.infinity,
           alignment: Alignment.center,
           decoration: BoxDecoration(
+            color: Colors.white,
             borderRadius: radius,
-            border: Border.all(color: colors.border, width: 1.5),
+            border: Border.all(color: _kCardBorder, width: 1.5),
           ),
           child: Text(
             label,
             style: context.textTheme.labelLarge?.copyWith(
-              color: context.themeTextColors.primary,
-              fontWeight: FontWeight.w600,
+              color: _kInk,
+              fontWeight: FontWeight.w700,
+              fontSize: AppSize.sp15,
             ),
           ),
         ),

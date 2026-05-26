@@ -7,14 +7,21 @@ import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/regex_helper.dart';
 import 'package:spin_craze/utils/remote_config.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class WalletProvider extends ChangeNotifier {
   final _firestore = FirebaseFirestore.instance;
   final _db = Injector.instance<AppDB>();
-  List<WalletCategory> getWalletCategories(BuildContext context) => [
+
+  List<WalletCategory>? _categoriesCache;
+
+  /// Built once per provider instance — the lists are large and rebuilding
+  /// them on every `notifyListeners` made the tab-switch noticeably laggy.
+  List<WalletCategory> getWalletCategories(BuildContext context) =>
+      _categoriesCache ??= _buildCategories();
+
+  List<WalletCategory> _buildCategories() => [
     WalletCategory(
-      title: context.l10n.cash,
+      title: 'Cash',
       items: [
         WalletItem(
           "PayPal",
@@ -74,11 +81,11 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Apple Pay",
-          Icon(Icons.apple, size: AppSize.w24, color: Color(0xFFFFFFFF)),
-          Color(0xFFFFFFFF),
+          Icon(Icons.apple, size: AppSize.w24, color: Color(0xFF0E1A2B)),
+          Color(0xFF0E1A2B),
           FormData(
             "Apple ID",
-            Icon(Icons.phone_android_sharp, size: 24, color: Color(0xFFFFFFFF)),
+            Icon(Icons.phone_android_sharp, size: 24, color: Color(0xFF0E1A2B)),
             RegexHelper.email_or_phone,
           ),
         ),
@@ -876,7 +883,7 @@ class WalletProvider extends ChangeNotifier {
     ),
 
     WalletCategory(
-      title: context.l10n.crypto,
+      title: 'Crypto',
       items: [
         WalletItem(
           "Bitcoin",
@@ -1046,7 +1053,7 @@ class WalletProvider extends ChangeNotifier {
     ),
 
     WalletCategory(
-      title: context.l10n.giftCards,
+      title: 'Gift Cards',
       items: [
         WalletItem(
           "Google Play",
@@ -1060,11 +1067,11 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Apple Gift Card",
-          Icon(Icons.apple, size: 24, color: Color(0xFFFFFFFF)),
-          Color(0xFFFFFFFF),
+          Icon(Icons.apple, size: 24, color: Color(0xFF0E1A2B)),
+          Color(0xFF0E1A2B),
           FormData(
             "Email to send code",
-            Icon(Icons.email, size: 24, color: Color(0xFFFFFFFF)),
+            Icon(Icons.email, size: 24, color: Color(0xFF0E1A2B)),
             RegexHelper.email,
           ),
         ),
@@ -1282,7 +1289,7 @@ class WalletProvider extends ChangeNotifier {
     ),
 
     WalletCategory(
-      title: context.l10n.gameCredits,
+      title: 'Game Credits',
       items: [
         WalletItem(
           "Free Fire",
@@ -1558,14 +1565,14 @@ class WalletProvider extends ChangeNotifier {
       }
 
       if (btcWalletAddressController.text.trim().isEmpty) {
-        _error = context.l10n.pleaseEnterWalletAddress;
+        _error = 'Please enter wallet address';
         _isLoading = false;
         notifyListeners();
         return false;
       }
 
       if (amount == null) {
-        _error = context.l10n.pleaseEnterValidAmount;
+        _error = 'Please enter valid amount';
         _isLoading = false;
         notifyListeners();
         return false;
@@ -1626,14 +1633,16 @@ class WalletProvider extends ChangeNotifier {
     }
   }
 
-  /// Get Withdraw List (Stream)
+  /// Get Withdraw List (Stream).
+  /// Note: server-side ordering is intentionally avoided so the query
+  /// doesn't require a composite Firestore index — sorting is done
+  /// client-side by [_WalletHistoryContent].
   Stream<QuerySnapshot> getWithdrawStream() {
     final userId = _db.userModel!.userId;
 
     return _firestore
         .collection('withdraw')
         .where('user_id', isEqualTo: userId)
-        .orderBy('created_at', descending: true)
         .snapshots();
   }
 

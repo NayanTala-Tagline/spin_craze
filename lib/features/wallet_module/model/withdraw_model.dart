@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class WithdrawModel {
   final String userId;
