@@ -8,7 +8,6 @@ import 'package:spin_craze/utils/logger.dart';
 import 'package:spin_craze/utils/remote_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class RewardsProvider extends ChangeNotifier {
   RewardsProvider() {
@@ -59,31 +58,31 @@ class RewardsProvider extends ChangeNotifier {
 
     final user = _currentUser;
     if (user == null) {
-      context.l10n.somethingWentWrongTryAgain.showErrorAlert();
+      'Something went wrong. Try again.'.showErrorAlert();
       return;
     }
 
     if (user.isGuest) {
-      context.l10n.pleaseLinkAccountFirstError.showErrorAlert();
+      'Please link your account first.'.showErrorAlert();
       return;
     }
 
     if (user.referredBy != null && user.referredBy!.isNotEmpty) {
-      context.l10n.youHaveAlreadyUsedReferralCode.showInfoAlert();
+      'You have already used a referral code.'.showInfoAlert();
       return;
     }
 
     final code = referralController.text.trim();
     if (code.isEmpty) {
-      _errorText = context.l10n.pleaseEnterReferralCode;
+      _errorText = 'Please enter a referral code.';
       notifyListeners();
       return;
     }
 
     if (code == user.userId) {
-      _errorText = context.l10n.cantUseOwnReferralCode;
+      _errorText = "You can't use your own referral code.";
       notifyListeners();
-      context.l10n.cantUseOwnReferralCode.showErrorAlert();
+      "You can't use your own referral code.".showErrorAlert();
       return;
     }
 
@@ -99,12 +98,12 @@ class RewardsProvider extends ChangeNotifier {
       await _firestore.runTransaction((tx) async {
         final referrerSnap = await tx.get(referrerRef);
         if (!referrerSnap.exists) {
-          throw _ReferralException(context.l10n.invalidReferralCode);
+          throw _ReferralException('Invalid referral code.');
         }
 
         final selfSnap = await tx.get(selfRef);
         if (!selfSnap.exists) {
-          throw _ReferralException(context.l10n.somethingWentWrongTryAgain);
+          throw _ReferralException('Something went wrong. Try again.');
         }
 
         final selfData = selfSnap.data()!;
@@ -112,7 +111,7 @@ class RewardsProvider extends ChangeNotifier {
 
         final existingRef = selfData['referred_by'] as String?;
         if (existingRef != null && existingRef.isNotEmpty) {
-          throw _ReferralException(context.l10n.youHaveAlreadyUsedReferralCode);
+          throw _ReferralException('You have already used a referral code.');
         }
 
         final selfCoins = (selfData['coin'] as num).toDouble() + referralReward;
@@ -130,16 +129,14 @@ class RewardsProvider extends ChangeNotifier {
       referralController.clear();
       // Refresh stats so "Friends Invited" / "Coins Earned" update immediately.
       unawaited(_fetchReferralStats());
-      context.l10n
-          .referralAppliedSuccess(referralReward.toString())
-          .showSuccessAlert();
+      'Referral applied! You earned $referralReward coins.'.showSuccessAlert();
     } on _ReferralException catch (e) {
       _errorText = e.message;
       e.message.showErrorAlert();
     } catch (e) {
       e.logE;
-      _errorText = context.l10n.couldNotApplyReferral;
-      context.l10n.couldNotApplyReferral.showErrorAlert();
+      _errorText = 'Could not apply referral.';
+      'Could not apply referral.'.showErrorAlert();
     } finally {
       _isApplyingReferral = false;
       notifyListeners();

@@ -10,7 +10,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 // ── Palette ──────────────────────────────────────────────────────────────────
 // Shared with the onboarding / language redesign. Kept local to this file so
@@ -90,7 +89,7 @@ class _SupportPageState extends State<SupportPage> {
       );
       'Support ticket submitted'.logI;
       if (!mounted) return;
-      context.l10n.thanksMessageReceived.showSuccessAlert();
+      'Thanks! Message received.'.showSuccessAlert();
       context.pop();
     } catch (e) {
       AnalyticsManager.instance.logEvent(
@@ -99,7 +98,7 @@ class _SupportPageState extends State<SupportPage> {
       );
       'Failed to submit support ticket: $e'.logE;
       if (!mounted) return;
-      context.l10n.couldNotSubmitTryAgain.showErrorAlert();
+      'Could not submit. Try again.'.showErrorAlert();
     } finally {
       if (mounted) setState(() => _submitting = false);
     }
@@ -119,7 +118,7 @@ class _SupportPageState extends State<SupportPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _TopBar(
-                  title: context.l10n.support,
+                  title: 'Support',
                   onBack: () => context.pop(),
                 ),
                 Expanded(
@@ -159,46 +158,46 @@ class _SupportPageState extends State<SupportPage> {
                             ),
                           ),
                           SizedBox(height: AppSize.h28),
-                          _FieldLabel(context.l10n.title),
+                          _FieldLabel('Title'),
                           SizedBox(height: AppSize.h10),
                           _SupportField(
                             controller: _titleController,
-                            hint: context.l10n.shortSummary,
+                            hint: 'Short summary',
                             maxLines: 1,
                             textInputAction: TextInputAction.next,
                             validator: (v) {
                               final value = v?.trim() ?? '';
                               if (value.isEmpty) {
-                                return context.l10n.pleaseAddTitle;
+                                return 'Please add a title.';
                               }
                               if (value.length < 3) {
-                                return context.l10n.titleTooShort;
+                                return 'Title is too short.';
                               }
                               return null;
                             },
                           ),
                           SizedBox(height: AppSize.h20),
-                          _FieldLabel(context.l10n.description),
+                          _FieldLabel('Description'),
                           SizedBox(height: AppSize.h10),
                           _SupportField(
                             controller: _descController,
-                            hint: context.l10n.descriptionHint,
+                            hint: 'Describe your issue...',
                             maxLines: 6,
                             textInputAction: TextInputAction.newline,
                             validator: (v) {
                               final value = v?.trim() ?? '';
                               if (value.isEmpty) {
-                                return context.l10n.pleaseAddDescription;
+                                return 'Please add a description.';
                               }
                               if (value.length < 10) {
-                                return context.l10n.descriptionTooShort;
+                                return 'Description is too short.';
                               }
                               return null;
                             },
                           ),
                           SizedBox(height: AppSize.h32),
                           GradientButton(
-                            text: context.l10n.submit,
+                            text: 'Submit',
                             onPressed: _submit,
                             isLoading: _submitting,
                             height: AppSize.h54,
