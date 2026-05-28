@@ -20,36 +20,36 @@ class HowItWorksScreen extends StatelessWidget {
 
   List<_HowItWorksRule> _getRules(BuildContext context) => [
     _HowItWorksRule(
-      title: context.l10n.whatAreCoinsTitle,
-      desc: context.l10n.whatAreCoinsDesc,
+      title: 'What are Coins?',
+      desc: 'Coins are the main currency in this app. You can earn coins by completing tasks and exchange them for real money.',
     ),
     _HowItWorksRule(
-      title: context.l10n.dailyMissionsTitle,
-      desc: context.l10n.dailyMissionsDesc,
+      title: 'Daily Missions',
+      desc: 'Complete daily tasks like spinning the wheel, scratching cards, or answering quizzes. Each completed mission rewards you with coins.',
     ),
     _HowItWorksRule(
-      title: context.l10n.spinWheelRuleTitle,
-      desc: context.l10n.spinWheelRuleDesc,
+      title: 'Spin Wheel',
+      desc: 'Spin the lucky wheel to win instant coin rewards! Each spin can reward you with 10-500 coins.',
     ),
     _HowItWorksRule(
-      title: context.l10n.scratchCardsRuleTitle,
-      desc: context.l10n.scratchCardsRuleDesc,
+      title: 'Scratch Cards',
+      desc: 'Scratch virtual cards to reveal hidden coin rewards from 5 to 50 coins. Free cards daily!',
     ),
     _HowItWorksRule(
-      title: context.l10n.quizGameRuleTitle,
-      desc: context.l10n.quizGameRuleDesc,
+      title: 'Quiz Game',
+      desc: 'Answer trivia questions correctly to earn 22 coins per question. Build your combo streak.',
     ),
     _HowItWorksRule(
-      title: context.l10n.watchAdsRuleTitle,
-      desc: context.l10n.watchAdsRuleDesc,
+      title: 'Watch Ads',
+      desc: 'Watch short video ads to earn quick coins. Each ad rewards you instantly. Up to 10 ads per day.',
     ),
     _HowItWorksRule(
-      title: context.l10n.referralSystemRuleTitle,
-      desc: context.l10n.referralSystemRuleDesc,
+      title: 'Referral System',
+      desc: 'Share your referral code with friends. When they sign up and earn, you get bonus coins!',
     ),
     _HowItWorksRule(
-      title: context.l10n.withdrawMoneyRuleTitle,
-      desc: context.l10n.withdrawMoneyRuleDesc,
+      title: 'Withdraw Money',
+      desc: 'Once you reach the minimum threshold, convert your coins to real money via PayPal, bank transfer, or gift cards.',
     ),
   ];
 
@@ -71,7 +71,7 @@ class HowItWorksScreen extends StatelessWidget {
       child: CommonBackground(
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: CommonAppBar(title: context.l10n.howItWorks, showBack: true),
+          appBar: CommonAppBar(title: 'How It Works', showBack: true),
           body: SafeArea(
             top: false,
             child: Padding(
@@ -109,7 +109,7 @@ class HowItWorksScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          context.l10n.readyToStartEarning,
+                          'Ready to start earning?',
                           style: context.textTheme.titleMedium?.copyWith(
                             color: txt.primary,
                             fontWeight: FontWeight.w600,
@@ -118,7 +118,7 @@ class HowItWorksScreen extends StatelessWidget {
                         ),
                         SizedBox(height: AppSize.h16),
                         AppButton(
-                          label: context.l10n.backToHome,
+                          label: 'Back to Home',
                           variant: AppButtonVariant.gradient,
                           onPressed: () =>
                               NavigationHelper().handleBackPress(context),
