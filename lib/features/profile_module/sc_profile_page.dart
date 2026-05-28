@@ -663,6 +663,7 @@ class _ScStatTile extends StatelessWidget {
           children: [
             Text(
               data.label,
+              overflow: TextOverflow.ellipsis,
               style: context.textTheme.bodySmall?.copyWith(
                 color: textColors.primary.withValues(alpha: 0.55),
               ),
