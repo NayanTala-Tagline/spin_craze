@@ -1,4 +1,5 @@
 import 'package:ad_manager/ad_manager.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/onboarding_module/provider/onboarding_provider.dart';
 import 'package:spin_craze/features/onboarding_module/widgets/onboarding_scaffold.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
@@ -44,10 +45,9 @@ class _OnboardingPage1State extends State<OnboardingPage1> {
           return OnboardingScaffold(
             currentIndex: 0,
             image: Assets.images.dailyRewardTrophy.image(),
-            title: 'Daily Rewards',
-            description:
-                'You’ll Get a Daily Points Reward, Which you can claim and increase you Points.',
-            nextLabel: 'Next',
+            title: context.l10n.onboardingDailyRewardsTitle,
+            description: context.l10n.onboardingDailyRewardsDesc,
+            nextLabel: context.l10n.next,
             nativeAd: prov.nativeAd,
             isLoading: prov.isLoading,
             onNext: () async {

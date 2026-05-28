@@ -2,6 +2,7 @@ import 'package:spin_craze/features/wallet_module/provider/wallet_provider.dart'
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/logger.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:spin_craze/widgets/common_appbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -50,7 +51,7 @@ class _WalletHistoryContent extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: _kBg,
-        appBar: CommonAppBar(title: 'Withdraw History', showBack: true),
+        appBar: CommonAppBar(title: context.l10n.withdrawHistory, showBack: true),
         body: StreamBuilder<QuerySnapshot>(
           stream: provider.getWithdrawStream(),
           builder: (context, snapshot) {
@@ -63,8 +64,8 @@ class _WalletHistoryContent extends StatelessWidget {
               'wallet_history stream error: ${snapshot.error}'.logD;
               return _buildEmptyState(
                 icon: Icons.error_outline_rounded,
-                title: 'Something went wrong',
-                subtitle: 'Please try again later',
+                title: context.l10n.somethingWentWrong,
+                subtitle: context.l10n.tryAgainLater,
                 iconColor: _kError,
               );
             }
@@ -81,8 +82,8 @@ class _WalletHistoryContent extends StatelessWidget {
             if (docs.isEmpty) {
               return _buildEmptyState(
                 icon: Icons.account_balance_wallet_outlined,
-                title: 'No withdrawals yet',
-                subtitle: 'Your withdrawal requests will appear here',
+                title: context.l10n.noWithdrawalsYet,
+                subtitle: context.l10n.withdrawalsAppearHere,
                 iconColor: _kPrimary,
               );
             }
@@ -169,7 +170,7 @@ class _WithdrawCard extends StatelessWidget {
     DateTime? date;
     if (createdAt is Timestamp) date = createdAt.toDate();
 
-    final cfg = _StatusConfig.from(status);
+    final cfg = _StatusConfig.from(status, context);
 
     return Padding(
       padding: EdgeInsets.only(bottom: AppSize.h12),
@@ -229,26 +230,26 @@ class _WithdrawCard extends StatelessWidget {
                         SizedBox(height: AppSize.h12),
                         _MetaRow(
                           icon: Icons.account_balance_rounded,
-                          label: 'Method',
+                          label: context.l10n.withdrawMethod,
                           value: type.isNotEmpty ? type : '-',
                         ),
                         SizedBox(height: AppSize.h10),
                         _MetaRow(
                           icon: Icons.receipt_long_rounded,
-                          label: 'Type',
+                          label: context.l10n.withdrawType,
                           value: subType.isNotEmpty ? subType : '-',
                         ),
                         SizedBox(height: AppSize.h10),
                         _MetaRow(
                           icon: Icons.schedule_rounded,
-                          label: 'Date',
+                          label: context.l10n.withdrawDate,
                           value: date != null ? _formatDate(date) : '-',
                         ),
                         if (status == 'rejected' && reason != null) ...[
                           SizedBox(height: AppSize.h10),
                           _MetaRow(
                             icon: Icons.info_outline_rounded,
-                            label: 'Reason',
+                            label: context.l10n.withdrawReason,
                             value: reason,
                             valueColor: _kError,
                           ),
@@ -257,8 +258,8 @@ class _WithdrawCard extends StatelessWidget {
                           SizedBox(height: AppSize.h10),
                           _MetaRow(
                             icon: Icons.check_circle_outline_rounded,
-                            label: 'Processed',
-                            value: '2 business days',
+                            label: context.l10n.withdrawProcessed,
+                            value: context.l10n.processingDays,
                             valueColor: _kSuccess,
                           ),
                         ],
@@ -266,8 +267,8 @@ class _WithdrawCard extends StatelessWidget {
                           SizedBox(height: AppSize.h10),
                           _MetaRow(
                             icon: Icons.hourglass_top_rounded,
-                            label: 'Status note',
-                            value: 'Under review',
+                            label: context.l10n.statusNote,
+                            value: context.l10n.underReview,
                             valueColor: _kWarning,
                           ),
                         ],
@@ -430,15 +431,15 @@ class _StatusConfig {
 
   const _StatusConfig({required this.accentColor, required this.label});
 
-  factory _StatusConfig.from(String status) {
+  factory _StatusConfig.from(String status, BuildContext context) {
     switch (status) {
       case 'approved':
       case 'completed':
-        return const _StatusConfig(accentColor: _kSuccess, label: 'APPROVED');
+        return _StatusConfig(accentColor: _kSuccess, label: context.l10n.statusApproved);
       case 'rejected':
-        return const _StatusConfig(accentColor: _kError, label: 'REJECTED');
+        return _StatusConfig(accentColor: _kError, label: context.l10n.statusRejected);
       default:
-        return const _StatusConfig(accentColor: _kWarning, label: 'PENDING');
+        return _StatusConfig(accentColor: _kWarning, label: context.l10n.statusPending);
     }
   }
 }

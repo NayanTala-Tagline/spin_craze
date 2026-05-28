@@ -1,0 +1,373 @@
+{
+  "@@locale": "ms",
+  "homeStreakDays": "{count} Hari",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDailyReward": "Ganjaran Harian",
+  "homeCollectCoins": "Kumpul lebih banyak syiling\nsetiap hari",
+  "homeCoinsUnit": "/ Syiling",
+  "claimed": "Dituntut",
+  "claimNow": "Tuntut Sekarang",
+  "homeTotalBalance": "Jumlah Baki",
+  "homeCoinsCount": "{coins} Syiling",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "homeXpCount": "{xp} XP",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "withdraw": "tarik diri",
+  "homeStatLevel": "Tahap",
+  "homeStatToday": "Hari ini",
+  "homeStatXp": "XP",
+  "earnModuleReferTitle": "Rujuk & Dapatkan",
+  "earnModuleReferSubtitle": "Jemput Rakan",
+  "earnModuleSpinTitle": "Roda Pusing",
+  "earnModuleSpinSubtitle": "Putar dan Menang",
+  "earnModuleQuizTitle": "Guru Kuiz",
+  "earnModuleQuizSubtitle": "Jawab & Dapatkan",
+  "earnModuleScratchTitle": "Kad Gores",
+  "earnModuleScratchSubtitle": "Gores & Dedahkan",
+  "earnModuleWebTitle": "Lawatan Web",
+  "earnModuleWebSubtitle": "Lawati & Dapatkan",
+  "earnModuleGameTitle": "Zon Permainan",
+  "earnModuleGameSubtitle": "Main Permainan",
+  "earnMoney": "Dapatkan Wang",
+  "howItWorks": "Bagaimana Ia Berfungsi",
+  "howItWorksDesc": "Ketahui Langkah demi Langkah bagaimana untuk mendapatkan wang",
+  "learn": "Belajar",
+  "leaderboard": "Papan pendahulu",
+  "leaderboardDesc": "Lihat orang yang berpendapatan tinggi dan naikkan pangkat",
+  "dailyCheckinTitle": "Daftar Masuk Harian",
+  "dailyCheckinReward": "Ganjaran Daftar Masuk Harian",
+  "keepStreakGoing": "Teruskan coretan anda!",
+  "dayBadge": "Hari {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsLabel": "syiling",
+  "claimReward": "Tuntut Ganjaran",
+  "totalDaysClaimed": "Jumlah Hari Dituntut",
+  "alreadyClaimedToday": "Anda telah pun menuntut ganjaran hari ini.",
+  "adDisclaimer": "Bahagian ini mungkin mengandungi iklan",
+  "rewardIn": "Ganjaran dalam {seconds}s..",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "webviewClaimed": "Dituntut!",
+  "pleaseSelectLanguage": "Sila pilih bahasa dahulu",
+  "confirm": "sahkan",
+  "setDefaultLanguage": "Tetapkan Bahasa Lalai",
+  "setDefaultLanguageDesc": "Bahasa yang dipilih akan digunakan sebagai bahasa lalai untuk apl ini yang boleh anda ubah kemudian jika anda mahu.",
+  "howCanWeHelp": "Bagaimana kami boleh membantu?",
+  "supportDesc": "Beritahu kami apa yang salah atau perkara yang anda perlukan. Pasukan kami menyemak setiap mesej.",
+  "titleLabel": "Tajuk",
+  "shortSummary": "Ringkasan ringkas",
+  "pleaseAddTitle": "Sila tambah tajuk.",
+  "titleTooShort": "Tajuk terlalu pendek.",
+  "descriptionLabel": "Penerangan",
+  "describeIssue": "Terangkan isu anda...",
+  "pleaseAddDesc": "Sila tambah penerangan.",
+  "descTooShort": "Penerangan terlalu pendek.",
+  "submit": "Hantar",
+  "thanksMsgReceived": "Terima kasih! Mesej diterima.",
+  "couldNotSubmit": "Tidak dapat menyerahkan. Cuba lagi.",
+  "guestUser": "Pengguna Tetamu",
+  "notSignedIn": "Tidak dilog masuk",
+  "deletingAccount": "Memadamkan akaun...",
+  "googleLinked": "Akaun Google berjaya dipautkan!",
+  "linkGoogleAccount": "Pautkan Akaun Google",
+  "language": "Bahasa",
+  "support": "Sokongan",
+  "termsAndCondition": "Terma & Syarat",
+  "profileBalance": "Baki",
+  "profileDays": "hari",
+  "profileRefs": "Ruj",
+  "levelProgress": "Tahap Kemajuan",
+  "rateUs": "Nilaikan Kami",
+  "deleteAccount": "Padam Akaun",
+  "signOut": "Log Keluar",
+  "deleteAccountQuestion": "Padamkan Akaun?",
+  "deleteAccountDesc": "Ini akan mengalih keluar akaun, syiling dan kemajuan anda secara kekal. Tindakan ini tidak boleh dibuat asal.",
+  "delete": "Padam",
+  "signOutConfirm": "Adakah anda pasti mahu log keluar daripada akaun anda?",
+  "lvLevel": "Lv. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "rewardsAndBonuses": "Ganjaran & Bonus",
+  "friendsInvited": "Rakan Dijemput",
+  "coinsEarned": "Syiling Diperolehi",
+  "linkYourAccount": "Pautkan Akaun Anda",
+  "linkAccountDesc": "Log masuk dengan Google untuk mendapatkan kod rujukan anda dan menjemput rakan, Pergi ke Profil dan paut akaun anda.",
+  "enterReferralCode": "Masukkan Kod Rujukan",
+  "havePromoCode": "Mempunyai Kod Promosi",
+  "apply": "Mohon",
+  "pleaseLink": "Sila pautkan akaun anda dahulu",
+  "yourReferralCode": "Kod Rujukan Anda",
+  "codeCopied": "Kod disalin!",
+  "shareLink": "Kongsi Pautan",
+  "shareMessage": "Sertai saya di Earn Money dan dapatkan syiling! Gunakan kod rujukan saya: {code}\n\nMuat turun apl: {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "appUrl": {
+        "type": "String"
+      }
+    }
+  },
+  "pullDownRefresh": "Tarik ke bawah untuk menyegarkan",
+  "refreshIn": "Muat semula dalam {timer}",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlayer": "Pemain",
+  "rankLevelTier": "Lv. {level} {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "rankTierExpert": "pakar",
+  "rankTierIntermediate": "Pertengahan",
+  "rankTierBeginner": "pemula",
+  "walletTitle": "Dompet",
+  "availableBalance": "Baki Tersedia",
+  "minWithdrawal": "Min. Pengeluaran:",
+  "pendingWithdrawalMsg": "Anda mempunyai pengeluaran yang belum selesai. Permintaan baharu dilumpuhkan sehingga ia diluluskan.",
+  "withdrawTo": "Tarik balik ke {title}",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "amountCoins": "Jumlah (Syiling)",
+  "withdrawValue": "Nilai: ${value}",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "additionalNote": "Nota Tambahan (Pilihan)",
+  "withdrawRequestSent": "Permintaan tarik balik dihantar",
+  "fieldRequired": "Medan diperlukan",
+  "enterValidNumber": "Masukkan nombor yang sah",
+  "minimumCoins": "Minimum ialah {min} syiling",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidInput": "Input tidak sah",
+  "confirmWithdrawal": "SAHKAN PENGELUARAN",
+  "minCoins": "Min: {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "withdrawHistory": "Tarik balik Sejarah",
+  "somethingWentWrong": "Sesuatu telah berlaku",
+  "tryAgainLater": "Sila cuba lagi kemudian",
+  "noWithdrawalsYet": "Tiada pengeluaran lagi",
+  "withdrawalsAppearHere": "Permintaan pengeluaran anda akan dipaparkan di sini",
+  "withdrawMethod": "Kaedah",
+  "withdrawType": "taip",
+  "withdrawDate": "tarikh",
+  "withdrawReason": "Sebab",
+  "withdrawProcessed": "Diproses",
+  "processingDays": "2 hari bekerja",
+  "statusNote": "Nota status",
+  "underReview": "Dalam semakan",
+  "statusApproved": "DILULUSKAN",
+  "statusRejected": "DITOLAK",
+  "statusPending": "SELESAI",
+  "scratchToWin": "calar\nia untuk Menang",
+  "scratchBetterLuck": "Nasib yang lebih baik\nLain kali",
+  "quizTitle": "Kuiz",
+  "quizProgress": "Soalan {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "quizScore": "Anda mendapat {correct}/{total}",
+  "@quizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gameZoneCoinsReward": "+ {coins} Syiling",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "playGame": "Main Permainan",
+  "missionBriefTitle": "Ringkas Misi",
+  "missionBriefPart1": "Kekal di halaman selama {secs} Saat, A\npemasa undur akan muncul.\nklik\"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": {
+        "type": "int"
+      }
+    }
+  },
+  "missionBriefClaimAction": "TUNTUTAN SYILING",
+  "missionBriefPart2": "\"bila dah siap!",
+  "cancel": "Batal",
+  "start": "Mulakan",
+  "timeNotCompleted": "Masa Belum Selesai!",
+  "gameTimeFail": "Anda tinggal selama {elapsedSecs}s daripada {totalSecs}s.\nSila kekal di halaman untuk tempoh penuh.",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": {
+        "type": "int"
+      },
+      "totalSecs": {
+        "type": "int"
+      }
+    }
+  },
+  "spinAndWin": "Putar & Menang",
+  "spinWelcomeTitle": "Selamat datang ke Spin",
+  "spinWelcomeSubtitle": "Dapatkan Syiling dengan Mudah dengan Roda Berputar",
+  "getStarted": "Mulakan",
+  "spinNow": "Putar Sekarang",
+  "spinning": "Berpusing...",
+  "spinOops": "Aduh!",
+  "spinCongrats": "tahniah..!",
+  "spinBetterLuck": "Semoga berjaya lain kali!",
+  "spinWonCoins": "Anda memenangi {coins} Syiling",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Cuba Lagi",
+  "claimCoins": "Tuntut Syiling",
+  "hiwWhatAreCoinsTitle": "Apa itu Syiling?",
+  "hiwWhatAreCoinsDesc": "Syiling ialah mata wang utama dalam aplikasi ini. Anda boleh mendapatkan syiling dengan menyelesaikan tugasan dan menukarnya dengan wang sebenar.",
+  "hiwDailyMissionsTitle": "Misi Harian",
+  "hiwDailyMissionsDesc": "Selesaikan tugas harian seperti memutar roda, menconteng kad atau menjawab kuiz. Setiap misi yang telah selesai memberi ganjaran kepada anda dengan syiling.",
+  "hiwSpinWheelDesc": "Putar roda bertuah untuk memenangi ganjaran syiling segera! Setiap putaran boleh memberi ganjaran kepada anda dengan 10-500 syiling.",
+  "hiwScratchCardsTitle": "Kad Gores",
+  "hiwScratchCardsDesc": "Gores kad maya untuk mendedahkan ganjaran syiling tersembunyi daripada 5 hingga 50 syiling. Kad percuma setiap hari!",
+  "hiwQuizGameTitle": "Permainan Kuiz",
+  "hiwQuizGameDesc": "Jawab soalan trivia dengan betul untuk memperoleh 22 syiling setiap soalan. Bina coretan kombo anda.",
+  "hiwWatchAdsTitle": "Tonton Iklan",
+  "hiwWatchAdsDesc": "Tonton iklan video pendek untuk mendapatkan syiling pantas. Setiap iklan memberi ganjaran kepada anda serta-merta. Sehingga 10 iklan setiap hari.",
+  "hiwReferralTitle": "Sistem Rujukan",
+  "hiwReferralDesc": "Kongsi kod rujukan anda dengan rakan-rakan. Apabila mereka mendaftar dan memperoleh pendapatan, anda mendapat syiling bonus!",
+  "hiwWithdrawTitle": "Keluarkan Wang",
+  "hiwWithdrawDesc": "Sebaik sahaja anda mencapai ambang minimum, tukarkan syiling anda kepada wang sebenar melalui PayPal, pindahan bank atau kad hadiah.",
+  "readyToStartEarning": "Bersedia untuk mula menjana pendapatan?",
+  "backToHome": "Kembali ke Rumah",
+  "navHome": "Rumah",
+  "navRank": "pangkat",
+  "navRewards": "Ganjaran",
+  "navProfile": "Profil",
+  "noInternetConnection": "Tiada Sambungan Internet",
+  "noInternetMessage": "Sila semak sambungan anda dan cuba lagi.",
+  "checking": "Menyemak...",
+  "retry": "Cuba semula",
+  "appTitle": "Spin Craze",
+  "taglineWatch": "TONTON",
+  "taglineEarn": "DAPATKAN",
+  "taglinePlay": "BERMAIN",
+  "welcome": "Selamat datang",
+  "signInToAccessWallet": "Log masuk untuk mengakses dompet anda",
+  "continueWithGoogle": "Teruskan dengan Google",
+  "continueAsGuest": "Teruskan sebagai Tetamu",
+  "byConsentText": "Dengan meneruskan, anda bersetuju dengan kami",
+  "terms": "Syarat",
+  "privacyPolicy": "Dasar Privasi",
+  "onboardingDailyRewardsTitle": "Ganjaran Harian",
+  "onboardingDailyRewardsDesc": "Anda akan Mendapat Ganjaran Mata Harian, Yang boleh anda tuntut dan tingkatkan Mata anda.",
+  "onboardingUltimateGamesTitle": "Permainan Terbaik",
+  "onboardingUltimateGamesDesc": "Dapatkan Berbilang pilihan untuk Permainan untuk Dimainkan dan Dapatkan Lebih Banyak Mata.",
+  "onboardingTrackAchievementsTitle": "Jejaki Pencapaian",
+  "onboardingTrackAchievementsDesc": "Lihat pencapaian anda dan Jejakinya dengan pengguna lain melalui Papan Kulit",
+  "next": "Seterusnya",
+  "selectYourCountry": "Pilih Negara Anda",
+  "selectCountrySubtitle": "Pilih dari mana anda bermain supaya kami boleh menyesuaikan ganjaran.",
+  "searchCountry": "Cari negara",
+  "noCountriesFound": "Tiada negara ditemui",
+  "pleaseSelectCountry": "Sila pilih negara anda",
+  "selectYourCurrency": "Pilih Mata Wang Anda",
+  "selectCurrencySubtitle": "Kami akan menunjukkan baki ganjaran anda dalam mata wang ini.",
+  "searchCurrency": "Cari mata wang",
+  "noCurrenciesFound": "Tiada mata wang ditemui",
+  "pleaseSelectCurrency": "Sila pilih mata wang anda",
+  "gamesYouLove": "Permainan yang Anda Suka",
+  "gamesYouLoveSubtitle": "Pilih permainan yang anda gemari — kami akan memaparkan cara untuk memperoleh pendapatan daripadanya.",
+  "finish": "Selesai",
+  "pleasePickGame": "Sila pilih sekurang-kurangnya satu permainan",
+  "gamesSelected": "{count} dipilih",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

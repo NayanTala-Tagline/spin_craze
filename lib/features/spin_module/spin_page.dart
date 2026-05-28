@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/spin_module/widgets/wheel_painter.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/services/coin_service.dart';
@@ -189,7 +190,7 @@ class _SpinWheelScreenState extends State<SpinWheelScreen>
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: CommonAppBar(
-            title: 'Spin & Win',
+            title: context.l10n.spinAndWin,
             showBack: true,
           ),
           body: SafeArea(
@@ -230,7 +231,7 @@ class _WelcomeBody extends StatelessWidget {
         children: [
           SizedBox(height: AppSize.h24),
           Text(
-            'Welcome to Spin',
+            context.l10n.spinWelcomeTitle,
             style: context.textTheme.titleLarge?.copyWith(
               color: const Color(0xFF0B1F4D),
               fontWeight: FontWeight.w800,
@@ -239,7 +240,7 @@ class _WelcomeBody extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h10),
           Text(
-            'Earn Coins Easily by Spinning Wheel',
+            context.l10n.spinWelcomeSubtitle,
             textAlign: TextAlign.center,
             style: context.textTheme.bodyMedium?.copyWith(
               color: const Color(0xFF6B7280),
@@ -253,7 +254,7 @@ class _WelcomeBody extends StatelessWidget {
           ),
           const Spacer(),
           _PaleCyanPill(
-            label: 'Get Started',
+            label: context.l10n.getStarted,
             onPressed: onGetStarted,
           ),
           SizedBox(height: AppSize.h24),
@@ -314,7 +315,7 @@ class _SpinBody extends StatelessWidget {
           ),
           const Spacer(),
           _PaleCyanPill(
-            label: isSpinning ? 'Spinning...' : 'Spin Now',
+            label: isSpinning ? context.l10n.spinning : context.l10n.spinNow,
             onPressed: isSpinning ? () {} : onSpin,
           ),
           SizedBox(height: AppSize.h24),
@@ -506,7 +507,7 @@ class _CongratsDialogState extends State<_CongratsDialog>
                 ),
                 SizedBox(height: AppSize.h20),
                 Text(
-                  widget.isLoss ? 'Oops!' : 'Congratulations..!',
+                  widget.isLoss ? context.l10n.spinOops : context.l10n.spinCongrats,
                   style: context.textTheme.titleLarge?.copyWith(
                     color: widget.isLoss
                         ? const Color(0xFFFF5183)
@@ -518,8 +519,8 @@ class _CongratsDialogState extends State<_CongratsDialog>
                 SizedBox(height: AppSize.h8),
                 Text(
                   widget.isLoss
-                      ? 'Better luck next time!'
-                      : 'You won ${widget.coins} Coins',
+                      ? context.l10n.spinBetterLuck
+                      : context.l10n.spinWonCoins(widget.coins),
                   style: context.textTheme.bodyLarge?.copyWith(
                     color: widget.isLoss
                         ? const Color(0xFFFF5183)
@@ -531,7 +532,7 @@ class _CongratsDialogState extends State<_CongratsDialog>
                 if (!widget.isLoss)
                   AdDisclaimerText(show: RewardAdService.isSpinWheelAdEnabled),
                 _PaleCyanPill(
-                  label: widget.isLoss ? 'Try Again' : 'Claim Coins',
+                  label: widget.isLoss ? context.l10n.tryAgain : context.l10n.claimCoins,
                   onPressed: widget.onClaim,
                 ),
               ],

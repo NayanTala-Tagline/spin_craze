@@ -1,0 +1,373 @@
+{
+  "@@locale": "fil",
+  "homeStreakDays": "{count} Araw",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDailyReward": "Pang-araw-araw na Gantimpala",
+  "homeCollectCoins": "Mangolekta ng higit pang mga barya\nbawat araw",
+  "homeCoinsUnit": "/Mga barya",
+  "claimed": "Inangkin",
+  "claimNow": "I-claim Ngayon",
+  "homeTotalBalance": "Kabuuang Balanse",
+  "homeCoinsCount": "{coins} Barya",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "homeXpCount": "{xp} XP",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "withdraw": "Mag-withdraw",
+  "homeStatLevel": "Antas",
+  "homeStatToday": "Ngayong araw",
+  "homeStatXp": "XP",
+  "earnModuleReferTitle": "Sumangguni at Kumita",
+  "earnModuleReferSubtitle": "Mag-imbita ng mga Kaibigan",
+  "earnModuleSpinTitle": "Paikot na Gulong",
+  "earnModuleSpinSubtitle": "Paikutin at Manalo",
+  "earnModuleQuizTitle": "Quiz Master",
+  "earnModuleQuizSubtitle": "Sagot at Kumita",
+  "earnModuleScratchTitle": "Scratch Card",
+  "earnModuleScratchSubtitle": "Scratch & Reveal",
+  "earnModuleWebTitle": "Mga Pagbisita sa Web",
+  "earnModuleWebSubtitle": "Bisitahin at Kumita",
+  "earnModuleGameTitle": "Zone ng Laro",
+  "earnModuleGameSubtitle": "Maglaro ng Laro",
+  "earnMoney": "Kumita ng Pera",
+  "howItWorks": "Paano Ito Gumagana",
+  "howItWorksDesc": "Alamin ang Step-by-Step kung paano kumita ng pera",
+  "learn": "Matuto",
+  "leaderboard": "Leaderboard",
+  "leaderboardDesc": "Tingnan ang mga nangungunang kumikita at umakyat sa mga ranggo",
+  "dailyCheckinTitle": "Araw-araw na Check-in",
+  "dailyCheckinReward": "Gantimpala sa Pang-araw-araw na Check-in",
+  "keepStreakGoing": "Ipagpatuloy ang iyong streak!",
+  "dayBadge": "Araw {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsLabel": "mga barya",
+  "claimReward": "Mag-claim ng Gantimpala",
+  "totalDaysClaimed": "Kabuuang Mga Araw na Na-claim",
+  "alreadyClaimedToday": "Na-claim mo na ang reward ngayong araw.",
+  "adDisclaimer": "Maaaring naglalaman ang seksyong ito ng mga ad",
+  "rewardIn": "Gantimpala sa {seconds}s..",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "webviewClaimed": "Inangkin!",
+  "pleaseSelectLanguage": "Mangyaring pumili muna ng wika",
+  "confirm": "Kumpirmahin",
+  "setDefaultLanguage": "Itakda ang Default na Wika",
+  "setDefaultLanguageDesc": "Gagamitin ang napiling wika bilang default na wika para sa app na ito na maaari mong baguhin sa ibang pagkakataon kung gusto mo.",
+  "howCanWeHelp": "Paano tayo makakatulong?",
+  "supportDesc": "Sabihin sa amin kung ano ang nangyaring mali o kung ano ang kailangan mong hawakan. Sinusuri ng aming koponan ang bawat mensahe.",
+  "titleLabel": "Pamagat",
+  "shortSummary": "Maikling buod",
+  "pleaseAddTitle": "Mangyaring magdagdag ng pamagat.",
+  "titleTooShort": "Masyadong maikli ang pamagat.",
+  "descriptionLabel": "Paglalarawan",
+  "describeIssue": "Ilarawan ang iyong isyu...",
+  "pleaseAddDesc": "Mangyaring magdagdag ng paglalarawan.",
+  "descTooShort": "Masyadong maikli ang paglalarawan.",
+  "submit": "Isumite",
+  "thanksMsgReceived": "Salamat! Natanggap ang mensahe.",
+  "couldNotSubmit": "Hindi maisumite. Subukan muli.",
+  "guestUser": "Guest User",
+  "notSignedIn": "Hindi naka-sign in",
+  "deletingAccount": "Tinatanggal ang account...",
+  "googleLinked": "Matagumpay na na-link ang Google account!",
+  "linkGoogleAccount": "I-link ang Google Account",
+  "language": "Wika",
+  "support": "Suporta",
+  "termsAndCondition": "Mga Tuntunin at Kundisyon",
+  "profileBalance": "Balanse",
+  "profileDays": "Mga araw",
+  "profileRefs": "Mga Ref",
+  "levelProgress": "Antas ng Pag-unlad",
+  "rateUs": "I-rate Kami",
+  "deleteAccount": "Tanggalin ang Account",
+  "signOut": "Mag-sign Out",
+  "deleteAccountQuestion": "Tanggalin ang Account?",
+  "deleteAccountDesc": "Permanente nitong aalisin ang iyong account, mga barya, at pag-unlad. Ang pagkilos na ito ay hindi maaaring i-undo.",
+  "delete": "Tanggalin",
+  "signOutConfirm": "Sigurado ka bang gusto mong mag-sign out sa iyong account?",
+  "lvLevel": "Lv. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "rewardsAndBonuses": "Mga Gantimpala at Bonus",
+  "friendsInvited": "Inimbitahan ang mga Kaibigan",
+  "coinsEarned": "Nakuhang mga barya",
+  "linkYourAccount": "I-link ang Iyong Account",
+  "linkAccountDesc": "Mag-sign in sa Google para makuha ang iyong referral code at mag-imbita ng mga kaibigan, Pumunta sa Profile at i-link ang iyong account.",
+  "enterReferralCode": "Ilagay ang Referral Code",
+  "havePromoCode": "Magkaroon ng Promo Code",
+  "apply": "Mag-apply",
+  "pleaseLink": "Paki-link muna ang iyong account",
+  "yourReferralCode": "Ang iyong Referral Code",
+  "codeCopied": "Nakopya ang code!",
+  "shareLink": "Ibahagi ang Link",
+  "shareMessage": "Samahan mo ako sa Kumita ng Pera at kumita ng mga barya! Gamitin ang aking referral code: {code}\n\nI-download ang app: {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "appUrl": {
+        "type": "String"
+      }
+    }
+  },
+  "pullDownRefresh": "Hilahin pababa para i-refresh",
+  "refreshIn": "I-refresh sa {timer}",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlayer": "Manlalaro",
+  "rankLevelTier": "Lv. {level} {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "rankTierExpert": "Dalubhasa",
+  "rankTierIntermediate": "Intermediate",
+  "rankTierBeginner": "Baguhan",
+  "walletTitle": "Wallet",
+  "availableBalance": "Magagamit na Balanse",
+  "minWithdrawal": "Min. Pag-withdraw:",
+  "pendingWithdrawalMsg": "Mayroon kang nakabinbing withdrawal. Ang mga bagong kahilingan ay hindi pinagana hanggang sa ito ay maaprubahan.",
+  "withdrawTo": "Mag-withdraw sa {title}",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "amountCoins": "Halaga (Mga Barya)",
+  "withdrawValue": "Halaga: ${value}",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "additionalNote": "Karagdagang Tala (Opsyonal)",
+  "withdrawRequestSent": "Ipinadala ang kahilingan sa pag-withdraw",
+  "fieldRequired": "Kinakailangan ang field",
+  "enterValidNumber": "Maglagay ng wastong numero",
+  "minimumCoins": "Ang pinakamababa ay {min} na barya",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidInput": "Di-wastong input",
+  "confirmWithdrawal": "KUMPIRMAHIN ANG WITHDRAWAL",
+  "minCoins": "Min: {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "withdrawHistory": "Bawiin ang Kasaysayan",
+  "somethingWentWrong": "Nagkaproblema",
+  "tryAgainLater": "Pakisubukang muli mamaya",
+  "noWithdrawalsYet": "Wala pang withdrawal",
+  "withdrawalsAppearHere": "Lalabas dito ang iyong mga kahilingan sa pag-withdraw",
+  "withdrawMethod": "Pamamaraan",
+  "withdrawType": "Uri",
+  "withdrawDate": "Petsa",
+  "withdrawReason": "Dahilan",
+  "withdrawProcessed": "Naproseso",
+  "processingDays": "2 araw ng negosyo",
+  "statusNote": "Tala ng katayuan",
+  "underReview": "Sinusuri",
+  "statusApproved": "APPROVED",
+  "statusRejected": "REJECTED",
+  "statusPending": "NAKAKABINTAY",
+  "scratchToWin": "scratch\nito para manalo",
+  "scratchBetterLuck": "Mas Mapalad\nSa susunod na pagkakataon",
+  "quizTitle": "Pagsusulit",
+  "quizProgress": "Mga Tanong {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "quizScore": "Nakakuha ka ng {correct}/{total}",
+  "@quizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gameZoneCoinsReward": "+ {coins} Barya",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "playGame": "Maglaro ng Laro",
+  "missionBriefTitle": "Maikling Misyon",
+  "missionBriefPart1": "Manatili sa page para sa {secs} Sec., A\nlalabas ang countdown timer.\ni-click ang \"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": {
+        "type": "int"
+      }
+    }
+  },
+  "missionBriefClaimAction": "CLAIM COIN",
+  "missionBriefPart2": "\"kapag handa na!",
+  "cancel": "Kanselahin",
+  "start": "Magsimula",
+  "timeNotCompleted": "Hindi Nakumpleto ang Oras!",
+  "gameTimeFail": "Nanatili ka ng {elapsedSecs}s sa {totalSecs}s.\nMangyaring manatili sa pahina para sa buong tagal.",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": {
+        "type": "int"
+      },
+      "totalSecs": {
+        "type": "int"
+      }
+    }
+  },
+  "spinAndWin": "Paikutin at Manalo",
+  "spinWelcomeTitle": "Maligayang pagdating sa Spin",
+  "spinWelcomeSubtitle": "Madaling Kumita ng Coins sa pamamagitan ng Spinning Wheel",
+  "getStarted": "Magsimula",
+  "spinNow": "Iikot Ngayon",
+  "spinning": "Umiikot...",
+  "spinOops": "Oops!",
+  "spinCongrats": "Binabati kita..!",
+  "spinBetterLuck": "Better luck sa susunod!",
+  "spinWonCoins": "Nanalo ka ng {coins} Coins",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Subukan Muli",
+  "claimCoins": "Mag-claim ng mga barya",
+  "hiwWhatAreCoinsTitle": "Ano ang mga barya?",
+  "hiwWhatAreCoinsDesc": "Ang mga barya ay ang pangunahing pera sa app na ito. Maaari kang kumita ng mga barya sa pamamagitan ng pagkumpleto ng mga gawain at ipagpalit ang mga ito sa totoong pera.",
+  "hiwDailyMissionsTitle": "Pang-araw-araw na Misyon",
+  "hiwDailyMissionsDesc": "Kumpletuhin ang mga pang-araw-araw na gawain tulad ng pag-ikot ng gulong, pagkamot ng mga card, o pagsagot sa mga pagsusulit. Ang bawat nakumpletong misyon ay nagbibigay ng gantimpala sa iyo ng mga barya.",
+  "hiwSpinWheelDesc": "Paikutin ang masuwerteng gulong para manalo ng mga instant coin reward! Ang bawat pag-ikot ay maaaring gantimpalaan ka ng 10-500 na mga barya.",
+  "hiwScratchCardsTitle": "Scratch Card",
+  "hiwScratchCardsDesc": "Scratch virtual card upang ipakita ang mga nakatagong coin reward mula 5 hanggang 50 coin. Libreng card araw-araw!",
+  "hiwQuizGameTitle": "Larong Pagsusulit",
+  "hiwQuizGameDesc": "Sagutin nang tama ang mga tanong sa trivia para kumita ng 22 coins kada tanong. Buuin ang iyong combo streak.",
+  "hiwWatchAdsTitle": "Manood ng mga Ad",
+  "hiwWatchAdsDesc": "Manood ng mga maikling video ad upang kumita ng mabilis na mga barya. Ang bawat ad ay nagbibigay ng gantimpala sa iyo kaagad. Hanggang 10 ad bawat araw.",
+  "hiwReferralTitle": "Sistema ng Referral",
+  "hiwReferralDesc": "Ibahagi ang iyong referral code sa mga kaibigan. Kapag nag-sign up sila at kumita, makakakuha ka ng mga bonus na barya!",
+  "hiwWithdrawTitle": "Mag-withdraw ng Pera",
+  "hiwWithdrawDesc": "Kapag naabot mo na ang minimum na threshold, i-convert ang iyong mga barya sa totoong pera sa pamamagitan ng PayPal, bank transfer, o mga gift card.",
+  "readyToStartEarning": "Handa nang magsimulang kumita?",
+  "backToHome": "Bumalik sa Bahay",
+  "navHome": "Bahay",
+  "navRank": "Ranggo",
+  "navRewards": "Mga gantimpala",
+  "navProfile": "Profile",
+  "noInternetConnection": "Walang Koneksyon sa Internet",
+  "noInternetMessage": "Pakisuri ang iyong koneksyon at subukang muli.",
+  "checking": "Sinusuri...",
+  "retry": "Subukan muli",
+  "appTitle": "Spin Craze",
+  "taglineWatch": "PANOORIN",
+  "taglineEarn": "KUMITA",
+  "taglinePlay": "MAGLARO",
+  "welcome": "Maligayang pagdating",
+  "signInToAccessWallet": "Mag-sign in para ma-access ang iyong wallet",
+  "continueWithGoogle": "Magpatuloy sa Google",
+  "continueAsGuest": "Magpatuloy bilang Bisita",
+  "byConsentText": "Sa pagpapatuloy, sumasang-ayon ka sa aming",
+  "terms": "Mga tuntunin",
+  "privacyPolicy": "Patakaran sa Privacy",
+  "onboardingDailyRewardsTitle": "Pang-araw-araw na Gantimpala",
+  "onboardingDailyRewardsDesc": "Makakakuha ka ng Daily Points Reward, na maaari mong i-claim at pataasin ang iyong mga Puntos.",
+  "onboardingUltimateGamesTitle": "Ultimate Games",
+  "onboardingUltimateGamesDesc": "Kumuha ng Maramihang mga opsyon para sa Mga Larong Laruin at Makakuha ng Higit pang Mga Puntos.",
+  "onboardingTrackAchievementsTitle": "Subaybayan ang mga Nakamit",
+  "onboardingTrackAchievementsDesc": "Tingnan ang iyong mga nagawa at Subaybayan ito kasama ng ibang user sa pamamagitan ng Leatherboard",
+  "next": "Susunod",
+  "selectYourCountry": "Piliin ang Iyong Bansa",
+  "selectCountrySubtitle": "Piliin kung saan ka naglalaro para maiangkop namin ang mga reward.",
+  "searchCountry": "Maghanap ng bansa",
+  "noCountriesFound": "Walang nahanap na bansa",
+  "pleaseSelectCountry": "Mangyaring piliin ang iyong bansa",
+  "selectYourCurrency": "Piliin ang Iyong Pera",
+  "selectCurrencySubtitle": "Ipapakita namin ang balanse ng iyong reward sa currency na ito.",
+  "searchCurrency": "Maghanap ng pera",
+  "noCurrenciesFound": "Walang nakitang pera",
+  "pleaseSelectCurrency": "Mangyaring piliin ang iyong pera",
+  "gamesYouLove": "Mga Larong Gusto Mo",
+  "gamesYouLoveSubtitle": "Piliin ang mga larong kinagigiliwan mo — magpapakita kami ng mga paraan para kumita mula sa kanila.",
+  "finish": "Tapusin",
+  "pleasePickGame": "Mangyaring pumili ng kahit isang laro",
+  "gamesSelected": "{count} ang napili",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

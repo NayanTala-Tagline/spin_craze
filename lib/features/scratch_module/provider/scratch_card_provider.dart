@@ -4,7 +4,6 @@ import 'package:spin_craze/utils/remote_config.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:scratcher/scratcher.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class ScratchCardProvider extends ChangeNotifier {
   ScratchCardProvider() {

@@ -1,6 +1,7 @@
 import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
 import 'package:spin_craze/features/onboarding_module/provider/selection_ad_provider.dart';
 import 'package:spin_craze/features/onboarding_module/widgets/onboarding_step_indicator.dart';
@@ -233,7 +234,7 @@ class _LanguagePageState extends State<LanguagePage> {
 
   void _onGetStarted() {
     if (widget.isOnboarding && _selected == null) {
-      'Please select a language first'.showInfoAlert();
+      context.l10n.pleaseSelectLanguage.showInfoAlert();
       return;
     }
     _saveLanguage();
@@ -275,13 +276,13 @@ class _LanguagePageState extends State<LanguagePage> {
               children: [
                 if (widget.isOnboarding)
                   _OnboardingTopBar(
-                    getStartedLabel: 'Get Started',
+                    getStartedLabel: context.l10n.getStarted,
                     onGetStarted: _onGetStarted,
                   )
                 else
                   _SettingsTopBar(
-                    title: 'Language',
-                    confirmLabel: 'Confirm',
+                    title: context.l10n.language,
+                    confirmLabel: context.l10n.confirm,
                     onBack: () => NavigationHelper().handleBackPress(context),
                     onConfirm: _onSave,
                   ),
@@ -297,7 +298,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Set Default Language',
+                        context.l10n.setDefaultLanguage,
                         style: TextStyle(
                           fontFamily: FontFamily.sFPro,
                           fontWeight: FontWeight.w800,
@@ -308,7 +309,7 @@ class _LanguagePageState extends State<LanguagePage> {
                       ),
                       SizedBox(height: AppSize.h10),
                       Text(
-                        'Selected language will use as default language for this app which you can change later if you want to.',
+                        context.l10n.setDefaultLanguageDesc,
                         style: TextStyle(
                           fontFamily: FontFamily.sFPro,
                           fontWeight: FontWeight.w400,

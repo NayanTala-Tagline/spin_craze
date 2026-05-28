@@ -1,3 +1,4 @@
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/onboarding_module/provider/onboarding_provider.dart';
 import 'package:spin_craze/features/onboarding_module/widgets/onboarding_scaffold.dart';
 import 'package:spin_craze/features/settings_module/language_page.dart'
@@ -25,10 +26,9 @@ class OnboardingPage3 extends StatelessWidget {
           return OnboardingScaffold(
             currentIndex: 2,
             image: Assets.images.trackAchievments.image(),
-            title: 'Track Achievements',
-            description:
-                'See your achievements and Track it with other user through Leatherboard',
-            nextLabel: 'Next',
+            title: context.l10n.onboardingTrackAchievementsTitle,
+            description: context.l10n.onboardingTrackAchievementsDesc,
+            nextLabel: context.l10n.next,
             nativeAd: prov.nativeAd,
             isLoading: prov.isLoading,
             onNext: () async {

@@ -1,0 +1,373 @@
+{
+  "@@locale": "fr",
+  "homeStreakDays": "{count} jours",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDailyReward": "Récompense quotidienne",
+  "homeCollectCoins": "Collectez plus de pièces\nchaque jour",
+  "homeCoinsUnit": "/Pièces",
+  "claimed": "Réclamé",
+  "claimNow": "Réclamez maintenant",
+  "homeTotalBalance": "Solde total",
+  "homeCoinsCount": "{coins} Pièces",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "homeXpCount": "{xp} XP",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "withdraw": "Retirer",
+  "homeStatLevel": "Niveau",
+  "homeStatToday": "Aujourd'hui",
+  "homeStatXp": "XP",
+  "earnModuleReferTitle": "Parrainez et gagnez",
+  "earnModuleReferSubtitle": "Inviter des amis",
+  "earnModuleSpinTitle": "Roue tournante",
+  "earnModuleSpinSubtitle": "Faites tourner et gagnez",
+  "earnModuleQuizTitle": "Maître du quiz",
+  "earnModuleQuizSubtitle": "Répondez et gagnez",
+  "earnModuleScratchTitle": "Carte à gratter",
+  "earnModuleScratchSubtitle": "Grattez et révélez",
+  "earnModuleWebTitle": "Visites Web",
+  "earnModuleWebSubtitle": "Visitez et gagnez",
+  "earnModuleGameTitle": "Zone de jeu",
+  "earnModuleGameSubtitle": "Jouer à des jeux",
+  "earnMoney": "Gagner de l'argent",
+  "howItWorks": "Comment ça marche",
+  "howItWorksDesc": "Apprenez étape par étape comment gagner de l'argent",
+  "learn": "Apprendre",
+  "leaderboard": "Classement",
+  "leaderboardDesc": "Découvrez les meilleurs salariés et gravissez les échelons",
+  "dailyCheckinTitle": "Enregistrement quotidien",
+  "dailyCheckinReward": "Récompense d'enregistrement quotidien",
+  "keepStreakGoing": "Continuez votre séquence !",
+  "dayBadge": "Jour {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsLabel": "Pièces",
+  "claimReward": "Réclamez une récompense",
+  "totalDaysClaimed": "Nombre total de jours réclamés",
+  "alreadyClaimedToday": "Vous avez déjà réclamé la récompense d'aujourd'hui.",
+  "adDisclaimer": "Cette section peut contenir des annonces",
+  "rewardIn": "Récompense en {seconds}s.",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "webviewClaimed": "Réclamé !",
+  "pleaseSelectLanguage": "Veuillez d'abord sélectionner une langue",
+  "confirm": "Confirmer",
+  "setDefaultLanguage": "Définir la langue par défaut",
+  "setDefaultLanguageDesc": "La langue sélectionnée sera utilisée comme langue par défaut pour cette application que vous pourrez modifier ultérieurement si vous le souhaitez.",
+  "howCanWeHelp": "Comment pouvons-nous vous aider ?",
+  "supportDesc": "Dites-nous ce qui n'a pas fonctionné ou pour quoi vous avez besoin d'un coup de main. Notre équipe examine chaque message.",
+  "titleLabel": "Titre",
+  "shortSummary": "Bref résumé",
+  "pleaseAddTitle": "Veuillez ajouter un titre.",
+  "titleTooShort": "Le titre est trop court.",
+  "descriptionLabel": "Description",
+  "describeIssue": "Décrivez votre problème...",
+  "pleaseAddDesc": "Veuillez ajouter une description.",
+  "descTooShort": "La description est trop courte.",
+  "submit": "Soumettre",
+  "thanksMsgReceived": "Merci! Message reçu.",
+  "couldNotSubmit": "Impossible de soumettre. Essayer à nouveau.",
+  "guestUser": "Utilisateur invité",
+  "notSignedIn": "Non connecté",
+  "deletingAccount": "Suppression du compte...",
+  "googleLinked": "Compte Google associé avec succès !",
+  "linkGoogleAccount": "Associer un compte Google",
+  "language": "Langue",
+  "support": "Soutien",
+  "termsAndCondition": "Conditions générales",
+  "profileBalance": "Équilibre",
+  "profileDays": "Jours",
+  "profileRefs": "Réfs",
+  "levelProgress": "Progression du niveau",
+  "rateUs": "Évaluez-nous",
+  "deleteAccount": "Supprimer le compte",
+  "signOut": "Se déconnecter",
+  "deleteAccountQuestion": "Supprimer le compte ?",
+  "deleteAccountDesc": "Cela supprimera définitivement votre compte, vos pièces et votre progression. Cette action ne peut pas être annulée.",
+  "delete": "Supprimer",
+  "signOutConfirm": "Êtes-vous sûr de vouloir vous déconnecter de votre compte ?",
+  "lvLevel": "Niv. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "rewardsAndBonuses": "Récompenses et bonus",
+  "friendsInvited": "Amis invités",
+  "coinsEarned": "Pièces gagnées",
+  "linkYourAccount": "Liez votre compte",
+  "linkAccountDesc": "Connectez-vous avec Google pour obtenir votre code de parrainage et inviter des amis, accédez au profil et associez votre compte.",
+  "enterReferralCode": "Entrez le code de référence",
+  "havePromoCode": "Avoir un code promotionnel",
+  "apply": "Appliquer",
+  "pleaseLink": "Veuillez d'abord lier votre compte",
+  "yourReferralCode": "Votre code de parrainage",
+  "codeCopied": "Code copié !",
+  "shareLink": "Partager le lien",
+  "shareMessage": "Rejoignez-moi sur Gagner de l'argent et gagnez des pièces ! Utilisez mon code de parrainage : {code}\n\nTéléchargez l'application : {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "appUrl": {
+        "type": "String"
+      }
+    }
+  },
+  "pullDownRefresh": "Déroulez pour actualiser",
+  "refreshIn": "Actualiser dans {timer}",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlayer": "Joueur",
+  "rankLevelTier": "Niv. {level} {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "rankTierExpert": "Expert",
+  "rankTierIntermediate": "Intermédiaire",
+  "rankTierBeginner": "Débutant",
+  "walletTitle": "Portefeuille",
+  "availableBalance": "Solde disponible",
+  "minWithdrawal": "Min. Retrait:",
+  "pendingWithdrawalMsg": "Vous avez un retrait en attente. Les nouvelles demandes sont désactivées jusqu'à ce qu'elles soient approuvées.",
+  "withdrawTo": "Retirer à {title}",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "amountCoins": "Montant (pièces)",
+  "withdrawValue": "Valeur : {value} $",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "additionalNote": "Remarque complémentaire (facultatif)",
+  "withdrawRequestSent": "Demande de retrait envoyée",
+  "fieldRequired": "Champ obligatoire",
+  "enterValidNumber": "Entrez un numéro valide",
+  "minimumCoins": "Le minimum est de {min} pièces",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidInput": "Entrée invalide",
+  "confirmWithdrawal": "CONFIRMER LE RETRAIT",
+  "minCoins": "Min : {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "withdrawHistory": "Retirer l'historique",
+  "somethingWentWrong": "Quelque chose s'est mal passé",
+  "tryAgainLater": "Veuillez réessayer plus tard",
+  "noWithdrawalsYet": "Aucun retrait pour l'instant",
+  "withdrawalsAppearHere": "Vos demandes de retrait apparaîtront ici",
+  "withdrawMethod": "Méthode",
+  "withdrawType": "Taper",
+  "withdrawDate": "Date",
+  "withdrawReason": "Raison",
+  "withdrawProcessed": "Traité",
+  "processingDays": "2 jours ouvrés",
+  "statusNote": "Remarque sur l'état",
+  "underReview": "En cours de révision",
+  "statusApproved": "APPROUVÉ",
+  "statusRejected": "REJETÉ",
+  "statusPending": "EN ATTENTE",
+  "scratchToWin": "Rayure\nc'est pour gagner",
+  "scratchBetterLuck": "Meilleure chance\nLa prochaine fois",
+  "quizTitle": "Questionnaire",
+  "quizProgress": "Questions {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "quizScore": "Vous avez obtenu {correct}/{total}",
+  "@quizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gameZoneCoinsReward": "+ {coins} pièces",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "playGame": "Jouer au jeu",
+  "missionBriefTitle": "Présentation de la mission",
+  "missionBriefPart1": "Restez sur la page pendant {secs} Secs., A\nun compte à rebours apparaîtra.\ncliquez sur \"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": {
+        "type": "int"
+      }
+    }
+  },
+  "missionBriefClaimAction": "RÉCLAMER UNE PIÈCE",
+  "missionBriefPart2": "\"quand tu seras prêt !",
+  "cancel": "Annuler",
+  "start": "Commencer",
+  "timeNotCompleted": "Temps non terminé !",
+  "gameTimeFail": "Vous êtes resté {elapsedSecs} sur {totalSecs}.\nVeuillez rester sur la page pendant toute la durée.",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": {
+        "type": "int"
+      },
+      "totalSecs": {
+        "type": "int"
+      }
+    }
+  },
+  "spinAndWin": "Faites tourner et gagnez",
+  "spinWelcomeTitle": "Bienvenue sur Spin",
+  "spinWelcomeSubtitle": "Gagnez facilement des pièces en faisant tourner la roue",
+  "getStarted": "Commencer",
+  "spinNow": "Faites tourner maintenant",
+  "spinning": "Filage...",
+  "spinOops": "Oups !",
+  "spinCongrats": "Félicitations..!",
+  "spinBetterLuck": "Plus de chance la prochaine fois !",
+  "spinWonCoins": "Vous avez gagné {coins} pièces",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Essayer à nouveau",
+  "claimCoins": "Réclamez des pièces",
+  "hiwWhatAreCoinsTitle": "Que sont les pièces ?",
+  "hiwWhatAreCoinsDesc": "Les pièces sont la devise principale de cette application. Vous pouvez gagner des pièces en accomplissant des tâches et les échanger contre de l'argent réel.",
+  "hiwDailyMissionsTitle": "Missions quotidiennes",
+  "hiwDailyMissionsDesc": "Effectuez des tâches quotidiennes comme faire tourner la roue, gratter des cartes ou répondre à des quiz. Chaque mission accomplie vous récompense avec des pièces.",
+  "hiwSpinWheelDesc": "Faites tourner la roue de la chance pour gagner des récompenses instantanées en pièces ! Chaque tour peut vous récompenser avec 10 à 500 pièces.",
+  "hiwScratchCardsTitle": "Cartes à gratter",
+  "hiwScratchCardsDesc": "Grattez des cartes virtuelles pour révéler des récompenses de pièces cachées allant de 5 à 50 pièces. Cartes gratuites tous les jours !",
+  "hiwQuizGameTitle": "Jeu-questionnaire",
+  "hiwQuizGameDesc": "Répondez correctement aux questions triviales pour gagner 22 pièces par question. Construisez votre séquence de combos.",
+  "hiwWatchAdsTitle": "Regarder les annonces",
+  "hiwWatchAdsDesc": "Regardez de courtes publicités vidéo pour gagner rapidement des pièces. Chaque annonce vous récompense instantanément. Jusqu'à 10 annonces par jour.",
+  "hiwReferralTitle": "Système de référence",
+  "hiwReferralDesc": "Partagez votre code de parrainage avec vos amis. Lorsqu'ils s'inscrivent et gagnent, vous obtenez des pièces bonus !",
+  "hiwWithdrawTitle": "Retirer de l'argent",
+  "hiwWithdrawDesc": "Une fois que vous avez atteint le seuil minimum, convertissez vos pièces en argent réel via PayPal, virement bancaire ou cartes cadeaux.",
+  "readyToStartEarning": "Prêt à commencer à gagner ?",
+  "backToHome": "Retour à la maison",
+  "navHome": "Maison",
+  "navRank": "Rang",
+  "navRewards": "Récompenses",
+  "navProfile": "Profil",
+  "noInternetConnection": "Pas de connexion Internet",
+  "noInternetMessage": "Veuillez vérifier votre connexion et réessayer.",
+  "checking": "Vérification...",
+  "retry": "Réessayer",
+  "appTitle": "L'engouement pour les tours",
+  "taglineWatch": "MONTRE",
+  "taglineEarn": "GAGNER",
+  "taglinePlay": "JOUER",
+  "welcome": "Accueillir",
+  "signInToAccessWallet": "Connectez-vous pour accéder à votre portefeuille",
+  "continueWithGoogle": "Continuer avec Google",
+  "continueAsGuest": "Continuer en tant qu'invité",
+  "byConsentText": "En continuant, vous acceptez notre",
+  "terms": "Termes",
+  "privacyPolicy": "politique de confidentialité",
+  "onboardingDailyRewardsTitle": "Récompenses quotidiennes",
+  "onboardingDailyRewardsDesc": "Vous obtiendrez une récompense quotidienne en points, que vous pourrez réclamer et augmenter vos points.",
+  "onboardingUltimateGamesTitle": "Jeux ultimes",
+  "onboardingUltimateGamesDesc": "Obtenez plusieurs options pour jouer à des jeux et obtenir plus de points.",
+  "onboardingTrackAchievementsTitle": "Suivre les réalisations",
+  "onboardingTrackAchievementsDesc": "Consultez vos réalisations et suivez-les avec d'autres utilisateurs via Leatherboard",
+  "next": "Suivant",
+  "selectYourCountry": "Sélectionnez votre pays",
+  "selectCountrySubtitle": "Choisissez d'où vous jouez afin que nous puissions adapter les récompenses.",
+  "searchCountry": "Rechercher un pays",
+  "noCountriesFound": "Aucun pays trouvé",
+  "pleaseSelectCountry": "Veuillez sélectionner votre pays",
+  "selectYourCurrency": "Sélectionnez votre devise",
+  "selectCurrencySubtitle": "Nous afficherons votre solde de récompense dans cette devise.",
+  "searchCurrency": "Devise de recherche",
+  "noCurrenciesFound": "Aucune devise trouvée",
+  "pleaseSelectCurrency": "Veuillez sélectionner votre devise",
+  "gamesYouLove": "Jeux que vous aimez",
+  "gamesYouLoveSubtitle": "Choisissez les jeux que vous aimez : nous vous proposerons des moyens d'en tirer profit.",
+  "finish": "Finition",
+  "pleasePickGame": "Veuillez choisir au moins un jeu",
+  "gamesSelected": "{count} sélectionné",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

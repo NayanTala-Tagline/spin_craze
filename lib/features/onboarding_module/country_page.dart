@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
 import 'package:spin_craze/features/onboarding_module/data/onboarding_options.dart';
 import 'package:spin_craze/features/onboarding_module/provider/selection_ad_provider.dart';
@@ -81,7 +82,7 @@ class _CountryPageState extends State<CountryPage> {
 
   Future<void> _onNext() async {
     if (_selected == null) {
-      'Please select your country'.showInfoAlert();
+      context.l10n.pleaseSelectCountry.showInfoAlert();
       return;
     }
     _db.selectedCountry = _selected;
@@ -99,11 +100,11 @@ class _CountryPageState extends State<CountryPage> {
     final list = _filtered;
     return SelectionScaffold(
       stepIndex: 4,
-      title: 'Select Your Country',
-      subtitle: 'Choose where you are playing from so we can tailor rewards.',
+      title: context.l10n.selectYourCountry,
+      subtitle: context.l10n.selectCountrySubtitle,
       nativeAd: _ads.nativeAd,
       isLoading: _ads.isLoading,
-      nextLabel: 'Next',
+      nextLabel: context.l10n.next,
       onNext: _onNext,
       child: Column(
         children: [
@@ -116,7 +117,7 @@ class _CountryPageState extends State<CountryPage> {
             child: list.isEmpty
                 ? Center(
                     child: Text(
-                      'No countries found',
+                      context.l10n.noCountriesFound,
                       style: TextStyle(
                         color: _bodyColor,
                         fontSize: AppSize.sp14,
@@ -160,7 +161,7 @@ class _SearchField extends StatelessWidget {
       controller: controller,
       style: TextStyle(fontSize: AppSize.sp15, color: _titleColor),
       decoration: InputDecoration(
-        hintText: 'Search country',
+        hintText: context.l10n.searchCountry,
         hintStyle: TextStyle(color: _bodyColor, fontSize: AppSize.sp14),
         prefixIcon: Icon(Icons.search, color: _bodyColor, size: AppSize.sp22),
         filled: true,

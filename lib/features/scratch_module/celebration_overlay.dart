@@ -4,7 +4,6 @@ import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class CelebrationOverlay {
   static Future<void> show(

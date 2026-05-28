@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/auth_module/provider/auth_provider.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/gen/fonts.gen.dart';
@@ -158,7 +159,7 @@ class _LoginBodyState extends State<_LoginBody>
                   child: SlideTransition(
                     position: _titleSlide,
                     child: Text(
-                      'Spin Craze',
+                      context.l10n.appTitle,
                       style: TextStyle(
                         fontFamily: FontFamily.sFPro,
                         fontWeight: FontWeight.w800,
@@ -172,10 +173,10 @@ class _LoginBodyState extends State<_LoginBody>
                 SizedBox(height: AppSize.h10),
                 FadeTransition(
                   opacity: _taglineFade,
-                  child: const _Tagline(
-                    watch: 'WATCH',
-                    earn: 'EARN',
-                    play: 'PLAY',
+                  child: _Tagline(
+                    watch: context.l10n.taglineWatch,
+                    earn: context.l10n.taglineEarn,
+                    play: context.l10n.taglinePlay,
                   ),
                 ),
                 const Spacer(flex: 3),
@@ -184,8 +185,8 @@ class _LoginBodyState extends State<_LoginBody>
                   child: SlideTransition(
                     position: _cardSlide,
                     child: _WelcomeCard(
-                      title: 'Welcome',
-                      subtitle: 'Sign in to access your wallet',
+                      title: context.l10n.welcome,
+                      subtitle: context.l10n.signInToAccessWallet,
                       googleFade: _googleFade,
                       googleSlide: _googleSlide,
                       guestFade: _guestFade,
@@ -196,10 +197,10 @@ class _LoginBodyState extends State<_LoginBody>
                 const Spacer(flex: 2),
                 FadeTransition(
                   opacity: _footerFade,
-                  child: const _Footer(
-                    leadingText: 'By continuing, you agree to our',
-                    termsText: 'Terms',
-                    privacyText: 'Privacy Policy',
+                  child: _Footer(
+                    leadingText: context.l10n.byConsentText,
+                    termsText: context.l10n.terms,
+                    privacyText: context.l10n.privacyPolicy,
                   ),
                 ),
                     SizedBox(height: AppSize.h8),
@@ -479,7 +480,7 @@ class _WelcomeCard extends StatelessWidget {
               position: googleSlide,
               child: Consumer<AuthProvider>(
                 builder: (context, auth, _) => _PrimaryButton(
-                  label: 'Continue with Google',
+                  label: context.l10n.continueWithGoogle,
                   isLoading: auth.isGoogleLoading,
                   isDisabled: auth.isGuestLoading,
                   leading: Assets.images.googleLogo.image(
@@ -498,7 +499,7 @@ class _WelcomeCard extends StatelessWidget {
               position: guestSlide,
               child: Consumer<AuthProvider>(
                 builder: (context, auth, _) => _SecondaryButton(
-                  label: 'Continue as Guest',
+                  label: context.l10n.continueAsGuest,
                   isLoading: auth.isGuestLoading,
                   isDisabled: auth.isGoogleLoading,
                   leading: Icon(

@@ -1,3 +1,4 @@
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/onboarding_module/provider/onboarding_provider.dart';
 import 'package:spin_craze/features/onboarding_module/widgets/onboarding_scaffold.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
@@ -23,10 +24,9 @@ class OnboardingPage2 extends StatelessWidget {
           return OnboardingScaffold(
             currentIndex: 1,
             image: Assets.images.gameZone.image(),
-            title: 'Ultimate Games',
-            description:
-                'Get Multiple options for Games to Play and Get More Points.',
-            nextLabel: 'Next',
+            title: context.l10n.onboardingUltimateGamesTitle,
+            description: context.l10n.onboardingUltimateGamesDesc,
+            nextLabel: context.l10n.next,
             nativeAd: prov.nativeAd,
             isLoading: prov.isLoading,
             onNext: () async {

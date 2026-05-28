@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/scratch_module/provider/scratch_card_provider.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/routes/app_router.dart';
@@ -62,7 +63,7 @@ class _ScratchCardScreenState extends State<ScratchCardScreen>
         child: Scaffold(
           backgroundColor: const Color(0xFFF4F7FE),
           appBar: CommonAppBar(
-            title: 'Scratch Card',
+            title: context.l10n.earnModuleScratchTitle,
             showBack: true,
           ),
           body: SafeArea(
@@ -209,7 +210,7 @@ class _ScratchArea extends StatelessWidget {
                     borderRadius: BorderRadius.circular(AppSize.r100),
                   ),
                   child: Text(
-                    'Scratch\nit to Win',
+                    context.l10n.scratchToWin,
                     textAlign: TextAlign.center,
                     style: context.textTheme.titleLarge?.copyWith(
                       color: Colors.white.withValues(alpha: 0.85),
@@ -312,7 +313,7 @@ class _RevealedReward extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h8),
           Text(
-            'Better Luck\nNext Time',
+            context.l10n.scratchBetterLuck,
             textAlign: TextAlign.center,
             style: context.textTheme.titleLarge?.copyWith(
               color: colors.error,
@@ -355,7 +356,7 @@ class _RevealedReward extends StatelessWidget {
         ),
         SizedBox(height: AppSize.h6),
         Text(
-          'Coins',
+          context.l10n.coinsLabel,
           style: context.textTheme.bodyLarge?.copyWith(
             color: Colors.white.withValues(alpha: 0.75),
             fontWeight: FontWeight.w500,
@@ -422,7 +423,7 @@ class _CongratsSheet extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h20),
           Text(
-            isLoss ? 'Oops!' : 'Congratulations..!',
+            isLoss ? context.l10n.spinOops : context.l10n.spinCongrats,
             style: context.textTheme.titleLarge?.copyWith(
               color: isLoss
                   ? const Color(0xFFFF5183)
@@ -433,7 +434,7 @@ class _CongratsSheet extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h8),
           Text(
-            isLoss ? 'Better luck next time!' : 'You won $coins Coins',
+            isLoss ? context.l10n.spinBetterLuck : context.l10n.spinWonCoins(coins),
             style: context.textTheme.bodyLarge?.copyWith(
               color: isLoss
                   ? const Color(0xFFFF5183)
@@ -445,7 +446,7 @@ class _CongratsSheet extends StatelessWidget {
           if (!isLoss)
             AdDisclaimerText(show: RewardAdService.isScratchCardAdEnabled),
           _PaleCyanPill(
-            label: isLoss ? 'Try Again' : 'Claim Coins',
+            label: isLoss ? context.l10n.tryAgain : context.l10n.claimCoins,
             onPressed: onClaim,
           ),
         ],

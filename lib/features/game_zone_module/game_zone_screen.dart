@@ -1,5 +1,6 @@
 import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/game_zone_module/provider/game_zone_provider.dart';
 import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
@@ -171,7 +172,7 @@ class _GameZoneContentState extends State<_GameZoneContent>
       AppRoutes.inAppWebView,
       extra: {
         'url': item.url,
-        'title': 'Play Game',
+        'title': context.l10n.playGame,
         'durationSeconds': _gameDurationSecs,
         'coins': _coinsPerGame,
         'adData': RemoteConfigService.instance.websiteReward,
@@ -265,7 +266,7 @@ class _GameZoneContentState extends State<_GameZoneContent>
         gradient: _kPageGradient,
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: const CommonAppBar(title: 'Game Zone', showBack: true),
+          appBar: CommonAppBar(title: context.l10n.earnModuleGameTitle, showBack: true),
           body: SafeArea(
             top: false,
             child: ListView.separated(
@@ -355,7 +356,7 @@ class _GameTile extends StatelessWidget {
                       ),
                       SizedBox(width: AppSize.w4),
                       Text(
-                        '+ $_coinsPerGame Coins',
+                        context.l10n.gameZoneCoinsReward(_coinsPerGame),
                         style: context.textTheme.bodySmall?.copyWith(
                           color: const Color(0xFF3D3E40),
                           fontWeight: FontWeight.w500,
@@ -586,7 +587,7 @@ class _MissionBriefDialogState extends State<_MissionBriefDialog>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'Mission Brief',
+                    context.l10n.missionBriefTitle,
                     style: context.textTheme.titleLarge?.copyWith(
                       color: _kInk,
                       fontWeight: FontWeight.w800,
@@ -603,17 +604,16 @@ class _MissionBriefDialogState extends State<_MissionBriefDialog>
                       ),
                       children: [
                         TextSpan(
-                          text:
-                              'Stay on the page for ${widget.durationSeconds} Secs., A\ncountdown timer will appear.\nclick "',
+                          text: context.l10n.missionBriefPart1(widget.durationSeconds),
                         ),
                         TextSpan(
-                          text: 'CLAIM COIN',
+                          text: context.l10n.missionBriefClaimAction,
                           style: const TextStyle(
                             color: _kBlueDark,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
-                        const TextSpan(text: '" when ready!'),
+                        TextSpan(text: context.l10n.missionBriefPart2),
                       ],
                     ),
                     textAlign: TextAlign.center,
@@ -623,14 +623,14 @@ class _MissionBriefDialogState extends State<_MissionBriefDialog>
                     children: [
                       Expanded(
                         child: _GhostButton(
-                          label: 'Cancel',
+                          label: context.l10n.cancel,
                           onPressed: widget.onCancel,
                         ),
                       ),
                       SizedBox(width: AppSize.w12),
                       Expanded(
                         child: _PrimaryButton(
-                          label: 'Start',
+                          label: context.l10n.start,
                           onPressed: widget.onStart,
                         ),
                       ),
@@ -737,7 +737,7 @@ class _CongratsDialogState extends State<_CongratsDialog>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'Congratulations..!',
+                    context.l10n.spinCongrats,
                     style: context.textTheme.titleLarge?.copyWith(
                       color: _kBlueDark,
                       fontWeight: FontWeight.w800,
@@ -746,7 +746,7 @@ class _CongratsDialogState extends State<_CongratsDialog>
                   ),
                   SizedBox(height: AppSize.h8),
                   Text(
-                    'You won ${widget.coins} Coins',
+                    context.l10n.spinWonCoins(widget.coins),
                     style: context.textTheme.bodyLarge?.copyWith(
                       color: _kInk,
                       fontWeight: FontWeight.w600,
@@ -754,7 +754,7 @@ class _CongratsDialogState extends State<_CongratsDialog>
                   ),
                   SizedBox(height: AppSize.h24),
                   _PrimaryButton(
-                    label: 'Claim Coins',
+                    label: context.l10n.claimCoins,
                     onPressed: widget.onClaim,
                   ),
                 ],
@@ -803,7 +803,7 @@ class _TimeFailDialog extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h20),
           Text(
-            'Time Not Completed!',
+            context.l10n.timeNotCompleted,
             style: context.textTheme.titleLarge?.copyWith(
               color: _kDanger,
               fontWeight: FontWeight.w800,
@@ -812,7 +812,7 @@ class _TimeFailDialog extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h10),
           Text(
-            'You stayed for ${elapsed}s out of ${required}s.\nPlease stay on the page for the full duration.',
+            context.l10n.gameTimeFail(elapsed, required),
             textAlign: TextAlign.center,
             style: context.textTheme.bodyMedium?.copyWith(
               color: _kInkMuted,
@@ -821,7 +821,7 @@ class _TimeFailDialog extends StatelessWidget {
             ),
           ),
           SizedBox(height: AppSize.h24),
-          _PrimaryButton(label: 'Try Again', onPressed: onDismiss),
+          _PrimaryButton(label: context.l10n.tryAgain, onPressed: onDismiss),
         ],
       ),
     );

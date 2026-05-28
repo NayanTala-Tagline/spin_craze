@@ -16,7 +16,7 @@ class AdDisclaimerText extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: AppSize.h8),
       child: Text(
-        'This section may contain ads',
+        context.l10n.adDisclaimer,
         textAlign: TextAlign.center,
         style: context.textTheme.bodySmall?.copyWith(
           color: context.themeTextColors.muted,

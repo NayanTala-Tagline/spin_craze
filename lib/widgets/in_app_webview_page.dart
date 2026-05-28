@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:ad_manager/models/ad_data.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/services/coin_service.dart';
 import 'package:spin_craze/utils/app_size.dart';
@@ -175,7 +176,7 @@ class _TimerBadge extends StatelessWidget {
           ),
           SizedBox(width: AppSize.w8),
           Text(
-            'Reward in ${remaining}s..',
+            context.l10n.rewardIn(remaining),
             style: context.textTheme.labelLarge?.copyWith(
               color: _kInk,
               fontWeight: FontWeight.w700,
@@ -239,7 +240,7 @@ class _ClaimButton extends StatelessWidget {
           ),
           alignment: Alignment.center,
           child: Text(
-            claimed ? 'Claimed!' : 'Claim Reward',
+            claimed ? context.l10n.webviewClaimed : context.l10n.claimReward,
             style: context.textTheme.labelLarge?.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.w700,

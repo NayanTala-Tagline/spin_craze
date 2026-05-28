@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/home_module/provider/home_provider.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/services/reward_ad_service.dart';
@@ -292,7 +293,7 @@ class _StreakChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            '$days Days',
+            context.l10n.homeStreakDays(days),
             style: context.textTheme.labelMedium?.copyWith(
               color: context.themeTextColors.primary,
               fontSize: AppSize.sp12,
@@ -375,7 +376,7 @@ class _DailyRewardCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Daily Reward',
+                  context.l10n.homeDailyReward,
                   style: context.textTheme.titleLarge?.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.w800,
@@ -386,7 +387,7 @@ class _DailyRewardCard extends StatelessWidget {
                 SizedBox(
                   width: AppSize.w170,
                   child: Text(
-                    'Collect more coins\neach day',
+                    context.l10n.homeCollectCoins,
                     style: context.textTheme.bodyMedium?.copyWith(
                       color: Colors.white.withValues(alpha: 0.9),
                       height: 1.25,
@@ -414,7 +415,7 @@ class _DailyRewardCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(top: AppSize.h4),
                       child: Text(
-                        '/Coins',
+                        context.l10n.homeCoinsUnit,
                         style: context.textTheme.bodySmall?.copyWith(
                           color: Colors.white.withValues(alpha: 0.9),
                         ),
@@ -426,7 +427,7 @@ class _DailyRewardCard extends StatelessWidget {
                 AdDisclaimerText(show: RewardAdService.isDailyCheckinAdEnabled),
 
                 _PaleCyanButton(
-                  label: isClaimed ? 'Claimed' : 'Claim Now',
+                  label: isClaimed ? context.l10n.claimed : context.l10n.claimNow,
                   onPressed: isClaimed ? () {} : (onClaim ?? () {}),
                 ),
               ],
@@ -539,7 +540,7 @@ class _TotalBalanceCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Total Balance',
+                    context.l10n.homeTotalBalance,
                     style: context.textTheme.titleSmall?.copyWith(
                       color: Colors.white.withValues(alpha: 0.9),
                       fontWeight: FontWeight.w500,
@@ -572,7 +573,7 @@ class _TotalBalanceCard extends StatelessWidget {
                         ),
                         SizedBox(width: AppSize.w6),
                         Text(
-                          '$coins Coins',
+                          context.l10n.homeCoinsCount(coins),
                           style: context.textTheme.labelMedium?.copyWith(
                             color: Colors.white,
                           ),
@@ -584,7 +585,7 @@ class _TotalBalanceCard extends StatelessWidget {
                         ),
                         SizedBox(width: AppSize.w6),
                         Text(
-                          '$xp XP',
+                          context.l10n.homeXpCount(xp),
                           style: context.textTheme.labelMedium?.copyWith(
                             color: Colors.white,
                           ),
@@ -602,7 +603,7 @@ class _TotalBalanceCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   _PaleCyanButton(
-                    label: 'Withdraw',
+                    label: context.l10n.withdraw,
                     onPressed: () {
                       AnalyticsManager.instance.logEvent(
                         name: 'home_withdraw_tap',
@@ -612,7 +613,7 @@ class _TotalBalanceCard extends StatelessWidget {
                   ),
                   SizedBox(height: AppSize.h12),
                   _OutlineWhiteButton(
-                    label: 'Rewards',
+                    label: context.l10n.navRewards,
                     onPressed: () {
                       AnalyticsManager.instance.logEvent(
                         name: 'home_rewards_tap',
@@ -688,19 +689,19 @@ class _StatTilesRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         _StatTile(
-          label: 'Level',
+          label: context.l10n.homeStatLevel,
           value: '$level',
           icon: Assets.icons.user,
           accent: const Color(0xFFB1232E),
         ),
         _StatTile(
-          label: 'Today',
+          label: context.l10n.homeStatToday,
           value: '0',
           icon: Assets.icons.flame,
           accent: const Color(0xFFFF7A24),
         ),
         _StatTile(
-          label: 'XP',
+          label: context.l10n.homeStatXp,
           value: '$xp',
           icon: Assets.icons.thunder,
           accent: _kBlue,
@@ -853,8 +854,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
 
     final items = <_EarnItemData>[
       _EarnItemData(
-        'Refer & Earn',
-        'Invite Friends',
+        context.l10n.earnModuleReferTitle,
+        context.l10n.earnModuleReferSubtitle,
         Assets.images.referAndEarn,
         Assets.icons.icReferAndEarn,
         onTap: () {
@@ -866,8 +867,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
         },
       ),
       _EarnItemData(
-        'Spin Wheel',
-        'Spin and Win',
+        context.l10n.earnModuleSpinTitle,
+        context.l10n.earnModuleSpinSubtitle,
         Assets.images.spinWheel,
         Assets.icons.icSpinWheel,
         onTap: () {
@@ -879,8 +880,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
         },
       ),
       _EarnItemData(
-        'Quiz Master',
-        'Answer & Earn',
+        context.l10n.earnModuleQuizTitle,
+        context.l10n.earnModuleQuizSubtitle,
         Assets.images.quizMaster,
         Assets.icons.icQuizMaster,
         onTap: () {
@@ -892,8 +893,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
         },
       ),
       _EarnItemData(
-        'Scratch Card',
-        'Scratch & Reveal',
+        context.l10n.earnModuleScratchTitle,
+        context.l10n.earnModuleScratchSubtitle,
         Assets.images.scratchCard,
         Assets.icons.icScratch,
         onTap: () {
@@ -905,8 +906,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
         },
       ),
       _EarnItemData(
-        'Web Visits',
-        'Visit & Earn',
+        context.l10n.earnModuleWebTitle,
+        context.l10n.earnModuleWebSubtitle,
         Assets.images.webVisits,
         Assets.icons.icWebVisits,
         onTap: () {
@@ -918,8 +919,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
         },
       ),
       _EarnItemData(
-        'Game Zone',
-        'Play Games',
+        context.l10n.earnModuleGameTitle,
+        context.l10n.earnModuleGameSubtitle,
         Assets.images.gameZone,
         Assets.icons.icGameZone,
         onTap: () {
@@ -992,7 +993,7 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: AppSize.w4),
           child: Text(
-            'Earn Money',
+            context.l10n.earnMoney,
             style: context.textTheme.titleLarge?.copyWith(
               color: _kTextDark,
               fontWeight: FontWeight.w700,
@@ -1317,7 +1318,7 @@ class _HowItWorksBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'How It Works',
+                  context.l10n.howItWorks,
                   style: context.textTheme.titleSmall?.copyWith(
                     color: _kTextDark,
                     fontWeight: FontWeight.w700,
@@ -1325,7 +1326,7 @@ class _HowItWorksBanner extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.h2),
                 Text(
-                  'Learn Step-by-Step how to earn money',
+                  context.l10n.howItWorksDesc,
                   style: context.textTheme.bodySmall?.copyWith(
                     color: _kTextMuted,
                   ),
@@ -1373,7 +1374,7 @@ class _PaleCyanLearnButton extends StatelessWidget {
             color: const Color(0xFFE0DEDE),
           ),
           child: Text(
-            'Learn',
+            context.l10n.learn,
             style: context.textTheme.labelMedium?.copyWith(
               fontWeight: FontWeight.w700,
             ),
@@ -1449,7 +1450,7 @@ class _Leaderboard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Leaderboard',
+                      context.l10n.leaderboard,
                       style: context.textTheme.titleMedium?.copyWith(
                         color: _kTextDark,
                         fontWeight: FontWeight.w800,
@@ -1458,7 +1459,7 @@ class _Leaderboard extends StatelessWidget {
                     ),
                     SizedBox(height: AppSize.h2),
                     Text(
-                      'See top earners and climb the ranks',
+                      context.l10n.leaderboardDesc,
                       style: context.textTheme.bodySmall?.copyWith(
                         color: _kTextMuted,
                         fontSize: AppSize.sp12,

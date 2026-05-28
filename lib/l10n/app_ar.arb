@@ -1,0 +1,373 @@
+{
+  "@@locale": "ar",
+  "homeStreakDays": "{count} أيام",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDailyReward": "المكافأة اليومية",
+  "homeCollectCoins": "جمع المزيد من القطع النقدية\nكل يوم",
+  "homeCoinsUnit": "/عملات معدنية",
+  "claimed": "ادعى",
+  "claimNow": "المطالبة الآن",
+  "homeTotalBalance": "الرصيد الإجمالي",
+  "homeCoinsCount": "{coins} عملات معدنية",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "homeXpCount": "{xp} XP",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "withdraw": "ينسحب",
+  "homeStatLevel": "مستوى",
+  "homeStatToday": "اليوم",
+  "homeStatXp": "XP",
+  "earnModuleReferTitle": "الرجوع وكسب",
+  "earnModuleReferSubtitle": "دعوة الأصدقاء",
+  "earnModuleSpinTitle": "عجلة تدور",
+  "earnModuleSpinSubtitle": "تدور واربح",
+  "earnModuleQuizTitle": "سيد مسابقة",
+  "earnModuleQuizSubtitle": "الإجابة وكسب",
+  "earnModuleScratchTitle": "بطاقة الصفر",
+  "earnModuleScratchSubtitle": "اخدش واكشف",
+  "earnModuleWebTitle": "زيارات الويب",
+  "earnModuleWebSubtitle": "زيارة وكسب",
+  "earnModuleGameTitle": "منطقة اللعبة",
+  "earnModuleGameSubtitle": "لعب الألعاب",
+  "earnMoney": "كسب المال",
+  "howItWorks": "كيف يعمل",
+  "howItWorksDesc": "تعلم خطوة بخطوة كيفية كسب المال",
+  "learn": "يتعلم",
+  "leaderboard": "المتصدرين",
+  "leaderboardDesc": "شاهد أصحاب الدخل الأعلى وتسلق الرتب",
+  "dailyCheckinTitle": "تسجيل الوصول اليومي",
+  "dailyCheckinReward": "مكافأة تسجيل الوصول اليومي",
+  "keepStreakGoing": "استمر في خطك!",
+  "dayBadge": "اليوم {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsLabel": "عملات معدنية",
+  "claimReward": "المطالبة بالمكافأة",
+  "totalDaysClaimed": "إجمالي الأيام المطالب بها",
+  "alreadyClaimedToday": "لقد حصلت بالفعل على مكافأة اليوم.",
+  "adDisclaimer": "قد يحتوي هذا القسم على إعلانات",
+  "rewardIn": "المكافأة في {seconds}s..",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "webviewClaimed": "ادعى!",
+  "pleaseSelectLanguage": "الرجاء تحديد لغة أولاً",
+  "confirm": "يتأكد",
+  "setDefaultLanguage": "ضبط اللغة الافتراضية",
+  "setDefaultLanguageDesc": "ستستخدم اللغة المحددة كلغة افتراضية لهذا التطبيق والتي يمكنك تغييرها لاحقًا إذا كنت تريد ذلك.",
+  "howCanWeHelp": "كيف يمكننا المساعدة؟",
+  "supportDesc": "أخبرنا بالخطأ الذي حدث أو ما الذي تحتاج إلى المساعدة فيه. يقوم فريقنا بمراجعة كل رسالة.",
+  "titleLabel": "عنوان",
+  "shortSummary": "ملخص قصير",
+  "pleaseAddTitle": "الرجاء إضافة عنوان.",
+  "titleTooShort": "العنوان قصير جدًا.",
+  "descriptionLabel": "وصف",
+  "describeIssue": "اوصف مشكلتك...",
+  "pleaseAddDesc": "الرجاء إضافة وصف.",
+  "descTooShort": "الوصف قصير جدًا.",
+  "submit": "يُقدِّم",
+  "thanksMsgReceived": "شكرًا! تم استلام الرسالة.",
+  "couldNotSubmit": "لا يمكن تقديم. حاول ثانية.",
+  "guestUser": "مستخدم ضيف",
+  "notSignedIn": "لم يتم تسجيل الدخول",
+  "deletingAccount": "جارٍ حذف الحساب...",
+  "googleLinked": "تم ربط حساب Google بنجاح!",
+  "linkGoogleAccount": "ربط حساب جوجل",
+  "language": "لغة",
+  "support": "يدعم",
+  "termsAndCondition": "الشروط والأحكام",
+  "profileBalance": "توازن",
+  "profileDays": "أيام",
+  "profileRefs": "المراجع",
+  "levelProgress": "تقدم المستوى",
+  "rateUs": "قيمنا",
+  "deleteAccount": "حذف الحساب",
+  "signOut": "تسجيل الخروج",
+  "deleteAccountQuestion": "هل تريد حذف الحساب؟",
+  "deleteAccountDesc": "سيؤدي هذا إلى إزالة حسابك وعملاتك المعدنية وتقدمك بشكل دائم. لا يمكن التراجع عن هذا الإجراء.",
+  "delete": "يمسح",
+  "signOutConfirm": "هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟",
+  "lvLevel": "المستوى. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "rewardsAndBonuses": "المكافآت والمكافآت",
+  "friendsInvited": "الأصدقاء مدعوون",
+  "coinsEarned": "العملات المكتسبة",
+  "linkYourAccount": "ربط حسابك",
+  "linkAccountDesc": "قم بتسجيل الدخول باستخدام Google للحصول على رمز الإحالة الخاص بك ودعوة الأصدقاء، انتقل إلى الملف الشخصي واربط حسابك.",
+  "enterReferralCode": "أدخل رمز الإحالة",
+  "havePromoCode": "لديك الرمز الترويجي",
+  "apply": "يتقدم",
+  "pleaseLink": "يرجى ربط حسابك أولا",
+  "yourReferralCode": "رمز الإحالة الخاص بك",
+  "codeCopied": "تم نسخ الكود!",
+  "shareLink": "مشاركة الرابط",
+  "shareMessage": "انضم إلي في كسب المال وكسب العملات المعدنية! استخدم رمز الإحالة الخاص بي: {code}\n\nتنزيل التطبيق: {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "appUrl": {
+        "type": "String"
+      }
+    }
+  },
+  "pullDownRefresh": "اسحب للأسفل للتحديث",
+  "refreshIn": "التحديث في {timer}",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlayer": "لاعب",
+  "rankLevelTier": "المستوى. {level} {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "rankTierExpert": "خبير",
+  "rankTierIntermediate": "متوسط",
+  "rankTierBeginner": "مبتدئ",
+  "walletTitle": "محفظة",
+  "availableBalance": "الرصيد المتاح",
+  "minWithdrawal": "دقيقة. انسحاب:",
+  "pendingWithdrawalMsg": "لديك انسحاب معلق. يتم تعطيل الطلبات الجديدة حتى تتم الموافقة عليها.",
+  "withdrawTo": "السحب إلى {title}",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "amountCoins": "المبلغ (العملات المعدنية)",
+  "withdrawValue": "القيمة: {value} دولار",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "additionalNote": "ملاحظة إضافية (اختياري)",
+  "withdrawRequestSent": "تم إرسال طلب السحب",
+  "fieldRequired": "الحقل مطلوب",
+  "enterValidNumber": "أدخل رقمًا صالحًا",
+  "minimumCoins": "الحد الأدنى هو {min} عملات معدنية",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidInput": "إدخال غير صالح",
+  "confirmWithdrawal": "تأكيد الانسحاب",
+  "minCoins": "الحد الأدنى: {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "withdrawHistory": "سحب التاريخ",
+  "somethingWentWrong": "حدث خطأ ما",
+  "tryAgainLater": "يرجى المحاولة مرة أخرى في وقت لاحق",
+  "noWithdrawalsYet": "لا توجد عمليات سحب بعد",
+  "withdrawalsAppearHere": "ستظهر طلبات السحب الخاصة بك هنا",
+  "withdrawMethod": "طريقة",
+  "withdrawType": "يكتب",
+  "withdrawDate": "تاريخ",
+  "withdrawReason": "سبب",
+  "withdrawProcessed": "تمت معالجتها",
+  "processingDays": "2 أيام عمل",
+  "statusNote": "مذكرة الحالة",
+  "underReview": "قيد المراجعة",
+  "statusApproved": "موافقة",
+  "statusRejected": "مرفوض",
+  "statusPending": "قيد الانتظار",
+  "scratchToWin": "الصفر\nللفوز",
+  "scratchBetterLuck": "حظا أفضل\nفي المرة القادمة",
+  "quizTitle": "لغز",
+  "quizProgress": "الأسئلة {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "quizScore": "لقد سجلت {correct}/{total}",
+  "@quizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gameZoneCoinsReward": "+ {coins} عملات معدنية",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "playGame": "العب لعبة",
+  "missionBriefTitle": "ملخص المهمة",
+  "missionBriefPart1": "ابق على الصفحة لمدة {secs} ثانية، أ\nسيظهر مؤقت العد التنازلي.\nانقر \"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": {
+        "type": "int"
+      }
+    }
+  },
+  "missionBriefClaimAction": "المطالبة بالعملة المعدنية",
+  "missionBriefPart2": "\"عندما تكون جاهزاً!",
+  "cancel": "يلغي",
+  "start": "يبدأ",
+  "timeNotCompleted": "الوقت لم يكتمل!",
+  "gameTimeFail": "لقد بقيت لمدة {elapsedSecs}s من أصل {totalSecs}s.\nيرجى البقاء على الصفحة طوال المدة.",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": {
+        "type": "int"
+      },
+      "totalSecs": {
+        "type": "int"
+      }
+    }
+  },
+  "spinAndWin": "تدور واربح",
+  "spinWelcomeTitle": "مرحبا بكم في سبين",
+  "spinWelcomeSubtitle": "اربح العملات المعدنية بسهولة عن طريق عجلة الغزل",
+  "getStarted": "ابدأ",
+  "spinNow": "تدور الآن",
+  "spinning": "الغزل...",
+  "spinOops": "أُووبس!",
+  "spinCongrats": "مبروك..!",
+  "spinBetterLuck": "حظا أفضل في المرة القادمة!",
+  "spinWonCoins": "لقد ربحت {coins} عملات معدنية",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "حاول ثانية",
+  "claimCoins": "المطالبة بالعملات المعدنية",
+  "hiwWhatAreCoinsTitle": "ما هي العملات المعدنية؟",
+  "hiwWhatAreCoinsDesc": "العملات المعدنية هي العملة الرئيسية في هذا التطبيق. يمكنك كسب العملات المعدنية من خلال إكمال المهام واستبدالها بأموال حقيقية.",
+  "hiwDailyMissionsTitle": "البعثات اليومية",
+  "hiwDailyMissionsDesc": "أكمل المهام اليومية مثل تدوير العجلة أو خدش البطاقات أو الإجابة على الاختبارات. كل مهمة مكتملة تكافئك بالعملات المعدنية.",
+  "hiwSpinWheelDesc": "قم بتدوير عجلة الحظ للفوز بمكافآت العملات الفورية! يمكن أن تكافئك كل دورة بما يتراوح بين 10 إلى 500 قطعة نقدية.",
+  "hiwScratchCardsTitle": "بطاقات الصفر",
+  "hiwScratchCardsDesc": "قم بخدش البطاقات الافتراضية للكشف عن مكافآت العملات المخفية من 5 إلى 50 قطعة نقدية. بطاقات مجانية يوميا!",
+  "hiwQuizGameTitle": "لعبة مسابقة",
+  "hiwQuizGameDesc": "أجب عن الأسئلة التافهة بشكل صحيح لتكسب 22 قطعة نقدية لكل سؤال. بناء خط التحرير والسرد الخاص بك.",
+  "hiwWatchAdsTitle": "مشاهدة الإعلانات",
+  "hiwWatchAdsDesc": "شاهد إعلانات فيديو قصيرة لكسب عملات معدنية سريعة. كل إعلان يكافئك على الفور. ما يصل إلى 10 إعلانات يوميا.",
+  "hiwReferralTitle": "نظام الإحالة",
+  "hiwReferralDesc": "شارك رمز الإحالة الخاص بك مع الأصدقاء. عندما يقومون بالتسجيل ويكسبون، تحصل على عملات معدنية إضافية!",
+  "hiwWithdrawTitle": "سحب الأموال",
+  "hiwWithdrawDesc": "بمجرد وصولك إلى الحد الأدنى، قم بتحويل عملاتك المعدنية إلى أموال حقيقية عبر PayPal أو التحويل البنكي أو بطاقات الهدايا.",
+  "readyToStartEarning": "هل أنت مستعد لبدء الربح؟",
+  "backToHome": "العودة إلى المنزل",
+  "navHome": "بيت",
+  "navRank": "رتبة",
+  "navRewards": "المكافآت",
+  "navProfile": "حساب تعريفي",
+  "noInternetConnection": "لا يوجد اتصال بالإنترنت",
+  "noInternetMessage": "يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
+  "checking": "جارٍ التحقق...",
+  "retry": "أعد المحاولة",
+  "appTitle": "تدور الهوس",
+  "taglineWatch": "يشاهد",
+  "taglineEarn": "يكسب",
+  "taglinePlay": "يلعب",
+  "welcome": "مرحباً",
+  "signInToAccessWallet": "قم بتسجيل الدخول للوصول إلى محفظتك",
+  "continueWithGoogle": "تواصل مع جوجل",
+  "continueAsGuest": "الاستمرار كضيف",
+  "byConsentText": "من خلال الاستمرار، فإنك توافق على لدينا",
+  "terms": "شروط",
+  "privacyPolicy": "سياسة الخصوصية",
+  "onboardingDailyRewardsTitle": "المكافآت اليومية",
+  "onboardingDailyRewardsDesc": "سوف تحصل على مكافأة النقاط اليومية، والتي يمكنك المطالبة بها وزيادة نقاطك.",
+  "onboardingUltimateGamesTitle": "الألعاب النهائية",
+  "onboardingUltimateGamesDesc": "احصل على خيارات متعددة للألعاب للعبها واحصل على المزيد من النقاط.",
+  "onboardingTrackAchievementsTitle": "تتبع الإنجازات",
+  "onboardingTrackAchievementsDesc": "شاهد إنجازاتك وتتبعها مع مستخدم آخر من خلال Leatherboard",
+  "next": "التالي",
+  "selectYourCountry": "اختر بلدك",
+  "selectCountrySubtitle": "اختر المكان الذي تلعب منه حتى نتمكن من تخصيص المكافآت.",
+  "searchCountry": "بحث عن البلد",
+  "noCountriesFound": "لم يتم العثور على بلدان",
+  "pleaseSelectCountry": "الرجاء تحديد بلدك",
+  "selectYourCurrency": "حدد العملة الخاصة بك",
+  "selectCurrencySubtitle": "سنعرض رصيد مكافأتك بهذه العملة.",
+  "searchCurrency": "عملة البحث",
+  "noCurrenciesFound": "لم يتم العثور على عملات",
+  "pleaseSelectCurrency": "الرجاء تحديد العملة الخاصة بك",
+  "gamesYouLove": "الألعاب التي تحبها",
+  "gamesYouLoveSubtitle": "اختر الألعاب التي تستمتع بها، وسنعرض لك طرقًا لتحقيق الربح منها.",
+  "finish": "ينهي",
+  "pleasePickGame": "يرجى اختيار لعبة واحدة على الأقل",
+  "gamesSelected": "{count} تم التحديد",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

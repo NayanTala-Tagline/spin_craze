@@ -1,3 +1,4 @@
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
 import 'package:spin_craze/features/wallet_module/model/wallet_models.dart';
 import 'package:spin_craze/features/wallet_module/provider/wallet_provider.dart';
@@ -78,7 +79,7 @@ class WalletBottomSheet extends StatelessWidget {
                     ),
                     SizedBox(height: AppSize.h16),
                     Text(
-                      'Withdraw to ${item.title}',
+                      context.l10n.withdrawTo(item.title),
                       style: TextStyle(
                         fontFamily: 'SFPro',
                         fontSize: AppSize.sp18,
@@ -95,7 +96,7 @@ class WalletBottomSheet extends StatelessWidget {
                     ),
                     SizedBox(height: AppSize.h14),
                     _LightTextField(
-                      hint: 'Amount (Coins)',
+                      hint: context.l10n.amountCoins,
                       icon: Icon(
                         Icons.monetization_on_rounded,
                         size: AppSize.sp22,
@@ -120,7 +121,7 @@ class WalletBottomSheet extends StatelessWidget {
                           border: Border.all(color: _kBorder),
                         ),
                         child: Text(
-                          'Value: \$${provider.convertedValue}',
+                          context.l10n.withdrawValue(provider.convertedValue),
                           style: TextStyle(
                             fontFamily: 'SFPro',
                             fontSize: AppSize.sp13,
@@ -132,7 +133,7 @@ class WalletBottomSheet extends StatelessWidget {
                     ],
                     SizedBox(height: AppSize.h14),
                     _LightTextField(
-                      hint: 'Additional Note (Optional)',
+                      hint: context.l10n.additionalNote,
                       icon: Icon(
                         Icons.sticky_note_2_rounded,
                         size: AppSize.sp22,
@@ -165,7 +166,7 @@ class WalletBottomSheet extends StatelessWidget {
                                   parameters: {'method': item.title},
                                 );
                                 provider.resetWithdrawForm();
-                                'Withdraw request sent'.showSuccessAlert();
+                                context.l10n.withdrawRequestSent.showSuccessAlert();
                                 context.pop();
                               } else {
                                 AnalyticsManager.instance.logEvent(
@@ -214,6 +215,7 @@ class _LightTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final minAmount = RemoteConfigService.instance.minWithdrawAmount;
+    final l10n = context.l10n;
     return TextFormField(
       controller: controller,
       onChanged: onChanged,
@@ -230,15 +232,15 @@ class _LightTextField extends StatelessWidget {
       ),
       validator: (value) {
         final trimmed = value?.trim() ?? '';
-        if (trimmed.isEmpty) return isOptional ? null : 'Field required';
+        if (trimmed.isEmpty) return isOptional ? null : l10n.fieldRequired;
         if (isAmount) {
           final amount = int.tryParse(trimmed);
-          if (amount == null) return 'Enter a valid number';
-          if (amount < minAmount) return 'Minimum is $minAmount coins';
+          if (amount == null) return l10n.enterValidNumber;
+          if (amount < minAmount) return l10n.minimumCoins(minAmount);
           return null;
         }
         if (regex != null && !RegExp(regex!).hasMatch(trimmed)) {
-          return 'Invalid input';
+          return l10n.invalidInput;
         }
         return null;
       },
@@ -267,7 +269,7 @@ class _LightTextField extends StatelessWidget {
           minWidth: AppSize.sp40,
           minHeight: AppSize.sp40,
         ),
-        suffixText: showSuffix ? 'Min: $minAmount' : null,
+        suffixText: showSuffix ? l10n.minCoins(minAmount) : null,
         suffixStyle: TextStyle(
           fontFamily: 'SFPro',
           color: _kTextMuted,
@@ -351,7 +353,7 @@ class _ConfirmButton extends StatelessWidget {
                   ),
                 )
               : Text(
-                  'CONFIRM WITHDRAWAL',
+                  context.l10n.confirmWithdrawal,
                   style: TextStyle(
                     fontFamily: 'SFPro',
                     color: Colors.white,

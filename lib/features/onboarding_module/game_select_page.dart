@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
 import 'package:spin_craze/features/onboarding_module/data/onboarding_options.dart';
 import 'package:spin_craze/features/onboarding_module/provider/selection_ad_provider.dart';
@@ -73,7 +74,7 @@ class _GameSelectPageState extends State<GameSelectPage> {
 
   Future<void> _onNext() async {
     if (_selected.isEmpty) {
-      'Please pick at least one game'.showInfoAlert();
+      context.l10n.pleasePickGame.showInfoAlert();
       return;
     }
     _db.selectedGames = _selected.toList();
@@ -90,11 +91,11 @@ class _GameSelectPageState extends State<GameSelectPage> {
   Widget build(BuildContext context) {
     return SelectionScaffold(
       stepIndex: 6,
-      title: 'Games You Love',
-      subtitle: 'Pick the games you enjoy — we’ll surface ways to earn from them.',
+      title: context.l10n.gamesYouLove,
+      subtitle: context.l10n.gamesYouLoveSubtitle,
       nativeAd: _ads.nativeAd,
       isLoading: _ads.isLoading,
-      nextLabel: 'Finish',
+      nextLabel: context.l10n.finish,
       onNext: _onNext,
       headerAction: _CountBadge(count: _selected.length),
       child: SingleChildScrollView(
@@ -141,7 +142,7 @@ class _CountBadge extends StatelessWidget {
         border: Border.all(color: _pillBorder, width: 1.5),
       ),
       child: Text(
-        '$count selected',
+        context.l10n.gamesSelected(count),
         style: TextStyle(
           fontSize: AppSize.sp12,
           fontWeight: FontWeight.w700,

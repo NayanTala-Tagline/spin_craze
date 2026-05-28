@@ -3,7 +3,6 @@ import 'dart:ui' as ui;
 
 import 'package:spin_craze/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class WheelSegment {
   WheelSegment(

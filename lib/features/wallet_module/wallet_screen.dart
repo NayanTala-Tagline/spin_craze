@@ -8,6 +8,7 @@ import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/remote_config.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:spin_craze/widgets/common_appbar.dart';
 import 'package:spin_craze/widgets/back_btn.dart';
@@ -38,7 +39,7 @@ class WalletScreen extends StatelessWidget {
             child: Scaffold(
               backgroundColor: const Color(0xFFEEF2F9),
               appBar: CommonAppBar(
-                title: 'Wallet',
+                title: context.l10n.walletTitle,
                 showBack: true,
                 trailing: AppBackButton(
                   icon: Icons.history_rounded,
@@ -219,7 +220,7 @@ class _BalanceCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Available Balance',
+            context.l10n.availableBalance,
             style: TextStyle(
               fontFamily: 'SFPro',
               color: Colors.white.withValues(alpha: 0.85),
@@ -245,7 +246,7 @@ class _BalanceCard extends StatelessWidget {
               Assets.icons.coins.svg(height: AppSize.sp16, width: AppSize.sp16),
               SizedBox(width: AppSize.w4),
               Text(
-                '${coins.toInt()} Coins',
+                context.l10n.homeCoinsCount(coins.toInt()),
                 style: TextStyle(
                   fontFamily: 'SFPro',
                   color: Colors.white.withValues(alpha: 0.9),
@@ -264,7 +265,7 @@ class _BalanceCard extends StatelessWidget {
                 fontSize: AppSize.sp13,
               ),
               children: [
-                const TextSpan(text: 'Min. Withdrawal: '),
+                TextSpan(text: context.l10n.minWithdrawal),
                 TextSpan(
                   text: '\$${minWithdraw.toStringAsFixed(2)}',
                   style: const TextStyle(
@@ -408,7 +409,7 @@ class _PendingWithdrawBanner extends StatelessWidget {
                 SizedBox(width: AppSize.w10),
                 Expanded(
                   child: Text(
-                    'You have a pending withdrawal. New requests are disabled until it is approved.',
+                    context.l10n.pendingWithdrawalMsg,
                     style: TextStyle(
                       fontFamily: 'SFPro',
                       color: const Color(0xFF6A4400),

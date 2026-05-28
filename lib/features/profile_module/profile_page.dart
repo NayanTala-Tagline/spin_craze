@@ -2,6 +2,7 @@ import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
 import 'package:spin_craze/features/auth_module/provider/auth_provider.dart';
 import 'package:spin_craze/features/settings_module/language_page.dart'
@@ -107,7 +108,7 @@ class _ProfilePageState extends State<ProfilePage>
 
     LoadingOverlay.instance().show(
       context: context,
-      text: 'Deleting account...',
+      text: context.l10n.deletingAccount,
     );
     try {
       final db = Injector.instance<AppDB>();
@@ -148,12 +149,13 @@ class _ProfilePageState extends State<ProfilePage>
 
   Future<void> _handleLinkGoogle() async {
     AnalyticsManager.instance.logEvent(name: 'profile_link_google_tap');
+    final linkedMsg = context.l10n.googleLinked;
     final auth = AuthProvider();
     await auth.linkGoogleAccount();
 
     if (auth.linkSuccess) {
       AnalyticsManager.instance.logEvent(name: 'profile_link_google_success');
-      'Google account linked successfully!'.showSuccessAlert();
+      linkedMsg.showSuccessAlert();
     } else if (auth.linkErrorMessage != null) {
       AnalyticsManager.instance.logEvent(
         name: 'profile_link_google_failed',
@@ -210,8 +212,8 @@ class _ProfilePageState extends State<ProfilePage>
       stream: _db.userListenable(),
       builder: (context, _) {
         final user = _db.userModel;
-        final name = user?.name ?? 'Guest User';
-        final email = user?.email ?? 'Not signed in';
+        final name = user?.name ?? context.l10n.guestUser;
+        final email = user?.email ?? context.l10n.notSignedIn;
         final initial = name.isNotEmpty ? name[0].toUpperCase() : 'G';
         final level = user?.level.toInt() ?? 1;
         final xp = user?.xp.toInt() ?? 0;
@@ -224,11 +226,11 @@ class _ProfilePageState extends State<ProfilePage>
 
         String tier;
         if (level >= 10) {
-          tier = 'Expert';
+          tier = context.l10n.rankTierExpert;
         } else if (level >= 5) {
-          tier = 'Intermediate';
+          tier = context.l10n.rankTierIntermediate;
         } else {
-          tier = 'Beginner';
+          tier = context.l10n.rankTierBeginner;
         }
 
         return Scaffold(
@@ -322,7 +324,7 @@ class _ProfilePageState extends State<ProfilePage>
                     index: 0,
                     child: _SettingNavRow(
                       icon: Assets.icons.settings.lock,
-                      label: 'Link Google Account',
+                      label: context.l10n.linkGoogleAccount,
                       onTap: _handleLinkGoogle,
                     ),
                   ),
@@ -331,7 +333,7 @@ class _ProfilePageState extends State<ProfilePage>
                   index: 1,
                   child: _SettingNavRow(
                     icon: Assets.icons.settings.translate,
-                    label: 'Language',
+                    label: context.l10n.language,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(
                         name: 'profile_language_tap',
@@ -352,7 +354,7 @@ class _ProfilePageState extends State<ProfilePage>
                   index: 2,
                   child: _SettingNavRow(
                     icon: Assets.icons.settings.headset,
-                    label: 'Support',
+                    label: context.l10n.support,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(
                         name: 'profile_support_tap',
@@ -366,7 +368,7 @@ class _ProfilePageState extends State<ProfilePage>
                   index: 3,
                   child: _SettingNavRow(
                     icon: Assets.icons.settings.lock,
-                    label: 'Privacy Policy',
+                    label: context.l10n.privacyPolicy,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(
                         name: 'profile_privacy_policy_tap',
@@ -380,7 +382,7 @@ class _ProfilePageState extends State<ProfilePage>
                   index: 4,
                   child: _SettingNavRow(
                     icon: Assets.icons.settings.note,
-                    label: 'Terms & Condition',
+                    label: context.l10n.termsAndCondition,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(
                         name: 'profile_terms_tap',
@@ -566,7 +568,7 @@ class _LevelLine extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Lv. $level',
+          context.l10n.lvLevel(level),
           style: context.textTheme.bodySmall?.copyWith(
             color: mutedColor,
             fontWeight: FontWeight.w600,
@@ -600,12 +602,12 @@ class _StatsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final stats = <_StatTileData>[
       _StatTileData(
-        'Balance',
+        context.l10n.profileBalance,
         '\$${(coins / RemoteConfigService.instance.coinToDollarDivider).toStringAsFixed(3)}',
       ),
-      _StatTileData('XP', '$xp'),
-      _StatTileData('Days', '$streak'),
-      _StatTileData('Refs', '0'),
+      _StatTileData(context.l10n.homeStatXp, '$xp'),
+      _StatTileData(context.l10n.profileDays, '$streak'),
+      _StatTileData(context.l10n.profileRefs, '0'),
     ];
 
     return Row(
@@ -711,7 +713,7 @@ class _LevelProgressCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Level Progress',
+                    context.l10n.levelProgress,
                     style: context.textTheme.titleSmall?.copyWith(
                       color: textColors.primary,
                       fontWeight: FontWeight.w700,
@@ -852,7 +854,7 @@ class _SignOutButton extends StatelessWidget {
             vertical: AppSize.h10,
           ),
           child: Text(
-            'Sign Out',
+            context.l10n.signOut,
             style: context.textTheme.titleMedium?.copyWith(
               color: Colors.black,
               fontWeight: FontWeight.w800,
@@ -896,7 +898,7 @@ class _RateUsRow extends StatelessWidget {
               SizedBox(width: AppSize.w14),
               Expanded(
                 child: Text(
-                  'Rate Us',
+                  context.l10n.rateUs,
                   style: context.textTheme.titleSmall?.copyWith(
                     color: textColors.primary,
                     fontWeight: FontWeight.w600,
@@ -942,7 +944,7 @@ class _DeleteAccountButton extends StatelessWidget {
               ),
               SizedBox(width: AppSize.w14),
               Text(
-                'Delete Account',
+                context.l10n.deleteAccount,
                 style: context.textTheme.titleSmall?.copyWith(
                   color: const Color(0xFFFF5183),
                   fontWeight: FontWeight.w700,
@@ -1002,7 +1004,7 @@ class _DeleteAccountDialog extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h14),
           Text(
-            'Delete Account?',
+            context.l10n.deleteAccountQuestion,
             style: context.textTheme.titleLarge?.copyWith(
               color: const Color(0xFFFF5183),
               fontWeight: FontWeight.w700,
@@ -1012,7 +1014,7 @@ class _DeleteAccountDialog extends StatelessWidget {
         ],
       ),
       content: Text(
-        'This will permanently remove your account, coins, and progress. This action cannot be undone.',
+        context.l10n.deleteAccountDesc,
         textAlign: TextAlign.center,
         style: context.textTheme.bodyMedium?.copyWith(
           color: textColors.primary.withValues(alpha: 0.65),
@@ -1034,7 +1036,7 @@ class _DeleteAccountDialog extends StatelessWidget {
                 ),
                 onPressed: () => Navigator.of(context).pop(false),
                 child: Text(
-                  'Cancel',
+                  context.l10n.cancel,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: textColors.primary,
                     fontWeight: FontWeight.w600,
@@ -1054,7 +1056,7 @@ class _DeleteAccountDialog extends StatelessWidget {
                 ),
                 onPressed: () => Navigator.of(context).pop(true),
                 child: Text(
-                  'Delete',
+                  context.l10n.delete,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
@@ -1115,7 +1117,7 @@ class _SignOutDialog extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h14),
           Text(
-            'Sign Out',
+            context.l10n.signOut,
             style: context.textTheme.titleLarge?.copyWith(
               color: Colors.black,
               fontWeight: FontWeight.w700,
@@ -1125,7 +1127,7 @@ class _SignOutDialog extends StatelessWidget {
         ],
       ),
       content: Text(
-        'Are you sure you want to sign out of your account?',
+        context.l10n.signOutConfirm,
         textAlign: TextAlign.center,
         style: context.textTheme.bodyMedium?.copyWith(
           color: textColors.primary.withValues(alpha: 0.65),
@@ -1147,7 +1149,7 @@ class _SignOutDialog extends StatelessWidget {
                 ),
                 onPressed: () => Navigator.of(context).pop(false),
                 child: Text(
-                  'Cancel',
+                  context.l10n.cancel,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: textColors.primary,
                     fontWeight: FontWeight.w600,
@@ -1167,7 +1169,7 @@ class _SignOutDialog extends StatelessWidget {
                 ),
                 onPressed: () => Navigator.of(context).pop(true),
                 child: Text(
-                  'Sign Out',
+                  context.l10n.signOut,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,

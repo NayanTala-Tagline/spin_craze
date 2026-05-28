@@ -1,0 +1,373 @@
+{
+  "@@locale": "nl",
+  "homeStreakDays": "{count} Dagen",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDailyReward": "Dagelijkse beloning",
+  "homeCollectCoins": "Verzamel meer munten\nelke dag",
+  "homeCoinsUnit": "/ Munten",
+  "claimed": "Geclaimd",
+  "claimNow": "Claim nu",
+  "homeTotalBalance": "Totaal saldo",
+  "homeCoinsCount": "{coins} Munten",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "homeXpCount": "{xp} XP",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "withdraw": "Terugtrekken",
+  "homeStatLevel": "Niveau",
+  "homeStatToday": "Vandaag",
+  "homeStatXp": "XP",
+  "earnModuleReferTitle": "Verwijs en verdien",
+  "earnModuleReferSubtitle": "Nodig vrienden uit",
+  "earnModuleSpinTitle": "Draaiwiel",
+  "earnModuleSpinSubtitle": "Draai en win",
+  "earnModuleQuizTitle": "Quizmeester",
+  "earnModuleQuizSubtitle": "Beantwoord en verdien",
+  "earnModuleScratchTitle": "Kraskaart",
+  "earnModuleScratchSubtitle": "Kras en onthul",
+  "earnModuleWebTitle": "Webbezoeken",
+  "earnModuleWebSubtitle": "Bezoek en verdien",
+  "earnModuleGameTitle": "Spelzone",
+  "earnModuleGameSubtitle": "Speel spellen",
+  "earnMoney": "Verdien geld",
+  "howItWorks": "Hoe het werkt",
+  "howItWorksDesc": "Leer stap voor stap hoe u geld kunt verdienen",
+  "learn": "Leren",
+  "leaderboard": "Leiderbord",
+  "leaderboardDesc": "Bekijk topverdieners en beklim de ranglijst",
+  "dailyCheckinTitle": "Dagelijks inchecken",
+  "dailyCheckinReward": "Dagelijkse incheckbeloning",
+  "keepStreakGoing": "Houd je streak gaande!",
+  "dayBadge": "Dag {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsLabel": "Munten",
+  "claimReward": "Beloning claimen",
+  "totalDaysClaimed": "Totaal aantal geclaimde dagen",
+  "alreadyClaimedToday": "Je hebt de beloning van vandaag al geclaimd.",
+  "adDisclaimer": "Dit gedeelte kan advertenties bevatten",
+  "rewardIn": "Beloning over {seconds}s..",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "webviewClaimed": "Geclaimd!",
+  "pleaseSelectLanguage": "Selecteer eerst een taal",
+  "confirm": "Bevestigen",
+  "setDefaultLanguage": "Stel standaardtaal in",
+  "setDefaultLanguageDesc": "De geselecteerde taal wordt gebruikt als standaardtaal voor deze app, die u later kunt wijzigen als u dat wilt.",
+  "howCanWeHelp": "Hoe kunnen wij helpen?",
+  "supportDesc": "Vertel ons wat er mis is gegaan of waar u hulp bij nodig heeft. Ons team beoordeelt elk bericht.",
+  "titleLabel": "Titel",
+  "shortSummary": "Korte samenvatting",
+  "pleaseAddTitle": "Voeg een titel toe.",
+  "titleTooShort": "Titel is te kort.",
+  "descriptionLabel": "Beschrijving",
+  "describeIssue": "Beschrijf uw probleem...",
+  "pleaseAddDesc": "Voeg een beschrijving toe.",
+  "descTooShort": "Beschrijving is te kort.",
+  "submit": "Indienen",
+  "thanksMsgReceived": "Bedankt! Bericht ontvangen.",
+  "couldNotSubmit": "Kan niet indienen. Probeer het opnieuw.",
+  "guestUser": "Gastgebruiker",
+  "notSignedIn": "Niet ingelogd",
+  "deletingAccount": "Account verwijderen...",
+  "googleLinked": "Google-account succesvol gekoppeld!",
+  "linkGoogleAccount": "Google-account koppelen",
+  "language": "Taal",
+  "support": "Steun",
+  "termsAndCondition": "Algemene voorwaarden",
+  "profileBalance": "Evenwicht",
+  "profileDays": "Dagen",
+  "profileRefs": "Ref",
+  "levelProgress": "Niveau vooruitgang",
+  "rateUs": "Beoordeel ons",
+  "deleteAccount": "Account verwijderen",
+  "signOut": "Uitloggen",
+  "deleteAccountQuestion": "Account verwijderen?",
+  "deleteAccountDesc": "Hiermee worden je account, munten en voortgang definitief verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
+  "delete": "Verwijderen",
+  "signOutConfirm": "Weet u zeker dat u zich wilt afmelden bij uw account?",
+  "lvLevel": "Lv. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "rewardsAndBonuses": "Beloningen en bonussen",
+  "friendsInvited": "Vrienden uitgenodigd",
+  "coinsEarned": "Munten verdiend",
+  "linkYourAccount": "Koppel uw account",
+  "linkAccountDesc": "Meld u aan bij Google om uw verwijzingscode te ontvangen en vrienden uit te nodigen. Ga naar Profiel en koppel uw account.",
+  "enterReferralCode": "Voer de verwijzingscode in",
+  "havePromoCode": "Heb promotiecode",
+  "apply": "Toepassen",
+  "pleaseLink": "Koppel eerst uw account",
+  "yourReferralCode": "Uw verwijzingscode",
+  "codeCopied": "Code gekopieerd!",
+  "shareLink": "Deel link",
+  "shareMessage": "Ga met mij mee op Verdien geld en verdien munten! Gebruik mijn verwijzingscode: {code}\n\nDownload de app: {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "appUrl": {
+        "type": "String"
+      }
+    }
+  },
+  "pullDownRefresh": "Trek omlaag om te vernieuwen",
+  "refreshIn": "Vernieuwen over {timer}",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlayer": "Speler",
+  "rankLevelTier": "Lv. {level} {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "rankTierExpert": "Deskundige",
+  "rankTierIntermediate": "Tussenliggend",
+  "rankTierBeginner": "Beginner",
+  "walletTitle": "Portemonnee",
+  "availableBalance": "Beschikbaar saldo",
+  "minWithdrawal": "Min. Opname:",
+  "pendingWithdrawalMsg": "U heeft een uitbetaling in behandeling. Nieuwe verzoeken worden uitgeschakeld totdat deze zijn goedgekeurd.",
+  "withdrawTo": "Opnemen naar {title}",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "amountCoins": "Bedrag (munten)",
+  "withdrawValue": "Waarde: ${value}",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "additionalNote": "Aanvullende opmerking (optioneel)",
+  "withdrawRequestSent": "Intrekkingsverzoek verzonden",
+  "fieldRequired": "Veld vereist",
+  "enterValidNumber": "Voer een geldig nummer in",
+  "minimumCoins": "Het minimum is {min} munten",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidInput": "Ongeldige invoer",
+  "confirmWithdrawal": "BEVESTIG INTREKKING",
+  "minCoins": "Min: {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "withdrawHistory": "Geschiedenis intrekken",
+  "somethingWentWrong": "Er is iets misgegaan",
+  "tryAgainLater": "Probeer het later opnieuw",
+  "noWithdrawalsYet": "Nog geen opnames",
+  "withdrawalsAppearHere": "Uw opnameverzoeken verschijnen hier",
+  "withdrawMethod": "Methode",
+  "withdrawType": "Type",
+  "withdrawDate": "Datum",
+  "withdrawReason": "Reden",
+  "withdrawProcessed": "Verwerkt",
+  "processingDays": "2 werkdagen",
+  "statusNote": "Statusnotitie",
+  "underReview": "Wordt beoordeeld",
+  "statusApproved": "GOEDGEKEURD",
+  "statusRejected": "AFGEWEZEN",
+  "statusPending": "IN BEHANDELING",
+  "scratchToWin": "Kras\nhet om te winnen",
+  "scratchBetterLuck": "Beter geluk\nVolgende keer",
+  "quizTitle": "Quiz",
+  "quizProgress": "Vragen {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "quizScore": "Je hebt {correct}/{total} gescoord",
+  "@quizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gameZoneCoinsReward": "+ {coins} Munten",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "playGame": "Speel spel",
+  "missionBriefTitle": "Missie kort",
+  "missionBriefPart1": "Blijf op de pagina gedurende {secs} Sec., A\nafteltimer verschijnt.\nklik op \"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": {
+        "type": "int"
+      }
+    }
+  },
+  "missionBriefClaimAction": "CLAIM-MUNT",
+  "missionBriefPart2": "\"Als je klaar bent!",
+  "cancel": "Annuleren",
+  "start": "Begin",
+  "timeNotCompleted": "Tijd niet voltooid!",
+  "gameTimeFail": "Je bent {elapsedSecs}s van de {totalSecs}s gebleven.\nBlijf de volledige duur op de pagina.",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": {
+        "type": "int"
+      },
+      "totalSecs": {
+        "type": "int"
+      }
+    }
+  },
+  "spinAndWin": "Draai en win",
+  "spinWelcomeTitle": "Welkom bij Spin",
+  "spinWelcomeSubtitle": "Verdien eenvoudig munten door het draaiende wiel",
+  "getStarted": "Aan de slag",
+  "spinNow": "Draai nu",
+  "spinning": "Draaien...",
+  "spinOops": "Oeps!",
+  "spinCongrats": "Gefeliciteerd..!",
+  "spinBetterLuck": "Volgende keer beter!",
+  "spinWonCoins": "Je hebt {coins} munten gewonnen",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Probeer het opnieuw",
+  "claimCoins": "Munten claimen",
+  "hiwWhatAreCoinsTitle": "Wat zijn munten?",
+  "hiwWhatAreCoinsDesc": "Munten zijn de belangrijkste valuta in deze app. Je kunt munten verdienen door taken uit te voeren en deze in te wisselen voor echt geld.",
+  "hiwDailyMissionsTitle": "Dagelijkse missies",
+  "hiwDailyMissionsDesc": "Voltooi dagelijkse taken zoals het draaien van het wiel, het krabben van kaarten of het beantwoorden van quizzen. Elke voltooide missie beloont je met munten.",
+  "hiwSpinWheelDesc": "Draai aan het gelukswiel om direct muntbeloningen te winnen! Elke draai kan je belonen met 10-500 munten.",
+  "hiwScratchCardsTitle": "Kraskaarten",
+  "hiwScratchCardsDesc": "Kras virtuele kaarten om verborgen muntbeloningen van 5 tot 50 munten te onthullen. Dagelijks gratis kaarten!",
+  "hiwQuizGameTitle": "Quizspel",
+  "hiwQuizGameDesc": "Beantwoord trivia-vragen correct om 22 munten per vraag te verdienen. Bouw je combo-reeks op.",
+  "hiwWatchAdsTitle": "Bekijk advertenties",
+  "hiwWatchAdsDesc": "Bekijk korte videoadvertenties om snel munten te verdienen. Elke advertentie beloont u onmiddellijk. Maximaal 10 advertenties per dag.",
+  "hiwReferralTitle": "Verwijzingssysteem",
+  "hiwReferralDesc": "Deel uw verwijzingscode met vrienden. Wanneer ze zich aanmelden en verdienen, krijg je bonusmunten!",
+  "hiwWithdrawTitle": "Geld opnemen",
+  "hiwWithdrawDesc": "Zodra u de minimumdrempel heeft bereikt, kunt u uw munten omzetten in echt geld via PayPal, bankoverschrijving of cadeaubonnen.",
+  "readyToStartEarning": "Klaar om te beginnen met verdienen?",
+  "backToHome": "Terug naar Thuis",
+  "navHome": "Thuis",
+  "navRank": "Rang",
+  "navRewards": "Beloningen",
+  "navProfile": "Profiel",
+  "noInternetConnection": "Geen internetverbinding",
+  "noInternetMessage": "Controleer uw verbinding en probeer het opnieuw.",
+  "checking": "Controleren...",
+  "retry": "Opnieuw proberen",
+  "appTitle": "Spin-rage",
+  "taglineWatch": "HORLOGE",
+  "taglineEarn": "VERDIENEN",
+  "taglinePlay": "TONEELSTUK",
+  "welcome": "Welkom",
+  "signInToAccessWallet": "Meld u aan om toegang te krijgen tot uw portemonnee",
+  "continueWithGoogle": "Ga verder met Google",
+  "continueAsGuest": "Ga verder als gast",
+  "byConsentText": "Als u doorgaat, gaat u akkoord met onze",
+  "terms": "Voorwaarden",
+  "privacyPolicy": "Privacybeleid",
+  "onboardingDailyRewardsTitle": "Dagelijkse beloningen",
+  "onboardingDailyRewardsDesc": "U krijgt een dagelijkse puntenbeloning, die u kunt claimen en waarmee u uw punten kunt verhogen.",
+  "onboardingUltimateGamesTitle": "Ultieme spellen",
+  "onboardingUltimateGamesDesc": "Krijg meerdere opties om games te spelen en ontvang meer punten.",
+  "onboardingTrackAchievementsTitle": "Volg prestaties",
+  "onboardingTrackAchievementsDesc": "Bekijk uw prestaties en volg deze samen met andere gebruikers via Leatherboard",
+  "next": "Volgende",
+  "selectYourCountry": "Selecteer uw land",
+  "selectCountrySubtitle": "Kies waar je speelt, zodat we de beloningen op maat kunnen maken.",
+  "searchCountry": "Zoek land",
+  "noCountriesFound": "Geen landen gevonden",
+  "pleaseSelectCountry": "Selecteer uw land",
+  "selectYourCurrency": "Selecteer uw valuta",
+  "selectCurrencySubtitle": "We tonen uw beloningssaldo in deze valuta.",
+  "searchCurrency": "Zoek valuta",
+  "noCurrenciesFound": "Geen valuta gevonden",
+  "pleaseSelectCurrency": "Selecteer uw valuta",
+  "gamesYouLove": "Spellen waar je van houdt",
+  "gamesYouLoveSubtitle": "Kies de games die je leuk vindt - we zullen manieren vinden om ermee te verdienen.",
+  "finish": "Finish",
+  "pleasePickGame": "Kies ten minste één spel",
+  "gamesSelected": "{count} geselecteerd",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}
