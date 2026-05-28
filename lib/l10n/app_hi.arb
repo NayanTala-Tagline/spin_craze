@@ -1,0 +1,373 @@
+{
+  "@@locale": "hi",
+  "homeStreakDays": "{count} दिन",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDailyReward": "दैनिक इनाम",
+  "homeCollectCoins": "अधिक सिक्के एकत्र करें\nहर दिन",
+  "homeCoinsUnit": "/सिक्के",
+  "claimed": "दावा किया",
+  "claimNow": "अभी दावा करें",
+  "homeTotalBalance": "कुल शेष",
+  "homeCoinsCount": "{coins} सिक्के",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "homeXpCount": "{xp} XP",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "withdraw": "निकालना",
+  "homeStatLevel": "स्तर",
+  "homeStatToday": "आज",
+  "homeStatXp": "एक्सपी",
+  "earnModuleReferTitle": "देखें और कमाएँ",
+  "earnModuleReferSubtitle": "मित्रों को आमंत्रित करें",
+  "earnModuleSpinTitle": "घूमता हुआ पहिया",
+  "earnModuleSpinSubtitle": "स्पिन और जीत",
+  "earnModuleQuizTitle": "प्रश्नोत्तरी मास्टर",
+  "earnModuleQuizSubtitle": "उत्तर दें और कमाएँ",
+  "earnModuleScratchTitle": "स्क्रैच कार्ड",
+  "earnModuleScratchSubtitle": "खरोंचें और प्रकट करें",
+  "earnModuleWebTitle": "वेब विज़िट",
+  "earnModuleWebSubtitle": "जाएँ और कमाएँ",
+  "earnModuleGameTitle": "खेल क्षेत्र",
+  "earnModuleGameSubtitle": "खेल खेलें",
+  "earnMoney": "पैसे कमाएं",
+  "howItWorks": "यह काम किस प्रकार करता है",
+  "howItWorksDesc": "चरण-दर-चरण जानें कि पैसे कैसे कमाएं",
+  "learn": "सीखना",
+  "leaderboard": "लीडरबोर्ड",
+  "leaderboardDesc": "शीर्ष कमाई करने वालों को देखें और रैंक पर चढ़ें",
+  "dailyCheckinTitle": "दैनिक चेक-इन",
+  "dailyCheckinReward": "दैनिक चेक-इन पुरस्कार",
+  "keepStreakGoing": "अपना सिलसिला जारी रखें!",
+  "dayBadge": "दिन {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsLabel": "सिक्के",
+  "claimReward": "इनाम का दावा करें",
+  "totalDaysClaimed": "दावा किए गए कुल दिन",
+  "alreadyClaimedToday": "आप पहले ही आज के इनाम का दावा कर चुके हैं।",
+  "adDisclaimer": "इस अनुभाग में विज्ञापन हो सकते हैं",
+  "rewardIn": "इनाम {seconds}s में..",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "webviewClaimed": "दावा किया!",
+  "pleaseSelectLanguage": "कृपया पहले एक भाषा चुनें",
+  "confirm": "पुष्टि करना",
+  "setDefaultLanguage": "डिफ़ॉल्ट भाषा सेट करें",
+  "setDefaultLanguageDesc": "चयनित भाषा इस ऐप के लिए डिफ़ॉल्ट भाषा के रूप में उपयोग की जाएगी जिसे आप चाहें तो बाद में बदल सकते हैं।",
+  "howCanWeHelp": "हम कैसे मदद कर सकते हैं?",
+  "supportDesc": "हमें बताएं कि क्या ग़लत हुआ या आपको किस चीज़ में मदद की ज़रूरत है। हमारी टीम हर संदेश की समीक्षा करती है.",
+  "titleLabel": "शीर्षक",
+  "shortSummary": "संक्षिप्त सारांश",
+  "pleaseAddTitle": "कृपया एक शीर्षक जोड़ें.",
+  "titleTooShort": "शीर्षक बहुत छोटा है.",
+  "descriptionLabel": "विवरण",
+  "describeIssue": "अपने मामले का वर्णन करें...",
+  "pleaseAddDesc": "कृपया विवरण जोड़ें.",
+  "descTooShort": "विवरण बहुत छोटा है.",
+  "submit": "जमा करना",
+  "thanksMsgReceived": "धन्यवाद! संदेश प्राप्त हुआ.",
+  "couldNotSubmit": "सबमिट नहीं किया जा सका. पुनः प्रयास करें।",
+  "guestUser": "अतिथि उपयोगकर्ता",
+  "notSignedIn": "प्रवेश नहीं किया",
+  "deletingAccount": "खाता हटाया जा रहा है...",
+  "googleLinked": "Google खाता सफलतापूर्वक लिंक हो गया!",
+  "linkGoogleAccount": "Google खाता लिंक करें",
+  "language": "भाषा",
+  "support": "सहायता",
+  "termsAndCondition": "नियम व शर्त",
+  "profileBalance": "संतुलन",
+  "profileDays": "दिन",
+  "profileRefs": "रेफरी",
+  "levelProgress": "स्तर की प्रगति",
+  "rateUs": "हमें रेटिंग दें",
+  "deleteAccount": "खाता हटा दो",
+  "signOut": "साइन आउट",
+  "deleteAccountQuestion": "खाता हटा दो?",
+  "deleteAccountDesc": "यह आपके खाते, सिक्कों और प्रगति को स्थायी रूप से हटा देगा। इस एक्शन को वापस नहीं किया जा सकता।",
+  "delete": "मिटाना",
+  "signOutConfirm": "क्या आप वाकई अपने खाते से साइन आउट करना चाहते हैं?",
+  "lvLevel": "लव. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "rewardsAndBonuses": "पुरस्कार एवं बोनस",
+  "friendsInvited": "मित्रों को आमंत्रित किया गया",
+  "coinsEarned": "सिक्के कमाए",
+  "linkYourAccount": "अपना खाता लिंक करें",
+  "linkAccountDesc": "अपना रेफरल कोड प्राप्त करने और दोस्तों को आमंत्रित करने के लिए Google के साथ साइन इन करें, प्रोफ़ाइल पर जाएं और अपना खाता लिंक करें।",
+  "enterReferralCode": "रेफरल कोड दर्ज करें",
+  "havePromoCode": "प्रोमो कोड रखें",
+  "apply": "आवेदन करना",
+  "pleaseLink": "कृपया पहले अपना खाता लिंक करें",
+  "yourReferralCode": "आपका रेफरल कोड",
+  "codeCopied": "कोड कॉपी किया गया!",
+  "shareLink": "लिंक शेयर करें",
+  "shareMessage": "पैसे कमाएँ और सिक्के कमाएँ पर मेरे साथ जुड़ें! मेरे रेफरल कोड का उपयोग करें: {code}\n\nऐप डाउनलोड करें: {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "appUrl": {
+        "type": "String"
+      }
+    }
+  },
+  "pullDownRefresh": "ताज़ा करने के लिए नीचे खींचें",
+  "refreshIn": "{timer} में ताज़ा करें",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlayer": "खिलाड़ी",
+  "rankLevelTier": "लव. {level} {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "rankTierExpert": "विशेषज्ञ",
+  "rankTierIntermediate": "मध्यवर्ती",
+  "rankTierBeginner": "शुरुआती",
+  "walletTitle": "बटुआ",
+  "availableBalance": "उपलब्ध शेष राशि",
+  "minWithdrawal": "न्यूनतम. निकासी:",
+  "pendingWithdrawalMsg": "आपके पास एक लंबित निकासी है. नए अनुरोध स्वीकृत होने तक अक्षम हैं।",
+  "withdrawTo": "{title} पर वापस लें",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "amountCoins": "राशि (सिक्के)",
+  "withdrawValue": "मूल्य: ${value}",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "additionalNote": "अतिरिक्त नोट (वैकल्पिक)",
+  "withdrawRequestSent": "वापसी अनुरोध भेजा गया",
+  "fieldRequired": "फ़ील्ड आवश्यक है",
+  "enterValidNumber": "एक वैध संख्या दर्ज करें",
+  "minimumCoins": "न्यूनतम {min} सिक्के हैं",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidInput": "अमान्य निवेश",
+  "confirmWithdrawal": "निकासी की पुष्टि करें",
+  "minCoins": "न्यूनतम: {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "withdrawHistory": "इतिहास वापस लें",
+  "somethingWentWrong": "कुछ गलत हो गया",
+  "tryAgainLater": "कृपया बाद में पुन: प्रयास करें",
+  "noWithdrawalsYet": "अभी तक कोई निकासी नहीं",
+  "withdrawalsAppearHere": "आपके निकासी अनुरोध यहां दिखाई देंगे",
+  "withdrawMethod": "तरीका",
+  "withdrawType": "प्रकार",
+  "withdrawDate": "तारीख",
+  "withdrawReason": "कारण",
+  "withdrawProcessed": "प्रसंस्कृत",
+  "processingDays": "2 व्यावसायिक दिन",
+  "statusNote": "स्थिति नोट",
+  "underReview": "समीक्षा के अंतर्गत",
+  "statusApproved": "अनुमत",
+  "statusRejected": "अस्वीकार कर दिया",
+  "statusPending": "लंबित",
+  "scratchToWin": "खरोंच\nयह जीतने के लिए",
+  "scratchBetterLuck": "अगली बार किस्मत तुम्हारा साथ देगी",
+  "quizTitle": "प्रश्नोत्तरी",
+  "quizProgress": "प्रश्न {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "quizScore": "आपने {correct}/{total} स्कोर किया",
+  "@quizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gameZoneCoinsReward": "+ {coins} सिक्के",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "playGame": "खेल खेलना",
+  "missionBriefTitle": "मिशन संक्षिप्त",
+  "missionBriefPart1": "{secs} सेकंड, ए के लिए पेज पर बने रहें\nउलटी गिनती घड़ी दिखाई देगी.\nक्लिक करें \"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": {
+        "type": "int"
+      }
+    }
+  },
+  "missionBriefClaimAction": "दावा सिक्का",
+  "missionBriefPart2": "\"जब तैयार हो जाओ!",
+  "cancel": "रद्द करना",
+  "start": "शुरू",
+  "timeNotCompleted": "समय पूरा नहीं हुआ!",
+  "gameTimeFail": "आप {totalSecs}s में से {elapsedSecs}s तक रुके रहे।\nकृपया पूरी अवधि तक पेज पर बने रहें।",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": {
+        "type": "int"
+      },
+      "totalSecs": {
+        "type": "int"
+      }
+    }
+  },
+  "spinAndWin": "घूमो और जीतो",
+  "spinWelcomeTitle": "स्पिन में आपका स्वागत है",
+  "spinWelcomeSubtitle": "स्पिनिंग व्हील द्वारा आसानी से सिक्के कमाएँ",
+  "getStarted": "शुरू हो जाओ",
+  "spinNow": "अभी घुमाएँ",
+  "spinning": "घूम रहा है...",
+  "spinOops": "उफ़!",
+  "spinCongrats": "बधाई हो..!",
+  "spinBetterLuck": "अगली बार किस्मत तुम्हारा साथ देगी!",
+  "spinWonCoins": "आपने {coins} सिक्के जीते",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "पुनः प्रयास करें",
+  "claimCoins": "सिक्के का दावा करें",
+  "hiwWhatAreCoinsTitle": "सिक्के क्या हैं?",
+  "hiwWhatAreCoinsDesc": "इस ऐप में सिक्के मुख्य मुद्रा हैं। आप कार्यों को पूरा करके सिक्के अर्जित कर सकते हैं और उन्हें वास्तविक धन के बदले बदल सकते हैं।",
+  "hiwDailyMissionsTitle": "दैनिक मिशन",
+  "hiwDailyMissionsDesc": "पहिया घुमाना, कार्ड स्क्रैच करना या क्विज़ का उत्तर देना जैसे दैनिक कार्य पूरे करें। प्रत्येक पूर्ण मिशन आपको सिक्कों से पुरस्कृत करता है।",
+  "hiwSpinWheelDesc": "तत्काल सिक्का पुरस्कार जीतने के लिए भाग्यशाली पहिया घुमाएँ! प्रत्येक स्पिन आपको 10-500 सिक्कों से पुरस्कृत कर सकता है।",
+  "hiwScratchCardsTitle": "स्क्रैच कार्ड",
+  "hiwScratchCardsDesc": "5 से 50 सिक्कों तक छिपे सिक्के पुरस्कारों को प्रकट करने के लिए वर्चुअल कार्ड स्क्रैच करें। प्रतिदिन निःशुल्क कार्ड!",
+  "hiwQuizGameTitle": "प्रश्नोत्तरी खेल",
+  "hiwQuizGameDesc": "प्रति प्रश्न 22 सिक्के अर्जित करने के लिए सामान्य ज्ञान के प्रश्नों का सही उत्तर दें। अपनी कॉम्बो स्ट्रीक बनाएं.",
+  "hiwWatchAdsTitle": "विज्ञापन देखें",
+  "hiwWatchAdsDesc": "त्वरित सिक्के कमाने के लिए लघु वीडियो विज्ञापन देखें। प्रत्येक विज्ञापन आपको तुरंत पुरस्कृत करता है। प्रति दिन अधिकतम 10 विज्ञापन।",
+  "hiwReferralTitle": "संदर्भ तंत्र",
+  "hiwReferralDesc": "अपना रेफरल कोड दोस्तों के साथ साझा करें। जब वे साइन अप करते हैं और कमाते हैं, तो आपको बोनस सिक्के मिलते हैं!",
+  "hiwWithdrawTitle": "पैसे निकाले",
+  "hiwWithdrawDesc": "एक बार जब आप न्यूनतम सीमा तक पहुँच जाते हैं, तो अपने सिक्कों को पेपैल, बैंक हस्तांतरण, या उपहार कार्ड के माध्यम से वास्तविक धन में परिवर्तित करें।",
+  "readyToStartEarning": "कमाई शुरू करने के लिए तैयार हैं?",
+  "backToHome": "घर वापिस जा रहा हूँ",
+  "navHome": "घर",
+  "navRank": "पद",
+  "navRewards": "पुरस्कार",
+  "navProfile": "प्रोफ़ाइल",
+  "noInternetConnection": "कोई इंटरनेट कनेक्शन नहीं",
+  "noInternetMessage": "अपने कनेक्शन की जांच करें और पुन: प्रयास करें।",
+  "checking": "जाँच हो रही है...",
+  "retry": "पुन: प्रयास करें",
+  "appTitle": "स्पिन का क्रेज",
+  "taglineWatch": "घड़ी",
+  "taglineEarn": "कमाना",
+  "taglinePlay": "खेल",
+  "welcome": "स्वागत",
+  "signInToAccessWallet": "अपने वॉलेट तक पहुंचने के लिए साइन इन करें",
+  "continueWithGoogle": "Google के साथ जारी रखें",
+  "continueAsGuest": "अतिथि के रूप में जारी रखें",
+  "byConsentText": "जारी रखकर, आप हमारी बात से सहमत हैं",
+  "terms": "शर्तें",
+  "privacyPolicy": "गोपनीयता नीति",
+  "onboardingDailyRewardsTitle": "दैनिक पुरस्कार",
+  "onboardingDailyRewardsDesc": "आपको दैनिक अंक पुरस्कार मिलेगा, जिस पर आप दावा कर सकते हैं और अपने अंक बढ़ा सकते हैं।",
+  "onboardingUltimateGamesTitle": "परम खेल",
+  "onboardingUltimateGamesDesc": "गेम खेलने के लिए अनेक विकल्प प्राप्त करें और अधिक अंक प्राप्त करें।",
+  "onboardingTrackAchievementsTitle": "उपलब्धियों को ट्रैक करें",
+  "onboardingTrackAchievementsDesc": "अपनी उपलब्धियाँ देखें और लेदरबोर्ड के माध्यम से इसे अन्य उपयोगकर्ताओं के साथ ट्रैक करें",
+  "next": "अगला",
+  "selectYourCountry": "अपने देश का चयन करॊ",
+  "selectCountrySubtitle": "चुनें कि आप कहां से खेल रहे हैं ताकि हम पुरस्कार तैयार कर सकें।",
+  "searchCountry": "देश खोजें",
+  "noCountriesFound": "कोई देश नहीं मिला",
+  "pleaseSelectCountry": "कृपया अपना देश चुनें",
+  "selectYourCurrency": "अपनी मुद्रा चुनें",
+  "selectCurrencySubtitle": "हम इस मुद्रा में आपका इनाम शेष दिखाएंगे।",
+  "searchCurrency": "मुद्रा खोजें",
+  "noCurrenciesFound": "कोई मुद्रा नहीं मिली",
+  "pleaseSelectCurrency": "कृपया अपनी मुद्रा चुनें",
+  "gamesYouLove": "खेल जो आपको पसंद हैं",
+  "gamesYouLoveSubtitle": "वे गेम चुनें जिनका आप आनंद लेते हैं - हम उनसे कमाई करने के तरीके बताएंगे।",
+  "finish": "खत्म करना",
+  "pleasePickGame": "कृपया कम से कम एक गेम चुनें",
+  "gamesSelected": "{count} चयनित",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

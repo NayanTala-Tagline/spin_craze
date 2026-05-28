@@ -1,0 +1,373 @@
+{
+  "@@locale": "sw",
+  "homeStreakDays": "Siku {count}",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeDailyReward": "Zawadi ya Kila Siku",
+  "homeCollectCoins": "Kusanya sarafu zaidi\nkila siku",
+  "homeCoinsUnit": "/Sarafu",
+  "claimed": "Imedaiwa",
+  "claimNow": "Dai Sasa",
+  "homeTotalBalance": "Jumla ya Mizani",
+  "homeCoinsCount": "{coins} Sarafu",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "homeXpCount": "XP {xp}",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "withdraw": "Ondoa",
+  "homeStatLevel": "Kiwango",
+  "homeStatToday": "Leo",
+  "homeStatXp": "XP",
+  "earnModuleReferTitle": "Rejea & Pata",
+  "earnModuleReferSubtitle": "Waalike Marafiki",
+  "earnModuleSpinTitle": "Gurudumu la Kuzunguka",
+  "earnModuleSpinSubtitle": "Spin na Ushinde",
+  "earnModuleQuizTitle": "Maswali Mwalimu",
+  "earnModuleQuizSubtitle": "Jibu & Pata",
+  "earnModuleScratchTitle": "Kadi ya Kuanza",
+  "earnModuleScratchSubtitle": "Scratch & Fichua",
+  "earnModuleWebTitle": "Ziara za Wavuti",
+  "earnModuleWebSubtitle": "Tembelea & Upate",
+  "earnModuleGameTitle": "Eneo la Mchezo",
+  "earnModuleGameSubtitle": "Cheza Michezo",
+  "earnMoney": "Pata Pesa",
+  "howItWorks": "Jinsi Inavyofanya Kazi",
+  "howItWorksDesc": "Jifunze Hatua kwa Hatua jinsi ya kupata pesa",
+  "learn": "Jifunze",
+  "leaderboard": "Ubao wa wanaoongoza",
+  "leaderboardDesc": "Angalia wanaopata mapato ya juu na upande safu",
+  "dailyCheckinTitle": "Kuingia Kila Siku",
+  "dailyCheckinReward": "Zawadi ya Kuingia Kila Siku",
+  "keepStreakGoing": "Endelea mfululizo wako!",
+  "dayBadge": "Siku {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "coinsLabel": "Sarafu",
+  "claimReward": "Dai Tuzo",
+  "totalDaysClaimed": "Jumla ya Siku Zinazodaiwa",
+  "alreadyClaimedToday": "Tayari umedai zawadi ya leo.",
+  "adDisclaimer": "Sehemu hii inaweza kuwa na matangazo",
+  "rewardIn": "Zawadi baada ya sekunde {seconds}..",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "webviewClaimed": "Imedaiwa!",
+  "pleaseSelectLanguage": "Tafadhali chagua lugha kwanza",
+  "confirm": "Thibitisha",
+  "setDefaultLanguage": "Weka Lugha Chaguomsingi",
+  "setDefaultLanguageDesc": "Lugha iliyochaguliwa itatumika kama lugha chaguomsingi kwa programu hii ambayo unaweza kubadilisha baadaye ukitaka.",
+  "howCanWeHelp": "Tunawezaje kusaidia?",
+  "supportDesc": "Tuambie ni nini kilienda vibaya au unahitaji kusaidiwa. Timu yetu hukagua kila ujumbe.",
+  "titleLabel": "Kichwa",
+  "shortSummary": "Muhtasari mfupi",
+  "pleaseAddTitle": "Tafadhali ongeza kichwa.",
+  "titleTooShort": "Kichwa ni kifupi sana.",
+  "descriptionLabel": "Maelezo",
+  "describeIssue": "Eleza suala lako...",
+  "pleaseAddDesc": "Tafadhali ongeza maelezo.",
+  "descTooShort": "Maelezo ni mafupi mno.",
+  "submit": "Wasilisha",
+  "thanksMsgReceived": "Asante! Ujumbe umepokelewa.",
+  "couldNotSubmit": "Haikuweza kuwasilisha. Jaribu tena.",
+  "guestUser": "Mtumiaji Mgeni",
+  "notSignedIn": "Hujaingia",
+  "deletingAccount": "Inafuta akaunti...",
+  "googleLinked": "Akaunti ya Google imeunganishwa!",
+  "linkGoogleAccount": "Unganisha Akaunti ya Google",
+  "language": "Lugha",
+  "support": "Msaada",
+  "termsAndCondition": "Sheria na Masharti",
+  "profileBalance": "Mizani",
+  "profileDays": "Siku",
+  "profileRefs": "Marejeleo",
+  "levelProgress": "Maendeleo ya Kiwango",
+  "rateUs": "Tukadirie",
+  "deleteAccount": "Futa Akaunti",
+  "signOut": "Ondoka",
+  "deleteAccountQuestion": "Ungependa kufuta Akaunti?",
+  "deleteAccountDesc": "Hatua hii itaondoa kabisa akaunti, sarafu na maendeleo yako. Kitendo hiki hakiwezi kutenduliwa.",
+  "delete": "Futa",
+  "signOutConfirm": "Je, una uhakika unataka kuondoka kwenye akaunti yako?",
+  "lvLevel": "Lv. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "rewardsAndBonuses": "Zawadi na Bonasi",
+  "friendsInvited": "Marafiki Wamealikwa",
+  "coinsEarned": "Sarafu Zilizopatikana",
+  "linkYourAccount": "Unganisha Akaunti Yako",
+  "linkAccountDesc": "Ingia na Google ili kupata msimbo wako wa rufaa na uwaalike marafiki, Nenda kwa Wasifu na uunganishe akaunti yako.",
+  "enterReferralCode": "Ingiza Msimbo wa Rufaa",
+  "havePromoCode": "Kuwa na Msimbo wa Matangazo",
+  "apply": "Omba",
+  "pleaseLink": "Tafadhali unganisha akaunti yako kwanza",
+  "yourReferralCode": "Msimbo wako wa Rufaa",
+  "codeCopied": "Msimbo umenakiliwa!",
+  "shareLink": "Shiriki Kiungo",
+  "shareMessage": "Jiunge nami kwenye Pata Pesa na upate sarafu! Tumia nambari yangu ya rufaa: {code}\n\nPakua programu: {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "appUrl": {
+        "type": "String"
+      }
+    }
+  },
+  "pullDownRefresh": "Vuta chini ili kuonyesha upya",
+  "refreshIn": "Onyesha upya katika {timer}",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlayer": "Mchezaji",
+  "rankLevelTier": "Lv. {level} {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "rankTierExpert": "Mtaalamu",
+  "rankTierIntermediate": "Kati",
+  "rankTierBeginner": "Mwanzilishi",
+  "walletTitle": "Mkoba",
+  "availableBalance": "Salio Inapatikana",
+  "minWithdrawal": "Dak. Uondoaji:",
+  "pendingWithdrawalMsg": "Una uondoaji unaosubiri. Maombi mapya yamezimwa hadi yaidhinishwe.",
+  "withdrawTo": "Toa hadi {title}",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "amountCoins": "Kiasi (Sarafu)",
+  "withdrawValue": "Thamani: ${value}",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "additionalNote": "Dokezo la Ziada (Si lazima)",
+  "withdrawRequestSent": "Ombi la kujiondoa limetumwa",
+  "fieldRequired": "Sehemu inahitajika",
+  "enterValidNumber": "Weka nambari halali",
+  "minimumCoins": "Kima cha chini zaidi ni sarafu {min}",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidInput": "Ingizo batili",
+  "confirmWithdrawal": "THIBITISHA KUONDOA",
+  "minCoins": "Dak: {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "withdrawHistory": "Ondoa Historia",
+  "somethingWentWrong": "Hitilafu fulani imetokea",
+  "tryAgainLater": "Tafadhali jaribu tena baadaye",
+  "noWithdrawalsYet": "Hakuna uondoaji bado",
+  "withdrawalsAppearHere": "Maombi yako ya kujiondoa yataonekana hapa",
+  "withdrawMethod": "Mbinu",
+  "withdrawType": "Aina",
+  "withdrawDate": "Tarehe",
+  "withdrawReason": "Sababu",
+  "withdrawProcessed": "Imechakatwa",
+  "processingDays": "Siku 2 za kazi",
+  "statusNote": "Dokezo la hali",
+  "underReview": "Inakaguliwa",
+  "statusApproved": "IMETHIBITISHWA",
+  "statusRejected": "IMEKATAA",
+  "statusPending": "INASUBIRI",
+  "scratchToWin": "Mkwaruzo\nili Kushinda",
+  "scratchBetterLuck": "Bora Bahati\nWakati Ujao",
+  "quizTitle": "Maswali",
+  "quizProgress": "Maswali {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "quizScore": "Umefunga {correct}/{total}",
+  "@quizScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gameZoneCoinsReward": "+ {coins} Sarafu",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "playGame": "Cheza Mchezo",
+  "missionBriefTitle": "Ufupi wa Misheni",
+  "missionBriefPart1": "Kaa kwenye ukurasa kwa Sekunde {secs}, A\nkipima muda kitaonekana.\nbonyeza\"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": {
+        "type": "int"
+      }
+    }
+  },
+  "missionBriefClaimAction": "DAI SARAFU",
+  "missionBriefPart2": "\"wakati tayari!",
+  "cancel": "Ghairi",
+  "start": "Anza",
+  "timeNotCompleted": "Muda Haujakamilika!",
+  "gameTimeFail": "Ulikaa kwa sekunde {elapsedSecs} kati ya {totalSecs}.\nTafadhali kaa kwenye ukurasa kwa muda wote.",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": {
+        "type": "int"
+      },
+      "totalSecs": {
+        "type": "int"
+      }
+    }
+  },
+  "spinAndWin": "Spin & Shinda",
+  "spinWelcomeTitle": "Karibu kwenye Spin",
+  "spinWelcomeSubtitle": "Pata Sarafu kwa Urahisi kwa Kusokota Gurudumu",
+  "getStarted": "Anza",
+  "spinNow": "Zungusha Sasa",
+  "spinning": "Inazunguka...",
+  "spinOops": "Lo!",
+  "spinCongrats": "Hongera sana..!",
+  "spinBetterLuck": "Bahati nzuri wakati ujao!",
+  "spinWonCoins": "Umejishindia Sarafu {coins}",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "tryAgain": "Jaribu Tena",
+  "claimCoins": "Dai Sarafu",
+  "hiwWhatAreCoinsTitle": "Sarafu ni nini?",
+  "hiwWhatAreCoinsDesc": "Sarafu ndio sarafu kuu katika programu hii. Unaweza kupata sarafu kwa kukamilisha kazi na kuzibadilisha kwa pesa halisi.",
+  "hiwDailyMissionsTitle": "Misheni za Kila Siku",
+  "hiwDailyMissionsDesc": "Kamilisha kazi za kila siku kama vile kusokota gurudumu, kukwaruza kadi, au kujibu maswali. Kila misheni iliyokamilishwa hukupa thawabu kwa sarafu.",
+  "hiwSpinWheelDesc": "Zungusha gurudumu la bahati ili kushinda zawadi za sarafu za papo hapo! Kila spin inaweza thawabu kwa sarafu 10-500.",
+  "hiwScratchCardsTitle": "Kadi za Mkwaruzo",
+  "hiwScratchCardsDesc": "Chakua kadi pepe ili ufichue zawadi za sarafu zilizofichwa kutoka sarafu 5 hadi 50. Kadi za bure kila siku!",
+  "hiwQuizGameTitle": "Mchezo wa Maswali",
+  "hiwQuizGameDesc": "Jibu maswali ya trivia kwa usahihi ili kupata sarafu 22 kwa kila swali. Jenga mfululizo wako wa kuchana.",
+  "hiwWatchAdsTitle": "Tazama Matangazo",
+  "hiwWatchAdsDesc": "Tazama matangazo mafupi ya video ili kupata sarafu za haraka. Kila tangazo hukupa zawadi papo hapo. Hadi matangazo 10 kwa siku.",
+  "hiwReferralTitle": "Mfumo wa Rufaa",
+  "hiwReferralDesc": "Shiriki nambari yako ya rufaa na marafiki. Wanapojiandikisha na kulipwa, unapata sarafu za bonasi!",
+  "hiwWithdrawTitle": "Toa Pesa",
+  "hiwWithdrawDesc": "Mara tu unapofikia kiwango cha juu zaidi, badilisha sarafu zako ziwe pesa halisi kupitia PayPal, uhamishaji wa benki au kadi za zawadi.",
+  "readyToStartEarning": "Je, uko tayari kuanza kuchuma mapato?",
+  "backToHome": "Rudi Nyumbani",
+  "navHome": "Nyumbani",
+  "navRank": "Cheo",
+  "navRewards": "Zawadi",
+  "navProfile": "Wasifu",
+  "noInternetConnection": "Hakuna Muunganisho wa Mtandao",
+  "noInternetMessage": "Tafadhali angalia muunganisho wako na ujaribu tena.",
+  "checking": "Inaangalia...",
+  "retry": "Jaribu tena",
+  "appTitle": "Spin Craze",
+  "taglineWatch": "TAZAMA",
+  "taglineEarn": "PATA",
+  "taglinePlay": "CHEZA",
+  "welcome": "Karibu",
+  "signInToAccessWallet": "Ingia ili kufikia pochi yako",
+  "continueWithGoogle": "Endelea na Google",
+  "continueAsGuest": "Endelea kama Mgeni",
+  "byConsentText": "Kwa kuendelea, unakubali yetu",
+  "terms": "Masharti",
+  "privacyPolicy": "Sera ya Faragha",
+  "onboardingDailyRewardsTitle": "Zawadi za Kila Siku",
+  "onboardingDailyRewardsDesc": "Utapata Zawadi ya Alama za Kila Siku, Ambazo unaweza kudai na kukuongezea Pointi.",
+  "onboardingUltimateGamesTitle": "Michezo ya Mwisho",
+  "onboardingUltimateGamesDesc": "Pata Chaguo Nyingi za Michezo ya Kucheza na Upate Pointi Zaidi.",
+  "onboardingTrackAchievementsTitle": "Fuatilia Mafanikio",
+  "onboardingTrackAchievementsDesc": "Tazama mafanikio yako na Uifuatilie na mtumiaji mwingine kupitia Leatherboard",
+  "next": "Inayofuata",
+  "selectYourCountry": "Chagua Nchi Yako",
+  "selectCountrySubtitle": "Chagua mahali unapocheza ili tuweze kutayarisha zawadi.",
+  "searchCountry": "Tafuta nchi",
+  "noCountriesFound": "Hakuna nchi zilizopatikana",
+  "pleaseSelectCountry": "Tafadhali chagua nchi yako",
+  "selectYourCurrency": "Chagua Sarafu Yako",
+  "selectCurrencySubtitle": "Tutaonyesha salio lako la zawadi katika sarafu hii.",
+  "searchCurrency": "Tafuta sarafu",
+  "noCurrenciesFound": "Hakuna sarafu zilizopatikana",
+  "pleaseSelectCurrency": "Tafadhali chagua sarafu yako",
+  "gamesYouLove": "Michezo Unayopenda",
+  "gamesYouLoveSubtitle": "Chagua michezo unayofurahia - tutaonyesha njia za kupata mapato kutokana nayo.",
+  "finish": "Maliza",
+  "pleasePickGame": "Tafadhali chagua angalau mchezo mmoja",
+  "gamesSelected": "{count} imechaguliwa",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

@@ -1,13 +1,19 @@
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:spin_craze/widgets/app_button.dart';
 import 'package:spin_craze/widgets/common_appbar.dart';
-import 'package:spin_craze/widgets/common_background.dart';
-import 'package:spin_craze/widgets/glow_container.dart';
 import 'package:flutter/material.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
+
+const _kPageBg = Color(0xFFF4F7FE);
+const _kCardBg = Colors.white;
+const _kCardBorder = Color(0xFFE5EBF5);
+const _kTextDark = Color(0xFF111827);
+const _kTextMuted = Color(0xFF6B7280);
+const _kBadgeBg = Color(0xFFE6EEFF);
+const _kBadgeBorder = Color(0xFFBFCDEE);
 
 class _HowItWorksRule {
   final String title;
@@ -59,8 +65,6 @@ class HowItWorksScreen extends StatelessWidget {
       screenName: 'how_it_works',
       screenClass: 'HowItWorksScreen',
     );
-    final colors = context.themeColors;
-    final txt = context.themeTextColors;
 
     return PopScope(
       canPop: false,
@@ -68,67 +72,75 @@ class HowItWorksScreen extends StatelessWidget {
         if (didPop) return;
         NavigationHelper().handleBackPress(context);
       },
-      child: CommonBackground(
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: CommonAppBar(title: context.l10n.howItWorks, showBack: true),
-          body: SafeArea(
-            top: false,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSize.w20),
-              child: Column(
-                children: [
-                  SizedBox(height: AppSize.h16),
-                  Expanded(
-                    child: Builder(
-                      builder: (context) {
-                        final rules = _getRules(context);
-                        return ListView.separated(
-                          itemCount: rules.length,
-                          padding: EdgeInsets.symmetric(vertical: AppSize.h10),
-                          separatorBuilder: (_, _) =>
-                              SizedBox(height: AppSize.h12),
-                          itemBuilder: (context, index) {
-                            return _HowItWorkCard(
-                              index: index + 1,
-                              title: rules[index].title,
-                              description: rules[index].desc,
-                            );
-                          },
-                        );
-                      },
-                    ),
+      child: Scaffold(
+        backgroundColor: _kPageBg,
+        appBar: CommonAppBar(title: context.l10n.howItWorks, showBack: true),
+        body: SafeArea(
+          top: false,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppSize.w20),
+            child: Column(
+              children: [
+                SizedBox(height: AppSize.h16),
+                Expanded(
+                  child: Builder(
+                    builder: (context) {
+                      final rules = _getRules(context);
+                      return ListView.separated(
+                        itemCount: rules.length,
+                        padding: EdgeInsets.symmetric(vertical: AppSize.h10),
+                        separatorBuilder: (_, _) =>
+                            SizedBox(height: AppSize.h12),
+                        itemBuilder: (context, index) {
+                          return _HowItWorkCard(
+                            index: index + 1,
+                            title: rules[index].title,
+                            description: rules[index].desc,
+                          );
+                        },
+                      );
+                    },
                   ),
-                  SizedBox(height: AppSize.h12),
-                  // Bottom CTA
-                  GlowContainer(
-                    accent: colors.primary,
-                    borderRadius: AppSize.r12,
-                    padding: EdgeInsets.all(AppSize.w16),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          context.l10n.readyToStartEarning,
-                          style: context.textTheme.titleMedium?.copyWith(
-                            color: txt.primary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: AppSize.sp16,
-                          ),
-                        ),
-                        SizedBox(height: AppSize.h16),
-                        AppButton(
-                          label: context.l10n.backToHome,
-                          variant: AppButtonVariant.gradient,
-                          onPressed: () =>
-                              NavigationHelper().handleBackPress(context),
-                        ),
-                      ],
-                    ),
+                ),
+                SizedBox(height: AppSize.h12),
+                // Bottom CTA
+                Container(
+                  padding: EdgeInsets.all(AppSize.w16),
+                  decoration: BoxDecoration(
+                    color: _kCardBg,
+                    borderRadius: BorderRadius.circular(AppSize.r12),
+                    border: Border.all(color: _kCardBorder),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFF0B1F4D).withValues(alpha: 0.05),
+                        blurRadius: AppSize.r12,
+                        offset: Offset(0, AppSize.h4),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: AppSize.h16),
-                ],
-              ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        context.l10n.readyToStartEarning,
+                        style: context.textTheme.titleMedium?.copyWith(
+                          color: _kTextDark,
+                          fontWeight: FontWeight.w600,
+                          fontSize: AppSize.sp16,
+                        ),
+                      ),
+                      SizedBox(height: AppSize.h16),
+                      AppButton(
+                        label: context.l10n.backToHome,
+                        variant: AppButtonVariant.gradient,
+                        onPressed: () =>
+                            NavigationHelper().handleBackPress(context),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: AppSize.h16),
+              ],
             ),
           ),
         ),
@@ -153,67 +165,70 @@ class _HowItWorkCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.themeColors;
-    final txt = context.themeTextColors;
 
-    return GlowContainer(
-      accent: colors.primary,
-      borderRadius: AppSize.r8,
+    return Container(
       padding: EdgeInsets.all(AppSize.w16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(AppSize.r8),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            GlowContainer(
-              accent: colors.primary,
-              borderRadius: AppSize.r8,
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppSize.w16,
-                  vertical: AppSize.h5,
-                ),
-                decoration: BoxDecoration(
-                  color: colors.background,
-                  borderRadius: BorderRadius.circular(AppSize.r8),
-                  border: Border.all(color: colors.border),
-                ),
-                child: Text(
-                  '$index',
-                  style: context.textTheme.titleMedium?.copyWith(
-                    color: txt.primary,
+      decoration: BoxDecoration(
+        color: _kCardBg,
+        borderRadius: BorderRadius.circular(AppSize.r12),
+        border: Border.all(color: _kCardBorder),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF0B1F4D).withValues(alpha: 0.05),
+            blurRadius: AppSize.r10,
+            offset: Offset(0, AppSize.h4),
+          ),
+        ],
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.w14,
+              vertical: AppSize.h6,
+            ),
+            decoration: BoxDecoration(
+              color: _kBadgeBg,
+              borderRadius: BorderRadius.circular(AppSize.r8),
+              border: Border.all(color: _kBadgeBorder),
+            ),
+            child: Text(
+              '$index',
+              style: context.textTheme.titleMedium?.copyWith(
+                color: colors.primary,
+                fontWeight: FontWeight.w700,
+                fontSize: AppSize.sp18,
+              ),
+            ),
+          ),
+          SizedBox(width: AppSize.w12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: context.textTheme.labelLarge?.copyWith(
+                    color: _kTextDark,
                     fontWeight: FontWeight.w700,
-                    fontSize: AppSize.sp20,
+                    fontSize: AppSize.sp15,
                   ),
                 ),
-              ),
-            ),
-            SizedBox(width: AppSize.w12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: context.textTheme.labelLarge?.copyWith(
-                      color: txt.primary,
-                      fontWeight: FontWeight.w700,
-                      fontSize: AppSize.sp16,
-                    ),
+                SizedBox(height: AppSize.h5),
+                Text(
+                  description,
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: _kTextMuted,
+                    fontSize: AppSize.sp13,
+                    height: 1.4,
                   ),
-                  SizedBox(height: AppSize.h5),
-                  Text(
-                    description,
-                    style: context.textTheme.bodyMedium?.copyWith(
-                      color: txt.secondary,
-                      fontSize: AppSize.sp14,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
