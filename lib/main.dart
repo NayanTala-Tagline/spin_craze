@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
-import 'package:spin_craze/features/home_module/provider/home_provider.dart';
+import 'package:spin_craze/features/home_module/provider/sc_home_provider.dart';
 import 'package:spin_craze/firebase_options.dart';
 import 'package:spin_craze/l10n/app_localizations.dart';
 import 'package:spin_craze/res/theme_dark.dart';
@@ -94,7 +94,7 @@ class _SpinCrazeAppState extends State<SpinCrazeApp> {
         _selectedLanguage != null ? Locale(_selectedLanguage!) : null;
 
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => HomeProvider())],
+      providers: [ChangeNotifierProvider(create: (_) => ScHomeProvider())],
       child: ScreenUtilInit(
         designSize: const Size(375, 843),
         minTextAdapt: true,

@@ -34,11 +34,11 @@ class AppRoutes {
   static const String diamondsGuidePreviewScreen = 'diamondsGuidePreviewScreen';
   static const String diamondsGuideScreen = 'diamondsGuideScreen';
 
-  static const String spinWheelScreen = 'SpinWheelScreen';
-  static const String quizScreen = 'QuizScreen';
+  static const String spinWheelScreen = 'ScSpinWheelScreen';
+  static const String quizScreen = 'ScQuizScreen';
   static const String scratchCard = 'ScratchCard';
-  static const String webVisitsScreen = 'WebVisitsScreen';
-  static const String gameZoneScreen = 'GameZoneScreen';
+  static const String webVisitsScreen = 'ScWebVisitsScreen';
+  static const String gameZoneScreen = 'ScGameZoneScreen';
   static const String commonToolScreen = 'CommonToolScreen';
   static const String weaponToolScreen = 'WeaponToolScreen';
   static const String parachuteToolScreen = 'parachuteToolScreen';

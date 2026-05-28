@@ -1,34 +1,34 @@
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
-import 'package:spin_craze/features/auth_module/login_screen.dart';
-import 'package:spin_craze/features/scratch_module/celebration_overlay.dart';
-import 'package:spin_craze/features/bottom_nav/bottom_nav_page.dart';
-import 'package:spin_craze/features/home_module/home_page.dart';
-import 'package:spin_craze/features/home_module/widgets/daily_checkin_page.dart';
+import 'package:spin_craze/features/auth_module/sc_login_screen.dart';
+import 'package:spin_craze/features/scratch_module/sc_celebration_overlay.dart';
+import 'package:spin_craze/features/bottom_nav/sc_bottom_nav_page.dart';
+import 'package:spin_craze/features/home_module/sc_home_page.dart';
+import 'package:spin_craze/features/home_module/widgets/sc_daily_checkin_page.dart';
 import 'package:ad_manager/ad_manager.dart';
-import 'package:spin_craze/features/splash_module/splash_page.dart';
-import 'package:spin_craze/features/onboarding_module/onboarding_page1.dart';
-import 'package:spin_craze/features/onboarding_module/onboarding_page2.dart';
-import 'package:spin_craze/features/onboarding_module/onboarding_page3.dart';
-import 'package:spin_craze/features/onboarding_module/country_page.dart';
-import 'package:spin_craze/features/onboarding_module/currency_page.dart';
-import 'package:spin_craze/features/onboarding_module/game_select_page.dart';
-import 'package:spin_craze/features/onboarding_module/provider/selection_ad_provider.dart'
-    show SelectionAds;
-import 'package:spin_craze/features/profile_module/profile_page.dart';
-import 'package:spin_craze/features/rank_module/rank_page.dart';
-import 'package:spin_craze/features/rewards_module/rewards_page.dart';
-import 'package:spin_craze/features/settings_module/language_page.dart'
-    show LanguagePage, LanguagePageArgs;
-import 'package:spin_craze/features/settings_module/support_page.dart';
-import 'package:spin_craze/features/game_zone_module/game_zone_screen.dart';
-import 'package:spin_craze/features/quiz_module/quiz_screen.dart';
-import 'package:spin_craze/features/scratch_module/pages/scratch_card.dart';
-import 'package:spin_craze/features/spin_module/spin_page.dart';
-import 'package:spin_craze/features/how_it_works_module/how_it_works_screen.dart';
-import 'package:spin_craze/features/wallet_module/inner_screens/wallet_history/wallet_history_screen.dart';
-import 'package:spin_craze/features/wallet_module/wallet_screen.dart';
-import 'package:spin_craze/features/web_visits_module/web_visits_screen.dart';
+import 'package:spin_craze/features/splash_module/sc_splash_page.dart';
+import 'package:spin_craze/features/onboarding_module/sc_onboarding_page1.dart';
+import 'package:spin_craze/features/onboarding_module/sc_onboarding_page2.dart';
+import 'package:spin_craze/features/onboarding_module/sc_onboarding_page3.dart';
+import 'package:spin_craze/features/onboarding_module/sc_country_page.dart';
+import 'package:spin_craze/features/onboarding_module/sc_currency_page.dart';
+import 'package:spin_craze/features/onboarding_module/sc_game_select_page.dart';
+import 'package:spin_craze/features/onboarding_module/provider/sc_selection_ad_provider.dart'
+    show ScSelectionAds;
+import 'package:spin_craze/features/profile_module/sc_profile_page.dart';
+import 'package:spin_craze/features/rank_module/sc_rank_page.dart';
+import 'package:spin_craze/features/rewards_module/sc_rewards_page.dart';
+import 'package:spin_craze/features/settings_module/sc_language_page.dart'
+    show ScLanguagePage, ScLanguagePageArgs;
+import 'package:spin_craze/features/settings_module/sc_support_page.dart';
+import 'package:spin_craze/features/game_zone_module/sc_game_zone_screen.dart';
+import 'package:spin_craze/features/quiz_module/sc_quiz_screen.dart';
+import 'package:spin_craze/features/scratch_module/pages/sc_scratch_card.dart';
+import 'package:spin_craze/features/spin_module/sc_spin_page.dart';
+import 'package:spin_craze/features/how_it_works_module/sc_how_it_works_screen.dart';
+import 'package:spin_craze/features/wallet_module/inner_screens/wallet_history/sc_wallet_history_screen.dart';
+import 'package:spin_craze/features/wallet_module/sc_wallet_screen.dart';
+import 'package:spin_craze/features/web_visits_module/sc_web_visits_screen.dart';
 import 'package:spin_craze/widgets/in_app_webview_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +63,7 @@ CustomTransitionPage<void> _fadeTransitionPage(GoRouterState state, Widget child
 String _initialLocation() {
   // Always start on the splash screen. It plays the intro animation, handles
   // connectivity, shows the splash app-open ad, then routes to home or
-  // onboarding (see [SplashScreen]).
+  // onboarding (see [ScSplashScreen]).
   return '/${AppRoutes.splash}';
 }
 
@@ -88,7 +88,7 @@ final appRouter = GoRouter(
         return MaterialPage(
           key: state.pageKey,
           name: AppRoutes.splash,
-          child: const SplashScreen(),
+          child: const ScSplashScreen(),
         );
       },
     ),
@@ -102,7 +102,7 @@ final appRouter = GoRouter(
         return MaterialPage(
           key: state.pageKey,
           name: AppRoutes.onboarding1,
-          child: OnboardingPage1(preloadedNativeAd: preloadedAd),
+          child: ScOnboardingPage1(preloadedNativeAd: preloadedAd),
         );
       },
     ),
@@ -114,7 +114,7 @@ final appRouter = GoRouter(
         return MaterialPage(
           key: state.pageKey,
           name: AppRoutes.onboarding2,
-          child: const OnboardingPage2(),
+          child: const ScOnboardingPage2(),
         );
       },
     ),
@@ -126,7 +126,7 @@ final appRouter = GoRouter(
         return MaterialPage(
           key: state.pageKey,
           name: AppRoutes.onboarding3,
-          child: const OnboardingPage3(),
+          child: const ScOnboardingPage3(),
         );
       },
     ),
@@ -138,13 +138,13 @@ final appRouter = GoRouter(
         return MaterialPage(
           key: state.pageKey,
           name: AppRoutes.login,
-          child: const LoginScreen(),
+          child: const ScLoginScreen(),
         );
       },
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
-        return BottomNavPage(
+        return ScBottomNavPage(
           key: state.pageKey,
           navigationShell: navigationShell,
         );
@@ -158,22 +158,22 @@ final appRouter = GoRouter(
       name: AppRoutes.language,
       parentNavigatorKey: rootNavKey,
       pageBuilder: (context, state) {
-        // Accept either the new LanguagePageArgs or the legacy `bool`
+        // Accept either the new ScLanguagePageArgs or the legacy `bool`
         // (`extra: true` means "onboarding") to avoid breaking existing
         // call sites that haven't been migrated yet.
         final extra = state.extra;
-        LanguagePageArgs? args;
-        if (extra is LanguagePageArgs) {
+        ScLanguagePageArgs? args;
+        if (extra is ScLanguagePageArgs) {
           args = extra;
         } else if (extra == true) {
-          args = const LanguagePageArgs(isOnboarding: true);
+          args = const ScLanguagePageArgs(isOnboarding: true);
         }
         final isOnboarding = args?.isOnboarding ?? false;
 
         return MaterialPage(
           key: state.pageKey,
           name: AppRoutes.language,
-          child: LanguagePage(
+          child: ScLanguagePage(
             isOnboarding: isOnboarding,
             preloadedAd1: args?.languageNativeAd,
             preloadedAd2: args?.languageNative2Ad,
@@ -196,8 +196,8 @@ final appRouter = GoRouter(
       parentNavigatorKey: rootNavKey,
       pageBuilder: (context, state) => _fadeTransitionPage(
         state,
-        CountryPage(
-          preloaded: state.extra as SelectionAds?,
+        ScCountryPage(
+          preloaded: state.extra as ScSelectionAds?,
           onContinue: (next) => GoRouter.of(context).goNamed(
             AppRoutes.currency,
             extra: next,
@@ -211,8 +211,8 @@ final appRouter = GoRouter(
       parentNavigatorKey: rootNavKey,
       pageBuilder: (context, state) => _fadeTransitionPage(
         state,
-        CurrencyPage(
-          preloaded: state.extra as SelectionAds?,
+        ScCurrencyPage(
+          preloaded: state.extra as ScSelectionAds?,
           onContinue: (next) => GoRouter.of(context).goNamed(
             AppRoutes.gameSelect,
             extra: next,
@@ -226,8 +226,8 @@ final appRouter = GoRouter(
       parentNavigatorKey: rootNavKey,
       pageBuilder: (context, state) => _fadeTransitionPage(
         state,
-        GameSelectPage(
-          preloaded: state.extra as SelectionAds?,
+        ScGameSelectPage(
+          preloaded: state.extra as ScSelectionAds?,
           onContinue: () {
             // End of onboarding: if the user already has a session (e.g. a
             // returning user replaying onboarding via show_multiple_onboarding),
@@ -248,7 +248,7 @@ final appRouter = GoRouter(
         return MaterialPage(
           key: state.pageKey,
           name: AppRoutes.support,
-          child: const SupportPage(),
+          child: const ScSupportPage(),
         );
       },
     ),
@@ -256,55 +256,55 @@ final appRouter = GoRouter(
       path: '/${AppRoutes.walletScreen}',
       name: AppRoutes.walletScreen,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const WalletScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScWalletScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.walletHistory}',
       name: AppRoutes.walletHistory,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const WalletHistoryScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScWalletHistoryScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.howItWorks}',
       name: AppRoutes.howItWorks,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const HowItWorksScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScHowItWorksScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.dailyCheckin}',
       name: AppRoutes.dailyCheckin,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const DailyCheckinPage()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScDailyCheckinPage()),
     ),
     GoRoute(
       path: '/${AppRoutes.quizScreen}',
       name: AppRoutes.quizScreen,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const QuizScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScQuizScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.scratchCard}',
       name: AppRoutes.scratchCard,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScratchCardScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScScratchCardScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.webVisitsScreen}',
       name: AppRoutes.webVisitsScreen,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const WebVisitsScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScWebVisitsScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.gameZoneScreen}',
       name: AppRoutes.gameZoneScreen,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const GameZoneScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScGameZoneScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.spinWheelScreen}',
       name: AppRoutes.spinWheelScreen,
       parentNavigatorKey: rootNavKey,
-      pageBuilder: (context, state) => _fadeTransitionPage(state, const SpinWheelScreen()),
+      pageBuilder: (context, state) => _fadeTransitionPage(state, const ScSpinWheelScreen()),
     ),
     GoRoute(
       path: '/${AppRoutes.inAppWebView}',
@@ -335,7 +335,7 @@ final _bottomNavBranches = <StatefulShellBranch>[
         path: '/${AppRoutes.home}',
         name: AppRoutes.home,
         pageBuilder: (context, state) {
-          return MaterialPage(key: state.pageKey, name: AppRoutes.home, child: const HomePage());
+          return MaterialPage(key: state.pageKey, name: AppRoutes.home, child: const ScHomePage());
         },
       ),
     ],
@@ -346,7 +346,7 @@ final _bottomNavBranches = <StatefulShellBranch>[
         path: '/${AppRoutes.rank}',
         name: AppRoutes.rank,
         pageBuilder: (context, state) {
-          return MaterialPage(key: state.pageKey, name: AppRoutes.rank, child: const RankPage());
+          return MaterialPage(key: state.pageKey, name: AppRoutes.rank, child: const ScRankPage());
         },
       ),
     ],
@@ -357,7 +357,7 @@ final _bottomNavBranches = <StatefulShellBranch>[
         path: '/${AppRoutes.rewards}',
         name: AppRoutes.rewards,
         pageBuilder: (context, state) {
-          return MaterialPage(key: state.pageKey, name: AppRoutes.rewards, child: const RewardsPage());
+          return MaterialPage(key: state.pageKey, name: AppRoutes.rewards, child: const ScRewardsPage());
         },
       ),
     ],
@@ -368,7 +368,7 @@ final _bottomNavBranches = <StatefulShellBranch>[
         path: '/${AppRoutes.profile}',
         name: AppRoutes.profile,
         pageBuilder: (context, state) {
-          return MaterialPage(key: state.pageKey, name: AppRoutes.profile, child: const ProfilePage());
+          return MaterialPage(key: state.pageKey, name: AppRoutes.profile, child: const ScProfilePage());
         },
       ),
     ],
