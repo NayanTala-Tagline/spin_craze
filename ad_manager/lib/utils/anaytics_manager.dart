@@ -1,6 +1,8 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart' show immutable, kReleaseMode;
+import 'package:meta_sdk/meta_sdk.dart';
 
+/// Analytics Manager to manage FirebaseAnalytics SDK
 /// Analytics Manager to manage FirebaseAnalytics SDK
 @immutable
 final class AnalyticsManager {
@@ -23,14 +25,16 @@ final class AnalyticsManager {
   FirebaseAnalytics get analytics => _analytics;
 
   // ---- Meta (Facebook) SDK instance ----
+  final MetaSdk _metaSdk = MetaSdk();
 
   /// Get MetaSdk instance
+  MetaSdk get metaSdk => _metaSdk;
 
 
   /// Set user ID for analytics tracking
   Future<void> setUserId(String userId) async {
     // if (kReleaseMode) {
-      await _analytics.setUserId(id: userId);
+    await _analytics.setUserId(id: userId);
     // }
   }
 
@@ -40,7 +44,7 @@ final class AnalyticsManager {
     required String value,
   }) async {
     // if (kReleaseMode) {
-      await _analytics.setUserProperty(name: name, value: value);
+    await _analytics.setUserProperty(name: name, value: value);
     // }
   }
 
@@ -51,6 +55,7 @@ final class AnalyticsManager {
   }) async {
     if (kReleaseMode) {
       await _analytics.logEvent(name: name, parameters: parameters);
+      await _metaSdk.logEvent(eventName: name, parameters: parameters);
     }
   }
 
@@ -60,11 +65,17 @@ final class AnalyticsManager {
     String? screenClass,
   }) async {
     // if (kReleaseMode) {
-      await _analytics.logScreenView(
-        screenName: screenName,
-        screenClass: screenClass,
-      );
-
+    await _analytics.logScreenView(
+      screenName: screenName,
+      screenClass: screenClass,
+    );
+    await _metaSdk.logEvent(
+      eventName: 'screen_view',
+      parameters: {
+        'screen_name': screenName,
+        'screen_class': ?screenClass,
+      },
+    );
     // }
   }
 

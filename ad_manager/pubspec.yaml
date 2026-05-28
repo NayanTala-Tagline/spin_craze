@@ -20,7 +20,8 @@ dependencies:
   gma_mediation_unity: ^1.6.5
   gma_mediation_applovin: ^2.5.2
   #TODO remove this in ios platform
-  gma_mediation_meta: ^1.5.1   # (latest stable — see note below)
+  gma_mediation_meta: ^1.5.1 # (latest stable — see note below)
+  meta_sdk: ^1.2.1
 
 dev_dependencies:
   flutter_test:

@@ -68,7 +68,7 @@ dependencies:
   gma_mediation_unity: ^1.6.3
   google_mobile_ads: ^7.0.0
   flutter_native_splash: ^2.4.7
-
+  meta_sdk: ^1.2.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
