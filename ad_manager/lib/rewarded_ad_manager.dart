@@ -116,6 +116,7 @@ class RewardedAdManager {
   void _setupFullScreenListeners(RewardedAd ad) {
     ad.fullScreenContentCallback = FullScreenContentCallback<RewardedAd>(
       onAdShowedFullScreenContent: (ad) {
+        ignoreNextEvent =true;
         fullScreenContentCallback?.onAdShowedFullScreenContent?.call(ad);
         AnalyticsManager.instance.logEvent(name: "rewarded_ad_opened");
       },

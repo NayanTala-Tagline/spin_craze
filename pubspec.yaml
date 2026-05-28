@@ -67,6 +67,7 @@ dependencies:
   device_info_plus: ^12.4.0
   gma_mediation_unity: ^1.6.3
   google_mobile_ads: ^7.0.0
+  flutter_native_splash: ^2.4.7
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -125,3 +126,14 @@ flutter_gen:
     integrations: { flutter_svg: true },
     fonts: { enabled: true, outputs: { class_name: FontFamily }, },
   }
+flutter_native_splash:
+  color: '#A2C8FC'
+  image: 'assets/splash/splash_native.png'
+
+  android_12:
+    image: 'assets/splash/splash_native.png'
+    color: '#A2C8FC'
+
+  ios: true
+  android: true
+  web: false

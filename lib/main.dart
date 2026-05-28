@@ -51,17 +51,17 @@ void main() async {
   await GmaMediationUnity().setGDPRConsent(true);
   // Lock orientation (portrait only)
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const ClipEarnApp());
+  runApp(const SpinCrazeApp());
 }
 
-class ClipEarnApp extends StatefulWidget {
-  const ClipEarnApp({super.key});
+class SpinCrazeApp extends StatefulWidget {
+  const SpinCrazeApp({super.key});
 
   @override
-  State<ClipEarnApp> createState() => _ClipEarnAppState();
+  State<SpinCrazeApp> createState() => _SpinCrazeAppState();
 }
 
-class _ClipEarnAppState extends State<ClipEarnApp> {
+class _SpinCrazeAppState extends State<SpinCrazeApp> {
   final AppDB _db = Injector.instance<AppDB>();
   late StreamSubscription<dynamic> _languageSub;
   String? _selectedLanguage;
