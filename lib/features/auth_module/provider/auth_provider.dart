@@ -7,7 +7,6 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:spin_craze/extension/ext_localization.dart';
 
 class AuthProvider extends ChangeNotifier {
   final _db = Injector.instance<AppDB>();

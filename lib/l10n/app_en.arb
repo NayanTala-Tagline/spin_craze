@@ -1,3 +1,344 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+
+  "homeStreakDays": "{count} Days",
+  "@homeStreakDays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "homeDailyReward": "Daily Reward",
+  "homeCollectCoins": "Collect more coins\neach day",
+  "homeCoinsUnit": "/Coins",
+  "claimed": "Claimed",
+  "claimNow": "Claim Now",
+  "homeTotalBalance": "Total Balance",
+  "homeCoinsCount": "{coins} Coins",
+  "@homeCoinsCount": {
+    "placeholders": {
+      "coins": { "type": "int" }
+    }
+  },
+  "homeXpCount": "{xp} XP",
+  "@homeXpCount": {
+    "placeholders": {
+      "xp": { "type": "int" }
+    }
+  },
+  "withdraw": "Withdraw",
+  "homeStatLevel": "Level",
+  "homeStatToday": "Today",
+  "homeStatXp": "XP",
+  "earnModuleReferTitle": "Refer & Earn",
+  "earnModuleReferSubtitle": "Invite Friends",
+  "earnModuleSpinTitle": "Spin Wheel",
+  "earnModuleSpinSubtitle": "Spin and Win",
+  "earnModuleQuizTitle": "Quiz Master",
+  "earnModuleQuizSubtitle": "Answer & Earn",
+  "earnModuleScratchTitle": "Scratch Card",
+  "earnModuleScratchSubtitle": "Scratch & Reveal",
+  "earnModuleWebTitle": "Web Visits",
+  "earnModuleWebSubtitle": "Visit & Earn",
+  "earnModuleGameTitle": "Game Zone",
+  "earnModuleGameSubtitle": "Play Games",
+  "earnMoney": "Earn Money",
+  "howItWorks": "How It Works",
+  "howItWorksDesc": "Learn Step-by-Step how to earn money",
+  "learn": "Learn",
+  "leaderboard": "Leaderboard",
+  "leaderboardDesc": "See top earners and climb the ranks",
+  "dailyCheckinTitle": "Daily Check-in",
+  "dailyCheckinReward": "Daily Check-in Reward",
+  "keepStreakGoing": "Keep your streak going!",
+  "dayBadge": "Day {day}",
+  "@dayBadge": {
+    "placeholders": {
+      "day": { "type": "int" }
+    }
+  },
+  "coinsLabel": "Coins",
+  "claimReward": "Claim Reward",
+  "totalDaysClaimed": "Total Days Claimed",
+  "alreadyClaimedToday": "You've already claimed today's reward.",
+
+  "adDisclaimer": "This section may contain ads",
+  "rewardIn": "Reward in {seconds}s..",
+  "@rewardIn": {
+    "placeholders": {
+      "seconds": { "type": "int" }
+    }
+  },
+  "webviewClaimed": "Claimed!",
+
+  "pleaseSelectLanguage": "Please select a language first",
+  "confirm": "Confirm",
+  "setDefaultLanguage": "Set Default Language",
+  "setDefaultLanguageDesc": "Selected language will use as default language for this app which you can change later if you want to.",
+  "howCanWeHelp": "How can we help?",
+  "supportDesc": "Tell us what went wrong or what you need a hand with. Our team reviews every message.",
+  "titleLabel": "Title",
+  "shortSummary": "Short summary",
+  "pleaseAddTitle": "Please add a title.",
+  "titleTooShort": "Title is too short.",
+  "descriptionLabel": "Description",
+  "describeIssue": "Describe your issue...",
+  "pleaseAddDesc": "Please add a description.",
+  "descTooShort": "Description is too short.",
+  "submit": "Submit",
+  "thanksMsgReceived": "Thanks! Message received.",
+  "couldNotSubmit": "Could not submit. Try again.",
+
+  "guestUser": "Guest User",
+  "notSignedIn": "Not signed in",
+  "deletingAccount": "Deleting account...",
+  "googleLinked": "Google account linked successfully!",
+  "linkGoogleAccount": "Link Google Account",
+  "language": "Language",
+  "support": "Support",
+  "termsAndCondition": "Terms & Condition",
+  "profileBalance": "Balance",
+  "profileDays": "Days",
+  "profileRefs": "Refs",
+  "levelProgress": "Level Progress",
+  "rateUs": "Rate Us",
+  "deleteAccount": "Delete Account",
+  "signOut": "Sign Out",
+  "deleteAccountQuestion": "Delete Account?",
+  "deleteAccountDesc": "This will permanently remove your account, coins, and progress. This action cannot be undone.",
+  "delete": "Delete",
+  "signOutConfirm": "Are you sure you want to sign out of your account?",
+  "lvLevel": "Lv. {level}",
+  "@lvLevel": {
+    "placeholders": {
+      "level": { "type": "int" }
+    }
+  },
+
+  "rewardsAndBonuses": "Rewards & Bonuses",
+  "friendsInvited": "Friends Invited",
+  "coinsEarned": "Coins Earned",
+  "linkYourAccount": "Link Your Account",
+  "linkAccountDesc": "Sign in with Google to get your referral code and invite friends, Go to Profile and link your account.",
+  "enterReferralCode": "Enter Referral Code",
+  "havePromoCode": "Have Promo Code",
+  "apply": "Apply",
+  "pleaseLink": "Please link your account first",
+  "yourReferralCode": "Your Referral Code",
+  "codeCopied": "Code copied!",
+  "shareLink": "Share Link",
+  "shareMessage": "Join me on Earn Money and earn coins! Use my referral code: {code}\n\nDownload the app: {appUrl}",
+  "@shareMessage": {
+    "placeholders": {
+      "code": { "type": "String" },
+      "appUrl": { "type": "String" }
+    }
+  },
+
+  "pullDownRefresh": "Pull down to refresh",
+  "refreshIn": "Refresh in {timer}",
+  "@refreshIn": {
+    "placeholders": {
+      "timer": { "type": "String" }
+    }
+  },
+  "rankPlayer": "Player",
+  "rankLevelTier": "Lv. {level}  {tier}",
+  "@rankLevelTier": {
+    "placeholders": {
+      "level": { "type": "int" },
+      "tier": { "type": "String" }
+    }
+  },
+  "rankTierExpert": "Expert",
+  "rankTierIntermediate": "Intermediate",
+  "rankTierBeginner": "Beginner",
+
+  "walletTitle": "Wallet",
+  "availableBalance": "Available Balance",
+  "minWithdrawal": "Min. Withdrawal: ",
+  "pendingWithdrawalMsg": "You have a pending withdrawal. New requests are disabled until it is approved.",
+  "withdrawTo": "Withdraw to {title}",
+  "@withdrawTo": {
+    "placeholders": {
+      "title": { "type": "String" }
+    }
+  },
+  "amountCoins": "Amount (Coins)",
+  "withdrawValue": "Value: ${value}",
+  "@withdrawValue": {
+    "placeholders": {
+      "value": { "type": "String" }
+    }
+  },
+  "additionalNote": "Additional Note (Optional)",
+  "withdrawRequestSent": "Withdraw request sent",
+  "fieldRequired": "Field required",
+  "enterValidNumber": "Enter a valid number",
+  "minimumCoins": "Minimum is {min} coins",
+  "@minimumCoins": {
+    "placeholders": {
+      "min": { "type": "int" }
+    }
+  },
+  "invalidInput": "Invalid input",
+  "confirmWithdrawal": "CONFIRM WITHDRAWAL",
+  "minCoins": "Min: {min}",
+  "@minCoins": {
+    "placeholders": {
+      "min": { "type": "int" }
+    }
+  },
+  "withdrawHistory": "Withdraw History",
+  "somethingWentWrong": "Something went wrong",
+  "tryAgainLater": "Please try again later",
+  "noWithdrawalsYet": "No withdrawals yet",
+  "withdrawalsAppearHere": "Your withdrawal requests will appear here",
+  "withdrawMethod": "Method",
+  "withdrawType": "Type",
+  "withdrawDate": "Date",
+  "withdrawReason": "Reason",
+  "withdrawProcessed": "Processed",
+  "processingDays": "2 business days",
+  "statusNote": "Status note",
+  "underReview": "Under review",
+  "statusApproved": "APPROVED",
+  "statusRejected": "REJECTED",
+  "statusPending": "PENDING",
+
+  "scratchToWin": "Scratch\nit to Win",
+  "scratchBetterLuck": "Better Luck\nNext Time",
+
+  "quizTitle": "Quiz",
+  "quizProgress": "Questions {current}/{total}",
+  "@quizProgress": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "quizScore": "You scored {correct}/{total}",
+  "@quizScore": {
+    "placeholders": {
+      "correct": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+
+  "gameZoneCoinsReward": "+ {coins} Coins",
+  "@gameZoneCoinsReward": {
+    "placeholders": {
+      "coins": { "type": "int" }
+    }
+  },
+  "playGame": "Play Game",
+  "missionBriefTitle": "Mission Brief",
+  "missionBriefPart1": "Stay on the page for {secs} Secs., A\ncountdown timer will appear.\nclick \"",
+  "@missionBriefPart1": {
+    "placeholders": {
+      "secs": { "type": "int" }
+    }
+  },
+  "missionBriefClaimAction": "CLAIM COIN",
+  "missionBriefPart2": "\" when ready!",
+  "cancel": "Cancel",
+  "start": "Start",
+  "timeNotCompleted": "Time Not Completed!",
+  "gameTimeFail": "You stayed for {elapsedSecs}s out of {totalSecs}s.\nPlease stay on the page for the full duration.",
+  "@gameTimeFail": {
+    "placeholders": {
+      "elapsedSecs": { "type": "int" },
+      "totalSecs": { "type": "int" }
+    }
+  },
+
+  "spinAndWin": "Spin & Win",
+  "spinWelcomeTitle": "Welcome to Spin",
+  "spinWelcomeSubtitle": "Earn Coins Easily by Spinning Wheel",
+  "getStarted": "Get Started",
+  "spinNow": "Spin Now",
+  "spinning": "Spinning...",
+  "spinOops": "Oops!",
+  "spinCongrats": "Congratulations..!",
+  "spinBetterLuck": "Better luck next time!",
+  "spinWonCoins": "You won {coins} Coins",
+  "@spinWonCoins": {
+    "placeholders": {
+      "coins": { "type": "int" }
+    }
+  },
+  "tryAgain": "Try Again",
+  "claimCoins": "Claim Coins",
+
+  "hiwWhatAreCoinsTitle": "What are Coins?",
+  "hiwWhatAreCoinsDesc": "Coins are the main currency in this app. You can earn coins by completing tasks and exchange them for real money.",
+  "hiwDailyMissionsTitle": "Daily Missions",
+  "hiwDailyMissionsDesc": "Complete daily tasks like spinning the wheel, scratching cards, or answering quizzes. Each completed mission rewards you with coins.",
+  "hiwSpinWheelDesc": "Spin the lucky wheel to win instant coin rewards! Each spin can reward you with 10-500 coins.",
+  "hiwScratchCardsTitle": "Scratch Cards",
+  "hiwScratchCardsDesc": "Scratch virtual cards to reveal hidden coin rewards from 5 to 50 coins. Free cards daily!",
+  "hiwQuizGameTitle": "Quiz Game",
+  "hiwQuizGameDesc": "Answer trivia questions correctly to earn 22 coins per question. Build your combo streak.",
+  "hiwWatchAdsTitle": "Watch Ads",
+  "hiwWatchAdsDesc": "Watch short video ads to earn quick coins. Each ad rewards you instantly. Up to 10 ads per day.",
+  "hiwReferralTitle": "Referral System",
+  "hiwReferralDesc": "Share your referral code with friends. When they sign up and earn, you get bonus coins!",
+  "hiwWithdrawTitle": "Withdraw Money",
+  "hiwWithdrawDesc": "Once you reach the minimum threshold, convert your coins to real money via PayPal, bank transfer, or gift cards.",
+  "readyToStartEarning": "Ready to start earning?",
+  "backToHome": "Back to Home",
+
+  "navHome": "Home",
+  "navRank": "Rank",
+  "navRewards": "Rewards",
+  "navProfile": "Profile",
+
+  "noInternetConnection": "No Internet Connection",
+  "noInternetMessage": "Please check your connection and try again.",
+  "checking": "Checking...",
+  "retry": "Retry",
+
+  "appTitle": "Spin Craze",
+  "taglineWatch": "WATCH",
+  "taglineEarn": "EARN",
+  "taglinePlay": "PLAY",
+  "welcome": "Welcome",
+  "signInToAccessWallet": "Sign in to access your wallet",
+  "continueWithGoogle": "Continue with Google",
+  "continueAsGuest": "Continue as Guest",
+  "byConsentText": "By continuing, you agree to our",
+  "terms": "Terms",
+  "privacyPolicy": "Privacy Policy",
+
+  "onboardingDailyRewardsTitle": "Daily Rewards",
+  "onboardingDailyRewardsDesc": "You'll Get a Daily Points Reward, Which you can claim and increase you Points.",
+  "onboardingUltimateGamesTitle": "Ultimate Games",
+  "onboardingUltimateGamesDesc": "Get Multiple options for Games to Play and Get More Points.",
+  "onboardingTrackAchievementsTitle": "Track Achievements",
+  "onboardingTrackAchievementsDesc": "See your achievements and Track it with other user through Leatherboard",
+  "next": "Next",
+
+  "selectYourCountry": "Select Your Country",
+  "selectCountrySubtitle": "Choose where you are playing from so we can tailor rewards.",
+  "searchCountry": "Search country",
+  "noCountriesFound": "No countries found",
+  "pleaseSelectCountry": "Please select your country",
+
+  "selectYourCurrency": "Select Your Currency",
+  "selectCurrencySubtitle": "We'll show your reward balance in this currency.",
+  "searchCurrency": "Search currency",
+  "noCurrenciesFound": "No currencies found",
+  "pleaseSelectCurrency": "Please select your currency",
+
+  "gamesYouLove": "Games You Love",
+  "gamesYouLoveSubtitle": "Pick the games you enjoy — we'll surface ways to earn from them.",
+  "finish": "Finish",
+  "pleasePickGame": "Please pick at least one game",
+  "gamesSelected": "{count} selected",
+  "@gamesSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

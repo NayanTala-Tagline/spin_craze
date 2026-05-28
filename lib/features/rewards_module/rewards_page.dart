@@ -1,6 +1,7 @@
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/rewards_module/provider/rewards_provider.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/routes/app_router.dart';
@@ -56,7 +57,7 @@ class _RewardsBody extends StatelessWidget {
 
           return Column(
             children: [
-              const _GradientHeader(title: 'Rewards & Bonuses'),
+              _GradientHeader(title: context.l10n.rewardsAndBonuses),
               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.fromLTRB(
@@ -166,7 +167,7 @@ class _InviteStatsRow extends StatelessWidget {
         children: [
           Expanded(
             child: _InviteStatTile(
-              label: 'Friends Invited',
+              label: context.l10n.friendsInvited,
               value: '$friendsInvited',
               icon: Assets.icons.user,
               iconColor: _kPrimary,
@@ -175,7 +176,7 @@ class _InviteStatsRow extends StatelessWidget {
           SizedBox(width: AppSize.w12),
           Expanded(
             child: _InviteStatTile(
-              label: 'Coins Earned',
+              label: context.l10n.coinsEarned,
               value: '$coinsEarned',
               icon: Assets.icons.coins,
               iconColor: _kCoin,
@@ -280,7 +281,7 @@ class _LinkAccountCard extends StatelessWidget {
             ),
             SizedBox(height: AppSize.h8),
             Text(
-              'Link Your Account',
+              context.l10n.linkYourAccount,
               style: context.textTheme.titleSmall?.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w700,
@@ -288,7 +289,7 @@ class _LinkAccountCard extends StatelessWidget {
             ),
             SizedBox(height: AppSize.h6),
             Text(
-              'Sign in with Google to get your referral code and invite friends, Go to Profile and link your account.',
+              context.l10n.linkAccountDesc,
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: _kMutedText,
@@ -330,7 +331,7 @@ class _EnterReferralCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Enter Referral Code',
+            context.l10n.enterReferralCode,
             style: context.textTheme.titleSmall?.copyWith(
               color: Colors.black,
               fontWeight: FontWeight.w700,
@@ -348,7 +349,7 @@ class _EnterReferralCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                   decoration: InputDecoration(
-                    hintText: 'Have Promo Code',
+                    hintText: context.l10n.havePromoCode,
                     hintStyle: context.textTheme.bodyMedium?.copyWith(
                       color: _kMutedText,
                     ),
@@ -380,13 +381,13 @@ class _EnterReferralCard extends StatelessWidget {
               ),
               SizedBox(width: AppSize.w10),
               _PrimaryPill(
-                label: provider.isApplyingReferral ? '...' : 'Apply',
+                label: provider.isApplyingReferral ? '...' : context.l10n.apply,
                 expand: false,
                 onPressed: () {
                   if (isGuest) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Please link your account first'),
+                      SnackBar(
+                        content: Text(context.l10n.pleaseLink),
                       ),
                     );
                     return;
@@ -430,7 +431,7 @@ class _ReferralCodeCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Your Referral Code',
+            context.l10n.yourReferralCode,
             style: context.textTheme.titleSmall?.copyWith(
               color: Colors.black,
               fontWeight: FontWeight.w700,
@@ -443,8 +444,8 @@ class _ReferralCodeCard extends StatelessWidget {
               AnalyticsManager.instance.logEvent(name: 'referral_code_copied');
               Clipboard.setData(ClipboardData(text: code));
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Code copied!'),
+                SnackBar(
+                  content: Text(context.l10n.codeCopied),
                   duration: Duration(seconds: 2),
                 ),
               );
@@ -485,15 +486,14 @@ class _ReferralCodeCard extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h20),
           _PrimaryPill(
-            label: 'Share Link',
+            label: context.l10n.shareLink,
             onPressed: () async {
               AnalyticsManager.instance.logEvent(name: 'referral_code_shared');
+              final l10n = context.l10n;
               final appUrl = await getPlayStoreUrl();
               await SharePlus.instance.share(
                 ShareParams(
-                  text:
-                      'Join me on Earn Money and earn coins! Use my referral code: $code\n\n'
-                      'Download the app: $appUrl',
+                  text: l10n.shareMessage(code, appUrl),
                 ),
               );
             },

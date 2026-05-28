@@ -1,5 +1,6 @@
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
 import 'package:spin_craze/gen/fonts.gen.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
@@ -89,7 +90,7 @@ class _SupportPageState extends State<SupportPage> {
       );
       'Support ticket submitted'.logI;
       if (!mounted) return;
-      'Thanks! Message received.'.showSuccessAlert();
+      context.l10n.thanksMsgReceived.showSuccessAlert();
       context.pop();
     } catch (e) {
       AnalyticsManager.instance.logEvent(
@@ -98,7 +99,7 @@ class _SupportPageState extends State<SupportPage> {
       );
       'Failed to submit support ticket: $e'.logE;
       if (!mounted) return;
-      'Could not submit. Try again.'.showErrorAlert();
+      context.l10n.couldNotSubmit.showErrorAlert();
     } finally {
       if (mounted) setState(() => _submitting = false);
     }
@@ -106,6 +107,7 @@ class _SupportPageState extends State<SupportPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _statusBarStyle,
       child: DecoratedBox(
@@ -118,7 +120,7 @@ class _SupportPageState extends State<SupportPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _TopBar(
-                  title: 'Support',
+                  title: context.l10n.support,
                   onBack: () => context.pop(),
                 ),
                 Expanded(
@@ -136,7 +138,7 @@ class _SupportPageState extends State<SupportPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'How can we help?',
+                            context.l10n.howCanWeHelp,
                             style: TextStyle(
                               fontFamily: FontFamily.sFPro,
                               fontWeight: FontWeight.w800,
@@ -147,8 +149,7 @@ class _SupportPageState extends State<SupportPage> {
                           ),
                           SizedBox(height: AppSize.h10),
                           Text(
-                            'Tell us what went wrong or what you need a hand '
-                            'with. Our team reviews every message.',
+                            context.l10n.supportDesc,
                             style: TextStyle(
                               fontFamily: FontFamily.sFPro,
                               fontWeight: FontWeight.w400,
@@ -158,46 +159,46 @@ class _SupportPageState extends State<SupportPage> {
                             ),
                           ),
                           SizedBox(height: AppSize.h28),
-                          _FieldLabel('Title'),
+                          _FieldLabel(l10n.titleLabel),
                           SizedBox(height: AppSize.h10),
                           _SupportField(
                             controller: _titleController,
-                            hint: 'Short summary',
+                            hint: l10n.shortSummary,
                             maxLines: 1,
                             textInputAction: TextInputAction.next,
                             validator: (v) {
                               final value = v?.trim() ?? '';
                               if (value.isEmpty) {
-                                return 'Please add a title.';
+                                return l10n.pleaseAddTitle;
                               }
                               if (value.length < 3) {
-                                return 'Title is too short.';
+                                return l10n.titleTooShort;
                               }
                               return null;
                             },
                           ),
                           SizedBox(height: AppSize.h20),
-                          _FieldLabel('Description'),
+                          _FieldLabel(l10n.descriptionLabel),
                           SizedBox(height: AppSize.h10),
                           _SupportField(
                             controller: _descController,
-                            hint: 'Describe your issue...',
+                            hint: l10n.describeIssue,
                             maxLines: 6,
                             textInputAction: TextInputAction.newline,
                             validator: (v) {
                               final value = v?.trim() ?? '';
                               if (value.isEmpty) {
-                                return 'Please add a description.';
+                                return l10n.pleaseAddDesc;
                               }
                               if (value.length < 10) {
-                                return 'Description is too short.';
+                                return l10n.descTooShort;
                               }
                               return null;
                             },
                           ),
                           SizedBox(height: AppSize.h32),
                           GradientButton(
-                            text: 'Submit',
+                            text: l10n.submit,
                             onPressed: _submit,
                             isLoading: _submitting,
                             height: AppSize.h54,

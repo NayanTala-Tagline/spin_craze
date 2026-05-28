@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/res/theme_colors.dart';
 import 'package:spin_craze/routes/app_router.dart';
@@ -469,7 +470,7 @@ class _NoInternetView extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.h20),
                 Text(
-                  'No Internet Connection',
+                  context.l10n.noInternetConnection,
                   textAlign: TextAlign.center,
                   style: context.textTheme.titleMedium?.copyWith(
                     color: textColors.primary,
@@ -479,7 +480,7 @@ class _NoInternetView extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.h8),
                 Text(
-                  'Please check your connection and try again.',
+                  context.l10n.noInternetMessage,
                   textAlign: TextAlign.center,
                   style: context.textTheme.bodySmall?.copyWith(
                     color: textColors.muted,
@@ -488,7 +489,7 @@ class _NoInternetView extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.h24),
                 AppButton(
-                  label: retrying ? 'Checking...' : 'Retry',
+                  label: retrying ? context.l10n.checking : context.l10n.retry,
                   isLoading: retrying,
                   variant: AppButtonVariant.gradient,
                   onPressed: onRetry,

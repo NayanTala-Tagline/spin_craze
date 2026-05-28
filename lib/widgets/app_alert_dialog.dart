@@ -13,10 +13,12 @@ Future<bool?> showAppConfirmationDialog(
   BuildContext context, {
   required String title,
   required String message,
-  String confirmText = 'Confirm',
-  String cancelText = 'Cancel',
+  String? confirmText,
+  String? cancelText,
   bool destructive = false,
 }) {
+  final effectiveConfirm = confirmText ?? context.l10n.confirm;
+  final effectiveCancel = cancelText ?? context.l10n.cancel;
   return showDialog<bool>(
     context: context,
     barrierColor: context.themeColors.scrim,
@@ -50,7 +52,7 @@ Future<bool?> showAppConfirmationDialog(
                 children: [
                   Expanded(
                     child: AppButton(
-                      label: cancelText,
+                      label: effectiveCancel,
                       variant: AppButtonVariant.outline,
                       onPressed: () => ctx.pop(false),
                     ),
@@ -58,7 +60,7 @@ Future<bool?> showAppConfirmationDialog(
                   SizedBox(width: AppSize.w12),
                   Expanded(
                     child: AppButton(
-                      label: confirmText,
+                      label: effectiveConfirm,
                       variant: destructive
                           ? AppButtonVariant.accentGradient
                           : AppButtonVariant.gradient,

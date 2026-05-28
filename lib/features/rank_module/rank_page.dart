@@ -1,4 +1,5 @@
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/rank_module/model/leaderboard_user_model.dart';
 import 'package:spin_craze/features/rank_module/provider/rank_provider.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
@@ -87,7 +88,7 @@ class _RankBodyState extends State<_RankBody>
             body: Column(
               children: [
                 _GradientHeader(
-                  title: 'Leaderboard',
+                  title: context.l10n.leaderboard,
                   onBack: () =>
                       NavigationHelper().handleBackPress(context),
                 ),
@@ -525,14 +526,13 @@ class _PlayerRow extends StatelessWidget {
   String get _initial =>
       data.name.isNotEmpty ? data.name[0].toUpperCase() : '?';
 
-  String get _tier {
-    if (data.level >= 10) return 'Expert';
-    if (data.level >= 5) return 'Intermediate';
-    return 'Beginner';
-  }
-
   @override
   Widget build(BuildContext context) {
+    final tier = data.level >= 10
+        ? context.l10n.rankTierExpert
+        : data.level >= 5
+            ? context.l10n.rankTierIntermediate
+            : context.l10n.rankTierBeginner;
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppSize.w14,
@@ -573,7 +573,7 @@ class _PlayerRow extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.h2),
                 Text(
-                  'Lv. ${data.level}  $_tier',
+                  context.l10n.rankLevelTier(data.level, tier),
                   style: context.textTheme.bodySmall?.copyWith(
                     color: _kMutedText,
                     fontWeight: FontWeight.w500,
@@ -631,7 +631,7 @@ class _RefreshTimerRow extends StatelessWidget {
           ),
           SizedBox(width: AppSize.w8),
           Text(
-            canRefresh ? 'Pull down to refresh' : 'Refresh in $formattedTimer',
+            canRefresh ? context.l10n.pullDownRefresh : context.l10n.refreshIn(formattedTimer),
             style: context.textTheme.bodyMedium?.copyWith(
               color: canRefresh ? accent : _kMutedText,
               fontWeight: FontWeight.w600,
@@ -674,8 +674,8 @@ class _TableHeader extends StatelessWidget {
             child: Text('#', style: headerStyle),
           ),
           SizedBox(width: AppSize.w4 + AppSize.sp36 + AppSize.w12),
-          Expanded(child: Text('Player', style: headerStyle)),
-          Text('Coins', style: headerStyle),
+          Expanded(child: Text(context.l10n.rankPlayer, style: headerStyle)),
+          Text(context.l10n.coinsLabel, style: headerStyle),
         ],
       ),
     );

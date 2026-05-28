@@ -1,4 +1,5 @@
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/provider/open_ad_provider.dart';
 import 'package:spin_craze/utils/app_size.dart';
@@ -55,15 +56,14 @@ class _BottomNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
-  static final _items = <_NavItemData>[
-    _NavItemData('Home', Assets.images.navIcons.home),
-    _NavItemData('Rank', Assets.images.navIcons.rank),
-    _NavItemData('Rewards', Assets.images.navIcons.rewards),
-    _NavItemData('Profile', Assets.images.navIcons.user),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final items = <_NavItemData>[
+      _NavItemData(context.l10n.navHome, Assets.images.navIcons.home),
+      _NavItemData(context.l10n.navRank, Assets.images.navIcons.rank),
+      _NavItemData(context.l10n.navRewards, Assets.images.navIcons.rewards),
+      _NavItemData(context.l10n.navProfile, Assets.images.navIcons.user),
+    ];
     final radius = BorderRadius.circular(AppSize.r32);
 
     return Container(
@@ -92,9 +92,9 @@ class _BottomNavBar extends StatelessWidget {
         bottom: false,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(_items.length, (i) {
+          children: List.generate(items.length, (i) {
             return _NavItem(
-              data: _items[i],
+              data: items[i],
               selected: i == currentIndex,
               onTap: () => onTap(i),
             );

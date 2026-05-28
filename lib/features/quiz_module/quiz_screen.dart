@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/services/coin_service.dart';
 import 'package:spin_craze/services/reward_ad_service.dart';
@@ -395,7 +396,7 @@ class _QuizScreenState extends State<QuizScreen> {
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: CommonAppBar(title: 'Quiz', showBack: true),
+          appBar: CommonAppBar(title: context.l10n.quizTitle, showBack: true),
           body: SafeArea(
             top: false,
             child: Padding(
@@ -448,7 +449,7 @@ class _ProgressFooter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Questions $current/$total',
+          context.l10n.quizProgress(current, total),
           style: TextStyle(
             fontFamily: 'SFPro',
             color: const Color(0xFF0E1A2B),
@@ -651,7 +652,7 @@ class _ResultSheet extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h20),
           Text(
-            isLoss ? 'Oops!' : 'Congratulations..!',
+            isLoss ? context.l10n.spinOops : context.l10n.spinCongrats,
             style: context.textTheme.titleLarge?.copyWith(
               color: isLoss ? const Color(0xFFFF5183) : const Color(0xFFFFD84D),
               fontWeight: FontWeight.w800,
@@ -661,8 +662,8 @@ class _ResultSheet extends StatelessWidget {
           SizedBox(height: AppSize.h8),
           Text(
             isLoss
-                ? 'Better luck next time!'
-                : 'You scored $correctCount/$totalQuestions',
+                ? context.l10n.spinBetterLuck
+                : context.l10n.quizScore(correctCount, totalQuestions),
             style: context.textTheme.bodyLarge?.copyWith(
               color: textColors.primary,
               fontWeight: FontWeight.w500,
@@ -671,7 +672,7 @@ class _ResultSheet extends StatelessWidget {
           if (!isLoss) ...[
             SizedBox(height: AppSize.h4),
             Text(
-              'You won $totalCoins Coins',
+              context.l10n.spinWonCoins(totalCoins),
               style: context.textTheme.bodyMedium?.copyWith(
                 color: const Color(0xFFFFD84D),
                 fontWeight: FontWeight.w600,
@@ -682,7 +683,7 @@ class _ResultSheet extends StatelessWidget {
           if (!isLoss)
             AdDisclaimerText(show: RewardAdService.isMathQuizAdEnabled),
           _PaleCyanPill(
-            label: isLoss ? 'Try Again' : 'Claim Coins',
+            label: isLoss ? context.l10n.tryAgain : context.l10n.claimCoins,
             onPressed: onClaim,
           ),
         ],

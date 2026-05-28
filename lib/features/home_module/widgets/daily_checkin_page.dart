@@ -1,6 +1,7 @@
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
+import 'package:spin_craze/extension/ext_localization.dart';
 import 'package:spin_craze/features/home_module/provider/home_provider.dart';
 import 'package:spin_craze/gen/assets.gen.dart';
 import 'package:spin_craze/services/reward_ad_service.dart';
@@ -58,7 +59,7 @@ class DailyCheckinPage extends StatelessWidget {
                 centerTitle: true,
                 iconTheme: const IconThemeData(color: _kTextDark),
                 title: Text(
-                  'Daily Check-in',
+                  context.l10n.dailyCheckinTitle,
                   style: context.textTheme.titleMedium?.copyWith(
                     color: _kTextDark,
                     fontSize: AppSize.sp18,
@@ -178,7 +179,7 @@ class _TotalStreakCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Total Days Claimed',
+                  context.l10n.totalDaysClaimed,
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: _kTextMuted,
                     fontSize: AppSize.sp13,
@@ -186,7 +187,7 @@ class _TotalStreakCard extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.h4),
                 Text(
-                  '$totalDays Days',
+                  context.l10n.homeStreakDays(totalDays),
                   style: context.textTheme.titleLarge?.copyWith(
                     color: _kTextDark,
                     fontWeight: FontWeight.w800,
@@ -303,7 +304,7 @@ class _ProgressCardState extends State<_ProgressCard>
           _AnimatedTrophy(controller: _trophyController),
           SizedBox(height: AppSize.h14),
           Text(
-            'Daily Check-in Reward',
+            context.l10n.dailyCheckinReward,
             textAlign: TextAlign.center,
             style: context.textTheme.titleMedium?.copyWith(
               color: _kTextDark,
@@ -316,7 +317,7 @@ class _ProgressCardState extends State<_ProgressCard>
           SizedBox(height: AppSize.h18),
           if (widget.isClaimed)
             Text(
-              "You've already claimed today's reward.",
+              context.l10n.alreadyClaimedToday,
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: _kTextMuted,
@@ -327,7 +328,7 @@ class _ProgressCardState extends State<_ProgressCard>
             _CoinCounter(animation: _coinAnim),
             SizedBox(height: AppSize.h6),
             Text(
-              'Keep your streak going!',
+              context.l10n.keepStreakGoing,
               style: context.textTheme.bodySmall?.copyWith(
                 color: _kTextMuted,
                 fontSize: AppSize.sp13,
@@ -342,7 +343,7 @@ class _ProgressCardState extends State<_ProgressCard>
           SizedBox(height: AppSize.h20),
           AdDisclaimerText(show: RewardAdService.isDailyCheckinAdEnabled),
           _ClaimButton(
-            label: widget.isClaimed ? 'Claimed' : 'Claim Reward',
+            label: widget.isClaimed ? context.l10n.claimed : context.l10n.claimReward,
             onPressed: widget.onClaim,
             glowController: _glowController,
           ),
@@ -437,7 +438,7 @@ class _DayBadge extends StatelessWidget {
           ),
           SizedBox(width: AppSize.w6),
           Text(
-            'Day $day',
+            context.l10n.dayBadge(day),
             style: context.textTheme.bodyMedium?.copyWith(
               color: _kBlueDeep,
               fontSize: AppSize.sp13,
@@ -489,7 +490,7 @@ class _CoinCounter extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: AppSize.h6),
               child: Text(
-                'Coins',
+                context.l10n.coinsLabel,
                 style: context.textTheme.bodyMedium?.copyWith(
                   color: _kTextMuted,
                   fontSize: AppSize.sp14,
