@@ -100,6 +100,18 @@ class AppDB {
   set selectedGames(List<String> value) => setValue('selectedGames', value);
 
   // ==========================================================
+  // ONBOARDING COMPLETION
+  // ==========================================================
+
+  /// True once the user has walked through onboarding to the end (game-select
+  /// "Finish"). Drives the splash routing: completed users without a session
+  /// land on login instead of replaying onboarding.
+  bool get onboardingCompleted =>
+      getValue<bool>('onboardingCompleted', defaultValue: false);
+
+  set onboardingCompleted(bool value) => setValue('onboardingCompleted', value);
+
+  // ==========================================================
   // LEADERBOARD TIMER
   // ==========================================================
 
@@ -122,6 +134,7 @@ class AppDB {
         'leaderboardTimerExpiry',
         'internetStatus',
         'selectedLanguage',
+        'onboardingCompleted',
       };
       final keysToDelete = _box.keys
           .where((k) {

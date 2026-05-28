@@ -170,13 +170,13 @@ class RemoteConfigService {
 
   /// When `true`, always route straight to home from the splash screen and skip
   /// onboarding entirely (even on a fresh install).
-  bool get skipOnBoarding => _get('skip_onboarding', false) == true;
+  bool get skipOnBoarding => _get('skip_onboarding', false);
 
   /// When `true`, show the onboarding flow on every launch regardless of
   /// whether the user has completed it before. Ignored when [skipOnBoarding]
   /// is set.
   bool get showMultipleOnboarding =>
-      _get('show_multiple_onboarding', false) == true;
+      _get('show_multiple_onboarding', false);
 
   String get privacyPolicyUrl => _get('privacy_policy_url', '');
 

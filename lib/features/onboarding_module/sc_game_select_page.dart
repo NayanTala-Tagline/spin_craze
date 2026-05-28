@@ -78,6 +78,7 @@ class _ScGameSelectPageState extends State<ScGameSelectPage> {
       return;
     }
     _db.selectedGames = _selected.toList();
+    _db.onboardingCompleted = true;
     AnalyticsManager.instance.logEvent(
       name: 'onboarding_games_selected',
       parameters: {'count': _selected.length},

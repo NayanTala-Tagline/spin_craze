@@ -157,7 +157,7 @@ class _ScSplashScreenState extends State<ScSplashScreen>
       '⚠️ splash safety timer fired — forcing navigate'.logD;
       unawaited(_goNext());
     });
-    if (!_shouldGoHome()) {
+    if (_initialDestination() == AppRoutes.onboarding1) {
       _preloadOnboarding1Native();
     }
     unawaited(_runFullScreenFlow());
@@ -286,30 +286,38 @@ class _ScSplashScreenState extends State<ScSplashScreen>
     _navigated = true;
     _safetyTimer?.cancel();
 
-    if (_shouldGoHome()) {
-      // Home doesn't accept the onboarding native — dispose it locally so it
-      // doesn't leak waiting for the splash's dispose().
-      unawaited(_onboardingNative1?.dispose());
+    final dest = _initialDestination();
+
+    if (dest == AppRoutes.onboarding1) {
+      // Ownership of the preloaded native transfers to Onboarding screen 1.
+      final handoff = _onboardingNative1;
       _onboardingNative1 = null;
-      context.goNamed(AppRoutes.home);
+      context.goNamed(AppRoutes.onboarding1, extra: handoff);
       return;
     }
 
-    // Ownership of the preloaded native transfers to Onboarding screen 1.
-    final handoff = _onboardingNative1;
+    // home / login don't accept the onboarding native — dispose locally so it
+    // doesn't leak waiting for the splash's dispose().
+    unawaited(_onboardingNative1?.dispose());
     _onboardingNative1 = null;
-    context.goNamed(AppRoutes.onboarding1, extra: handoff);
+    context.goNamed(dest);
   }
 
   /// Routing decision after the splash flow:
-  ///   • `skip_onboarding` (RC)           → home (always, even on first launch).
-  ///   • `show_multiple_onboarding` (RC)  → onboarding (ignore prior completion).
-  ///   • otherwise → home if a user session exists, else onboarding.
-  bool _shouldGoHome() {
+  ///   • `show_multiple_onboarding` (RC)  → onboarding (replay, ignore prior completion).
+  ///   • logged-in user                   → home.
+  ///   • first launch (no prior onboarding) → onboarding — even if RC has
+  ///     `skip_onboarding` set; skipping a flow the user has never seen would
+  ///     drop them into login with no context.
+  ///   • onboarding already completed     → login (don't replay onboarding).
+  String _initialDestination() {
     final rc = RemoteConfigService.instance;
-    if (rc.skipOnBoarding) return true;
-    if (rc.showMultipleOnboarding) return false;
-    return Injector.instance<AppDB>().userModel != null;
+    final db = Injector.instance<AppDB>();
+
+    if (rc.showMultipleOnboarding) return AppRoutes.onboarding1;
+    if (db.userModel != null) return AppRoutes.home;
+    if (!db.onboardingCompleted) return AppRoutes.onboarding1;
+    return AppRoutes.login;
   }
 
   // ───────────────────────────────────────────────────────────────────────────
