@@ -5,9 +5,16 @@ import 'package:spin_craze/features/scratch_module/celebration_overlay.dart';
 import 'package:spin_craze/features/bottom_nav/bottom_nav_page.dart';
 import 'package:spin_craze/features/home_module/home_page.dart';
 import 'package:spin_craze/features/home_module/widgets/daily_checkin_page.dart';
+import 'package:ad_manager/ad_manager.dart';
+import 'package:spin_craze/features/splash_module/splash_page.dart';
 import 'package:spin_craze/features/onboarding_module/onboarding_page1.dart';
 import 'package:spin_craze/features/onboarding_module/onboarding_page2.dart';
 import 'package:spin_craze/features/onboarding_module/onboarding_page3.dart';
+import 'package:spin_craze/features/onboarding_module/country_page.dart';
+import 'package:spin_craze/features/onboarding_module/currency_page.dart';
+import 'package:spin_craze/features/onboarding_module/game_select_page.dart';
+import 'package:spin_craze/features/onboarding_module/provider/selection_ad_provider.dart'
+    show SelectionAds;
 import 'package:spin_craze/features/profile_module/profile_page.dart';
 import 'package:spin_craze/features/rank_module/rank_page.dart';
 import 'package:spin_craze/features/rewards_module/rewards_page.dart';
@@ -54,11 +61,10 @@ CustomTransitionPage<void> _fadeTransitionPage(GoRouterState state, Widget child
 }
 
 String _initialLocation() {
-  final db = Injector.instance<AppDB>();
-  // If the user is logged in (has a user model), go to home.
-  // Otherwise show onboarding which leads to login.
-  if (db.userModel != null) return '/${AppRoutes.home}';
-  return '/${AppRoutes.onboarding1}';
+  // Always start on the splash screen. It plays the intro animation, handles
+  // connectivity, shows the splash app-open ad, then routes to home or
+  // onboarding (see [SplashScreen]).
+  return '/${AppRoutes.splash}';
 }
 
 /// global GoRouter instance which has all page routes
@@ -75,14 +81,28 @@ final appRouter = GoRouter(
   },
   routes: [
     GoRoute(
-      path: '/${AppRoutes.onboarding1}',
-      name: AppRoutes.onboarding1,
+      path: '/${AppRoutes.splash}',
+      name: AppRoutes.splash,
       parentNavigatorKey: rootNavKey,
       pageBuilder: (context, state) {
         return MaterialPage(
           key: state.pageKey,
+          name: AppRoutes.splash,
+          child: const SplashScreen(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/${AppRoutes.onboarding1}',
+      name: AppRoutes.onboarding1,
+      parentNavigatorKey: rootNavKey,
+      pageBuilder: (context, state) {
+        // The splash screen hands off a preloaded native ad via `extra`.
+        final preloadedAd = state.extra as InlineAdManager?;
+        return MaterialPage(
+          key: state.pageKey,
           name: AppRoutes.onboarding1,
-          child: const OnboardingPage1(),
+          child: OnboardingPage1(preloadedNativeAd: preloadedAd),
         );
       },
     ),
@@ -158,11 +178,67 @@ final appRouter = GoRouter(
             preloadedAd1: args?.languageNativeAd,
             preloadedAd2: args?.languageNative2Ad,
             onContinue: isOnboarding
-                ? () => GoRouter.of(context).goNamed(AppRoutes.login)
+                ? (countryAds) => GoRouter.of(context).goNamed(
+                    AppRoutes.country,
+                    extra: countryAds,
+                  )
                 : null,
           ),
         );
       },
+    ),
+    // ── Onboarding selection sub-flow: country → currency → games → login ──
+    // Each screen pre-loads the next screen's ads and hands them off via
+    // `extra` so the next screen's native + interstitial are ready instantly.
+    GoRoute(
+      path: '/${AppRoutes.country}',
+      name: AppRoutes.country,
+      parentNavigatorKey: rootNavKey,
+      pageBuilder: (context, state) => _fadeTransitionPage(
+        state,
+        CountryPage(
+          preloaded: state.extra as SelectionAds?,
+          onContinue: (next) => GoRouter.of(context).goNamed(
+            AppRoutes.currency,
+            extra: next,
+          ),
+        ),
+      ),
+    ),
+    GoRoute(
+      path: '/${AppRoutes.currency}',
+      name: AppRoutes.currency,
+      parentNavigatorKey: rootNavKey,
+      pageBuilder: (context, state) => _fadeTransitionPage(
+        state,
+        CurrencyPage(
+          preloaded: state.extra as SelectionAds?,
+          onContinue: (next) => GoRouter.of(context).goNamed(
+            AppRoutes.gameSelect,
+            extra: next,
+          ),
+        ),
+      ),
+    ),
+    GoRoute(
+      path: '/${AppRoutes.gameSelect}',
+      name: AppRoutes.gameSelect,
+      parentNavigatorKey: rootNavKey,
+      pageBuilder: (context, state) => _fadeTransitionPage(
+        state,
+        GameSelectPage(
+          preloaded: state.extra as SelectionAds?,
+          onContinue: () {
+            // End of onboarding: if the user already has a session (e.g. a
+            // returning user replaying onboarding via show_multiple_onboarding),
+            // skip login and go straight home; otherwise send them to login.
+            final loggedIn = Injector.instance<AppDB>().userModel != null;
+            GoRouter.of(context).goNamed(
+              loggedIn ? AppRoutes.home : AppRoutes.login,
+            );
+          },
+        ),
+      ),
     ),
     GoRoute(
       path: '/${AppRoutes.support}',

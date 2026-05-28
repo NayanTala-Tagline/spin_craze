@@ -1,43 +1,52 @@
+import 'package:ad_manager/enum/ad_type.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdData {
   AdData({
     required this.adId,
     required this.enabled,
-    required this.templateType,
-    required this.isCustomAd,
-    required this.customAdHeight,
-    required this.customAdViewUrl,
-    required this.customAdUrl,
+    required this.adType,
+    this.templateType = TemplateType.medium,
+    this.height = 0,
+    this.customAdViewUrl = '',
+    this.customAdUrl = '',
   });
 
   String adId;
   bool enabled;
+  AdType adType;
   TemplateType templateType;
-  bool isCustomAd;
-  double customAdHeight;
+  double height;
   String customAdViewUrl;
   String customAdUrl;
 
   factory AdData.fromJson(Map<String, dynamic> data) => AdData(
-    adId: data['ad_id'],
-    enabled: data['enabled'],
-    templateType: data['template_type'] == 'medium' ? TemplateType.medium : TemplateType.small,
-    isCustomAd: data['is_custom_ad'],
-    customAdHeight: data['custom_ad_height'],
-    customAdViewUrl: data['custom_ad_view_url'],
-    customAdUrl: data['custom_ad_url'],
+    adId: data['ad_id'] ?? '',
+    enabled: data['enabled'] ?? false,
+    adType: _adTypeFromString(data['ad_type']),
+    templateType: _templateTypeFromString(data['template_type']),
+    height: (data['height'] ?? 0).toDouble(),
+    customAdViewUrl: data['custom_ad_view_url'] ?? '',
+    customAdUrl: data['custom_ad_url'] ?? '',
   );
 
   Map<String, dynamic> toJson() {
     return {
       'ad_id': adId,
       'enabled': enabled,
-      'template_type': templateType == TemplateType.medium ? 'medium' : 'small',
-      'is_custom_ad': isCustomAd,
-      'custom_ad_height': customAdHeight,
+      'ad_type': adType.name,
+      'template_type': templateType.name,
+      'height': height,
       'custom_ad_view_url': customAdViewUrl,
       'custom_ad_url': customAdUrl,
     };
+  }
+
+  static TemplateType _templateTypeFromString(String? value) {
+    return TemplateType.values.firstWhere((e) => e.name == value, orElse: () => TemplateType.small);
+  }
+
+  static AdType _adTypeFromString(String? value) {
+    return AdType.values.firstWhere((e) => e.name == value, orElse: () => AdType.native);
   }
 }

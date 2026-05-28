@@ -5,7 +5,7 @@ import 'package:spin_craze/features/onboarding_module/widgets/onboarding_step_in
 import 'package:spin_craze/features/onboarding_module/widgets/onboarding_ring_decor.dart';
 import 'package:spin_craze/gen/fonts.gen.dart';
 import 'package:spin_craze/utils/app_size.dart';
-import 'package:spin_craze/widgets/bottom_ads_widget.dart';
+import 'package:spin_craze/features/onboarding_module/widgets/ad_slot.dart';
 import 'package:spin_craze/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,6 +25,7 @@ class OnboardingScaffold extends StatefulWidget {
     required this.nextLabel,
     required this.onNext,
     this.nativeAd,
+    this.isLoading = false,
   });
 
   final int currentIndex;
@@ -33,7 +34,11 @@ class OnboardingScaffold extends StatefulWidget {
   final String description;
   final String nextLabel;
   final VoidCallback onNext;
-  final NativeAdManager? nativeAd;
+  final InlineAdManager? nativeAd;
+
+  /// When true the Next button shows a spinner and ignores taps — used while
+  /// the page's ads are still loading.
+  final bool isLoading;
 
   @override
   State<OnboardingScaffold> createState() => _OnboardingScaffoldState();
@@ -41,7 +46,7 @@ class OnboardingScaffold extends StatefulWidget {
 
 class _OnboardingScaffoldState extends State<OnboardingScaffold>
     with TickerProviderStateMixin {
-  static const _pageCount = 4;
+  static const _pageCount = 7;
   static const _nextGradient = LinearGradient(
     colors: [Color(0xFF1B4FF5), Color(0xFF0034D9)],
     begin: Alignment.topCenter,
@@ -225,6 +230,7 @@ class _OnboardingScaffoldState extends State<OnboardingScaffold>
                       child: GradientButton(
                         text: widget.nextLabel,
                         onPressed: widget.onNext,
+                        isLoading: widget.isLoading,
                         height: AppSize.h54,
                         borderRadius: 30,
                         gradient: _nextGradient,
@@ -238,13 +244,13 @@ class _OnboardingScaffoldState extends State<OnboardingScaffold>
                     ),
                   ),
                 ),
+                AdSlot(
+                  key: ValueKey(widget.currentIndex + 1),
+                  ad: widget.nativeAd,
+                ),
                 SizedBox(height: AppSize.h16),
               ],
             ),
-          ),
-          bottomNavigationBar: BottomAdsWidget(
-            key: ValueKey(widget.currentIndex + 1),
-            nativeAd: widget.nativeAd,
           ),
         ),
       ),

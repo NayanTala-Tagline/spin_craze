@@ -18,18 +18,24 @@ class RewardAdService {
     try {
       LoadingOverlay.instance().show(context: context);
 
-      final ad = RewardedAdManager(
+      final ad = FullScreenAdManager(
         adData: adData,
-        listener: RewardedAdLoadCallback(
-          onAdLoaded: (_) {},
-          onAdFailedToLoad: (_) {},
+        rewardedCallback: FullScreenContentCallback<RewardedAd>(
+          onAdDismissedFullScreenContent: (_) {},
+          onAdFailedToShowFullScreenContent: (_, _) {},
         ),
       );
 
-      ad.load();
+      await ad.load();
       await ad.future();
-      await ad.show(onUserEarnedReward: (_, _) {});
-      await Future.delayed(const Duration(milliseconds: 400));
+      if (context.mounted && ad.isLoaded) {
+        await ad.show(
+          context: context,
+          onUserEarnedReward: (_, _) {},
+        );
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 400));
+      await ad.dispose();
     } catch (_) {
       // Ad failed — proceed without blocking the reward
     } finally {

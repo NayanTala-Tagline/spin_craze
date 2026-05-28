@@ -2,13 +2,14 @@ import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_string_alert.dart';
+import 'package:spin_craze/features/onboarding_module/provider/selection_ad_provider.dart';
 import 'package:spin_craze/features/onboarding_module/widgets/onboarding_step_indicator.dart';
 import 'package:spin_craze/gen/fonts.gen.dart';
 import 'package:spin_craze/utils/anaytics_manager.dart';
 import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:spin_craze/utils/remote_config.dart';
-import 'package:spin_craze/widgets/bottom_ads_widget.dart';
+import 'package:spin_craze/features/onboarding_module/widgets/ad_slot.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -26,8 +27,8 @@ class LanguagePageArgs {
   });
 
   final bool isOnboarding;
-  final NativeAdManager? languageNativeAd;
-  final NativeAdManager? languageNative2Ad;
+  final InlineAdManager? languageNativeAd;
+  final InlineAdManager? languageNative2Ad;
 }
 
 // ── Palette ──────────────────────────────────────────────────────────────────
@@ -56,7 +57,7 @@ const _statusBarStyle = SystemUiOverlayStyle(
 ///
 /// 1. **Onboarding** ([isOnboarding] = `true`):
 ///    - No language is selected by default.
-///    - Shows `languageNative` in the [BottomAdsWidget] until the user taps a
+///    - Shows `languageNative` in the [AdSlot] until the user taps a
 ///      language; then swaps to `languageNative2`.
 ///    - "Get Started" is disabled until a language is picked; tapping it calls
 ///      [onContinue] which routes to login.
@@ -64,7 +65,7 @@ const _statusBarStyle = SystemUiOverlayStyle(
 /// 2. **Settings** ([isOnboarding] = `false`):
 ///    - Defaults to the language the user chose during onboarding (read from
 ///      [AppDB]). Falls back to English if none was saved.
-///    - Always shows the `languageNative` ad in the [BottomAdsWidget].
+///    - Always shows the `languageNative` ad in the [AdSlot].
 ///
 /// Ad managers are normally pre-loaded by the previous screen and passed in
 /// via [preloadedAd1] / [preloadedAd2]. When those are null (e.g. deep-link
@@ -79,22 +80,30 @@ class LanguagePage extends StatefulWidget {
   });
 
   final bool isOnboarding;
-  final VoidCallback? onContinue;
+
+  /// Called on "Get Started" (onboarding only); receives the country screen's
+  /// pre-loaded ads to hand off.
+  final void Function(SelectionAds? countryAds)? onContinue;
 
   /// `languageNative` ad manager pre-loaded by the previous screen.
-  final NativeAdManager? preloadedAd1;
+  final InlineAdManager? preloadedAd1;
 
   /// `languageNative2` ad manager pre-loaded by the previous screen (onboarding only).
-  final NativeAdManager? preloadedAd2;
+  final InlineAdManager? preloadedAd2;
 
   @override
   State<LanguagePage> createState() => _LanguagePageState();
 }
 
 class _LanguagePageState extends State<LanguagePage> {
-  NativeAdManager? _nativeAd1;
-  NativeAdManager? _nativeAd2;
+  InlineAdManager? _nativeAd1;
+  InlineAdManager? _nativeAd2;
   bool _showSecondAd = false;
+
+  /// Country screen ads pre-loaded while this screen is shown (onboarding only),
+  /// handed off to [CountryPage] on "Get Started".
+  SelectionAds? _countryAds;
+  bool _countryAdsTransferred = false;
 
   static const _languages = <Map<String, String>>[
     {'name': 'English', 'code': 'en', 'flag': '🇺🇸'},
@@ -124,6 +133,20 @@ class _LanguagePageState extends State<LanguagePage> {
     );
     _initSelectedLanguage();
     _initAds();
+    _preloadCountryAds();
+  }
+
+  /// Pre-load the next screen's (country) native + interstitial so they're
+  /// ready the moment the user taps "Get Started".
+  void _preloadCountryAds() {
+    if (!widget.isOnboarding) return;
+    final native = InlineAdManager(
+      adData: RemoteConfigService.instance.countryNative,
+    )..load();
+    final inter = FullScreenAdManager(
+      adData: RemoteConfigService.instance.countryInter,
+    )..load();
+    _countryAds = SelectionAds(native: native, inter: inter);
   }
 
   void _initSelectedLanguage() {
@@ -145,8 +168,8 @@ class _LanguagePageState extends State<LanguagePage> {
       });
     } else {
       final ad1Data = RemoteConfigService.instance.languageNative;
-      if (ad1Data.enabled || ad1Data.isCustomAd) {
-        _nativeAd1 = NativeAdManager(adData: ad1Data);
+      if (ad1Data.enabled || ad1Data.adType == AdType.custom) {
+        _nativeAd1 = InlineAdManager(adData: ad1Data);
         _nativeAd1!.load();
         _nativeAd1!.future().then((_) {
           if (mounted) setState(() {});
@@ -163,8 +186,8 @@ class _LanguagePageState extends State<LanguagePage> {
       });
     } else {
       final ad2Data = RemoteConfigService.instance.languageNative2;
-      if (ad2Data.enabled || ad2Data.isCustomAd) {
-        _nativeAd2 = NativeAdManager(adData: ad2Data);
+      if (ad2Data.enabled || ad2Data.adType == AdType.custom) {
+        _nativeAd2 = InlineAdManager(adData: ad2Data);
         _nativeAd2!.load();
         _nativeAd2!.future().then((_) {
           if (mounted) setState(() {});
@@ -177,6 +200,7 @@ class _LanguagePageState extends State<LanguagePage> {
   void dispose() {
     _nativeAd1?.dispose();
     _nativeAd2?.dispose();
+    if (!_countryAdsTransferred) _countryAds?.dispose();
     super.dispose();
   }
 
@@ -202,7 +226,7 @@ class _LanguagePageState extends State<LanguagePage> {
     }
   }
 
-  NativeAdManager? get _activeAd {
+  InlineAdManager? get _activeAd {
     if (widget.isOnboarding && _showSecondAd) return _nativeAd2;
     return _nativeAd1;
   }
@@ -217,7 +241,8 @@ class _LanguagePageState extends State<LanguagePage> {
       name: 'language_get_started',
       parameters: {'language': _selected ?? 'unknown'},
     );
-    widget.onContinue?.call();
+    _countryAdsTransferred = true;
+    widget.onContinue?.call(_countryAds);
   }
 
   void _onSave() {
@@ -324,9 +349,9 @@ class _LanguagePageState extends State<LanguagePage> {
             ),
           ),
 
-            bottomNavigationBar: BottomAdsWidget(
+            bottomNavigationBar: AdSlot(
               key: ValueKey(_showSecondAd ? 'ad2' : 'ad1'),
-              nativeAd: _activeAd,
+              ad: _activeAd,
             ),
           ),
         ),
@@ -358,7 +383,7 @@ class _OnboardingTopBar extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const OnboardingStepIndicator(currentPage: 3, pageCount: 4),
+          const OnboardingStepIndicator(currentPage: 3, pageCount: 7),
           const Spacer(),
           GestureDetector(
             behavior: HitTestBehavior.opaque,

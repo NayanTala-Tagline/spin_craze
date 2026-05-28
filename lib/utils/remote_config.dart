@@ -73,14 +73,11 @@ class RemoteConfigService {
       final Map<String, dynamic> data = {
         'ad_id': raw['ad_id'] ?? '',
         'enabled': raw['enabled'] ?? false,
+        'ad_type': raw['ad_type'] ?? 'native',
         'template_type': raw['template_type'] ?? 'small',
-        'is_custom_ad': raw['is_custom_ad'] ?? false,
-
-        // 🔥 INT → DOUBLE FIX
-        'custom_ad_height': (raw['custom_ad_height'] is num)
-            ? (raw['custom_ad_height'] as num).toDouble()
+        'height': (raw['height'] is num)
+            ? (raw['height'] as num).toDouble()
             : 0.0,
-
         'custom_ad_view_url': raw['custom_ad_view_url'] ?? '',
         'custom_ad_url': raw['custom_ad_url'] ?? '',
       };
@@ -96,9 +93,9 @@ class RemoteConfigService {
   Map<String, dynamic> _emptyAd() => {
     'ad_id': '',
     'enabled': false,
+    'ad_type': 'native',
     'template_type': 'small',
-    'is_custom_ad': false,
-    'custom_ad_height': 0.0,
+    'height': 0.0,
     'custom_ad_view_url': '',
     'custom_ad_url': '',
   };
@@ -116,6 +113,11 @@ class RemoteConfigService {
   // ---------------------------------------------------------------------------
 
   AdData get applicationAppOpen => _getAdData('application_app_open');
+
+  /// App-open / interstitial ad shown on the splash screen while the app warms
+  /// up. Configured separately from [applicationAppOpen] so it can be toggled
+  /// independently from Remote Config.
+  AdData get splashAppOpen => _getAdData('splash_app_open');
 
   AdData get languageNative => _getAdData('language_native');
   AdData get languageNative2 => _getAdData('language_native2');
@@ -136,7 +138,19 @@ class RemoteConfigService {
 
   AdData get appInter => _getAdData('app_inter');
 
+  AdData get bottomNavBanner1 => _getAdData('bottom_nav_banner_1');
+
   AdData get homeNative => _getAdData('home_native');
+
+  // Onboarding extras (country / currency / game select screens)
+  AdData get countryNative => _getAdData('country_native');
+  AdData get countryInter => _getAdData('country_inter');
+
+  AdData get currencyNative => _getAdData('currency_native');
+  AdData get currencyInter => _getAdData('currency_inter');
+
+  AdData get gameSelectNative => _getAdData('game_select_native');
+  AdData get gameSelectInter => _getAdData('game_select_inter');
 
   // AdData get settingNative => _getAdData('setting_native');
 
@@ -153,6 +167,16 @@ class RemoteConfigService {
   AdData get playGameReward => _getAdData('play_game_reward');
 
   int get appClickCounter => _get('app_click_counter', 15);
+
+  /// When `true`, always route straight to home from the splash screen and skip
+  /// onboarding entirely (even on a fresh install).
+  bool get skipOnBoarding => _get('skip_onboarding', false) == true;
+
+  /// When `true`, show the onboarding flow on every launch regardless of
+  /// whether the user has completed it before. Ignored when [skipOnBoarding]
+  /// is set.
+  bool get showMultipleOnboarding =>
+      _get('show_multiple_onboarding', false) == true;
 
   String get privacyPolicyUrl => _get('privacy_policy_url', '');
 

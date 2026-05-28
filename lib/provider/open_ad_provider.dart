@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/utils/logger.dart';
@@ -6,61 +8,67 @@ import 'package:spin_craze/widgets/loading_overlay/loading_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+/// App-open ad on resume. Reloads after every show so Remote Config can flip
+/// the slot's `ad_type` without breaking the cycle.
 class OpenAdProvider extends ChangeNotifier {
   OpenAdProvider();
+
+  FullScreenAdManager? _openAdManager;
+  AppLifecycleListener? _listener;
 
   void startOpenAdListener() {
     'is start'.logD;
     ignoreNextEvent = true;
-    loadOpenAppAd();
-    startStateListener();
+    _loadOpenAd();
+    _startStateListener();
   }
 
-  OpenAppAdManager? openAppAd;
-  AppLifecycleListener? _listener;
+  Future<void> _loadOpenAd() async {
+    final data = RemoteConfigService.instance.applicationAppOpen;
 
-  Future<void> loadOpenAppAd() async {
-    openAppAd = OpenAppAdManager(
-      adData: RemoteConfigService.instance.applicationAppOpen,
-      fullScreenContentCallback: FullScreenContentCallback(
-        onAdWillDismissFullScreenContent: (ad) {
-          loadOpenAppAd();
-        },
-        onAdFailedToShowFullScreenContent: (ad, error) {
-          loadOpenAppAd();
-        },
+    await _openAdManager?.dispose();
+    _openAdManager = FullScreenAdManager(
+      adData: data,
+      openAppCallback: FullScreenContentCallback<AppOpenAd>(
+        onAdWillDismissFullScreenContent: (_) => _loadOpenAd(),
+        onAdFailedToShowFullScreenContent: (_, _) => _loadOpenAd(),
+      ),
+      interstitialCallback: FullScreenContentCallback<InterstitialAd>(
+        onAdWillDismissFullScreenContent: (_) => _loadOpenAd(),
+        onAdFailedToShowFullScreenContent: (_, _) => _loadOpenAd(),
       ),
     );
-    await openAppAd?.load();
+    await _openAdManager?.load();
   }
 
-  Future<void> startStateListener() async {
+  Future<void> _startStateListener() async {
     _listener = AppLifecycleListener(
       onResume: () async {
         'on resume'.logD;
-        if (!RemoteConfigService.instance.applicationAppOpen.enabled &&
-            !RemoteConfigService.instance.applicationAppOpen.isCustomAd) {
-          return;
-        }
+        final data = RemoteConfigService.instance.applicationAppOpen;
+        if (!data.enabled) return;
         if (ignoreNextEvent) {
           ignoreNextEvent = false;
           return;
         }
-        //  ignoreNextEvent = true;
         final context = rootNavKey.currentContext;
-        if (context != null && context.mounted) {
-          final overlay = LoadingOverlay.instance()..show(context: context);
-          'overlay is show'.logD;
-          if (RemoteConfigService.instance.applicationAppOpen.isCustomAd) {
+        if (context == null || !context.mounted) return;
+
+        final overlay = LoadingOverlay.instance()..show(context: context);
+        'overlay is show'.logD;
+        try {
+          if (data.adType == AdType.custom) {
             ignoreNextEvent = true;
-            await Future.delayed(const Duration(milliseconds: 500));
-            launchUrlString(
-              RemoteConfigService.instance.applicationAppOpen.customAdUrl,
-            );
-          } else {
-            await openAppAd?.future();
-            await openAppAd?.show();
+            await Future<void>.delayed(const Duration(milliseconds: 500));
+            unawaited(launchUrlString(data.customAdUrl));
+            return;
           }
+
+          final ad = _openAdManager;
+          if (ad == null) return;
+          await ad.future();
+          if (ad.isLoaded) await ad.show();
+        } finally {
           overlay.hide();
         }
       },
@@ -69,7 +77,7 @@ class OpenAdProvider extends ChangeNotifier {
 
   @override
   void dispose() {
-    openAppAd?.dispose();
+    _openAdManager?.dispose();
     _listener?.dispose();
     super.dispose();
   }

@@ -22,6 +22,11 @@ final class AnalyticsManager {
   /// Get FirebaseAnalytics instance
   FirebaseAnalytics get analytics => _analytics;
 
+  // ---- Meta (Facebook) SDK instance ----
+
+  /// Get MetaSdk instance
+
+
   /// Set user ID for analytics tracking
   Future<void> setUserId(String userId) async {
     // if (kReleaseMode) {
@@ -59,6 +64,7 @@ final class AnalyticsManager {
         screenName: screenName,
         screenClass: screenClass,
       );
+
     // }
   }
 

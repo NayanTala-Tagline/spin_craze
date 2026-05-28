@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ad_manager/enum/ad_type.dart';
 import 'package:ad_manager/models/ad_data.dart';
 import 'package:ad_manager/utils/anaytics_manager.dart';
 import 'package:ad_manager/utils/revenue_handler.dart';
@@ -40,7 +41,7 @@ class NativeAdManager {
       return;
     }
 
-    if (adData.isCustomAd) {
+    if (adData.adType == AdType.custom) {
       adStatus = AdStatus.loaded;
       _completer.complete(AdStatus.loaded);
       return;
@@ -50,11 +51,16 @@ class NativeAdManager {
 
     adStatus = AdStatus.loading;
 
+    if (_ad != null) {
+      _ad!.dispose();
+      _ad = null;
+    }
+
     _ad = NativeAd(
       adUnitId: adData.adId,
+      factoryId: factoryId ?? "default_native_factory",
       request: const AdRequest(),
-     nativeTemplateStyle: NativeTemplateStyle(templateType: adData.templateType),
-      customOptions: {'type': adData.templateType == TemplateType.small ? 'simple' : 'media'},
+      nativeTemplateStyle: NativeTemplateStyle(templateType: adData.templateType),
       listener: NativeAdListener(
         onAdLoaded: (ad) {
           adStatus = AdStatus.loaded;
@@ -123,8 +129,10 @@ class NativeAdManager {
       return;
     }
 
+    _ad?.dispose();
+    _ad = null;
     _completer = Completer<AdStatus>();
-    adStatus = AdStatus.loading;
+    adStatus = AdStatus.idle;
 
     await load();
   }
@@ -138,28 +146,31 @@ class NativeAdManager {
   // AD WIDGET
   // -----------------------------
   Widget adWidget() {
-    if (adData.isCustomAd) {
-      return GestureDetector(
-        onTap: () {
-          launchUrlString(adData.customAdUrl);
-        },
-        behavior: HitTestBehavior.opaque,
-        child: Image.network(
-          width: double.maxFinite,
-          height: adData.customAdHeight,
-          adData.customAdViewUrl,
-          fit: BoxFit.cover,
-          gaplessPlayback: true,
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) {
-              return child;
-            }
-            return Shimmer.fromColors(
-              baseColor: Colors.grey.shade300,
-              highlightColor: Colors.grey.shade100,
-              child: SizedBox(width: double.infinity, height: adData.customAdHeight),
-            );
+    if (adData.adType == AdType.custom) {
+      return SizedBox(
+        height: adData.height > 0 ? adData.height : null,
+        child: GestureDetector(
+          onTap: () {
+            launchUrlString(adData.customAdUrl);
           },
+          behavior: HitTestBehavior.opaque,
+          child: Image.network(
+            width: double.maxFinite,
+            height: adData.height > 0 ? adData.height : null,
+            adData.customAdViewUrl,
+            fit: BoxFit.cover,
+            gaplessPlayback: true,
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Shimmer.fromColors(
+                baseColor: Colors.grey.shade300,
+                highlightColor: Colors.grey.shade100,
+                child: SizedBox(width: double.infinity, height: adData.height > 0 ? adData.height : null),
+              );
+            },
+          ),
         ),
       );
     }
@@ -168,7 +179,10 @@ class NativeAdManager {
       return const SizedBox.shrink();
     }
 
-    return AdWidget(ad: _ad!);
+    return SizedBox(
+      height: adData.height > 0 ? adData.height : null,
+      child: AdWidget(ad: _ad!),
+    );
   }
 
   // -----------------------------

@@ -30,11 +30,12 @@ class OnboardingPage3 extends StatelessWidget {
                 'See your achievements and Track it with other user through Leatherboard',
             nextLabel: 'Next',
             nativeAd: prov.nativeAd,
+            isLoading: prov.isLoading,
             onNext: () async {
               AnalyticsManager.instance.logEvent(
                 name: 'onboarding_completed',
               );
-              await prov.wait(prov.nativeAd3!, prov.interAd3!, context);
+              await prov.wait(prov.nativeAd3!, prov.interAd3!);
               await prov.interAd3?.show();
               if (context.mounted) {
                 final ads = prov.takeLanguageAds();

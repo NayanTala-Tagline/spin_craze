@@ -9,12 +9,18 @@ environment:
 
 dependencies:
   firebase_analytics: ^12.0.4
-  cloud_firestore: ^6.1.1
   flutter:
     sdk: flutter
-  google_mobile_ads: ^6.0.0
+  google_mobile_ads: ^7.0.0
   shimmer: ^3.0.0
   url_launcher: ^6.3.2
+
+  # Mediation adapters — each adds support for a network via AdMob mediation.
+  # Configure mediation groups in AdMob dashboard; no extra IDs needed in code.
+  gma_mediation_unity: ^1.6.5
+  gma_mediation_applovin: ^2.5.2
+  #TODO remove this in ios platform
+  gma_mediation_meta: ^1.5.1   # (latest stable — see note below)
 
 dev_dependencies:
   flutter_test:

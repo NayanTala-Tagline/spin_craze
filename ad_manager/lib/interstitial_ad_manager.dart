@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ad_manager/enum/ad_status.dart';
+import 'package:ad_manager/enum/ad_type.dart';
 import 'package:ad_manager/models/ad_data.dart';
 import 'package:ad_manager/utils/anaytics_manager.dart';
 import 'package:ad_manager/utils/revenue_handler.dart';
@@ -35,7 +36,7 @@ class InterstitialAdManager {
       return;
     }
 
-    if (adData.isCustomAd) {
+    if (adData.adType == AdType.custom) {
       adStatus = AdStatus.loaded;
       _completer.complete(AdStatus.loaded);
       return;
@@ -44,6 +45,11 @@ class InterstitialAdManager {
     if (isLoaded || isLoading) return;
 
     adStatus = AdStatus.loading;
+
+    if (_ad != null) {
+      _ad!.dispose();
+      _ad = null;
+    }
 
     try {
       await InterstitialAd.load(
@@ -99,8 +105,10 @@ class InterstitialAdManager {
       return;
     }
 
-    adStatus = AdStatus.loading;
+    _ad?.dispose();
+    _ad = null;
     _completer = Completer<AdStatus>();
+    adStatus = AdStatus.idle;
     await load();
   }
 
@@ -138,12 +146,12 @@ class InterstitialAdManager {
 
   /// Show the interstitial ad
   Future<bool> show() async {
-   if(!adData.isCustomAd){
-     if (!adData.enabled) return false;
-   }
-   if (!isLoaded || _ad == null) return false;
+    if (!adData.enabled) return false;
+    if (!isLoaded) return false;
+    if (_ad == null && adData.adType != AdType.custom) return false;
+
     try {
-      if (adData.isCustomAd) {
+      if (adData.adType == AdType.custom) {
         await launchUrlString(adData.customAdUrl);
       } else {
         await _ad!.show();
@@ -158,5 +166,6 @@ class InterstitialAdManager {
   Future<void> dispose() async {
     _ad?.dispose();
     _ad = null;
+    adStatus = AdStatus.idle;
   }
 }

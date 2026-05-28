@@ -28,12 +28,13 @@ class OnboardingPage2 extends StatelessWidget {
                 'Get Multiple options for Games to Play and Get More Points.',
             nextLabel: 'Next',
             nativeAd: prov.nativeAd,
+            isLoading: prov.isLoading,
             onNext: () async {
               AnalyticsManager.instance.logEvent(
                 name: 'onboarding_next',
                 parameters: {'page': 2},
               );
-              await prov.wait(prov.nativeAd2!, prov.interAd2!, context);
+              await prov.wait(prov.nativeAd2!, prov.interAd2!);
               await prov.interAd2?.show();
               if (context.mounted) {
                 context.goNamed(AppRoutes.onboarding3);

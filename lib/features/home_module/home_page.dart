@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:ad_manager/ad_manager.dart';
+// Home native ad disabled — not needed on this screen.
+// import 'package:ad_manager/ad_manager.dart';
 import 'package:spin_craze/db/app_db.dart';
 import 'package:spin_craze/di/injector.dart';
 import 'package:spin_craze/extension/ext_context.dart';
@@ -12,12 +13,14 @@ import 'package:spin_craze/utils/app_size.dart';
 import 'package:spin_craze/utils/remote_config.dart';
 import 'package:spin_craze/widgets/ad_disclaimer_text.dart';
 import 'package:spin_craze/widgets/coin_chip.dart';
-import 'package:spin_craze/widgets/native_ads_widget.dart';
 import 'package:spin_craze/routes/app_router.dart';
 import 'package:spin_craze/utils/navigation_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+// Home native ad disabled — not needed on this screen.
+// import '../onboarding_module/widgets/ad_slot.dart';
 
 // Local light-theme palette for the home screen (the rest of the app is still
 // dark themed — see CLAUDE.md "UI revamp pass").
@@ -44,7 +47,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _db = Injector.instance<AppDB>();
 
-  NativeAdManager? _homeNativeAd;
+  // Home native ad disabled — not needed on this screen.
+  // InlineAdManager? _homeNativeAd;
 
   @override
   void initState() {
@@ -53,19 +57,21 @@ class _HomePageState extends State<HomePage> {
       screenName: 'home',
       screenClass: 'HomePage',
     );
-    final adData = RemoteConfigService.instance.homeNative;
-    if (adData.enabled) {
-      _homeNativeAd = NativeAdManager(adData: adData);
-      _homeNativeAd!.load();
-      _homeNativeAd!.future().then((_) {
-        if (mounted) setState(() {});
-      });
-    }
+    // Home native ad load disabled — not needed on this screen.
+    // final adData = RemoteConfigService.instance.homeNative;
+    // if (adData.enabled) {
+    //   _homeNativeAd = InlineAdManager(adData: adData);
+    //   _homeNativeAd!.load();
+    //   _homeNativeAd!.future().then((_) {
+    //     if (mounted) setState(() {});
+    //   });
+    // }
   }
 
   @override
   void dispose() {
-    _homeNativeAd?.dispose();
+    // Home native ad disabled — not needed on this screen.
+    // _homeNativeAd?.dispose();
     super.dispose();
   }
 
@@ -126,8 +132,9 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: AppSize.h20),
                 _StatTilesRow(level: level, xp: xp),
                 SizedBox(height: AppSize.h20),
-                NativeAdsWidget(nativeAd: _homeNativeAd),
-                SizedBox(height: AppSize.h16),
+                // Home native ad disabled — not needed on this screen.
+                // AdSlot(ad: _homeNativeAd),
+                // SizedBox(height: AppSize.h16),
                 const _HowItWorksBanner(),
                 SizedBox(height: AppSize.h20),
                 const _Leaderboard(),

@@ -16,6 +16,11 @@ class AppRoutes {
   static const String language = 'language';
   static const String support = 'support';
 
+  // onboarding selection sub-flow (after language, before login)
+  static const String country = 'country';
+  static const String currency = 'currency';
+  static const String gameSelect = 'gameSelect';
+
   /// auth routes
   static const String login = 'login';
 

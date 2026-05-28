@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ad_manager/enum/ad_status.dart';
+import 'package:ad_manager/enum/ad_type.dart';
 import 'package:ad_manager/models/ad_data.dart';
 import 'package:ad_manager/utils/anaytics_manager.dart';
 import 'package:ad_manager/utils/revenue_handler.dart';
@@ -20,7 +21,9 @@ class BannerAdManager {
   AdStatus adStatus = AdStatus.idle;
   Completer<AdStatus> _completer = Completer<AdStatus>();
 
-  BannerAdManager(this._ad, {this.listener, required this.adData, required this.size}) {
+  double get _adHeight => adData.height > 0 ? adData.height : size.height.toDouble();
+
+  BannerAdManager({required this.adData, required this.size, this.listener}) {
     _ad = BannerAd(
       adUnitId: adData.adId,
       size: size,
@@ -74,52 +77,52 @@ class BannerAdManager {
   }
 
   Widget _buildShimmer() {
-    final height = size.height.toDouble();
-
     return Shimmer.fromColors(
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,
-      child: SizedBox(width: double.infinity, height: height),
+      child: SizedBox(width: double.infinity, height: _adHeight),
     );
   }
 
   Widget adWidget() {
-    if (adData.isCustomAd) {
-      return GestureDetector(
-        onTap: () {
-          launchUrlString(adData.customAdUrl);
-        },
-        behavior: HitTestBehavior.opaque,
-        child: Image.network(
-          height: adData.customAdHeight,
-          width: double.maxFinite,
-          adData.customAdViewUrl,
-          fit: BoxFit.cover,
-          loadingBuilder: (context, child, loadingProgress) {
-            return Shimmer.fromColors(
-              baseColor: Colors.grey.shade300,
-              highlightColor: Colors.grey.shade100,
-              child: SizedBox(width: double.infinity, height: adData.customAdHeight),
-            );
+    if (adData.adType == AdType.custom) {
+      return SizedBox(
+        height: _adHeight,
+        child: GestureDetector(
+          onTap: () {
+            launchUrlString(adData.customAdUrl);
           },
+          behavior: HitTestBehavior.opaque,
+          child: Image.network(
+            height: _adHeight,
+            width: double.maxFinite,
+            adData.customAdViewUrl,
+            fit: BoxFit.cover,
+            loadingBuilder: (context, child, loadingProgress) {
+              return Shimmer.fromColors(
+                baseColor: Colors.grey.shade300,
+                highlightColor: Colors.grey.shade100,
+                child: SizedBox(width: double.infinity, height: _adHeight),
+              );
+            },
+          ),
         ),
       );
     }
     if (isFailed) return const SizedBox.shrink();
 
     return SizedBox(
-      height: size.height.toDouble(),
-      child: isLoaded ? AdWidget(ad: _ad) : _buildShimmer(), // show shimmer until loaded
+      height: _adHeight,
+      child: isLoaded ? AdWidget(ad: _ad) : _buildShimmer(),
     );
   }
 
-  /// Starts loading the banner ad.
   Future<void> load() async {
     if (!adData.enabled) {
       adStatus = AdStatus.disabled;
     }
 
-    if (adData.isCustomAd) {
+    if (adData.adType == AdType.custom) {
       adStatus = AdStatus.loaded;
       return;
     }
@@ -129,7 +132,6 @@ class BannerAdManager {
     await _ad.load();
   }
 
-  /// reloads ad (call incase [load] is failed and you want to reload)
   Future<void> reload() async {
     if (!adData.enabled) {
       adStatus = AdStatus.disabled;
@@ -140,12 +142,9 @@ class BannerAdManager {
     await _ad.load();
   }
 
-  /// Future that completes when ad is loaded or fails.
-  Future<void> future() => _completer.future;
+  Future<AdStatus> future() => _completer.future;
 
-  /// The underlying BannerAd (e.g. for AdWidget).
   BannerAd get ad => _ad;
 
-  /// Frees resources. Call this when the ad is no longer needed.
   Future<void> dispose() => _ad.dispose();
 }

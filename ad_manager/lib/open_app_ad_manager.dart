@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ad_manager/enum/ad_status.dart';
+import 'package:ad_manager/enum/ad_type.dart';
 import 'package:ad_manager/models/ad_data.dart';
 import 'package:ad_manager/utils/anaytics_manager.dart';
 import 'package:ad_manager/utils/revenue_handler.dart';
@@ -35,7 +36,7 @@ class OpenAppAdManager {
       return;
     }
 
-    if (adData.isCustomAd) {
+    if (adData.adType == AdType.custom) {
       adStatus = AdStatus.loaded;
       _completer.complete(AdStatus.loaded);
       return;
@@ -44,6 +45,11 @@ class OpenAppAdManager {
     if (isLoaded || isLoading) return;
 
     adStatus = AdStatus.loading;
+
+    if (_ad != null) {
+      _ad!.dispose();
+      _ad = null;
+    }
 
     try {
       await AppOpenAd.load(
@@ -99,8 +105,10 @@ class OpenAppAdManager {
       adStatus = AdStatus.disabled;
       return;
     }
-    adStatus = AdStatus.loading;
+    _ad?.dispose();
+    _ad = null;
     _completer = Completer<AdStatus>();
+    adStatus = AdStatus.idle;
     await load();
   }
 
@@ -145,7 +153,7 @@ class OpenAppAdManager {
     if (_isShowingAd) return false;
 
     try {
-      if (adData.isCustomAd) {
+      if (adData.adType == AdType.custom) {
         await launchUrlString(adData.customAdUrl);
       } else {
         await _ad!.show();

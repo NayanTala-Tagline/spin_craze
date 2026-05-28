@@ -79,6 +79,27 @@ class AppDB {
   }
 
   // ==========================================================
+  // ONBOARDING SELECTIONS (country / currency / favourite games)
+  // ==========================================================
+
+  /// Selected country ISO-3166 alpha-2 code (e.g. `US`, `IN`).
+  String? get selectedCountry => getValue<String?>('selectedCountry');
+  set selectedCountry(String? value) => setValue('selectedCountry', value);
+
+  /// Selected currency code (e.g. `USD`, `INR`).
+  String? get selectedCurrency => getValue<String?>('selectedCurrency');
+  set selectedCurrency(String? value) => setValue('selectedCurrency', value);
+
+  /// Ids of the games the user said they like.
+  List<String> get selectedGames {
+    final raw = getValue<List<dynamic>?>('selectedGames');
+    if (raw == null) return const [];
+    return raw.map((e) => e.toString()).toList();
+  }
+
+  set selectedGames(List<String> value) => setValue('selectedGames', value);
+
+  // ==========================================================
   // LEADERBOARD TIMER
   // ==========================================================
 

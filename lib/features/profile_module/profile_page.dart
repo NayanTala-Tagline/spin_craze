@@ -32,11 +32,11 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage>
     with TickerProviderStateMixin {
   final _db = Injector.instance<AppDB>();
-  NativeAdManager? _settingNativeAd;
+  InlineAdManager? _settingNativeAd;
 
   /// Pre-loaded so the language page can show its native ad immediately.
   /// Handed off to the language page on tap — we stop owning it after that.
-  NativeAdManager? _languageNativeAd;
+  InlineAdManager? _languageNativeAd;
   bool _languageAdTransferred = false;
 
   late final AnimationController _entrance;
@@ -64,8 +64,8 @@ class _ProfilePageState extends State<ProfilePage>
 
     // Pre-load the language page ad so it's ready on navigation.
     final langAdData = RemoteConfigService.instance.languageNative;
-    if (langAdData.enabled || langAdData.isCustomAd) {
-      _languageNativeAd = NativeAdManager(adData: langAdData);
+    if (langAdData.enabled || langAdData.adType == AdType.custom) {
+      _languageNativeAd = InlineAdManager(adData: langAdData);
       _languageNativeAd!.load();
     }
   }
