@@ -598,9 +598,6 @@ class _ScResultSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = context.themeTextColors;
-    final colors = context.themeColors;
-
     return Container(
       width: double.infinity,
       padding: EdgeInsets.fromLTRB(
@@ -610,24 +607,13 @@ class _ScResultSheet extends StatelessWidget {
         AppSize.h32,
       ),
       decoration: BoxDecoration(
-        color: colors.card,
+        color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.r24)),
-        border: Border(
-          top: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          left: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-          right: BorderSide(
-            color: const Color(0xFF29B0E6).withValues(alpha: 0.4),
-          ),
-        ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF00B7FF).withValues(alpha: 0.2),
-            blurRadius: AppSize.r24,
-            offset: Offset(0, -AppSize.h6),
+            color: const Color(0xFF0B1F4D).withValues(alpha: 0.14),
+            blurRadius: AppSize.r32,
+            offset: Offset(0, -AppSize.h4),
           ),
         ],
       ),
@@ -640,7 +626,7 @@ class _ScResultSheet extends StatelessWidget {
             height: AppSize.h4,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSize.r100),
-              color: textColors.muted,
+              color: const Color(0xFFE5EBF5),
             ),
           ),
           SizedBox(height: AppSize.h20),
@@ -654,7 +640,7 @@ class _ScResultSheet extends StatelessWidget {
           Text(
             isLoss ? context.l10n.spinOops : context.l10n.spinCongrats,
             style: context.textTheme.titleLarge?.copyWith(
-              color: isLoss ? const Color(0xFFFF5183) : const Color(0xFFFFD84D),
+              color: isLoss ? const Color(0xFFFF5183) : const Color(0xFF111827),
               fontWeight: FontWeight.w800,
               fontSize: AppSize.sp24,
             ),
@@ -665,7 +651,7 @@ class _ScResultSheet extends StatelessWidget {
                 ? context.l10n.spinBetterLuck
                 : context.l10n.quizScore(correctCount, totalQuestions),
             style: context.textTheme.bodyLarge?.copyWith(
-              color: textColors.primary,
+              color: isLoss ? const Color(0xFFFF5183) : const Color(0xFF6B7280),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -674,7 +660,7 @@ class _ScResultSheet extends StatelessWidget {
             Text(
               context.l10n.spinWonCoins(totalCoins),
               style: context.textTheme.bodyMedium?.copyWith(
-                color: const Color(0xFFFFD84D),
+                color: const Color(0xFF3A6BFF),
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -716,14 +702,13 @@ class _ScPaleCyanPill extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: radius,
             gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFF9AE0FA), Color(0xFF5CCBF7)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFF3A6BFF), Color(0xFF1E3FE0)],
             ),
-            border: Border.all(color: const Color(0xFFB8ECFF)),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF5CCBF7).withValues(alpha: 0.4),
+                color: const Color(0xFF2563EB).withValues(alpha: 0.35),
                 blurRadius: AppSize.r16,
                 offset: Offset(0, AppSize.h4),
               ),
@@ -732,7 +717,7 @@ class _ScPaleCyanPill extends StatelessWidget {
           child: Text(
             label,
             style: context.textTheme.labelLarge?.copyWith(
-              color: const Color(0xFF003A52),
+              color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
           ),

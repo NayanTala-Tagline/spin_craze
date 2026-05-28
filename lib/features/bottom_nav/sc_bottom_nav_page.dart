@@ -173,6 +173,7 @@ class _ScNavItem extends StatelessWidget {
                   SizedBox(height: AppSize.h6),
                   Text(
                     data.label,
+                    overflow: TextOverflow.ellipsis,
                     style: context.textTheme.bodySmall?.copyWith(
                       color: textColor,
                       fontSize: AppSize.sp13,
