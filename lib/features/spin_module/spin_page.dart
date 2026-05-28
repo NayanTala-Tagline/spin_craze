@@ -361,7 +361,7 @@ class _WheelWithPointer extends StatelessWidget {
               // 1. Static background: golden ring + grey rim (spin_wheel_bg.png)
               Positioned(
                 top: -3.5,
-                child: Assets.images.spin.spinWheelBg.image(
+                child: Assets.images.spin.scSpinWheelBg.image(
                   width: size,
                   height: size,
                   fit: BoxFit.contain,
@@ -379,7 +379,7 @@ class _WheelWithPointer extends StatelessWidget {
               // 3. Fixed gold pointer/cap at the top (spin_cap.png)
               Positioned(
                 top: -2.5,
-                child: Assets.images.spin.spinCap.image(
+                child: Assets.images.spin.scSpinCap.image(
                   height: size * 0.12,
                   fit: BoxFit.contain,
                 ),
@@ -499,7 +499,7 @@ class _CongratsDialogState extends State<_CongratsDialog>
                       ),
                     );
                   },
-                  child: Assets.images.trackAchievments.image(
+                  child: Assets.images.scTrackAchievments.image(
                     height: AppSize.sp120,
                     width: AppSize.sp120,
                     fit: BoxFit.contain,

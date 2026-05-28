@@ -25,7 +25,7 @@ class OnboardingPage3 extends StatelessWidget {
         builder: (context, prov, _) {
           return OnboardingScaffold(
             currentIndex: 2,
-            image: Assets.images.trackAchievments.image(),
+            image: Assets.images.scTrackAchievments.image(),
             title: context.l10n.onboardingTrackAchievementsTitle,
             description: context.l10n.onboardingTrackAchievementsDesc,
             nextLabel: context.l10n.next,

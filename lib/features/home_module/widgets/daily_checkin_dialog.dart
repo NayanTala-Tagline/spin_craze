@@ -234,7 +234,7 @@ class _AnimatedTrophy extends StatelessWidget {
             ],
           );
         },
-        child: Assets.images.dailyRewardTrophy.image(
+        child: Assets.images.scDailyRewardTrophy.image(
           width: AppSize.w90,
           height: AppSize.h90,
           fit: BoxFit.contain,
@@ -268,7 +268,7 @@ class _DayBadge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Assets.icons.flame.svg(
+          Assets.icons.scFlame.svg(
             height: AppSize.sp14,
             width: AppSize.sp14,
             colorFilter: const ColorFilter.mode(
@@ -311,7 +311,7 @@ class _CoinCounter extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(bottom: AppSize.h2),
-              child: Assets.images.gift.image(
+              child: Assets.images.scGift.image(
                 height: AppSize.sp30,
                 width: AppSize.sp30,
               ),

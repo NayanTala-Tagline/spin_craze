@@ -332,7 +332,7 @@ class _VisitTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Assets.icons.icWebVisits.svg(
+            Assets.icons.scIcWebVisits.svg(
               height: AppSize.sp32,
               width: AppSize.sp36,
             ),
@@ -355,7 +355,7 @@ class _VisitTile extends StatelessWidget {
                   SizedBox(height: AppSize.h6),
                   Row(
                     children: [
-                      Assets.icons.coins.svg(
+                      Assets.icons.scCoins.svg(
                         height: AppSize.sp14,
                         width: AppSize.sp14,
                       ),
@@ -576,7 +576,7 @@ class _MissionBriefDialogState extends State<_MissionBriefDialog>
             scale: _imgScale,
             child: RotationTransition(
               turns: _imgSwing,
-              child: Assets.images.missionBrief.image(
+              child: Assets.images.scMissionBrief.image(
                 height: AppSize.sp114,
                 width: AppSize.sp114,
                 fit: BoxFit.contain,
@@ -730,7 +730,7 @@ class _CongratsDialogState extends State<_CongratsDialog>
             ),
             child: ScaleTransition(
               scale: _imgScale,
-              child: Assets.images.gift.image(
+              child: Assets.images.scGift.image(
                 height: AppSize.sp114,
                 width: AppSize.sp114,
                 fit: BoxFit.contain,

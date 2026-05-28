@@ -91,7 +91,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Google Wallet",
-          Assets.cashWithdrawIcons.icGooglewallet.image(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcGooglewallet.image(width: AppSize.w24),
           Color(0xFF3a7af2),
           FormData(
             "Google Pay Number",
@@ -135,7 +135,7 @@ class WalletProvider extends ChangeNotifier {
         // Europe / Asia wallets
         WalletItem(
           "Alipay",
-          Assets.cashWithdrawIcons.icAlipay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcAlipay.svg(width: AppSize.w24),
           Color(0xFF166bff),
           FormData(
             "Alipay ID",
@@ -289,7 +289,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Revolut",
-          Assets.cashWithdrawIcons.icRevolut.image(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcRevolut.image(width: AppSize.w24),
           Color(0xFF0066FF),
           FormData(
             "Ravtag / IBAN",
@@ -299,7 +299,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Monzo",
-          Assets.cashWithdrawIcons.icMonzo.image(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMonzo.image(width: AppSize.w24),
           Color(0xFF1A2E5A),
           FormData(
             "Account / Sort Code",
@@ -313,7 +313,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "N26",
-          Assets.cashWithdrawIcons.icN26.image(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcN26.image(width: AppSize.w24),
           Color(0xFF00C1B2),
           FormData(
             "IBAN",
@@ -337,7 +337,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Starling Bank",
-          Assets.cashWithdrawIcons.icStarlingbank.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcStarlingbank.svg(width: AppSize.w24),
           Color(0xFF00b9aa),
           FormData(
             "Account Number",
@@ -347,7 +347,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "iDEAL",
-          Assets.cashWithdrawIcons.icIdeal.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcIdeal.svg(width: AppSize.w24),
           Color(0xFFFFFFFF),
           FormData(
             "IBAN",
@@ -361,7 +361,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Tikkie",
-          Assets.cashWithdrawIcons.icTikkie.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcTikkie.svg(width: AppSize.w24),
           Color(0xFFff5f00),
           FormData(
             "Tikkie Link/Number",
@@ -371,7 +371,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Vipps",
-          Assets.cashWithdrawIcons.icVipps.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcVipps.svg(width: AppSize.w24),
           Color(0xFFff5020),
           FormData(
             "Vipps Number",
@@ -381,7 +381,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "MobilePay",
-          Assets.cashWithdrawIcons.icMobilepay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMobilepay.svg(width: AppSize.w24),
           Color(0xFF00509b),
           FormData(
             "MobilePay Number",
@@ -391,7 +391,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Swish",
-          Assets.cashWithdrawIcons.icSwish.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcSwish.svg(width: AppSize.w24),
           Color(0xFF02ab81),
           FormData(
             "Swish Number",
@@ -401,7 +401,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "BLIK",
-          Assets.cashWithdrawIcons.icBlik.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcBlik.svg(width: AppSize.w24),
           Color(0xFFfc342a),
           FormData(
             "BLIK Code",
@@ -411,7 +411,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Lydia",
-          Assets.cashWithdrawIcons.icLydia.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcLydia.svg(width: AppSize.w24),
           Color(0xFF612670),
           FormData(
             "Lydia Number",
@@ -421,7 +421,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "PayLib",
-          Assets.cashWithdrawIcons.icPaylib.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcPaylib.svg(width: AppSize.w24),
           Color(0xFF3c4985),
           FormData(
             "PayLib Number",
@@ -431,7 +431,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Twint",
-          Assets.cashWithdrawIcons.icTwint.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcTwint.svg(width: AppSize.w24),
           Color(0xFF652786),
           FormData(
             "Twint Number",
@@ -441,7 +441,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Satispay",
-          Assets.cashWithdrawIcons.icSatispay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcSatispay.svg(width: AppSize.w24),
           Color(0xFFff5035),
           FormData(
             "Satispay Number",
@@ -451,7 +451,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "iyzico",
-          Assets.cashWithdrawIcons.icIyzico.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcIyzico.svg(width: AppSize.w24),
           Color(0xFF2882ff),
           FormData(
             "Account ID",
@@ -463,7 +463,7 @@ class WalletProvider extends ChangeNotifier {
         // Africa / Middle East
         WalletItem(
           "M-Pesa",
-          Assets.cashWithdrawIcons.icMpesa.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMpesa.svg(width: AppSize.w24),
           Color(0xFF009c46),
           FormData(
             "M-Pesa Number",
@@ -473,7 +473,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "OPay",
-          Assets.cashWithdrawIcons.icOpay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcOpay.svg(width: AppSize.w24),
           Color(0xFF1DC45A),
           FormData(
             "OPay Number",
@@ -483,7 +483,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Orange Money",
-          Assets.cashWithdrawIcons.icOrangemoney.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcOrangemoney.svg(width: AppSize.w24),
           Color(0xFFFF7900),
           FormData(
             "Orange Money Number",
@@ -493,7 +493,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "MTN Mobile",
-          Assets.cashWithdrawIcons.icMynmobile.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMynmobile.svg(width: AppSize.w24),
           Color(0xFFFFCC00),
           FormData(
             "MTN Mobile Number",
@@ -503,7 +503,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Chipper Cash",
-          Assets.cashWithdrawIcons.icChippercash.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcChippercash.svg(width: AppSize.w24),
           Color(0xFF0066FF),
           FormData(
             "Chipper Tag",
@@ -525,7 +525,7 @@ class WalletProvider extends ChangeNotifier {
         // India / Africa banks
         WalletItem(
           "Baxi",
-          Assets.cashWithdrawIcons.icBaxi.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcBaxi.svg(width: AppSize.w24),
           Color(0xFF007BFF),
           FormData(
             "Baxi Account",
@@ -535,7 +535,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Capitec Pay",
-          Assets.cashWithdrawIcons.icCapitecpay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcCapitecpay.svg(width: AppSize.w24),
           Color(0xFF00B14F),
           FormData(
             "ID / Phone",
@@ -549,7 +549,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "SnapScan",
-          Assets.cashWithdrawIcons.icSnapscan.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcSnapscan.svg(width: AppSize.w24),
           Color(0xFF0033A0),
           FormData(
             "SnapScan ID",
@@ -559,7 +559,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "NatsWallet",
-          Assets.cashWithdrawIcons.icNasswallet.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcNasswallet.svg(width: AppSize.w24),
           Color(0xFFF5A623),
           FormData(
             "Card/Account",
@@ -573,7 +573,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Onafriq",
-          Assets.cashWithdrawIcons.icOnafriq.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcOnafriq.svg(width: AppSize.w24),
           Color(0xFFE53935),
           FormData(
             "User ID",
@@ -589,7 +589,7 @@ class WalletProvider extends ChangeNotifier {
         // Middle East
         WalletItem(
           "STC Pay",
-          Assets.cashWithdrawIcons.icStcpay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcStcpay.svg(width: AppSize.w24),
           Color(0xFF6A1B9A),
           FormData(
             "STC Pay Number",
@@ -599,7 +599,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Vodafone Cash",
-          Assets.cashWithdrawIcons.icVodafonecash.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcVodafonecash.svg(width: AppSize.w24),
           Color(0xFFE60000),
           FormData(
             "Vodafone Number",
@@ -609,7 +609,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Careem Pay",
-          Assets.cashWithdrawIcons.icCareempay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcCareempay.svg(width: AppSize.w24),
           Color(0xFF00C853),
           FormData(
             "Careem Number",
@@ -621,7 +621,7 @@ class WalletProvider extends ChangeNotifier {
         // Egypt
         WalletItem(
           "InstaPay",
-          Assets.cashWithdrawIcons.icInstapay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcInstapay.svg(width: AppSize.w24),
           Color(0xFF0070BA),
           FormData(
             "InstaPay Address",
@@ -631,7 +631,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "myfawry",
-          Assets.cashWithdrawIcons.icMyfawry.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMyfawry.svg(width: AppSize.w24),
           Color(0xFFF9B233),
           FormData(
             "Fawry Number",
@@ -641,7 +641,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "BenefitPay",
-          Assets.cashWithdrawIcons.icBenefitpay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcBenefitpay.svg(width: AppSize.w24),
           Color(0xFF00A3E0),
           FormData(
             "BenefitPay Number",
@@ -651,7 +651,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Meeza",
-          Assets.cashWithdrawIcons.icMeeza.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMeeza.svg(width: AppSize.w24),
           Color(0xFF009639),
           FormData(
             "Meeza Card/Wallet",
@@ -661,7 +661,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "valU",
-          Assets.cashWithdrawIcons.icValu.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcValu.svg(width: AppSize.w24),
           Color(0xFF0088FF),
           FormData(
             "valU Account",
@@ -673,7 +673,7 @@ class WalletProvider extends ChangeNotifier {
         // LATAM
         WalletItem(
           "Nubank",
-          Assets.cashWithdrawIcons.icNubank.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcNubank.svg(width: AppSize.w24),
           Color(0xFF8A05BE),
           FormData(
             "Pix Key / Account",
@@ -683,7 +683,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "PicPay",
-          Assets.cashWithdrawIcons.icPicpay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcPicpay.svg(width: AppSize.w24),
           Color(0xFF21C25E),
           FormData(
             "PicPay Username / Pix",
@@ -693,7 +693,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Mercado Pago",
-          Assets.cashWithdrawIcons.icMercadopago.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMercadopago.svg(width: AppSize.w24),
           Color(0xFF009EE3),
           FormData(
             "Email / CVU",
@@ -703,7 +703,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Nequi",
-          Assets.cashWithdrawIcons.icNequi.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcNequi.svg(width: AppSize.w24),
           Color(0xFF6A00FF),
           FormData(
             "Nequi Number",
@@ -713,7 +713,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Daviplata",
-          Assets.cashWithdrawIcons.icDaviplata.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcDaviplata.svg(width: AppSize.w24),
           Color(0xFFE30613),
           FormData(
             "Daviplata Number",
@@ -723,7 +723,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Yape",
-          Assets.cashWithdrawIcons.icYape.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcYape.svg(width: AppSize.w24),
           Color(0xFF6A1B9A),
           FormData(
             "Yape Number",
@@ -733,7 +733,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Plin",
-          Assets.cashWithdrawIcons.icPlin.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcPlin.svg(width: AppSize.w24),
           Color(0xFF00AEEF),
           FormData(
             "Plin Number",
@@ -743,7 +743,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "RappiPay",
-          Assets.cashWithdrawIcons.icRappipay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcRappipay.svg(width: AppSize.w24),
           Color(0xFFFF441F),
           FormData(
             "Rappi Account",
@@ -755,7 +755,7 @@ class WalletProvider extends ChangeNotifier {
         // South America / Global
         WalletItem(
           "MACH",
-          Assets.cashWithdrawIcons.icMach.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcMach.svg(width: AppSize.w24),
           Color(0xFFFFD400),
           FormData(
             "MACH Account",
@@ -765,7 +765,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Prex",
-          Assets.cashWithdrawIcons.icPrex.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcPrex.svg(width: AppSize.w24),
           Color(0xFF00AEEF),
           FormData(
             "Prex Account",
@@ -777,7 +777,7 @@ class WalletProvider extends ChangeNotifier {
         // Australia / NZ
         WalletItem(
           "PayID",
-          Assets.cashWithdrawIcons.icPayid.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcPayid.svg(width: AppSize.w24),
           Color(0xFF6C2BD9),
           FormData(
             "PayID (Email/Phone)",
@@ -787,7 +787,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "CommBank",
-          Assets.cashWithdrawIcons.icCommbank.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcCommbank.svg(width: AppSize.w24),
           Color(0xFFFFCC00),
           FormData(
             "BSB & Account",
@@ -797,7 +797,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Westpac",
-          Assets.cashWithdrawIcons.icWestpac.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcWestpac.svg(width: AppSize.w24),
           Color(0xFFD50000),
           FormData(
             "BSB & Account",
@@ -807,7 +807,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "ANZ",
-          Assets.cashWithdrawIcons.icAnz.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcAnz.svg(width: AppSize.w24),
           Color(0xFF0072CE),
           FormData(
             "BSB & Account",
@@ -817,7 +817,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "NAB",
-          Assets.cashWithdrawIcons.icNab.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcNab.svg(width: AppSize.w24),
           Color(0xFFC8102E),
           FormData(
             "BSB & Account",
@@ -827,7 +827,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Up",
-          Assets.cashWithdrawIcons.icUp.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcUp.svg(width: AppSize.w24),
           Color(0xFFFF6F00),
           FormData(
             "Upname / PayID",
@@ -839,7 +839,7 @@ class WalletProvider extends ChangeNotifier {
         // Buy now pay later
         WalletItem(
           "Afterpay",
-          Assets.cashWithdrawIcons.icAfterpay.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcAfterpay.svg(width: AppSize.w24),
           Color(0xFF00D084),
           FormData(
             "Account Email",
@@ -849,7 +849,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Zip",
-          Assets.cashWithdrawIcons.icZip.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcZip.svg(width: AppSize.w24),
           Color(0xFF00C853),
           FormData(
             "Zip ID",
@@ -861,7 +861,7 @@ class WalletProvider extends ChangeNotifier {
         // Banks
         WalletItem(
           "Kiwibank",
-          Assets.cashWithdrawIcons.icKiwibank.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcKiwibank.svg(width: AppSize.w24),
           Color(0xFF78BE20),
           FormData(
             "Account Number",
@@ -871,7 +871,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Scotiabank",
-          Assets.cashWithdrawIcons.icScotiabank.svg(width: AppSize.w24),
+          Assets.cashWithdrawIcons.scIcScotiabank.svg(width: AppSize.w24),
           Color(0xFFE31837),
           FormData(
             "Base ID / Account",
@@ -887,7 +887,7 @@ class WalletProvider extends ChangeNotifier {
       items: [
         WalletItem(
           "Bitcoin",
-          Assets.cryptoWithdrawIcons.icBitcoin.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcBitcoin.svg(width: AppSize.w24),
           Color(0xFFF7931A),
           FormData(
             "BTC Wallet Address",
@@ -897,7 +897,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Ethereum",
-          Assets.cryptoWithdrawIcons.icEthereum.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcEthereum.svg(width: AppSize.w24),
           Color(0xFF627EEA),
           FormData(
             "ETH Wallet Address",
@@ -907,7 +907,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "USDT",
-          Assets.cryptoWithdrawIcons.icUsdt.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcUsdt.svg(width: AppSize.w24),
           Color(0xFF26A17B),
           FormData(
             "TRC20 / BEP20",
@@ -917,7 +917,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "USDC",
-          Assets.cryptoWithdrawIcons.icUsdc.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcUsdc.svg(width: AppSize.w24),
           Color(0xFF2775CA),
           FormData(
             "ERC20 / SPL Address",
@@ -927,7 +927,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Binance Pay",
-          Assets.cryptoWithdrawIcons.icBinancepay.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcBinancepay.svg(width: AppSize.w24),
           Color(0xFFF3BA2F),
           FormData(
             "Binance ID / Email",
@@ -937,7 +937,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "BNB",
-          Assets.cryptoWithdrawIcons.icBnb.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcBnb.svg(width: AppSize.w24),
           Color(0xFFF3BA2F),
           FormData(
             "BEP20 Address",
@@ -947,7 +947,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Litecoin",
-          Assets.cryptoWithdrawIcons.icLitecoin.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcLitecoin.svg(width: AppSize.w24),
           Color(0xFF345D9D),
           FormData(
             "LTC Wallet Address",
@@ -957,7 +957,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Tron (TRX)",
-          Assets.cryptoWithdrawIcons.icTron.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcTron.svg(width: AppSize.w24),
           Color(0xFFFF060A),
           FormData(
             "TRX Address",
@@ -967,7 +967,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Dogecoin",
-          Assets.cryptoWithdrawIcons.icDogecoin.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcDogecoin.svg(width: AppSize.w24),
           Color(0xFFC2A633),
           FormData(
             "DOGE Address",
@@ -977,7 +977,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Shiba Inu",
-          Assets.cryptoWithdrawIcons.icShibainu.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcShibainu.svg(width: AppSize.w24),
           Color(0xFFF28C28),
           FormData(
             "SHIB (BEP20) Address",
@@ -987,7 +987,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Solana",
-          Assets.cryptoWithdrawIcons.icSolana.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcSolana.svg(width: AppSize.w24),
           Color(0xFF9945FF),
           FormData(
             "SOL Address",
@@ -997,7 +997,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Ripple (XRP)",
-          Assets.cryptoWithdrawIcons.icRipple.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcRipple.svg(width: AppSize.w24),
           Color(0xFF23292F),
           FormData(
             "XRP Address & Tag",
@@ -1007,7 +1007,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Polygon (MATIC)",
-          Assets.cryptoWithdrawIcons.icPolygon.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcPolygon.svg(width: AppSize.w24),
           Color(0xFF8247E5),
           FormData(
             "Polygon Address",
@@ -1017,7 +1017,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Dash",
-          Assets.cryptoWithdrawIcons.icDash.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcDash.svg(width: AppSize.w24),
           Color(0xFF008CE7),
           FormData(
             "Dash Address",
@@ -1027,7 +1027,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Bitcoin Cash",
-          Assets.cryptoWithdrawIcons.icBitcoincash.svg(width: AppSize.w24),
+          Assets.cryptoWithdrawIcons.scIcBitcoincash.svg(width: AppSize.w24),
           Color(0xFF8DC351),
           FormData(
             "BCH Address",
@@ -1077,7 +1077,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Steam Wallet",
-          Assets.giftWithdrawIcons.icSteamwallet.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcSteamwallet.svg(width: AppSize.w24),
           Color(0xFF34A853),
           FormData(
             "Email to send code",
@@ -1087,7 +1087,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "PlayStation",
-          Assets.giftWithdrawIcons.icPlaystation.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcPlaystation.svg(width: AppSize.w24),
           Color(0xFFFFFFFF),
           FormData(
             "Email to send code",
@@ -1097,7 +1097,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Xbox Live",
-          Assets.giftWithdrawIcons.icXboxlive.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcXboxlive.svg(width: AppSize.w24),
           Color(0xFF1B2838),
           FormData(
             "Email to send code",
@@ -1107,7 +1107,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Nintendo eShop",
-          Assets.giftWithdrawIcons.icNintendoEshop.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcNintendoEshop.svg(width: AppSize.w24),
           Color(0xFF00D1B2),
           FormData(
             "Email to send code",
@@ -1117,7 +1117,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Razer Gold",
-          Assets.giftWithdrawIcons.icRazergold.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcRazergold.svg(width: AppSize.w24),
           Color(0xFF44D62C),
           FormData(
             "Razer ID / Email",
@@ -1127,7 +1127,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Amazon",
-          Assets.giftWithdrawIcons.icAmazon.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcAmazon.svg(width: AppSize.w24),
           Color(0xFFFF9900),
           FormData(
             "Email to send code",
@@ -1137,7 +1137,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "eBay",
-          Assets.giftWithdrawIcons.icEbay.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcEbay.svg(width: AppSize.w24),
           Color(0xFFE53238),
           FormData(
             "Email to send code",
@@ -1147,7 +1147,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Walmart",
-          Assets.giftWithdrawIcons.icWalmart.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcWalmart.svg(width: AppSize.w24),
           Color(0xFF0071CE),
           FormData(
             "Email to send code",
@@ -1157,7 +1157,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Target",
-          Assets.giftWithdrawIcons.icTarget.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcTarget.svg(width: AppSize.w24),
           Color(0xFFCC0000),
           FormData(
             "Email to send code",
@@ -1167,7 +1167,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Shien",
-          Assets.giftWithdrawIcons.icShien.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcShien.svg(width: AppSize.w24),
           Color(0xFFFFFFFF),
           FormData(
             "Email to send code",
@@ -1177,7 +1177,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Sephora",
-          Assets.giftWithdrawIcons.icSephora.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcSephora.svg(width: AppSize.w24),
           Color(0xFFFFFFFF),
           FormData(
             "Email to send code",
@@ -1187,7 +1187,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Nike",
-          Assets.giftWithdrawIcons.icNike.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcNike.svg(width: AppSize.w24),
           Color(0xFFFFFFFF),
           FormData(
             "Email to send code",
@@ -1197,7 +1197,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Netflix",
-          Assets.giftWithdrawIcons.icNetflix.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcNetflix.svg(width: AppSize.w24),
           Color(0xFFE50914),
           FormData(
             "Email to send code",
@@ -1207,7 +1207,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Spotify",
-          Assets.giftWithdrawIcons.icSpotify.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcSpotify.svg(width: AppSize.w24),
           Color(0xFF1DB954),
           FormData(
             "Email to send code",
@@ -1217,7 +1217,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Disney+",
-          Assets.giftWithdrawIcons.icDisney.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcDisney.svg(width: AppSize.w24),
           Color(0xFF113CCF),
           FormData(
             "Email to send code",
@@ -1227,7 +1227,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Twitch",
-          Assets.giftWithdrawIcons.icTwitch.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcTwitch.svg(width: AppSize.w24),
           Color(0xFF9146FF),
           FormData(
             "Email to send code",
@@ -1237,7 +1237,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Starbucks",
-          Assets.giftWithdrawIcons.icStarbucks.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcStarbucks.svg(width: AppSize.w24),
           Color(0xFF00704A),
           FormData(
             "Email to send code",
@@ -1247,7 +1247,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Uber / Eats",
-          Assets.giftWithdrawIcons.icUbereats.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcUbereats.svg(width: AppSize.w24),
           Color(0xFFFFFFFF),
           FormData(
             "Email to send code",
@@ -1257,7 +1257,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "DoorDash",
-          Assets.giftWithdrawIcons.icDoordash.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcDoordash.svg(width: AppSize.w24),
           Color(0xFFFF3008),
           FormData(
             "Email to send code",
@@ -1267,7 +1267,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Visa Prepaid",
-          Assets.giftWithdrawIcons.icVisaprepaid.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcVisaprepaid.svg(width: AppSize.w24),
           Color(0xFF1A1F71),
           FormData(
             "Email to send code",
@@ -1277,7 +1277,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Mastercard",
-          Assets.giftWithdrawIcons.icMastercard.svg(width: AppSize.w24),
+          Assets.giftWithdrawIcons.scIcMastercard.svg(width: AppSize.w24),
           Color(0xFFF79E1B),
           FormData(
             "Email to send code",
@@ -1293,7 +1293,7 @@ class WalletProvider extends ChangeNotifier {
       items: [
         WalletItem(
           "Free Fire",
-          Assets.gameWithdrawIcons.icFreefire.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcFreefire.svg(width: AppSize.w24),
           Color(0xFFF5A623),
           FormData(
             "Player ID (UID)",
@@ -1307,7 +1307,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "PUBG Mobile",
-          Assets.gameWithdrawIcons.icPubgmobile.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcPubgmobile.svg(width: AppSize.w24),
           Color(0xFFF2A900),
           FormData(
             "Character ID",
@@ -1321,7 +1321,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "CoD Mobile",
-          Assets.gameWithdrawIcons.icCodmobile.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcCodmobile.svg(width: AppSize.w24),
           Color(0xFFC4C4C4),
           FormData(
             "Player ID (UID)",
@@ -1335,7 +1335,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Fortnite",
-          Assets.gameWithdrawIcons.icFortnite.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcFortnite.svg(width: AppSize.w24),
           Color(0xFF9146FF),
           FormData(
             "Epic Games Username",
@@ -1345,7 +1345,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Apex Legends",
-          Assets.gameWithdrawIcons.icApexLegends.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcApexLegends.svg(width: AppSize.w24),
           Color(0xFFFF2D2D),
           FormData(
             "EA ID / Username",
@@ -1355,7 +1355,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Mobile Legends",
-          Assets.gameWithdrawIcons.icMobilelegends.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcMobilelegends.svg(width: AppSize.w24),
           Color(0xFF00BFFF),
           FormData(
             "User ID & Zone ID",
@@ -1369,7 +1369,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "League of Legends",
-          Assets.gameWithdrawIcons.icLeagueoflegends.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcLeagueoflegends.svg(width: AppSize.w24),
           Color(0xFFC89B3C),
           FormData(
             "Riot ID (Name#Tag)",
@@ -1383,7 +1383,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Brawl Stars",
-          Assets.gameWithdrawIcons.icBrawlstars.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcBrawlstars.svg(width: AppSize.w24),
           Color(0xFFFFD700),
           FormData(
             "Player Tag (#...)",
@@ -1393,7 +1393,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Valorant",
-          Assets.gameWithdrawIcons.icValorant.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcValorant.svg(width: AppSize.w24),
           Color(0xFFFF4655),
           FormData(
             "Riot ID (Name#Tag)",
@@ -1403,7 +1403,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Genshin Impact",
-          Assets.gameWithdrawIcons.icGenshinimpact.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcGenshinimpact.svg(width: AppSize.w24),
           Color(0xFFF28C28),
           FormData(
             "User ID & Server",
@@ -1417,7 +1417,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Robux",
-          Assets.gameWithdrawIcons.icRobux.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcRobux.svg(width: AppSize.w24),
           Color(0xFF00A2FF),
           FormData(
             "Roblox Username",
@@ -1427,7 +1427,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Minecraft",
-          Assets.gameWithdrawIcons.icMinecraft.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcMinecraft.svg(width: AppSize.w24),
           Color(0xFF5C8A3E),
           FormData(
             "Xbox Gamertag / Email",
@@ -1437,7 +1437,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "Clash of Clans",
-          Assets.gameWithdrawIcons.icClashofclans.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcClashofclans.svg(width: AppSize.w24),
           Color(0xFFD4AF37),
           FormData(
             "Player Tag (#...)",
@@ -1447,7 +1447,7 @@ class WalletProvider extends ChangeNotifier {
         ),
         WalletItem(
           "EA FC",
-          Assets.gameWithdrawIcons.icEafc.svg(width: AppSize.w24),
+          Assets.gameWithdrawIcons.scIcEafc.svg(width: AppSize.w24),
           Color(0xFF444444),
           FormData(
             "EA ID / PSN / Xbox",

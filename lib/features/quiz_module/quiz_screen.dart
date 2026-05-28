@@ -645,7 +645,7 @@ class _ResultSheet extends StatelessWidget {
           ),
           SizedBox(height: AppSize.h20),
           // Trophy
-          Assets.images.dailyRewardTrophy.image(
+          Assets.images.scDailyRewardTrophy.image(
             height: AppSize.sp100,
             width: AppSize.sp100,
             fit: BoxFit.contain,

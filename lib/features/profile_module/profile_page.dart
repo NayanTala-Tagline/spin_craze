@@ -323,7 +323,7 @@ class _ProfilePageState extends State<ProfilePage>
                     controller: _entrance,
                     index: 0,
                     child: _SettingNavRow(
-                      icon: Assets.icons.settings.lock,
+                      icon: Assets.icons.settings.scLock,
                       label: context.l10n.linkGoogleAccount,
                       onTap: _handleLinkGoogle,
                     ),
@@ -332,7 +332,7 @@ class _ProfilePageState extends State<ProfilePage>
                   controller: _entrance,
                   index: 1,
                   child: _SettingNavRow(
-                    icon: Assets.icons.settings.translate,
+                    icon: Assets.icons.settings.scTranslate,
                     label: context.l10n.language,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(
@@ -353,7 +353,7 @@ class _ProfilePageState extends State<ProfilePage>
                   controller: _entrance,
                   index: 2,
                   child: _SettingNavRow(
-                    icon: Assets.icons.settings.headset,
+                    icon: Assets.icons.settings.scHeadset,
                     label: context.l10n.support,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(
@@ -367,7 +367,7 @@ class _ProfilePageState extends State<ProfilePage>
                   controller: _entrance,
                   index: 3,
                   child: _SettingNavRow(
-                    icon: Assets.icons.settings.lock,
+                    icon: Assets.icons.settings.scLock,
                     label: context.l10n.privacyPolicy,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(
@@ -381,7 +381,7 @@ class _ProfilePageState extends State<ProfilePage>
                   controller: _entrance,
                   index: 4,
                   child: _SettingNavRow(
-                    icon: Assets.icons.settings.note,
+                    icon: Assets.icons.settings.scNote,
                     label: context.l10n.termsAndCondition,
                     onTap: () {
                       AnalyticsManager.instance.logEvent(

@@ -325,7 +325,7 @@ class _SplashScreenState extends State<SplashScreen>
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Assets.images.splashBg.image(fit: BoxFit.cover),
+          Assets.images.scSplashBg.image(fit: BoxFit.cover),
           if (_showNoInternet)
             _NoInternetView(onRetry: _onRetry, retrying: _retrying)
           else
@@ -374,7 +374,7 @@ class _SplashScreenState extends State<SplashScreen>
         _shimmerController,
       ]),
       builder: (context, _) {
-        Widget logo = Assets.images.logo.image(
+        Widget logo = Assets.images.scLogo.image(
           width: size,
           height: size,
           fit: BoxFit.contain,

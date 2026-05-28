@@ -205,7 +205,7 @@ class _RewardAdBottomSheetState extends State<RewardAdBottomSheet>
                         angle: tilt,
                         child: ScaleTransition(
                           scale: _heroScale,
-                          child: Assets.images.trackAchievments.image(
+                          child: Assets.images.scTrackAchievments.image(
                             height: AppSize.h160,
                             fit: BoxFit.contain,
                           ),

@@ -169,7 +169,7 @@ class _InviteStatsRow extends StatelessWidget {
             child: _InviteStatTile(
               label: context.l10n.friendsInvited,
               value: '$friendsInvited',
-              icon: Assets.icons.user,
+              icon: Assets.icons.scUser,
               iconColor: _kPrimary,
             ),
           ),
@@ -178,7 +178,7 @@ class _InviteStatsRow extends StatelessWidget {
             child: _InviteStatTile(
               label: context.l10n.coinsEarned,
               value: '$coinsEarned',
-              icon: Assets.icons.coins,
+              icon: Assets.icons.scCoins,
               iconColor: _kCoin,
             ),
           ),

@@ -39,7 +39,7 @@ class CoinChip extends StatelessWidget {
       bottomLeft: Radius.circular(AppSize.r100),
     );
 
-    final coinDot = leading ?? Assets.icons.coins.svg();
+    final coinDot = leading ?? Assets.icons.scCoins.svg();
 
     final content = Container(
       padding: EdgeInsets.symmetric(

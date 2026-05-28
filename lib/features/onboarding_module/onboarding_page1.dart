@@ -44,7 +44,7 @@ class _OnboardingPage1State extends State<OnboardingPage1> {
         builder: (context, prov, _) {
           return OnboardingScaffold(
             currentIndex: 0,
-            image: Assets.images.dailyRewardTrophy.image(),
+            image: Assets.images.scDailyRewardTrophy.image(),
             title: context.l10n.onboardingDailyRewardsTitle,
             description: context.l10n.onboardingDailyRewardsDesc,
             nextLabel: context.l10n.next,

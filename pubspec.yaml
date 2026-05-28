@@ -98,7 +98,7 @@ flutter:
         "assets/fonts/",
         "assets/icons/settings/",
         "assets/images/spin/",
-        "assets/images/scrarch/scratch.png",
+        "assets/images/scrarch/sc_scratch.png",
         "assets/cash_withdraw_icons/",
         "assets/crypto_withdraw_icons/",
         "assets/gift_withdraw_icons/",
@@ -128,10 +128,10 @@ flutter_gen:
   }
 flutter_native_splash:
   color: '#A2C8FC'
-  image: 'assets/splash/splash_native.png'
+  image: 'assets/splash/sc_splash_native.png'
 
   android_12:
-    image: 'assets/splash/splash_native.png'
+    image: 'assets/splash/sc_splash_native.png'
     color: '#A2C8FC'
 
   ios: true

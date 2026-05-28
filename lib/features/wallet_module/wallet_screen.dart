@@ -243,7 +243,7 @@ class _BalanceCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Assets.icons.coins.svg(height: AppSize.sp16, width: AppSize.sp16),
+              Assets.icons.scCoins.svg(height: AppSize.sp16, width: AppSize.sp16),
               SizedBox(width: AppSize.w4),
               Text(
                 context.l10n.homeCoinsCount(coins.toInt()),
@@ -298,10 +298,10 @@ class _CategoryIconTabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final icons = [
-      Assets.icons.icCash,
-      Assets.icons.icBitcoin,
-      Assets.icons.icFiles,
-      Assets.icons.icGameZone,
+      Assets.icons.scIcCash,
+      Assets.icons.scIcBitcoin,
+      Assets.icons.scIcFiles,
+      Assets.icons.scIcGameZone,
     ];
 
     return Padding(

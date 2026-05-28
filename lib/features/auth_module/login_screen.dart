@@ -302,7 +302,7 @@ class _AnimatedLogoState extends State<_AnimatedLogo>
               ),
               child: Padding(
                 padding: EdgeInsets.all(AppSize.w16),
-                child: Assets.images.logo.image(),
+                child: Assets.images.scLogo.image(),
               ),
             ),
           ),
@@ -483,7 +483,7 @@ class _WelcomeCard extends StatelessWidget {
                   label: context.l10n.continueWithGoogle,
                   isLoading: auth.isGoogleLoading,
                   isDisabled: auth.isGuestLoading,
-                  leading: Assets.images.googleLogo.image(
+                  leading: Assets.images.scGoogleLogo.image(
                     height: AppSize.sp18,
                     width: AppSize.sp18,
                   ),

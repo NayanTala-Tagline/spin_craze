@@ -194,7 +194,7 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 Expanded(
                   child: Center(
-                    child: Assets.images.smallAppLogo.image(
+                    child: Assets.images.scSmallAppLogo.image(
                       height: AppSize.sp50,
                       width: AppSize.sp50,
                     ),
@@ -300,7 +300,7 @@ class _StreakChip extends StatelessWidget {
             ),
           ),
           SizedBox(width: AppSize.w6),
-          Assets.icons.flame.svg(height: AppSize.sp18, width: AppSize.sp18),
+          Assets.icons.scFlame.svg(height: AppSize.sp18, width: AppSize.sp18),
         ],
       ),
     );
@@ -365,7 +365,7 @@ class _DailyRewardCard extends StatelessWidget {
             Positioned(
               right: -AppSize.w8,
               top: -AppSize.h4,
-              child: Assets.images.dailyRewardTrophy.image(
+              child: Assets.images.scDailyRewardTrophy.image(
                 height: AppSize.h120,
                 width: AppSize.h120,
                 fit: BoxFit.contain,
@@ -398,7 +398,7 @@ class _DailyRewardCard extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Assets.images.gift.image(
+                    Assets.images.scGift.image(
                       height: AppSize.sp28,
                       width: AppSize.sp28,
                     ),
@@ -567,7 +567,7 @@ class _TotalBalanceCard extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Assets.icons.coins.svg(
+                        Assets.icons.scCoins.svg(
                           height: AppSize.sp18,
                           width: AppSize.sp18,
                         ),
@@ -579,7 +579,7 @@ class _TotalBalanceCard extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: AppSize.w12),
-                        Assets.icons.thunder.svg(
+                        Assets.icons.scThunder.svg(
                           height: AppSize.sp18,
                           width: AppSize.sp18,
                         ),
@@ -691,19 +691,19 @@ class _StatTilesRow extends StatelessWidget {
         _StatTile(
           label: context.l10n.homeStatLevel,
           value: '$level',
-          icon: Assets.icons.user,
+          icon: Assets.icons.scUser,
           accent: const Color(0xFFB1232E),
         ),
         _StatTile(
           label: context.l10n.homeStatToday,
           value: '0',
-          icon: Assets.icons.flame,
+          icon: Assets.icons.scFlame,
           accent: const Color(0xFFFF7A24),
         ),
         _StatTile(
           label: context.l10n.homeStatXp,
           value: '$xp',
-          icon: Assets.icons.thunder,
+          icon: Assets.icons.scThunder,
           accent: _kBlue,
         ),
       ],
@@ -856,8 +856,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
       _EarnItemData(
         context.l10n.earnModuleReferTitle,
         context.l10n.earnModuleReferSubtitle,
-        Assets.images.referAndEarn,
-        Assets.icons.icReferAndEarn,
+        Assets.images.scReferAndEarn,
+        Assets.icons.scIcReferAndEarn,
         onTap: () {
           logEarnTap('refer_and_earn');
           nav.navigateWithAdCheck(
@@ -869,8 +869,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
       _EarnItemData(
         context.l10n.earnModuleSpinTitle,
         context.l10n.earnModuleSpinSubtitle,
-        Assets.images.spinWheel,
-        Assets.icons.icSpinWheel,
+        Assets.images.scSpinWheel,
+        Assets.icons.scIcSpinWheel,
         onTap: () {
           logEarnTap('spin_wheel');
           nav.navigateWithAdCheck(
@@ -882,8 +882,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
       _EarnItemData(
         context.l10n.earnModuleQuizTitle,
         context.l10n.earnModuleQuizSubtitle,
-        Assets.images.quizMaster,
-        Assets.icons.icQuizMaster,
+        Assets.images.scQuizMaster,
+        Assets.icons.scIcQuizMaster,
         onTap: () {
           logEarnTap('quiz_master');
           nav.navigateWithAdCheck(
@@ -895,8 +895,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
       _EarnItemData(
         context.l10n.earnModuleScratchTitle,
         context.l10n.earnModuleScratchSubtitle,
-        Assets.images.scratchCard,
-        Assets.icons.icScratch,
+        Assets.images.scScratchCard,
+        Assets.icons.scIcScratch,
         onTap: () {
           logEarnTap('scratch_card');
           nav.navigateWithAdCheck(
@@ -908,8 +908,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
       _EarnItemData(
         context.l10n.earnModuleWebTitle,
         context.l10n.earnModuleWebSubtitle,
-        Assets.images.webVisits,
-        Assets.icons.icWebVisits,
+        Assets.images.scWebVisits,
+        Assets.icons.scIcWebVisits,
         onTap: () {
           logEarnTap('web_visits');
           nav.navigateWithAdCheck(
@@ -921,8 +921,8 @@ class _EarnModulesCarouselState extends State<_EarnModulesCarousel> {
       _EarnItemData(
         context.l10n.earnModuleGameTitle,
         context.l10n.earnModuleGameSubtitle,
-        Assets.images.gameZone,
-        Assets.icons.icGameZone,
+        Assets.images.scGameZone,
+        Assets.icons.scIcGameZone,
         onTap: () {
           logEarnTap('game_zone');
           nav.navigateWithAdCheck(
@@ -1304,7 +1304,7 @@ class _HowItWorksBanner extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Assets.icons.question.svg(
+          Assets.icons.scQuestion.svg(
             height: AppSize.sp24,
             width: AppSize.sp24,
             colorFilter: const ColorFilter.mode(
@@ -1436,7 +1436,7 @@ class _Leaderboard extends StatelessWidget {
                     colors: [Color(0xFF5577FF), _kBlueDeep],
                   ),
                 ),
-                child: Assets.icons.chartBar.svg(
+                child: Assets.icons.scChartBar.svg(
                   colorFilter: const ColorFilter.mode(
                     Colors.white,
                     BlendMode.srcIn,

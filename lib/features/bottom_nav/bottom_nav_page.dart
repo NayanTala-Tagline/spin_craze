@@ -59,10 +59,10 @@ class _BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = <_NavItemData>[
-      _NavItemData(context.l10n.navHome, Assets.images.navIcons.home),
-      _NavItemData(context.l10n.navRank, Assets.images.navIcons.rank),
-      _NavItemData(context.l10n.navRewards, Assets.images.navIcons.rewards),
-      _NavItemData(context.l10n.navProfile, Assets.images.navIcons.user),
+      _NavItemData(context.l10n.navHome, Assets.images.navIcons.scHome),
+      _NavItemData(context.l10n.navRank, Assets.images.navIcons.scRank),
+      _NavItemData(context.l10n.navRewards, Assets.images.navIcons.scRewards),
+      _NavItemData(context.l10n.navProfile, Assets.images.navIcons.scUser),
     ];
     final radius = BorderRadius.circular(AppSize.r32);
 

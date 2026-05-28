@@ -23,7 +23,7 @@ class OnboardingPage2 extends StatelessWidget {
         builder: (context, prov, _) {
           return OnboardingScaffold(
             currentIndex: 1,
-            image: Assets.images.gameZone.image(),
+            image: Assets.images.scGameZone.image(),
             title: context.l10n.onboardingUltimateGamesTitle,
             description: context.l10n.onboardingUltimateGamesDesc,
             nextLabel: context.l10n.next,

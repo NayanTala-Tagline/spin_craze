@@ -142,7 +142,7 @@ class _ScratchArea extends StatelessWidget {
                 key: provider.scratchKey,
                 brushSize: 70,
                 threshold: 40,
-                image: Assets.images.scrarch.scratch.image(fit: BoxFit.cover),
+                image: Assets.images.scrarch.scScratch.image(fit: BoxFit.cover),
                 onChange: (_) {},
                 onThreshold: () {
                   provider.isThresholdReached = true;
@@ -331,7 +331,7 @@ class _RevealedReward extends StatelessWidget {
         ShaderMask(
           shaderCallback: (bounds) =>
               colors.coinGradient.createShader(bounds),
-          child: Assets.icons.coins.svg(
+          child: Assets.icons.scCoins.svg(
             height: AppSize.sp48,
             width: AppSize.sp48,
             colorFilter: const ColorFilter.mode(
@@ -416,7 +416,7 @@ class _CongratsSheet extends StatelessWidget {
             ),
           ),
           SizedBox(height: AppSize.h20),
-          Assets.images.dailyRewardTrophy.image(
+          Assets.images.scDailyRewardTrophy.image(
             height: AppSize.sp100,
             width: AppSize.sp100,
             fit: BoxFit.contain,
